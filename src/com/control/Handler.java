@@ -32,6 +32,5 @@ public class Handler {
     public void removeObject(Object object){
         this.object.remove(object);
     }
-
-
+    
 }
