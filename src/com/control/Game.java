@@ -19,7 +19,10 @@ public class Game extends Canvas implements Runnable {
     public Game(){
         new Window (WIDTH, HEIGHT, "Pre-Title", this);
         handler = new Handler();
-        handler.addObject(new Player1(100, 100, IDs.player));
+        //handler.addObject(new Player1(100, 100, IDs.player));
+		this.addKeyListener(new KeyHandler(handler));
+		
+		handler.addObject(new Player1(50,50, IDs.player, handler));
 
     }
 
@@ -90,9 +93,12 @@ public class Game extends Canvas implements Runnable {
         }
 
         Graphics g = bufferstrat.getDrawGraphics();
-
+        ////////////////////////////////////JFrame colour
         g.setColor(Color.red);
         g.fillRect(0, 0, WIDTH, HEIGHT);
+        ///////////////////////////////////
+        
+        
         handler.render(g);
         g.dispose();
         bufferstrat.show();
