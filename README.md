@@ -1,4 +1,4 @@
-# 2019-Java-Group6
+# Getting Teddy
 # Game outline
 The game is a clone of the original Legend of Zelda game, we want to make a game that closely mimics the combat mechanics of the original game, but we would also add a new comprehensive mapping progression system and art style that appeals to a 12-year-old (brighter and more colourful as opposed to gory and dark). 
 
