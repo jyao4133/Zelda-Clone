@@ -12,9 +12,9 @@ public class Handler {
     private boolean down = false;
     private boolean left = false;
     private boolean right = false;
+    
 
     public void tick(){
-
         for (int i = 0; i < object.size(); i++){
             Object tempObject = object.get(i);
             tempObject.tick();
