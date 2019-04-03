@@ -18,10 +18,12 @@ public class Player1 extends Object {
         ypos += Yspeed;
         xpos += Xspeed;
 
+        xpos = Game.edge(xpos, 32, Game.WIDTH - 64);
+        ypos = Game.edge(ypos, 32, Game.HEIGHT - 92);
     }
 
     public void render(Graphics g) {
-        g.setColor(Color.white);
+        g.setColor(Color.blue);
         g.fillRect(xpos, ypos, 32, 32);
 
     }

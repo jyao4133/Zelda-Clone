@@ -3,17 +3,21 @@ package com.control;
 
 import java.awt.*;
 import java.awt.image.BufferStrategy;
+import java.awt.image.BufferedImage;
+import java.awt.image.*;
+import java.nio.Buffer;
 
 public class Game extends Canvas implements Runnable {
 
     private static final long serialVersionUID = 125890125890L;
 
-    public static int WIDTH = 640, HEIGHT = WIDTH/12 * 9;
+    public static int WIDTH = 640, HEIGHT = WIDTH/12 * 9 -1;
 
     private Thread thread;
     private boolean running = false;
 
     private Handler handler;
+    private BufferedImage background;
 
 
     public Game(){
@@ -21,11 +25,14 @@ public class Game extends Canvas implements Runnable {
         handler = new Handler();
         handler.addObject(new Player1(50,50, IDs.player, handler));
 
+        handler.addObject(new Enemy(50,50, IDs.enemy));
+
         //handler.addObject(new Player1(100, 100, IDs.player));
         this.requestFocusInWindow();
 		this.addKeyListener(new KeyHandler(handler));
-		
-
+		ImageRender loader = new ImageRender();
+        background = loader.loadImage("test_level3.png");
+        loadLevel(background);
     }
 
 
@@ -103,6 +110,41 @@ public class Game extends Canvas implements Runnable {
         handler.render(g);
         g.dispose();
         bufferstrat.show();
+
+    }
+
+    private void loadLevel(BufferedImage image){
+        int w = image.getWidth();
+        int h = image.getHeight();
+
+        for (int xx = 0; xx < w; xx++){
+            for(int yy = 0; yy < h; yy++){
+                int pixel = image.getRGB(xx, yy);
+                int red = (pixel >> 16) & 0xff;
+                int green = (pixel >> 8) & 0xff;
+                int blue = (pixel) & 0xff;
+
+                if (red == 255){
+                    handler.addObject(new Block(xx*32, yy*32, IDs.Block));
+                }
+
+                if (blue == 255){
+                    handler.addObject(new Block(xx*32, yy*32, IDs.Block));
+
+                }
+            }
+        }
+    }
+
+    public static int edge(int var, int min, int max){
+        if(var >= max){
+            return var = max;
+        }
+        else if(var <= min){
+            return var = min;
+        }
+        else
+            return var;
 
     }
 
