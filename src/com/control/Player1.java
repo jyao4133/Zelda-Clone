@@ -10,22 +10,13 @@ public class Player1 extends Object {
         //Xspeed = 1;
         //Yspeed = 1;
 		this.handler = handler;
+
     }
 
     public void tick() {
+
         ypos += Yspeed;
         xpos += Xspeed;
-        if(handler.isUp()) Yspeed = -5;
-		else if (!handler.isUp()) Yspeed = 0;
-		
-		if(handler.isDown()) Yspeed = 5;
-		else if (!handler.isDown()) Yspeed = 0;
-		
-		if(handler.isLeft()) Xspeed = 5;
-		else if (!handler.isLeft()) Xspeed = 0;
-
-		if(handler.isRight()) Xspeed = 5;
-		else if (!handler.isRight()) Xspeed = 0;
 
     }
 
