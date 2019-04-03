@@ -19,10 +19,12 @@ public class Game extends Canvas implements Runnable {
     public Game(){
         new Window (WIDTH, HEIGHT, "Pre-Title", this);
         handler = new Handler();
+        handler.addObject(new Player1(50,50, IDs.player, handler));
+
         //handler.addObject(new Player1(100, 100, IDs.player));
+        this.requestFocusInWindow();
 		this.addKeyListener(new KeyHandler(handler));
 		
-		handler.addObject(new Player1(50,50, IDs.player, handler));
 
     }
 
@@ -44,9 +46,9 @@ public class Game extends Canvas implements Runnable {
         }
     }
 
-    public void run(){
-        //initialise the game loop
-
+    public void run()
+    {
+        Toolkit toolkit = Toolkit.getDefaultToolkit();
         long lastTime = System.nanoTime();
         double amountOfTicks = 60.0;
         double ns = 1000000000 / amountOfTicks;
@@ -73,6 +75,7 @@ public class Game extends Canvas implements Runnable {
                 System.out.println("FPS: "+ frames);
                 frames = 0;
             }
+            toolkit.sync(); //used to sync the objects rendered on the screen with the tick methods
         }
         stop();
     }
@@ -96,9 +99,7 @@ public class Game extends Canvas implements Runnable {
         ////////////////////////////////////JFrame colour
         g.setColor(Color.red);
         g.fillRect(0, 0, WIDTH, HEIGHT);
-        ///////////////////////////////////
-        
-        
+
         handler.render(g);
         g.dispose();
         bufferstrat.show();
