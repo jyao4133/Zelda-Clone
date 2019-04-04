@@ -11,7 +11,7 @@ public class Game extends Canvas implements Runnable {
 
     private static final long serialVersionUID = 125890125890L;
 
-    public static int WIDTH = 640, HEIGHT = WIDTH/12 * 9 -1;
+    public static int WIDTH = 1024, HEIGHT = 990;
 
     private Thread thread;
     private boolean running = false;
@@ -31,7 +31,7 @@ public class Game extends Canvas implements Runnable {
         this.requestFocusInWindow();
 		this.addKeyListener(new KeyHandler(handler));
 		ImageRender loader = new ImageRender();
-        background = loader.loadImage("test_level3.png");
+        //background = loader.loadImage("test_level.png");
         loadLevel(background);
     }
 
@@ -105,8 +105,12 @@ public class Game extends Canvas implements Runnable {
         Graphics g = bufferstrat.getDrawGraphics();
         ////////////////////////////////////JFrame colour
         g.setColor(Color.red);
-        g.fillRect(0, 0, WIDTH, HEIGHT);
-
+        g.fillRect(0, 222, WIDTH, HEIGHT);
+        
+        //Health Bar area
+        g.setColor(Color.cyan);
+        g.fillRect(0, 0, WIDTH, 222);
+        
         handler.render(g);
         g.dispose();
         bufferstrat.show();
