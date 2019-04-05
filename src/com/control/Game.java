@@ -18,11 +18,17 @@ public class Game extends Canvas implements Runnable {
 
     private Handler handler;
     private BufferedImage background;
+    private TitleScreen titlescreen;
+    //to create the title screen we will use the states in the code
+    public static States state = com.control.States.TitleScreen;
 
-
+       
+    
+    
     public Game(){
         new Window (WIDTH, HEIGHT, "Pre-Title", this);
         handler = new Handler();
+		titlescreen = new TitleScreen();
         handler.addObject(new Player1(50,50, IDs.player, handler));
 
         handler.addObject(new Enemy(50,50, IDs.enemy));
@@ -30,9 +36,11 @@ public class Game extends Canvas implements Runnable {
         //handler.addObject(new Player1(100, 100, IDs.player));
         this.requestFocusInWindow();
 		this.addKeyListener(new KeyHandler(handler));
-		ImageRender loader = new ImageRender();
+		this.addMouseListener(new MouseHandler());
+		//ImageRender loader = new ImageRender();
         //background = loader.loadImage("test_level.png");
-        loadLevel(background);
+        //loadLevel(background);
+		
     }
 
 
@@ -88,7 +96,9 @@ public class Game extends Canvas implements Runnable {
     }
 
     private void tick(){
-        handler.tick();
+        if (state == States.Game) {
+            handler.tick();
+        }
     }
 
     private void render() {
@@ -103,17 +113,30 @@ public class Game extends Canvas implements Runnable {
         }
 
         Graphics g = bufferstrat.getDrawGraphics();
-        ////////////////////////////////////JFrame colour
-        g.setColor(Color.red);
-        g.fillRect(0, 222, WIDTH, HEIGHT);
         
-        //Health Bar area
-        g.setColor(Color.cyan);
-        g.fillRect(0, 0, WIDTH, 222);
         
-        handler.render(g);
+        
+        if (state == States.Game) {
+        	////////////////////////////////////JFrame colour
+        	g.setColor(Color.red);
+        	g.fillRect(0, 222, WIDTH, HEIGHT);
+
+        	//Health Bar area
+        	g.setColor(Color.cyan);
+        	g.fillRect(0, 0, WIDTH, 222);
+
+        	handler.render(g);
+        	g.dispose();
+        	bufferstrat.show();
+        }else if (state == States.TitleScreen) {
+        	g.setColor(Color.black);
+            g.fillRect(0, 0, WIDTH, HEIGHT);
+        	titlescreen.render(g);
+        }
+        
+        
         g.dispose();
-        bufferstrat.show();
+    	bufferstrat.show();
 
     }
 

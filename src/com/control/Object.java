@@ -10,9 +10,6 @@ public abstract class Object {
     protected IDs id;
     protected int Xspeed, Yspeed;
 
-
-
-
     public Object(int xpos, int ypos, IDs id){
         //Constructor for our variables
         this.xpos = xpos;
