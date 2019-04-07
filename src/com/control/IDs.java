@@ -4,5 +4,6 @@ public enum IDs {
 
     player(),
     enemy(),
-    Block();
+    Block(),
+    Background();
 }

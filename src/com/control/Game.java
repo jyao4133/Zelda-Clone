@@ -90,7 +90,7 @@ public class Game extends Canvas implements Runnable {
                 System.out.println("FPS: "+ frames);
                 frames = 0;
             }
-            toolkit.sync(); //used to sync the objects rendered on the screen with the tick methods
+            //toolkit.sync(); //used to sync the objects rendered on the screen with the tick methods
         }
         stop();
     }
@@ -129,9 +129,15 @@ public class Game extends Canvas implements Runnable {
         	g.dispose();
         	bufferstrat.show();
         }else if (state == States.TitleScreen) {
-        	g.setColor(Color.black);
             g.fillRect(0, 0, WIDTH, HEIGHT);
-        	titlescreen.render(g);
+
+//            ImageRender loader = new ImageRender();
+//            background = loader.loadImage("test_level2.png");
+//            loadLevel(background);
+            titlescreen.render(g);
+            g.dispose();
+            bufferstrat.show();
+
         }
         
         
@@ -159,6 +165,12 @@ public class Game extends Canvas implements Runnable {
                     handler.addObject(new Block(xx*32, yy*32, IDs.Block));
 
                 }
+
+                if ((red & blue) == 255){
+                    handler.addObject(new Block(xx*32, yy*32, IDs.Block));
+                }
+
+
             }
         }
     }
