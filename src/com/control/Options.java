@@ -16,11 +16,16 @@ public class Options extends Canvas  {
 	public void render (Graphics g)  {
 
 		Graphics2D g2d = (Graphics2D) g;
-		
-		
-		g2d.draw(test);
-		
-		
+		Font font1 = new Font("Comic Sans MS", Font.PLAIN, 80);
+		g.setFont(font1);
+		g.setColor(Color.white);
+		g.drawString("Getting Teddy", 100, 200);
+
+		Font font2 = new Font ("Comic Sans MS", Font.BOLD, 40);
+		g.setFont(font2);
+
+
+		//You can delete the above code. I was just using it to test the error.
 		
 		
 	}

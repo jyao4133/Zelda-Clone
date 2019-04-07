@@ -30,6 +30,7 @@ public class Game extends Canvas implements Runnable {
         new Window (WIDTH, HEIGHT, "Pre-Title", this);
         handler = new Handler();
 		titlescreen = new TitleScreen();
+		options = new Options();
         handler.addObject(new Player1(50,50, IDs.player, handler));
 
         handler.addObject(new Enemy(50,50, IDs.enemy));
@@ -136,9 +137,8 @@ public class Game extends Canvas implements Runnable {
             bufferstrat.show();
             
         }else if (state == States.Options) {
-        //	g.setColor(Color.BLUE);
+            options.render(g);
         	 g.fillRect(0, 0, WIDTH, HEIGHT);
-             options.render(g);
              g.dispose();
              bufferstrat.show();
         }
