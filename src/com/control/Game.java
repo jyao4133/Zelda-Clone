@@ -137,10 +137,10 @@ public class Game extends Canvas implements Runnable {
             bufferstrat.show();
             
         }else if (state == States.Options) {
+        	g.fillRect(0, 0, WIDTH, HEIGHT);
             options.render(g);
-        	 g.fillRect(0, 0, WIDTH, HEIGHT);
-             g.dispose();
-             bufferstrat.show();
+            g.dispose();
+            bufferstrat.show();
         }
         
         

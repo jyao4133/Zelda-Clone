@@ -49,6 +49,11 @@ public class MouseHandler implements MouseListener {
 			if (x >= 220 && x <= 520 && y >= 600 && y <= 680) {
 				System.exit(1);
 			}
+		}else if (Game.state == States.Options) {
+			if (x>= 800 && x <= 950 && y >= 50 && y <= 130) {
+				Game.state = States.TitleScreen;
+
+			}
 		}
 	}
  
