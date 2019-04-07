@@ -1,21 +1,24 @@
 package com.control;
 
 import java.awt.*;
-import javax.swing.*;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
-import java.awt.Graphics;
+
 import java.io.IOException;
 
 public class TitleScreen extends Canvas {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public Rectangle singleplayer = new Rectangle(220,300,300,80);
 	public Rectangle multiplayer = new Rectangle(220,400,300,80);
 	public Rectangle options = new Rectangle(220,500,300,80);
 	public Rectangle exit = new Rectangle(220,600,300,80);
 
-	private ImageIcon title;
-	private JLabel background;
+	//private ImageIcon title;
+	//private JLabel background;
 
 	private BufferedImage image;
 	public void render (Graphics g)  {
@@ -26,7 +29,9 @@ public class TitleScreen extends Canvas {
 		} catch(IOException e){
 			e.printStackTrace();
 		}
-		Graphics2D g2d = (Graphics2D) g;
+		
+		
+		Graphics2D g2d = (Graphics2D) g;		
 		g.drawImage(image,0,0,null);
 		Font font1 = new Font("Comic Sans MS", Font.PLAIN, 80);
 		g.setFont(font1);
@@ -43,6 +48,8 @@ public class TitleScreen extends Canvas {
 		g2d.draw(options);
 		g.drawString("QUIT", exit.x + 90, exit.y+50);
 		g2d.draw(exit);
-
+		
+		
+		
 	}
 }

@@ -1,19 +1,22 @@
 package com.control;
 
-import java.awt.Color;
+import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import javax.swing.JPanel;
-
 public class MouseHandler implements MouseListener {
+	
+	public Rectangle singleplayer = new Rectangle(220,300,300,80);
+	public Rectangle multiplayer = new Rectangle(220,400,300,80);
+	public Rectangle options = new Rectangle(220,500,300,80);
+	public Rectangle exit = new Rectangle(220,600,300,80);
 	
 	public void mouseClicked(MouseEvent e) {
 		
 	}
 	
 	public void mouseEntered(MouseEvent e) {
-	
+		
 	}
 
 	public void mouseExited(MouseEvent e) {
@@ -32,18 +35,16 @@ public class MouseHandler implements MouseListener {
 			}
 		
 		//To start the game in multiplayer
-			if (x >= 220 && y <= 520 && y >= 400 && y <= 480) {
+			if (x >= 220 && x <= 520 && y >= 400 && y <= 480) {
 				System.out.println("Multi Player");
 
 			}
-
-		//To exit the game
+		//Option Menu for the game
 			if (x >= 220 && x <= 520 && y >= 500 && y <= 580) {
+				Game.state = States.Options;
 				System.out.println("Option");
 
 			}
-		
-		
 		//To exit the game
 			if (x >= 220 && x <= 520 && y >= 600 && y <= 680) {
 				System.exit(1);
