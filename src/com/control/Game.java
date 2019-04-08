@@ -38,8 +38,8 @@ public class Game extends Canvas implements Runnable {
         //handler.addObject(new Player1(100, 100, IDs.player));
         this.requestFocusInWindow();
 		this.addKeyListener(new KeyHandler(handler));
-		this.addMouseListener(new MouseHandler());
-		this.addMouseListener(new MouseInputGame(handler));
+		this.addMouseListener(new MouseHandler(handler));
+		//this.addMouseListener(new MouseInputGame(handler));
 		ImageRender loader = new ImageRender();
         background = loader.loadImage("test_level.png");
         loadLevel(background);

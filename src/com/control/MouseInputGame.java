@@ -1,4 +1,6 @@
-package com.control;
+/*File not being used at the moment. Might use it in the future.
+ * 
+ * package com.control;
 import java.awt.event.*;
 
 public class MouseInputGame extends MouseAdapter{
@@ -28,4 +30,4 @@ public class MouseInputGame extends MouseAdapter{
 
         }
 
-}
+}*/

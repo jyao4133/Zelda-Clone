@@ -10,7 +10,11 @@ public class MouseHandler implements MouseListener {
 	public Rectangle multiplayer = new Rectangle(220,400,300,80);
 	public Rectangle options = new Rectangle(220,500,300,80);
 	public Rectangle exit = new Rectangle(220,600,300,80);
-	
+	private Handler handler;
+
+     public MouseHandler (Handler handler){
+         this.handler = handler;
+     }
 	public void mouseClicked(MouseEvent e) {
 		
 	}
@@ -54,6 +58,14 @@ public class MouseHandler implements MouseListener {
 				Game.state = States.TitleScreen;
 
 			}
+		}else if (Game.state == States.Game) {
+			 for (int i = 0; i < handler.object.size(); i++){
+                 Object tempObject= handler.object.get(i);
+                 if(tempObject.getId() == IDs.player){
+
+                         handler.addObject(new Arrow(tempObject.getXpos() + 12, tempObject.getYpos() + 22, IDs.Arrow, handler, x, y));
+                 }
+         }
 		}
 	}
  
