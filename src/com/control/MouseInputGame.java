@@ -16,7 +16,8 @@ public class MouseInputGame extends MouseAdapter{
                 for (int i = 0; i < handler.object.size(); i++){
                         Object tempObject= handler.object.get(i);
                         if(tempObject.getId() == IDs.player){
-                                handler.addObject(new Arrow(tempObject.getXpos()+16, tempObject.getYpos()+24, IDs.Arrow, handler, x, y));
+
+                                handler.addObject(new Arrow(tempObject.getXpos() + 12, tempObject.getYpos() + 22, IDs.Arrow, handler, x, y));
                         }
                 }
 

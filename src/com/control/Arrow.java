@@ -1,6 +1,7 @@
 package com.control;
 
 import java.awt.*;
+import java.math.*;
 
 public class Arrow extends Object {
 
@@ -11,13 +12,19 @@ public class Arrow extends Object {
         super(xpos, ypos, id);
         this.handler = handler;
 
-        Xspeed = (x - xpos) / 10;
-        Yspeed = (y - ypos) / 10;
+
+        double distance = Math.sqrt(Math.pow((x - xpos),2) + Math.pow((y - ypos),2));
+        double speed = 10;
+
+
+        Xspeed = (int) ((x - xpos)*speed/distance);
+        Yspeed = (int) ((y - ypos)*speed/distance);
     }
 
     public Rectangle getBounds() {
         return new Rectangle(xpos, ypos, 8, 8);
     }
+
 
 
     public void tick() {
