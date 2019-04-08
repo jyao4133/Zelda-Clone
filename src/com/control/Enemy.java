@@ -22,4 +22,9 @@ public class Enemy extends Object{
         g.setColor(Color.black);
         g.fillRect(xpos, ypos, 16, 16);
     }
+
+    public Rectangle getBounds() {
+        return new Rectangle (xpos,ypos,16,16);
+    }
+
 }

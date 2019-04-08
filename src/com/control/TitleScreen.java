@@ -42,11 +42,11 @@ public class TitleScreen extends Canvas {
 		g.setFont(font2);
 		g.drawString("Single Player", singleplayer.x + 22, singleplayer.y+50);
 		g2d.draw(singleplayer);
-		g.drawString("Double Player", multiplayer.x + 20, multiplayer.y+50);
+		g.drawString("Multiplayer", multiplayer.x + 40, multiplayer.y+50);
 		g2d.draw(multiplayer);
 		g.drawString("Options", options.x + 75, options.y+50);
 		g2d.draw(options);
-		g.drawString("QUIT", exit.x + 90, exit.y+50);
+		g.drawString("Exit", exit.x + 110, exit.y+50);
 		g2d.draw(exit);
 		
 		

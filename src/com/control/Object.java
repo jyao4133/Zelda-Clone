@@ -39,6 +39,9 @@ public abstract class Object {
         return id;
     }
 
+    public abstract Rectangle getBounds();
+
+
     public void setId(IDs id) {
         this.id = id;
     }

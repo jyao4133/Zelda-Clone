@@ -17,7 +17,7 @@ public class Player1 extends Object {
 
         ypos += Yspeed;
         xpos += Xspeed;
-
+        collision();
         xpos = Game.edge(xpos, 32, Game.WIDTH - 64);
         ypos = Game.edge(ypos, 32, Game.HEIGHT - 92);
     }
@@ -27,7 +27,22 @@ public class Player1 extends Object {
         g.fillRect(xpos, ypos, 32, 32);
 
     }
-    
+
+    private void collision(){
+        for (int i = 0; i < handler.object.size(); i++){
+            Object tempObject = handler.object.get(i);
+            if (tempObject.getId() == IDs.Block){
+                if(getBounds().intersects(tempObject.getBounds())){
+                    xpos += Xspeed * -1;
+                    ypos += Yspeed * -1;
+                }
+            }
+        }
+    }
+
+
+
+
 	public Rectangle getBounds() {
 		return new Rectangle (xpos,ypos,32,32);
 	}

@@ -13,7 +13,7 @@ public class Game extends Canvas implements Runnable {
 
     public static int WIDTH = 1024, HEIGHT = 990;
 
-    private Thread thread;
+    private Thread thread = null;
     private boolean running = false;
 
     private Handler handler;
@@ -39,9 +39,9 @@ public class Game extends Canvas implements Runnable {
         this.requestFocusInWindow();
 		this.addKeyListener(new KeyHandler(handler));
 		this.addMouseListener(new MouseHandler());
-		//ImageRender loader = new ImageRender();
-        //background = loader.loadImage("test_level.png");
-        //loadLevel(background);
+		ImageRender loader = new ImageRender();
+        background = loader.loadImage("test_level.png");
+        loadLevel(background);
 		
     }
 
