@@ -20,6 +20,7 @@ public class Game extends Canvas implements Runnable {
     private BufferedImage background;
     private TitleScreen titlescreen;
     private Options options;
+    private Pause pause;
     //to create the title screen we will use the states in the code
     public static States state = com.control.States.TitleScreen;
 
@@ -31,6 +32,9 @@ public class Game extends Canvas implements Runnable {
         handler = new Handler();
 		titlescreen = new TitleScreen();
 		options = new Options();
+		pause = new Pause();
+		
+		
         handler.addObject(new Player1(50,50, IDs.player, handler));
 
         handler.addObject(new Enemy(50,50, IDs.enemy));
@@ -131,6 +135,7 @@ public class Game extends Canvas implements Runnable {
         	handler.render(g);
         	g.dispose();
         	bufferstrat.show();
+        	
         }else if (state == States.TitleScreen) {
             g.fillRect(0, 0, WIDTH, HEIGHT);
             titlescreen.render(g);
@@ -138,9 +143,16 @@ public class Game extends Canvas implements Runnable {
             bufferstrat.show();
             
         }else if (state == States.Options) {
+        	g.setColor(Color.GREEN);
         	g.fillRect(0, 0, WIDTH, HEIGHT);
             options.render(g);
             g.dispose();
+            bufferstrat.show();
+        }else if (state == States.Pause) {
+        	//g.setColor(Color.WHITE);
+        	g.fillRect(WIDTH/4, HEIGHT/4 , WIDTH/2, HEIGHT/2);
+        	pause.render(g);
+        	g.dispose();
             bufferstrat.show();
         }
         

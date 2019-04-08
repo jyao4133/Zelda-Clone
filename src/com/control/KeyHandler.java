@@ -40,10 +40,12 @@ public class KeyHandler extends KeyAdapter {
 				if (key == KeyEvent.VK_D) {
 					tempObject.setXspeed(5);
 					right = true;
+				}
+				if (key == KeyEvent.VK_P) {
+					Game.state = States.Pause;
+					System.out.println("Game is Paused");
 
 				}
-
-
 			}
 		}
 		}

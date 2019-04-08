@@ -4,5 +4,6 @@ public enum States {
 	Game(), 
 	TitleScreen(),
 	Options(),
+	Pause();
 
 }

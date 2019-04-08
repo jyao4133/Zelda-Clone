@@ -7,12 +7,8 @@ public class Handler {
 
 
     LinkedList<Object> object = new LinkedList<Object>();
-    
-    private boolean up = false;
-    private boolean down = false;
-    private boolean left = false;
-    private boolean right = false;
-    
+    private Rectangle button;
+
 
     public void tick(){
         for (int i = 0; i < object.size(); i++){
@@ -38,6 +34,10 @@ public class Handler {
         this.object.remove(object);
     }
 
-
+	
+	public void Button (int x, int y, int width, int height) {
+		button = new Rectangle(x,y,width,height);
+	}
+	
     
 }

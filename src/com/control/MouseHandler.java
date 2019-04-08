@@ -1,26 +1,24 @@
 package com.control;
 
 import java.awt.Rectangle;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
-public class MouseHandler implements MouseListener {
+public class MouseHandler extends MouseAdapter {
 	
-	public Rectangle singleplayer = new Rectangle(220,300,300,80);
-	public Rectangle multiplayer = new Rectangle(220,400,300,80);
-	public Rectangle options = new Rectangle(220,500,300,80);
-	public Rectangle exit = new Rectangle(220,600,300,80);
+	
 	private Handler handler;
-
+	
      public MouseHandler (Handler handler){
          this.handler = handler;
      }
+     
 	public void mouseClicked(MouseEvent e) {
 		
 	}
 	
 	public void mouseEntered(MouseEvent e) {
-		
+	
 	}
 
 	public void mouseExited(MouseEvent e) {
@@ -56,16 +54,24 @@ public class MouseHandler implements MouseListener {
 		}else if (Game.state == States.Options) {
 			if (x>= 800 && x <= 950 && y >= 50 && y <= 130) {
 				Game.state = States.TitleScreen;
-
 			}
 		}else if (Game.state == States.Game) {
 			 for (int i = 0; i < handler.object.size(); i++){
                  Object tempObject= handler.object.get(i);
                  if(tempObject.getId() == IDs.player){
-
-                         handler.addObject(new Arrow(tempObject.getXpos() + 12, tempObject.getYpos() + 22, IDs.Arrow, handler, x, y));
+                        handler.addObject(new Arrow(tempObject.getXpos() + 12, tempObject.getYpos() + 22, IDs.Arrow, handler, x, y));
                  }
-         }
+			 }
+		}else if (Game.state == States.Pause) {			
+			if (x >= 390 && x <= 630 && y >= 390 && y <= 440) {
+				Game.state = States.Game;
+			}
+			if (x >= 390 && x <= 630 && y >= 480 && y <= 530) {
+				Game.state = States.Options;
+			}
+			if (x >= 390 && x <= 630 && y >= 570 && y <= 620) {
+				Game.state = States.TitleScreen;
+			}
 		}
 	}
  
