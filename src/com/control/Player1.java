@@ -18,8 +18,7 @@ public class Player1 extends Object {
         ypos += Yspeed;
         xpos += Xspeed;
         collision();
-        xpos = Game.edge(xpos, 32, Game.WIDTH - 64);
-        ypos = Game.edge(ypos, 32, Game.HEIGHT - 92);
+
     }
 
     public void render(Graphics g) {
@@ -35,6 +34,9 @@ public class Player1 extends Object {
                 if(getBounds().intersects(tempObject.getBounds())){
                     xpos += Xspeed * -1;
                     ypos += Yspeed * -1;
+
+                    System.out.println("this is temp object: " + tempObject.xpos);
+                    System.out.println("this is player: " + xpos);
                 }
             }
         }

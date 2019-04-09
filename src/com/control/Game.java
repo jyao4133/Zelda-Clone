@@ -11,7 +11,7 @@ public class Game extends Canvas implements Runnable {
 
     private static final long serialVersionUID = 125890125890L;
 
-    public static int WIDTH = 1024, HEIGHT = 990;
+    public static int WIDTH = 1040, HEIGHT = 990;
 
     private Thread thread = null;
     private boolean running = false;
@@ -35,9 +35,8 @@ public class Game extends Canvas implements Runnable {
 		pause = new Pause();
 		
 		
-        handler.addObject(new Player1(50,50, IDs.player, handler));
 
-        handler.addObject(new Enemy(50,50, IDs.enemy));
+        //handler.addObject(new Enemy(50,50, IDs.enemy));
 
         //handler.addObject(new Player1(100, 100, IDs.player));
         this.requestFocusInWindow();
@@ -94,10 +93,10 @@ public class Game extends Canvas implements Runnable {
             if(System.currentTimeMillis() - timer > 1000)
             {
                 timer += 1000;
-                System.out.println("FPS: "+ frames);
+               // System.out.println("FPS: "+ frames);
                 frames = 0;
             }
-            //toolkit.sync(); //used to sync the objects rendered on the screen with the tick methods
+            toolkit.sync(); //used to sync the objects rendered on the screen with the tick methods
         }
         stop();
     }
@@ -130,7 +129,7 @@ public class Game extends Canvas implements Runnable {
 
         	//Health Bar area
         	g.setColor(Color.cyan);
-        	g.fillRect(0, 0, WIDTH, 222);
+        	g.fillRect(0, 0, WIDTH, 240);
 
         	handler.render(g);
         	g.dispose();
@@ -178,12 +177,16 @@ public class Game extends Canvas implements Runnable {
                 }
 
                 if (blue == 255){
-                    handler.addObject(new Block(xx*32, yy*32, IDs.Block));
+                    handler.addObject(new Player1(xx*32,yy*32, IDs.player, handler));
 
                 }
 
                 if ((red & blue) == 255){
                     handler.addObject(new Block(xx*32, yy*32, IDs.Block));
+                }
+
+                if (green == 255){
+                    handler.addObject(new Enemy(xx*32, yy*32, IDs.enemy, handler));
                 }
 
 

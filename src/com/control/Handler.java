@@ -1,13 +1,17 @@
 package com.control;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 
 public class Handler {
 
 
-    LinkedList<Object> object = new LinkedList<Object>();
+
+    ArrayList<Object> object = new ArrayList<>();
+    private Rectangle button;
+
 
 	public void tick(){
         for (int i = 0; i < object.size(); i++){
