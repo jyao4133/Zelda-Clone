@@ -17,15 +17,25 @@ public class Enemy extends Object{
     int hp = 100;
     boolean hitX = true;
     boolean hitY = true;
-    int maxSpeed = 5;
+    int maxSpeed = 4;
 
-    public Enemy(int xpos, int ypos, IDs id, Handler handler) {
+    public Enemy(int xpos, int ypos, IDs id, Handler handler, int xprev, int yprev, int initial) {
 
         super(xpos, ypos, id);
         this.handler = handler;
+        this.xprev = xprev;
+        this.yprev = yprev;
+        this.initial = initial;
     }
 
     public void tick() {
+
+        if(initial == 1){
+            initial = 0;
+        }else{
+            xprev = xpos;
+            yprev = ypos;
+        }
 
         ypos += Yspeed;
         xpos += Xspeed;
@@ -38,16 +48,22 @@ public class Enemy extends Object{
 
             if (tempObject.getId() == IDs.Block) {
 
-                if (getXYBounds().intersects((tempObject.getBounds()))) {
+                if (getBounds().intersects((tempObject.getBounds()))) {
 
-                        xpos += (Xspeed*2) * -1;
-                        ypos += (Yspeed*2) * -1;
+                        xpos = xprev;
+                        ypos = yprev;
                         Xspeed *= -1;
                         Yspeed *= -1;
+
+                        System.out.println(Xspeed + "<------ X");
+                        System.out.println(Yspeed + "<------ Y");
+                        System.out.println(xpos + "<------ Xpos");
+                        System.out.println(ypos + "<------ Ypos");
                 }
                 else if (chosen == 0){
-                    Xspeed = (r.nextInt(2*maxSpeed) - maxSpeed);
-                    Yspeed = (r.nextInt(2*maxSpeed) - maxSpeed);
+                    Xspeed = (r.nextInt(2*maxSpeed +1) - maxSpeed);
+                    Yspeed = (r.nextInt(2*maxSpeed +1) - maxSpeed);
+
 
 
 //                    if (Xspeed == 4){
@@ -58,18 +74,11 @@ public class Enemy extends Object{
 //                        Yspeed = 3;
 //                    }
 //
-                    if (Xspeed == -6){
-                        Xspeed = -5;
-                    }
-
-                    if (Yspeed == -6){
-                        Yspeed = -5;
-                    }
 
 
 
-                    System.out.println(Xspeed + "<------ X");
-                    System.out.println(Yspeed + "<------ Y");
+                    //System.out.println(Xspeed + "<------ X");
+                    //System.out.println(Yspeed + "<------ Y");
 
 
                 }

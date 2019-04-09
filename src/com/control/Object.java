@@ -8,7 +8,7 @@ public abstract class Object {
 
     protected int xpos, ypos; //Only allow objects that inherit this class use xposition and yposition
     protected IDs id;
-    protected int Xspeed, Yspeed;
+    protected int Xspeed, Yspeed, xprev, yprev, initial;
 
     public Object(int xpos, int ypos, IDs id){
         //Constructor for our variables
@@ -61,6 +61,20 @@ public abstract class Object {
     public void setYspeed(int yspeed) {
         this.Yspeed = yspeed;
     }
+
+    public void setXprev(int xprev) { this.xprev = xprev; }
+
+    public int getXprev() {
+        return xprev;
+    }
+
+    public void setYprev(int yprev) { this.yprev = yprev; }
+
+    public int getYprev() { return yprev; }
+
+    public void setInitial(int initial) { this.initial = initial; }
+
+    public int getInitial() { return initial; }
 
     public abstract void tick();
     public abstract void render(Graphics g);
