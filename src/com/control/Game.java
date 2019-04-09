@@ -7,6 +7,8 @@ import java.awt.image.BufferedImage;
 import java.awt.image.*;
 import java.nio.Buffer;
 
+import javax.swing.Timer;
+
 public class Game extends Canvas implements Runnable {
 
     private static final long serialVersionUID = 125890125890L;
@@ -33,8 +35,7 @@ public class Game extends Canvas implements Runnable {
 		titlescreen = new TitleScreen();
 		options = new Options();
 		pause = new Pause();
-		
-		
+
 
         //handler.addObject(new Enemy(50,50, IDs.enemy));
 
@@ -101,6 +102,7 @@ public class Game extends Canvas implements Runnable {
         stop();
     }
 
+   
     private void tick(){
         if (state == States.Game) {
             handler.tick();
