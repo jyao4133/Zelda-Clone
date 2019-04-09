@@ -150,7 +150,7 @@ public class Game extends Canvas implements Runnable {
             bufferstrat.show();
         }else if (state == States.Pause) {
         	//g.setColor(Color.WHITE);
-        	g.fillRect(WIDTH/4, HEIGHT/4 , WIDTH/2, HEIGHT/2);
+        	//g.fillRect(WIDTH/4, HEIGHT/4 , WIDTH/2, HEIGHT/2);
         	pause.render(g);
         	g.dispose();
             bufferstrat.show();
@@ -204,6 +204,9 @@ public class Game extends Canvas implements Runnable {
     }
 
     public static void main(String args[]){
+        /*if (state == States.TitleScreen) {
+            new Game();
+        }  	*/
         new Game();
     }
 

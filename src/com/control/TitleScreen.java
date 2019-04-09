@@ -1,5 +1,6 @@
 package com.control;
 
+import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -11,7 +12,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
-public class TitleScreen extends JPanel{
+public class TitleScreen extends Canvas{
 	
 	/**
 	 * 

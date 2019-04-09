@@ -4,10 +4,10 @@ import java.awt.Rectangle;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class MouseHandler extends MouseAdapter {
-	
-	
+public class MouseHandler extends MouseAdapter  {
+
 	private Handler handler;
+	private static int x = -1, y = -1;
 	
      public MouseHandler (Handler handler){
          this.handler = handler;
@@ -18,7 +18,7 @@ public class MouseHandler extends MouseAdapter {
 	}
 	
 	public void mouseEntered(MouseEvent e) {
-	
+
 	}
 
 	public void mouseExited(MouseEvent e) {
@@ -71,12 +71,20 @@ public class MouseHandler extends MouseAdapter {
 			}
 			if (x >= 390 && x <= 630 && y >= 570 && y <= 620) {
 				Game.state = States.TitleScreen;
-			}
+			}	
+			
 		}
 	}
  
 	public void mouseReleased(MouseEvent e) {
 		
+	}
+	
+	public static int getX() {
+		return x;
+	}
+	public static int getY() {
+		return y;
 	}
 
 }
