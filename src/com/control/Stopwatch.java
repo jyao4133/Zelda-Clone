@@ -1,4 +1,4 @@
-package com.control;
+/*package com.control;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -28,5 +28,5 @@ public class Stopwatch {
    Timer timer = new Timer(1000, actListner);
  
    timer.start();
-   }*/
-}
+   }
+}*/

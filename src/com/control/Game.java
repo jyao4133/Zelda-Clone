@@ -7,8 +7,6 @@ import java.awt.image.BufferedImage;
 import java.awt.image.*;
 import java.nio.Buffer;
 
-import javax.swing.Timer;
-
 public class Game extends Canvas implements Runnable {
 
     private static final long serialVersionUID = 125890125890L;
