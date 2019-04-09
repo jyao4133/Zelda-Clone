@@ -136,7 +136,7 @@ public class Game extends Canvas implements Runnable {
         	bufferstrat.show();
         	
         }else if (state == States.TitleScreen) {
-            g.fillRect(0, 0, WIDTH, HEIGHT);
+            //g.fillRect(0, 0, WIDTH, HEIGHT);
             titlescreen.render(g);
             g.dispose();
             bufferstrat.show();
@@ -207,10 +207,10 @@ public class Game extends Canvas implements Runnable {
     }
 
     public static void main(String args[]){
-        /*if (state == States.TitleScreen) {
+        if (state == States.TitleScreen) {
             new Game();
-        }  	*/
-        new Game();
+        }  
+        //new Game();
     }
 
 

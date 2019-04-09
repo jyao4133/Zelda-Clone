@@ -18,7 +18,8 @@ public class MouseHandler extends MouseAdapter  {
 	}
 	
 	public void mouseEntered(MouseEvent e) {
-
+		x = e.getX();
+		y = e.getY();
 	}
 
 	public void mouseExited(MouseEvent e) {

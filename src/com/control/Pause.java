@@ -19,7 +19,7 @@ public class Pause {
 		pausemenu = new Button[3];
 		pausemenu[0] = new Button ("Resume", pauseframe.width, pauseframe.height + yshift + 0 * yspacing, new Font("Arial", Font.PLAIN, 42),
 				new Font("Arial", Font.BOLD, 50), Color.black, Color.red);
-		pausemenu[1] = new Button ("Options", pauseframe.width, pauseframe.height + yshift + 1 * yspacing, new Font("Arial", Font.PLAIN, 42),
+		pausemenu[1] = new Button ("Help", pauseframe.width, pauseframe.height + yshift + 1 * yspacing, new Font("Arial", Font.PLAIN, 42),
 				new Font("Arial", Font.BOLD, 50), Color.black, Color.red);
 		pausemenu[2] = new Button ("Exit", pauseframe.width, pauseframe.height + yshift + 2 * yspacing, new Font("Arial", Font.PLAIN, 42),
 				new Font("Arial", Font.BOLD, 50), Color.black, Color.red);
