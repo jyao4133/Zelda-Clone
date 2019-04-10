@@ -1,17 +1,17 @@
-/*package com.control;
-
+package com.control;
+/*
+import java.awt.Canvas;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.Timer;
  
-public class Stopwatch {
- /*
+public class Stopwatch extends Canvas {
+ 
     private static int cnt;
  
-    public static void main(String args[]) {
  
-    new JFrame().setVisible(true);
+   // new JFrame().setVisible(true);
  
     ActionListener actListner = new ActionListener() {
 	   public void actionPerformed(ActionEvent event) {
@@ -27,6 +27,6 @@ public class Stopwatch {
  
    Timer timer = new Timer(1000, actListner);
  
-   timer.start();
-   }
+   //timer.start();
+   
 }*/

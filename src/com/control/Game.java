@@ -2,10 +2,17 @@ package com.control;
 
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.awt.image.*;
 import java.nio.Buffer;
+
+import javax.imageio.ImageIO;
+import javax.swing.Timer;
 
 public class Game extends Canvas implements Runnable {
 
@@ -18,9 +25,14 @@ public class Game extends Canvas implements Runnable {
 
     private Handler handler;
     private BufferedImage background;
+
     private TitleScreen titlescreen;
     private Options options;
     private Pause pause;
+    
+    public Player1 player;
+    public Enemy enemy;
+    
     //to create the title screen we will use the states in the code
     public static States state = com.control.States.TitleScreen;
 
@@ -34,9 +46,12 @@ public class Game extends Canvas implements Runnable {
 		options = new Options();
 		pause = new Pause();
 
-
         //handler.addObject(new Enemy(50,50, IDs.enemy));
-
+		addKeyListener(new KeyInput());
+		addMouseListener(new MouseInput());
+		MouseInput mi = new MouseInput();
+		addMouseListener(mi);
+		addMouseMotionListener(mi);
         //handler.addObject(new Player1(100, 100, IDs.player));
         this.requestFocusInWindow();
 		this.addKeyListener(new KeyHandler(handler));
@@ -45,18 +60,19 @@ public class Game extends Canvas implements Runnable {
 		ImageRender loader = new ImageRender();
         background = loader.loadImage("test_level.png");
         loadLevel(background);
-		
+        
+        
     }
-
+    
 
     public synchronized void start(){
-
         thread = new Thread(this); //"this" refers to our Game class
         thread.start();
         running = true;
     }
 
     public synchronized void stop() {
+    	
         try {
             thread.join(); //stops thread
             running = false;
@@ -75,6 +91,7 @@ public class Game extends Canvas implements Runnable {
         double delta = 0;
         long timer = System.currentTimeMillis();
         int frames = 0;
+        int updates = 0;
         while(running)
         {
             long now = System.nanoTime();
@@ -83,16 +100,18 @@ public class Game extends Canvas implements Runnable {
             while(delta >=1)
             {
                 tick();
+                updates++;
                 delta--;
             }
-            if(running)
-                render();
+            
+            render();
             frames++;
 
             if(System.currentTimeMillis() - timer > 1000)
             {
                 timer += 1000;
-               // System.out.println("FPS: "+ frames);
+                //System.out.println("FPS: "+ frames);
+                updates = 0;
                 frames = 0;
             }
             toolkit.sync(); //used to sync the objects rendered on the screen with the tick methods
@@ -103,15 +122,19 @@ public class Game extends Canvas implements Runnable {
    
     private void tick(){
         if (state == States.Game) {
-            handler.tick();
+        	handler.tick();
         }
+        
+        
+        
     }
 
     private void render() {
         //Create a buffer strategy and number of buffers. We don't want an astronomically high FPS
         BufferStrategy bufferstrat = this.getBufferStrategy();
-
-        if (bufferstrat == null){
+        
+		
+		if (bufferstrat == null){
 
             this.createBufferStrategy(3);
             return;
@@ -119,7 +142,7 @@ public class Game extends Canvas implements Runnable {
         }
 
         Graphics g = bufferstrat.getDrawGraphics();
-        
+
         
         
         if (state == States.Game) {
@@ -130,7 +153,11 @@ public class Game extends Canvas implements Runnable {
         	//Health Bar area
         	g.setColor(Color.cyan);
         	g.fillRect(0, 0, WIDTH, 240);
-
+        	g.setColor(Color.blue);
+        	g.fillRect(50, 50, 200, 50);
+        	
+        	
+        	
         	handler.render(g);
         	g.dispose();
         	bufferstrat.show();
@@ -213,6 +240,12 @@ public class Game extends Canvas implements Runnable {
         //new Game();
     }
 
-
+    public States getGameState() {
+    	return state;
+    }
+    
+    public void setGameState(States gamestate) {
+    	Game.state = gamestate;
+    }
 
 }

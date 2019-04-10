@@ -2,6 +2,8 @@ package com.control;
 
 import java.awt.*;
 
+import com.sun.glass.events.KeyEvent;
+
 public class Player1 extends Object {
 //player controller class following MVC
 	Handler handler;
@@ -14,7 +16,6 @@ public class Player1 extends Object {
     }
 
     public void tick() {
-
         ypos += Yspeed;
         xpos += Xspeed;
         collision();
