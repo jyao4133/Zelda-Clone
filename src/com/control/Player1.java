@@ -5,11 +5,14 @@ import java.awt.*;
 public class Player1 extends Object {
 //player controller class following MVC
 	Handler handler;
-    public Player1(int xpos, int ypos, IDs id, Handler handler) {
+    Game game;
+
+    public Player1(int xpos, int ypos, IDs id, Handler handler, Game game) {
         super(xpos, ypos, id);
         //Xspeed = 1;
         //Yspeed = 1;
 		this.handler = handler;
+		this.game = game;
 
     }
 
@@ -28,6 +31,8 @@ public class Player1 extends Object {
     }
 
     private void collision(){
+
+        //Detection for when the player class collides with an object
         for (int i = 0; i < handler.object.size(); i++){
             Object tempObject = handler.object.get(i);
             if (tempObject.getId() == IDs.Block){
@@ -37,6 +42,14 @@ public class Player1 extends Object {
 
                     System.out.println("this is temp object: " + tempObject.xpos);
                     System.out.println("this is player: " + xpos);
+                }
+            }
+
+            //Pickup intersection
+            if (tempObject.getId() == IDs.Pickup){
+                if (getBounds().intersects(tempObject.getBounds())) {
+                    handler.removeObject(tempObject);
+                    game.arrowsRemaining += 10;
                 }
             }
         }

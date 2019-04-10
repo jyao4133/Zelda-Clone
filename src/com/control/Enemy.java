@@ -54,32 +54,10 @@ public class Enemy extends Object{
                         ypos = yprev;
                         Xspeed *= -1;
                         Yspeed *= -1;
-
-                        System.out.println(Xspeed + "<------ X");
-                        System.out.println(Yspeed + "<------ Y");
-                        System.out.println(xpos + "<------ Xpos");
-                        System.out.println(ypos + "<------ Ypos");
                 }
                 else if (chosen == 0){
                     Xspeed = (r.nextInt(2*maxSpeed +1) - maxSpeed);
                     Yspeed = (r.nextInt(2*maxSpeed +1) - maxSpeed);
-
-
-
-//                    if (Xspeed == 4){
-//                        Xspeed = 3;
-//                    }
-//
-//                    if (Yspeed == 4){
-//                        Yspeed = 3;
-//                    }
-//
-
-
-
-                    //System.out.println(Xspeed + "<------ X");
-                    //System.out.println(Yspeed + "<------ Y");
-
 
                 }
             }

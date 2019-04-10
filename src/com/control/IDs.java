@@ -6,5 +6,6 @@ public enum IDs {
     enemy(),
     Block(),
     Background(),
-    Arrow();
+    Arrow(),
+    Pickup();
 }

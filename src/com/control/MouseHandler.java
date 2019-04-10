@@ -7,10 +7,13 @@ import java.awt.event.MouseEvent;
 public class MouseHandler extends MouseAdapter  {
 
 	private Handler handler;
+	private Game game;
 	private static int x = -1, y = -1;
 	
-     public MouseHandler (Handler handler){
+     public MouseHandler (Handler handler, Game game){
          this.handler = handler;
+         this.game = game;
+
      }
      
 	public void mouseClicked(MouseEvent e) {
@@ -60,7 +63,10 @@ public class MouseHandler extends MouseAdapter  {
 			 for (int i = 0; i < handler.object.size(); i++){
                  Object tempObject= handler.object.get(i);
                  if(tempObject.getId() == IDs.player){
-                        handler.addObject(new Arrow(tempObject.getXpos() + 12, tempObject.getYpos() + 22, IDs.Arrow, handler, x, y));
+                 	if (game.arrowsRemaining > 0) {
+						handler.addObject(new Arrow(tempObject.getXpos() + 12, tempObject.getYpos() + 22, IDs.Arrow, handler, x, y));
+						game.arrowsRemaining--;
+					}
                  }
 			 }
 		}else if (Game.state == States.Pause) {			

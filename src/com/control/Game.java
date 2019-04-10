@@ -12,6 +12,8 @@ public class Game extends Canvas implements Runnable {
     private static final long serialVersionUID = 125890125890L;
 
     public static int WIDTH = 1040, HEIGHT = 990;
+    public int arrowsRemaining = 10;
+
 
     private Thread thread = null;
     private boolean running = false;
@@ -40,7 +42,7 @@ public class Game extends Canvas implements Runnable {
         //handler.addObject(new Player1(100, 100, IDs.player));
         this.requestFocusInWindow();
 		this.addKeyListener(new KeyHandler(handler));
-		this.addMouseListener(new MouseHandler(handler));
+		this.addMouseListener(new MouseHandler(handler, this));
 		//this.addMouseListener(new MouseInputGame(handler));
 		ImageRender loader = new ImageRender();
         background = loader.loadImage("test_level.png");
@@ -92,7 +94,7 @@ public class Game extends Canvas implements Runnable {
             if(System.currentTimeMillis() - timer > 1000)
             {
                 timer += 1000;
-               // System.out.println("FPS: "+ frames);
+                System.out.println("FPS: "+ frames);
                 frames = 0;
             }
             toolkit.sync(); //used to sync the objects rendered on the screen with the tick methods
@@ -130,6 +132,8 @@ public class Game extends Canvas implements Runnable {
         	//Health Bar area
         	g.setColor(Color.cyan);
         	g.fillRect(0, 0, WIDTH, 240);
+
+
 
         	handler.render(g);
         	g.dispose();
@@ -176,8 +180,8 @@ public class Game extends Canvas implements Runnable {
                     handler.addObject(new Block(xx*32, yy*32, IDs.Block));
                 }
 
-                if (blue == 255){
-                    handler.addObject(new Player1(xx*32,yy*32, IDs.player, handler));
+                if (blue == 255 && green == 0){
+                    handler.addObject(new Player1(xx*32,yy*32, IDs.player, handler, this));
 
                 }
 
@@ -185,8 +189,12 @@ public class Game extends Canvas implements Runnable {
                     handler.addObject(new Block(xx*32, yy*32, IDs.Block));
                 }
 
-                if (green == 255){
+                if (green == 255 && blue == 0){
                     handler.addObject(new Enemy(xx*32, yy*32, IDs.enemy, handler, xx*32, yy*32, 1));
+                }
+
+                if (green == 255 && blue == 255){
+                    handler.addObject(new arrowPickup(xx*32, yy*32, IDs.Pickup));
                 }
 
 
@@ -203,6 +211,10 @@ public class Game extends Canvas implements Runnable {
         }
         else
             return var;
+
+    }
+
+    public void drawHeart(Graphics g, int x, int y, int width, int height){
 
     }
 
