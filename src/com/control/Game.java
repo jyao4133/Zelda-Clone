@@ -20,7 +20,7 @@ public class Game extends Canvas implements Runnable {
 
     public static int WIDTH = 1040, HEIGHT = 990;
     public int arrowsRemaining = 10;
-
+    public int player1Health = 4;
 
     private Thread thread = null;
     private boolean running = false;
@@ -34,7 +34,12 @@ public class Game extends Canvas implements Runnable {
     
     public Player1 player;
     public Enemy enemy;
-    
+
+    private Hearts heart1;
+    private Hearts heart2;
+    private Hearts heart3;
+    private Hearts heart4;
+
     //to create the title screen we will use the states in the code
     public static States state = com.control.States.TitleScreen;
 
@@ -48,6 +53,10 @@ public class Game extends Canvas implements Runnable {
 		options = new Options();
 		pause = new Pause();
 
+		heart2 = new Hearts();
+        heart1 = new Hearts();
+        heart3 = new Hearts();
+        heart4 = new Hearts();
         //handler.addObject(new Enemy(50,50, IDs.enemy));
 		addKeyListener(new KeyInput());
 		addMouseListener(new MouseInput());
@@ -124,11 +133,8 @@ public class Game extends Canvas implements Runnable {
    
     private void tick(){
         if (state == States.Game) {
-        	handler.tick();
+            handler.tick();
         }
-        
-        
-        
     }
 
     private void render() {
@@ -153,16 +159,25 @@ public class Game extends Canvas implements Runnable {
         	g.fillRect(0, 222, WIDTH, HEIGHT);
 
         	//Health Bar area
-        	g.setColor(Color.cyan);
-        	g.fillRect(0, 0, WIDTH, 240);
+        	g.setColor(Color.black);
+        	g.fillRect(0, 0, WIDTH, 230);
 
         	g.setColor(Color.blue);
         	g.fillRect(50, 50, 200, 50);
 
             handler.render(g);
-        	g.dispose();
+
+            for (int i = 0; i < 3; i++) {
+
+                heart2.drawHeart(g, 480, 50, 50, 50, player1Health, 2);
+                heart1.drawHeart(g, 360, 50, 50, 50, player1Health, 1);
+                heart3.drawHeart(g, 300, 50, 50 ,50, player1Health, 3);
+                heart4.drawHeart(g, 420, 50, 50, 50, player1Health, 4);
+
+            }
+            g.dispose();
         	bufferstrat.show();
-        	
+
         }else if (state == States.TitleScreen) {
             //g.fillRect(0, 0, WIDTH, HEIGHT);
             titlescreen.render(g);
@@ -204,20 +219,20 @@ public class Game extends Canvas implements Runnable {
                     handler.addObject(new Block(xx*32, yy*32, IDs.Block));
                 }
 
-                if (blue == 255 && green == 0){
+                if (blue == 255 && green == 0 && red == 0){
                     handler.addObject(new Player1(xx*32,yy*32, IDs.player, handler, this));
 
                 }
 
-                if ((red & blue) == 255){
+                if ((red & blue) == 255 && red == 0){
                     handler.addObject(new Block(xx*32, yy*32, IDs.Block));
                 }
 
-                if (green == 255 && blue == 0){
+                if (green == 255 && blue == 0 && red == 0){
                     handler.addObject(new Enemy(xx*32, yy*32, IDs.enemy, handler, xx*32, yy*32, 1));
                 }
 
-                if (green == 255 && blue == 255){
+                if (green == 255 && blue == 255 && red == 0){
                     handler.addObject(new arrowPickup(xx*32, yy*32, IDs.Pickup));
                 }
 
@@ -238,9 +253,51 @@ public class Game extends Canvas implements Runnable {
 
     }
 
-    public void drawHeart(Graphics g, int x, int y, int width, int height){
-
-    }
+//    public void drawHeart(Graphics g, int x, int y, int width, int height,int heartnum){
+//
+//        //Referenced algorithm to draw a heart from https://stackoverflow.com/questions/33402242/how-to-draw-heart-using-java-awt-libaray
+//
+//
+//        int[] triangleX = {
+//                x - 2*width/18 + 3,
+//                x + width + 2*width/18 - 3,
+//                (x - 2*width/18 + x + width + 2*width/18)/2};
+//        int[] triangleY = {
+//                y + height - 2*height/3,
+//                y + height - 2*height/3,
+//                y + height };
+//
+//        g.fillOval(
+//                x - width/12,
+//                y,
+//                width/2 + width/6,
+//                height/2);
+//        g.fillOval(
+//                x + width/2 - width/12,
+//                y,
+//                width/2 + width/6,
+//                height/2);
+//
+//
+//        g.fillPolygon(triangleX, triangleY, triangleX.length);
+//        g.setColor(Color.orange);
+//
+//        if (arrowsRemaining < 5 && heartnum == 1){
+//            g.fillOval(
+//                    x - width/12,
+//                    y,
+//                    width/2 + width/6,
+//                    height/2);
+//            g.fillOval(
+//                    x + width/2 - width/12,
+//                    y,
+//                    width/2 + width/6,
+//                    height/2);
+//            g.fillPolygon(triangleX, triangleY, triangleX.length );
+//            g.setColor(Color.green);
+//        }
+//
+//    }
 
     public static void main(String args[]){
         if (state == States.TitleScreen) {
