@@ -61,6 +61,11 @@ public class Player1 extends Object {
                 }
             }
         }
+        
+        if (game.player1Health < 0) {
+        	Game.state = States.Pause;
+        	game.player1Health = 4;
+        }
     }
 
 

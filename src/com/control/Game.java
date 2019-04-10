@@ -15,6 +15,8 @@ import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
+import com.control.Button;
+
 public class Game extends Canvas implements Runnable {
 
     private static final long serialVersionUID = 125890125890L;
@@ -32,6 +34,8 @@ public class Game extends Canvas implements Runnable {
     private TitleScreen titlescreen;
     private Options options;
     private Pause pause;
+    
+    private Button healthtextbox, scoretextbox;
     
     public Player1 player;
     public Enemy enemy;
@@ -59,7 +63,11 @@ public class Game extends Canvas implements Runnable {
         heart3 = new Hearts();
         heart4 = new Hearts();
         //handler.addObject(new Enemy(50,50, IDs.enemy));
-		
+    	//g.fillRect(50, 50, 200, 50);
+             
+        healthtextbox = new Button("Health", 150, 40, new Font("Arial", Font.BOLD, 50), Color.RED);
+        scoretextbox = new Button("Score", 140, healthtextbox.y + 180, new Font("Arial", Font.BOLD, 50), Color.YELLOW);
+
         //handler.addObject(new Player1(100, 100, IDs.player));
         this.requestFocusInWindow();
 		this.addKeyListener(new KeyHandler(handler));
@@ -80,7 +88,6 @@ public class Game extends Canvas implements Runnable {
     }
 
     public synchronized void stop() {
-    	
         try {
             thread.join(); //stops thread
             running = false;
@@ -159,18 +166,18 @@ public class Game extends Canvas implements Runnable {
         	g.setColor(Color.black);
         	g.fillRect(0, 0, WIDTH, 230);
 
-        	g.setColor(Color.blue);
-        	g.fillRect(50, 50, 200, 50);
-
+        	//g.setColor(Color.blue);
+        	//g.fillRect(50, 50, 200, 50);
+        	
+        	healthtextbox.render(g);
+        	scoretextbox.render(g);
             handler.render(g);
 
             for (int i = 0; i < 3; i++) {
-
                 heart2.drawHeart(g, 480, 50, 50, 50, player1Health, 2);
                 heart1.drawHeart(g, 360, 50, 50, 50, player1Health, 1);
                 heart3.drawHeart(g, 300, 50, 50 ,50, player1Health, 3);
                 heart4.drawHeart(g, 420, 50, 50, 50, player1Health, 4);
-
             }
             g.dispose();
         	bufferstrat.show();

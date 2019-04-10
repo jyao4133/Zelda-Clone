@@ -1,5 +1,5 @@
 package com.control;
-
+////Referenced algorithm to draw a heart from https://stackoverflow.com/questions/33402242/how-to-draw-heart-using-java-awt-libaray
 import java.awt.*;
 import java.math.*;
 import java.util.*;
