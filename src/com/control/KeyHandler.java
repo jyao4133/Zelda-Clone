@@ -24,7 +24,6 @@ public class KeyHandler extends KeyAdapter {
 		for (int i = 0; i < handler.object.size(); i++) {
 			Object tempObject = handler.object.get(i);
 			if (tempObject.getId() == IDs.player) {
-
 				if (key == KeyEvent.VK_W) {
 					tempObject.setYspeed(-5);
 					up = true;

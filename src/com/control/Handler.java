@@ -18,6 +18,7 @@ public class Handler {
             Object tempObject = object.get(i);
             tempObject.tick();
         }
+		
 
     }
 
@@ -27,6 +28,7 @@ public class Handler {
             Object tempObject = object.get(i);
             tempObject.render(g);
         }
+		
     }
     
     
