@@ -53,6 +53,13 @@ public class Player1 extends Object {
                     game.arrowsRemaining += 10;
                 }
             }
+
+            if (tempObject.getId() == IDs.enemy){
+                if(getBounds().intersects((tempObject.getBounds()))){
+                    handler.removeObject(tempObject);
+                    game.player1Health--;
+                }
+            }
         }
     }
 
