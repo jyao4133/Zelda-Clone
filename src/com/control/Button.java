@@ -2,10 +2,11 @@ package com.control;
 
 import java.awt.*;
 
+@SuppressWarnings("serial")
 public class Button extends Rectangle{
 	
-	private Font font, selectedFont;
-	private Color color, selectedColor;
+	private Font font;
+	private Color color;
 	private boolean selected;
 	private String text;
 	private int textX, textY;

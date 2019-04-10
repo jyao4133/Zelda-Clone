@@ -12,6 +12,7 @@ import java.awt.image.*;
 import java.nio.Buffer;
 
 import javax.imageio.ImageIO;
+import javax.swing.JPanel;
 import javax.swing.Timer;
 
 public class Game extends Canvas implements Runnable {
@@ -49,11 +50,7 @@ public class Game extends Canvas implements Runnable {
 		pause = new Pause();
 
         //handler.addObject(new Enemy(50,50, IDs.enemy));
-		addKeyListener(new KeyInput());
-		addMouseListener(new MouseInput());
-		MouseInput mi = new MouseInput();
-		addMouseListener(mi);
-		addMouseMotionListener(mi);
+		
         //handler.addObject(new Player1(100, 100, IDs.player));
         this.requestFocusInWindow();
 		this.addKeyListener(new KeyHandler(handler));
@@ -246,7 +243,6 @@ public class Game extends Canvas implements Runnable {
         if (state == States.TitleScreen) {
             new Game();
         }  
-        //new Game();
     }
 
     public States getGameState() {
