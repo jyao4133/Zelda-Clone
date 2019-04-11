@@ -25,8 +25,8 @@ public class Game extends Canvas implements Runnable {
     public int arrowsRemaining = 10;
     public int player1Health = 4;
 
-    private Thread thread = null;
-    private boolean running = false;
+    private volatile boolean running = false;
+    private Thread thread;
 
     private Handler handler;
     private BufferedImage background;
@@ -36,9 +36,11 @@ public class Game extends Canvas implements Runnable {
     private Pause pause;
     
     private Button healthtextbox, scoretextbox;
-    
+    public Window window;
     public Player1 player;
     public Enemy enemy;
+
+    private static Game game;
 
     private Hearts heart1;
     private Hearts heart2;
@@ -52,7 +54,7 @@ public class Game extends Canvas implements Runnable {
     
     
     public Game(){
-        new Window (WIDTH, HEIGHT, "Pre-Title", this);
+        window = new Window (WIDTH, HEIGHT, "Pre-Title", this);
         handler = new Handler();
 		titlescreen = new TitleScreen();
 		options = new Options();
@@ -89,13 +91,18 @@ public class Game extends Canvas implements Runnable {
 
     public synchronized void stop() {
         try {
-            thread.join(); //stops thread
+            thread.interrupt();
             running = false;
         } catch (Exception e) {
             e.printStackTrace();
 
         }
     }
+
+    public void initialise(){
+
+    }
+
 
     public void run()
     {
@@ -125,7 +132,7 @@ public class Game extends Canvas implements Runnable {
             if(System.currentTimeMillis() - timer > 1000)
             {
                 timer += 1000;
-                //System.out.println("FPS: "+ frames);
+                System.out.println("FPS: "+ frames);
                 updates = 0;
                 frames = 0;
             }
@@ -148,7 +155,7 @@ public class Game extends Canvas implements Runnable {
 		
 		if (bufferstrat == null){
 
-            this.createBufferStrategy(3);
+            this.createBufferStrategy(2);
             return;
 
         }
@@ -184,6 +191,7 @@ public class Game extends Canvas implements Runnable {
 
         }else if (state == States.TitleScreen) {
             //g.fillRect(0, 0, WIDTH, HEIGHT);
+
             titlescreen.render(g);
             g.dispose();
             bufferstrat.show();
@@ -200,7 +208,14 @@ public class Game extends Canvas implements Runnable {
         	pause.render(g);
         	g.dispose();
             bufferstrat.show();
+
+        }else if(state == States.Load){
+            loadLevel(background);
+            state = States.Game;
+            player1Health = 4;
+            arrowsRemaining = 10;
         }
+
         
         
         g.dispose();
@@ -211,7 +226,7 @@ public class Game extends Canvas implements Runnable {
     private void loadLevel(BufferedImage image){
         int w = image.getWidth();
         int h = image.getHeight();
-
+        handler.removeall();
         for (int xx = 0; xx < w; xx++){
             for(int yy = 0; yy < h; yy++){
                 int pixel = image.getRGB(xx, yy);
@@ -257,56 +272,10 @@ public class Game extends Canvas implements Runnable {
 
     }
 
-//    public void drawHeart(Graphics g, int x, int y, int width, int height,int heartnum){
-//
-//        //Referenced algorithm to draw a heart from https://stackoverflow.com/questions/33402242/how-to-draw-heart-using-java-awt-libaray
-//
-//
-//        int[] triangleX = {
-//                x - 2*width/18 + 3,
-//                x + width + 2*width/18 - 3,
-//                (x - 2*width/18 + x + width + 2*width/18)/2};
-//        int[] triangleY = {
-//                y + height - 2*height/3,
-//                y + height - 2*height/3,
-//                y + height };
-//
-//        g.fillOval(
-//                x - width/12,
-//                y,
-//                width/2 + width/6,
-//                height/2);
-//        g.fillOval(
-//                x + width/2 - width/12,
-//                y,
-//                width/2 + width/6,
-//                height/2);
-//
-//
-//        g.fillPolygon(triangleX, triangleY, triangleX.length);
-//        g.setColor(Color.orange);
-//
-//        if (arrowsRemaining < 5 && heartnum == 1){
-//            g.fillOval(
-//                    x - width/12,
-//                    y,
-//                    width/2 + width/6,
-//                    height/2);
-//            g.fillOval(
-//                    x + width/2 - width/12,
-//                    y,
-//                    width/2 + width/6,
-//                    height/2);
-//            g.fillPolygon(triangleX, triangleY, triangleX.length );
-//            g.setColor(Color.green);
-//        }
-//
-//    }
-
     public static void main(String args[]){
         if (state == States.TitleScreen) {
-            new Game();
-        }  
+            game = new Game();
+        }
     }
 
     public States getGameState() {
@@ -314,7 +283,7 @@ public class Game extends Canvas implements Runnable {
     }
     
     public void setGameState(States gamestate) {
-    	Game.state = gamestate;
+        state = gamestate;
     }
 
 }

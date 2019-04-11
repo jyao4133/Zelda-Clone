@@ -22,8 +22,7 @@ public class Hearts {
 
 
         if (arrowsRemaining < bound){
-            System.out.println(arrowsRemaining);
-            System.out.println(bound + "<---bound");
+
             g.fillOval(
                     x - width / 12,
                     y,

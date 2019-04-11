@@ -1,9 +1,10 @@
 package com.control;
 
 public enum States {
-	Game(), 
+	Game,
 	TitleScreen(),
 	Options(),
-	Pause();
+	Pause(),
+	Load;
 
 }

@@ -31,7 +31,9 @@ public class Handler {
 		
     }
     
-    
+    public void removeall(){
+	    this.object.clear();
+    }
 
 
     public void addObject(Object object){

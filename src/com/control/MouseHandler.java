@@ -8,6 +8,7 @@ public class MouseHandler extends MouseAdapter  {
 
 	private Handler handler;
 	private Game game;
+
 	private static int x = -1, y = -1;
 	
      public MouseHandler (Handler handler, Game game){
@@ -36,7 +37,7 @@ public class MouseHandler extends MouseAdapter  {
 		if (Game.state == States.TitleScreen) {
 		//To start the game in single player
 			if (x >= 150 && x <= 450 && y >= 300 && y <= 380) {
-				Game.state = States.Game;
+				Game.state = States.Load;
 				System.out.println("Single Player");
 			}
 		
@@ -72,13 +73,16 @@ public class MouseHandler extends MouseAdapter  {
 		}else if (Game.state == States.Pause) {			
 			if (x >= 390 && x <= 630 && y >= 410 && y <= 460) {
 				Game.state = States.Game;
+
 			}
 			if (x >= 390 && x <= 630 && y >= 480 && y <= 530) {
 				Game.state = States.Options;
 			}
 			if (x >= 390 && x <= 630 && y >= 570 && y <= 620) {
 				Game.state = States.TitleScreen;
-			}	
+
+
+			}
 			
 		}
 	}
