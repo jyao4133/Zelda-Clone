@@ -5,16 +5,18 @@ package com.control;
 import java.awt.*;
 
 public abstract class Object {
-
+	
     protected int xpos, ypos; //Only allow objects that inherit this class use xposition and yposition
     protected IDs id;
     protected int Xspeed, Yspeed, xprev, yprev, initial;
-
-    public Object(int xpos, int ypos, IDs id){
+    protected SpriteSheet ss;
+    
+    public Object(int xpos, int ypos, IDs id, SpriteSheet ss){
         //Constructor for our variables
         this.xpos = xpos;
         this.ypos = ypos;
         this.id = id;
+        this.ss = ss;
 
     }
 

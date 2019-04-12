@@ -30,7 +30,10 @@ public class Game extends Canvas implements Runnable {
 
     private Handler handler;
     private BufferedImage background;
-
+    
+    private SpriteSheet ss;
+    private BufferedImage spritesheet;
+    
     private TitleScreen titlescreen;
     private Options options;
     private Pause pause;
@@ -75,10 +78,16 @@ public class Game extends Canvas implements Runnable {
         //handler.addObject(new Player1(100, 100, IDs.player));
         this.requestFocusInWindow();
 		this.addKeyListener(new KeyHandler(handler));
-		this.addMouseListener(new MouseHandler(handler, this));
 		//this.addMouseListener(new MouseInputGame(handler));
 		ImageRender loader = new ImageRender();
         background = loader.loadImage("test_level.png");
+        
+        spritesheet = loader.loadImage("littlegirl.png");
+        ss = new SpriteSheet (spritesheet);
+		
+        this.addMouseListener(new MouseHandler(handler, this, ss));
+
+        
         loadLevel(background);
         
         
@@ -135,7 +144,7 @@ public class Game extends Canvas implements Runnable {
             if(System.currentTimeMillis() - timer > 1000)
             {
                 timer += 1000;
-                System.out.println("FPS: "+ frames);
+               // System.out.println("FPS: "+ frames);
                 updates = 0;
                 frames = 0;
             }
@@ -244,24 +253,24 @@ public class Game extends Canvas implements Runnable {
                 int blue = (pixel) & 0xff;
 
                 if (red == 255){
-                    handler.addObject(new Block(xx*32, yy*32, IDs.Block));
+                    handler.addObject(new Block(xx*32, yy*32, IDs.Block, ss));
                 }
 
                 if (blue == 255 && green == 0 && red == 0){
-                    handler.addObject(new Player1(xx*32,yy*32, IDs.player, handler, this));
+                    handler.addObject(new Player1(xx*32,yy*32, IDs.player, handler, this, ss));
 
                 }
 
                 if ((red & blue) == 255 && red == 0){
-                    handler.addObject(new Block(xx*32, yy*32, IDs.Block));
+                    handler.addObject(new Block(xx*32, yy*32, IDs.Block, ss));
                 }
 
                 if (green == 255 && blue == 0 && red == 0){
-                    handler.addObject(new Enemy(xx*32, yy*32, IDs.enemy, handler, xx*32, yy*32, 1));
+                    handler.addObject(new Enemy(xx*32, yy*32, IDs.enemy, handler, xx*32, yy*32, 1, ss));
                 }
 
                 if (green == 255 && blue == 255 && red == 0){
-                    handler.addObject(new arrowPickup(xx*32, yy*32, IDs.Pickup));
+                    handler.addObject(new arrowPickup(xx*32, yy*32, IDs.Pickup, ss));
                 }
 
 

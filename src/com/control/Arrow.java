@@ -8,8 +8,8 @@ public class Arrow extends Object {
     private Handler handler;
 
 
-    public Arrow(int xpos, int ypos, IDs id, Handler handler, int x, int y) {
-        super(xpos, ypos, id);
+    public Arrow(int xpos, int ypos, IDs id, Handler handler, int x, int y, SpriteSheet ss) {
+        super(xpos, ypos, id, ss);
         this.handler = handler;
 
 
