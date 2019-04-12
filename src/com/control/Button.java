@@ -32,6 +32,7 @@ public class Button extends Rectangle{
 		//}else {
 			drawString(g, font, color, text, textX, textY);
 		//}
+
 		
 	}
 	

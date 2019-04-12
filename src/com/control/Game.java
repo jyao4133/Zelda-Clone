@@ -12,8 +12,7 @@ import java.awt.image.*;
 import java.nio.Buffer;
 
 import javax.imageio.ImageIO;
-import javax.swing.JPanel;
-import javax.swing.Timer;
+import javax.swing.*;
 
 import com.control.Button;
 
@@ -24,6 +23,9 @@ public class Game extends Canvas implements Runnable {
     public static int WIDTH = 1040, HEIGHT = 990;
     public int arrowsRemaining = 10;
     public int player1Health = 4;
+    public int timeNum;
+
+    public String timeString;
 
     private volatile boolean running = false;
     private Thread thread;
@@ -39,7 +41,7 @@ public class Game extends Canvas implements Runnable {
     private Pause pause;
     private pauseOptions pauseoptions;
 
-    private Button healthtextbox, scoretextbox;
+    private Button healthtextbox, scoretextbox, timerbox;
     public Window window;
     public Player1 player;
     public Enemy enemy;
@@ -50,6 +52,8 @@ public class Game extends Canvas implements Runnable {
     private Hearts heart2;
     private Hearts heart3;
     private Hearts heart4;
+    private timer Timer;
+
 
     //to create the title screen we will use the states in the code
     public static States state = com.control.States.TitleScreen;
@@ -69,9 +73,11 @@ public class Game extends Canvas implements Runnable {
         heart1 = new Hearts();
         heart3 = new Hearts();
         heart4 = new Hearts();
+
         //handler.addObject(new Enemy(50,50, IDs.enemy));
     	//g.fillRect(50, 50, 200, 50);
-             
+        Timer = new timer();
+        Timer.start();
         healthtextbox = new Button("Health:", 120, 10,new Font("Comic Sans MS", Font.PLAIN, 35), Color.RED);
         scoretextbox = new Button("Timer:", 125, 90, new Font("Comic Sans MS", Font.PLAIN, 35), Color.RED);
 
@@ -157,6 +163,7 @@ public class Game extends Canvas implements Runnable {
     private void tick(){
         if (state == States.Game) {
             handler.tick();
+            Timer.tick();
         }
     }
 
@@ -174,9 +181,10 @@ public class Game extends Canvas implements Runnable {
 
         Graphics g = bufferstrat.getDrawGraphics();
 
-        
-        
+
+
         if (state == States.Game) {
+
         	////////////////////////////////////JFrame colour
         	g.setColor(Color.red);
         	g.fillRect(0, 222, WIDTH, HEIGHT);
@@ -187,10 +195,13 @@ public class Game extends Canvas implements Runnable {
 
         	//g.setColor(Color.blue);
         	//g.fillRect(50, 50, 200, 50);
-        	
+
         	healthtextbox.render(g);
         	scoretextbox.render(g);
+        //	timerbox.render(g);
             handler.render(g);
+            Timer.render(g);
+
 
             for (int i = 0; i < 3; i++) {
                 heart2.drawHeart(g, 295, 50, 30, 30, player1Health, 2);
@@ -198,6 +209,9 @@ public class Game extends Canvas implements Runnable {
                 heart3.drawHeart(g, 190, 50, 30 ,30, player1Health, 3);
                 heart4.drawHeart(g, 260, 50, 30, 30, player1Health, 4);
             }
+
+
+
             g.dispose();
         	bufferstrat.show();
 
@@ -227,6 +241,7 @@ public class Game extends Canvas implements Runnable {
             player1Health = 4;
             arrowsRemaining = 10;
             System.out.println(player1Health);
+
         }else if(state == States.pauseOptions){
             pauseoptions.render(g);
             g.dispose();
