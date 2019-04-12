@@ -34,7 +34,8 @@ public class Game extends Canvas implements Runnable {
     private TitleScreen titlescreen;
     private Options options;
     private Pause pause;
-    
+    private pauseOptions pauseoptions;
+
     private Button healthtextbox, scoretextbox;
     public Window window;
     public Player1 player;
@@ -59,6 +60,7 @@ public class Game extends Canvas implements Runnable {
 		titlescreen = new TitleScreen();
 		options = new Options();
 		pause = new Pause();
+		pauseoptions = new pauseOptions();
 
 		heart2 = new Hearts();
         heart1 = new Hearts();
@@ -67,8 +69,8 @@ public class Game extends Canvas implements Runnable {
         //handler.addObject(new Enemy(50,50, IDs.enemy));
     	//g.fillRect(50, 50, 200, 50);
              
-        healthtextbox = new Button("Health", 150, 40, new Font("Arial", Font.BOLD, 50), Color.RED);
-        scoretextbox = new Button("Score", 140, healthtextbox.y + 180, new Font("Arial", Font.BOLD, 50), Color.YELLOW);
+        healthtextbox = new Button("Health:", 120, 10,new Font("Comic Sans MS", Font.PLAIN, 35), Color.RED);
+        scoretextbox = new Button("Timer:", 125, 90, new Font("Comic Sans MS", Font.PLAIN, 35), Color.RED);
 
         //handler.addObject(new Player1(100, 100, IDs.player));
         this.requestFocusInWindow();
@@ -84,6 +86,7 @@ public class Game extends Canvas implements Runnable {
     
 
     public synchronized void start(){
+
         thread = new Thread(this); //"this" refers to our Game class
         thread.start();
         running = true;
@@ -155,7 +158,7 @@ public class Game extends Canvas implements Runnable {
 		
 		if (bufferstrat == null){
 
-            this.createBufferStrategy(2);
+            this.createBufferStrategy(3);
             return;
 
         }
@@ -181,10 +184,10 @@ public class Game extends Canvas implements Runnable {
             handler.render(g);
 
             for (int i = 0; i < 3; i++) {
-                heart2.drawHeart(g, 480, 50, 50, 50, player1Health, 2);
-                heart1.drawHeart(g, 360, 50, 50, 50, player1Health, 1);
-                heart3.drawHeart(g, 300, 50, 50 ,50, player1Health, 3);
-                heart4.drawHeart(g, 420, 50, 50, 50, player1Health, 4);
+                heart2.drawHeart(g, 295, 50, 30, 30, player1Health, 2);
+                heart1.drawHeart(g, 225, 50, 30, 30, player1Health, 1);
+                heart3.drawHeart(g, 190, 50, 30 ,30, player1Health, 3);
+                heart4.drawHeart(g, 260, 50, 30, 30, player1Health, 4);
             }
             g.dispose();
         	bufferstrat.show();
@@ -214,6 +217,12 @@ public class Game extends Canvas implements Runnable {
             state = States.Game;
             player1Health = 4;
             arrowsRemaining = 10;
+            System.out.println(player1Health);
+        }else if(state == States.pauseOptions){
+            pauseoptions.render(g);
+            g.dispose();
+            bufferstrat.show();
+
         }
 
         

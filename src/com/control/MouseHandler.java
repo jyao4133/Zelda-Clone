@@ -76,13 +76,18 @@ public class MouseHandler extends MouseAdapter  {
 
 			}
 			if (x >= 390 && x <= 630 && y >= 480 && y <= 530) {
-				Game.state = States.Options;
+				Game.state = States.pauseOptions;
 			}
 			if (x >= 390 && x <= 630 && y >= 570 && y <= 620) {
 				Game.state = States.TitleScreen;
 
+			}
+		}else if (Game.state == States.pauseOptions) {
+			if (x >= 390 && x <= 630 && y >= 570 && y <= 620) {
+				Game.state = States.Pause;
 
 			}
+
 			
 		}
 	}

@@ -11,7 +11,7 @@ public class Hearts {
 
         int[] triangleX = {
                 x - 2 * width / 18 + 3,
-                x + width + 2 * width / 18 - 3,
+                x + width + 2 * width / 18 - 1,
                 (x - 2 * width / 18 + x + width + 2 * width / 18) / 2};
         int[] triangleY = {
                 y + height - 2 * height / 3,

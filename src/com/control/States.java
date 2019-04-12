@@ -5,6 +5,7 @@ public enum States {
 	TitleScreen(),
 	Options(),
 	Pause(),
-	Load;
+	Load,
+	pauseOptions;
 
 }

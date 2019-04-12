@@ -32,7 +32,7 @@ public class Pause {
 				new Font("Arial", Font.BOLD, 50), Color.black);
 		pausemenu[1] = new Button ("Help", pauseframe.width, pauseframe.height + yshift + 1 * yspacing,
 				new Font("Arial", Font.BOLD, 50), Color.black);
-		pausemenu[2] = new Button ("Exit", pauseframe.width, pauseframe.height + yshift + 2 * yspacing, 
+		pausemenu[2] = new Button ("Exit", pauseframe.width, pauseframe.height + yshift + 2 * yspacing,
 				new Font("Arial", Font.BOLD, 50), Color.black);
 	}
 		

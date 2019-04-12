@@ -57,7 +57,10 @@ public class Player1 extends Object {
             if (tempObject.getId() == IDs.enemy){
                 if(getBounds().intersects((tempObject.getBounds()))){
                     handler.removeObject(tempObject);
-                    game.player1Health--;
+                    if (game.player1Health > 0){
+                        game.player1Health--;
+
+                    }
                 }
             }
         }
