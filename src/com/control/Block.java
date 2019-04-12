@@ -6,8 +6,8 @@ import java.awt.Rectangle;
 
 public class Block extends Object {
 
-    public Block(int xpos, int ypos, IDs id) {
-        super(xpos, ypos, id);
+    public Block(int xpos, int ypos, IDs id, SpriteSheet ss) {
+        super(xpos, ypos, id, ss);
     }
 
     public void tick() {

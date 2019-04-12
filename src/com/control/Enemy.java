@@ -19,9 +19,9 @@ public class Enemy extends Object{
     boolean hitY = true;
     int maxSpeed = 4;
 
-    public Enemy(int xpos, int ypos, IDs id, Handler handler, int xprev, int yprev, int initial) {
+    public Enemy(int xpos, int ypos, IDs id, Handler handler, int xprev, int yprev, int initial, SpriteSheet ss) {
 
-        super(xpos, ypos, id);
+        super(xpos, ypos, id, ss);
         this.handler = handler;
         this.xprev = xprev;
         this.yprev = yprev;

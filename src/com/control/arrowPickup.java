@@ -4,8 +4,8 @@ import java.awt.*;
 
 public class arrowPickup extends Object{
 
-    public arrowPickup(int xpos, int ypos, IDs id) {
-        super(xpos, ypos, id);
+    public arrowPickup(int xpos, int ypos, IDs id, SpriteSheet ss) {
+        super(xpos, ypos, id, ss);
     }
 
     public Rectangle getBounds() {

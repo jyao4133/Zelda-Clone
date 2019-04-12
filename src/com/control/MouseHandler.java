@@ -8,12 +8,14 @@ public class MouseHandler extends MouseAdapter  {
 
 	private Handler handler;
 	private Game game;
-
+	private SpriteSheet ss;
+	
 	private static int x = -1, y = -1;
 	
-     public MouseHandler (Handler handler, Game game){
+     public MouseHandler (Handler handler, Game game, SpriteSheet ss){
          this.handler = handler;
          this.game = game;
+         this.ss = ss;
 
      }
      
@@ -65,7 +67,7 @@ public class MouseHandler extends MouseAdapter  {
                  Object tempObject= handler.object.get(i);
                  if(tempObject.getId() == IDs.player){
                  	if (game.arrowsRemaining > 0) {
-						handler.addObject(new Arrow(tempObject.getXpos() + 12, tempObject.getYpos() + 22, IDs.Arrow, handler, x, y));
+						handler.addObject(new Arrow(tempObject.getXpos() + 12, tempObject.getYpos() + 22, IDs.Arrow, handler, x, y, ss));
 						game.arrowsRemaining--;
 					}
                  }
