@@ -62,7 +62,7 @@ public class MouseHandler extends MouseAdapter  {
 			if (x>= 800 && x <= 950 && y >= 50 && y <= 130) {
 				Game.state = States.TitleScreen;
 			}
-		}else if (Game.state == States.Game) {
+		}else if (Game.state == States.Game || Game.state == States.level2) {
 			 for (int i = 0; i < handler.object.size(); i++){
                  Object tempObject= handler.object.get(i);
                  if(tempObject.getId() == IDs.player){
@@ -70,6 +70,7 @@ public class MouseHandler extends MouseAdapter  {
 						handler.addObject(new Arrow(tempObject.getXpos() + 12, tempObject.getYpos() + 22, IDs.Arrow, handler, x, y, ss));
 						game.arrowsRemaining--;
 					}
+
                  }
 			 }
 		}else if (Game.state == States.Pause) {			

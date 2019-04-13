@@ -27,19 +27,23 @@ public class Game extends Canvas implements Runnable {
 
     public String timeString;
 
+    public boolean removeBool = false;
+    public boolean firstLoad = true;
+
     private volatile boolean running = false;
     private Thread thread;
 
     private Handler handler;
-    private BufferedImage background;
-    
-    private SpriteSheet ss;
+    public BufferedImage background, background2;
+
+    public SpriteSheet ss;
     private BufferedImage spritesheet;
     
     private TitleScreen titlescreen;
     private Options options;
     private Pause pause;
     private pauseOptions pauseoptions;
+    private level2 Level2;
 
     private Button healthtextbox, scoretextbox, timerbox;
     public Window window;
@@ -54,6 +58,7 @@ public class Game extends Canvas implements Runnable {
     private Hearts heart4;
     private timer Timer;
 
+    ImageRender loader = new ImageRender();
 
     //to create the title screen we will use the states in the code
     public static States state = com.control.States.TitleScreen;
@@ -68,6 +73,7 @@ public class Game extends Canvas implements Runnable {
 		options = new Options();
 		pause = new Pause();
 		pauseoptions = new pauseOptions();
+		Level2 = new level2();
 
 		heart2 = new Hearts();
         heart1 = new Hearts();
@@ -85,9 +91,8 @@ public class Game extends Canvas implements Runnable {
         this.requestFocusInWindow();
 		this.addKeyListener(new KeyHandler(handler));
 		//this.addMouseListener(new MouseInputGame(handler));
-		ImageRender loader = new ImageRender();
         background = loader.loadImage("test_level.png");
-        
+        background2 = loader.loadImage("test_level_2.png");
         spritesheet = loader.loadImage("littlegirl.png");
         ss = new SpriteSheet (spritesheet);
 		
@@ -95,7 +100,9 @@ public class Game extends Canvas implements Runnable {
 
         
         loadLevel(background);
-        
+        loadLevel(background2);
+
+
         
     }
     
@@ -161,7 +168,7 @@ public class Game extends Canvas implements Runnable {
 
    
     private void tick(){
-        if (state == States.Game) {
+        if (state == States.Game | state == States.level2) {
             handler.tick();
             Timer.tick();
         }
@@ -187,11 +194,11 @@ public class Game extends Canvas implements Runnable {
 
         	////////////////////////////////////JFrame colour
         	g.setColor(Color.red);
-        	g.fillRect(0, 222, WIDTH, HEIGHT);
+        	g.fillRect(0, 150, WIDTH, HEIGHT);
 
         	//Health Bar area
         	g.setColor(Color.black);
-        	g.fillRect(0, 0, WIDTH, 230);
+        	g.fillRect(0, 0, WIDTH, 170);
 
         	//g.setColor(Color.blue);
         	//g.fillRect(50, 50, 200, 50);
@@ -202,15 +209,12 @@ public class Game extends Canvas implements Runnable {
             handler.render(g);
             Timer.render(g);
 
-
             for (int i = 0; i < 3; i++) {
                 heart2.drawHeart(g, 295, 50, 30, 30, player1Health, 2);
                 heart1.drawHeart(g, 225, 50, 30, 30, player1Health, 1);
                 heart3.drawHeart(g, 190, 50, 30 ,30, player1Health, 3);
                 heart4.drawHeart(g, 260, 50, 30, 30, player1Health, 4);
             }
-
-
 
             g.dispose();
         	bufferstrat.show();
@@ -236,30 +240,69 @@ public class Game extends Canvas implements Runnable {
             bufferstrat.show();
 
         }else if(state == States.Load){
+            removeBool = true;
+            firstLoad = true;
             loadLevel(background);
             state = States.Game;
             player1Health = 4;
             arrowsRemaining = 10;
-            System.out.println(player1Health);
+            Timer.currentSecond = 0;
+            Timer.currentMinute = 0;
+
 
         }else if(state == States.pauseOptions){
             pauseoptions.render(g);
             g.dispose();
             bufferstrat.show();
 
+        } else if (state == States.level2) {
+
+
+            Level2.render(g);
+            handler.render(g);
+            if (firstLoad == true){
+                loadLevel(background2);
+
+                this.addKeyListener(new KeyHandler(handler));
+
+                firstLoad = false;
+            }
+
+
+            healthtextbox.render(g);
+            scoretextbox.render(g);
+            Timer.render(g);
+
+
+
+            for (int i = 0; i < 3; i++) {
+                heart2.drawHeart(g, 295, 50, 30, 30, player1Health, 2);
+                heart1.drawHeart(g, 225, 50, 30, 30, player1Health, 1);
+                heart3.drawHeart(g, 190, 50, 30 ,30, player1Health, 3);
+                heart4.drawHeart(g, 260, 50, 30, 30, player1Health, 4);
+            }
+
+
+
+            g.dispose();
+            bufferstrat.show();
+
+
         }
 
-        
+
         
         g.dispose();
     	bufferstrat.show();
 
     }
 
-    private void loadLevel(BufferedImage image){
+    public void loadLevel(BufferedImage image){
         int w = image.getWidth();
         int h = image.getHeight();
-        handler.removeall();
+
+            handler.removeall();
+
         for (int xx = 0; xx < w; xx++){
             for(int yy = 0; yy < h; yy++){
                 int pixel = image.getRGB(xx, yy);
@@ -267,7 +310,7 @@ public class Game extends Canvas implements Runnable {
                 int green = (pixel >> 8) & 0xff;
                 int blue = (pixel) & 0xff;
 
-                if (red == 255){
+                if (red == 255 && blue == 0 && green == 216){
                     handler.addObject(new Block(xx*32, yy*32, IDs.Block, ss));
                 }
 
@@ -288,6 +331,14 @@ public class Game extends Canvas implements Runnable {
                     handler.addObject(new arrowPickup(xx*32, yy*32, IDs.Pickup, ss));
                 }
 
+                if (green == 255 && blue == 255 && red == 255){
+                    handler.addObject(new Stairs(xx*32, yy*32, IDs.Stairs, ss));
+                }
+
+                if (green == 0 && blue == 0 && red == 200){
+                    handler.addObject(new backStairs(xx*32, yy*32, IDs.backStairs, ss));
+                }
+
 
             }
         }
@@ -306,9 +357,8 @@ public class Game extends Canvas implements Runnable {
     }
 
     public static void main(String args[]){
-        if (state == States.TitleScreen) {
-            game = new Game();
-        }
+                game = new Game();
+
     }
 
     public States getGameState() {

@@ -152,6 +152,24 @@ public class Player1 extends Object {
                     }
                 }
             }
+
+            if (tempObject.getId() == IDs.Stairs){
+            	if(getBounds().intersects((tempObject.getBounds()))){
+					game.loadLevel(game.background2);
+
+					Game.state = States.level2;
+				}
+			}
+
+            if (tempObject.getId() == IDs.backStairs){
+				if(getBounds().intersects((tempObject.getBounds()))){
+					Game.state = States.Game;
+
+					game.loadLevel(game.background);
+
+				}
+			}
+
         }
         
         if (game.player1Health < 0) {

@@ -20,35 +20,34 @@ public class KeyHandler extends KeyAdapter {
 	public void keyPressed (KeyEvent e) {
 		int key = e.getKeyCode();
 
-		if (Game.state == States.Game) {
-		for (int i = 0; i < handler.object.size(); i++) {
-			Object tempObject = handler.object.get(i);
-			if (tempObject.getId() == IDs.player) {
-				if (key == KeyEvent.VK_W) {
-					tempObject.setYspeed(-5);
-					up = true;
-				}
-				if (key == KeyEvent.VK_A) {
-					tempObject.setXspeed(-5);
-					left = true;
-				}
-				if (key == KeyEvent.VK_S) {
-					tempObject.setYspeed(5);
-					down = true;
-				}
-				if (key == KeyEvent.VK_D) {
-					tempObject.setXspeed(5);
-					right = true;
-				}
-				if (key == KeyEvent.VK_P) {
-					Game.state = States.Pause;
-					System.out.println("Game is Paused");
+		if (Game.state == States.Game || Game.state == States.level2) {
+			for (int i = 0; i < handler.object.size(); i++) {
+				Object tempObject = handler.object.get(i);
+				if (tempObject.getId() == IDs.player) {
+					if (key == KeyEvent.VK_W) {
+						tempObject.setYspeed(-5);
+						up = true;
+					}
+					if (key == KeyEvent.VK_A) {
+						tempObject.setXspeed(-5);
+						left = true;
+					}
+					if (key == KeyEvent.VK_S) {
+						tempObject.setYspeed(5);
+						down = true;
+					}
+					if (key == KeyEvent.VK_D) {
+						tempObject.setXspeed(5);
+						right = true;
+					}
+					if (key == KeyEvent.VK_P) {
+						Game.state = States.Pause;
+						System.out.println("Game is Paused");
 
+					}
 				}
 			}
 		}
-		}
-
 	}
 
 
@@ -101,6 +100,53 @@ public class KeyHandler extends KeyAdapter {
 
 			}
 		}
+		}
+		else if (Game.state == States.level2){
+			for (int i = 0; i < handler.object.size(); i++) {
+				Object tempObject = handler.object.get(i);
+				if (tempObject.getId() == IDs.player) {
+
+					if (key == KeyEvent.VK_W){
+						up = false;
+						if (down == true){
+							tempObject.setYspeed(5);
+						}
+						else {
+							tempObject.setYspeed(0);
+						}
+					}
+					if (key == KeyEvent.VK_A) {
+						left = false;
+						if (right == true){
+							tempObject.setXspeed(5);
+						}
+						else{
+							tempObject.setXspeed(0);
+						}
+					}
+					if (key == KeyEvent.VK_S) {
+
+						down = false;
+						if (up == true){
+							tempObject.setYspeed(-5);
+						}
+						else{
+							tempObject.setYspeed(0);
+						}
+					}
+					if (key == KeyEvent.VK_D) {
+						right = false;
+						if (left == true){
+							tempObject.setXspeed(-5);
+						}
+						else{
+							tempObject.setXspeed(0);
+						}
+					}
+
+
+				}
+			}
 		}
 
 	}
