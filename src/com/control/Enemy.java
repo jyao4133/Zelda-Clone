@@ -13,7 +13,10 @@ public class Enemy extends Object{
 
     private Handler handler;
     Random r = new Random();
+    Random p = new Random();
+
     int chosen = 0;
+    int rngGen = 0;
     int hp = 100;
     boolean hitX = true;
     boolean hitY = true;
@@ -66,7 +69,16 @@ public class Enemy extends Object{
                 if(getBounds().intersects((tempObject.getBounds()))){
                     handler.removeObject(tempObject);
                     handler.removeObject(this);
+                    rngGen = p.nextInt(10);
 
+                    if (rngGen < 3) {
+                        handler.addObject(new heartPickup(xpos, ypos, IDs.heartPickup, ss));
+                    }
+
+                    else if (rngGen > 7){
+                        handler.addObject(new arrowPickup(xpos, ypos, IDs.Pickup, ss));
+
+                    }
                 }
             }
         }

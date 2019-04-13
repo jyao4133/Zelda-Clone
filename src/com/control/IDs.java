@@ -8,6 +8,7 @@ public enum IDs {
     Background,
     Arrow,
     Pickup,
+    heartPickup,
     Stairs,
-    backStairs;
+    backStairs,
 }

@@ -143,6 +143,17 @@ public class Player1 extends Object {
                 }
             }
 
+			if (tempObject.getId() == IDs.heartPickup){
+				if (getBounds().intersects(tempObject.getBounds())) {
+
+					if(game.player1Health < 4) {
+						handler.removeObject(tempObject);
+						game.player1Health ++;
+					}
+				}
+			}
+
+
             if (tempObject.getId() == IDs.enemy){
                 if(getBounds().intersects((tempObject.getBounds()))){
                     handler.removeObject(tempObject);

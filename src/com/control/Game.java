@@ -209,7 +209,7 @@ public class Game extends Canvas implements Runnable {
             handler.render(g);
             Timer.render(g);
 
-            for (int i = 0; i < 3; i++) {
+            for (int i = 0; i < 2; i++) {
                 heart2.drawHeart(g, 295, 50, 30, 30, player1Health, 2);
                 heart1.drawHeart(g, 225, 50, 30, 30, player1Health, 1);
                 heart3.drawHeart(g, 190, 50, 30 ,30, player1Health, 3);
