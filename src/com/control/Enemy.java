@@ -48,8 +48,8 @@ public class Enemy extends Object{
         bird[7] = ss.grabImage(4, 6, 75,75);
 
     	for (int i = 0; i < bird.length; i++) {
-			animation = new SpriteAnimation(1, bird[i]);
-	        animation.runAnimation();
+			//animation = new SpriteAnimation(1, bird[i]);
+	      //  animation.runAnimation();
 		}
     }
 
@@ -143,14 +143,14 @@ public class Enemy extends Object{
     			g.drawImage(bird[i], xpos, ypos, null); //down 0 to 3
     		}
     	}else {
-    		animation.drawAnimation(g, xpos, ypos, 2);
+    		//animation.drawAnimation(g, xpos, ypos, 2);
     	}
     	if (Xspeed >= 0) {//right
     		for (int i = 4; i < 8; i++) {
         		g.drawImage(bird[i], xpos, ypos, null); //right 4 to 7
     		}
     	}else {
-    		animation.drawAnimation(g, xpos, ypos, 2);
+    		//animation.drawAnimation(g, xpos, ypos, 2);
     	}
     	
 
