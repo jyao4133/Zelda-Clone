@@ -20,7 +20,7 @@ public class Game extends Canvas implements Runnable {
 
     private static final long serialVersionUID = 125890125890L;
 
-    public static int WIDTH = 1040, HEIGHT = 990;
+    public static int WIDTH = 1024, HEIGHT = 990;
     public int arrowsRemaining = 10;
     public int player1Health = 4;
     public int enemiesStage1 = 5;
@@ -36,7 +36,7 @@ public class Game extends Canvas implements Runnable {
     private Thread thread;
 
     private Handler handler;
-    public BufferedImage background, background2;
+    public BufferedImage background, background2, floor;
 
     public SpriteSheet ss;
     private BufferedImage spritesheet;
@@ -97,7 +97,8 @@ public class Game extends Canvas implements Runnable {
 		//this.addMouseListener(new MouseInputGame(handler));
         background = loader.loadImage("test_level.png");
         background2 = loader.loadImage("test_level_2.png");
-        spritesheet = loader.loadImage("littlegirl.png");
+        floor = loader.loadImage("floor.png");
+        spritesheet = loader.loadImage("spritesheet.png");
         ss = new SpriteSheet (spritesheet);
 		
         this.addMouseListener(new MouseHandler(handler, this, ss));
@@ -197,9 +198,11 @@ public class Game extends Canvas implements Runnable {
         if (state == States.Game) {
 
         	////////////////////////////////////JFrame colour
-        	g.setColor(Color.red);
-        	g.fillRect(0, 150, WIDTH, HEIGHT);
+        	//g.setColor(Color.red);
+        	//g.fillRect(0, 150, WIDTH, HEIGHT);
 
+        	g.drawImage(floor, 0, 170, null);
+        	
         	//Health Bar area
         	g.setColor(Color.black);
         	g.fillRect(0, 0, WIDTH, 170);

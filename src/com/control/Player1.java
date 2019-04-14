@@ -9,7 +9,7 @@ public class Player1 extends Object {
 //player controller class following MVC
 	Handler handler;
     Game game;
-    SpriteAnimation animation;
+    private SpriteAnimation animation;
     
     private BufferedImage[] player = new BufferedImage [16];
     
@@ -22,39 +22,42 @@ public class Player1 extends Object {
 		this.handler = handler;
 		this.game = game;
 		
+		animation = new SpriteAnimation(500, player);
+		
 		//down
-		player[0] = ss.grabImage(1, 3, 48,48);
-		player[1] = ss.grabImage(2, 3, 48,48);
-		player[2] = ss.grabImage(3, 3, 48,48);
-		player[3] = ss.grabImage(4, 3, 48,48);
+		player[0] = ss.grabImage(1, 3, 75,75);
+		player[1] = ss.grabImage(2, 3, 75,75);
+		player[2] = ss.grabImage(3, 3, 75,75);
+		player[3] = ss.grabImage(4, 3, 75,75);
 		
 		//right
-		player[4] = ss.grabImage(1, 1, 48,48);
-		player[5] = ss.grabImage(2, 1, 48,48);
-		player[6] = ss.grabImage(3, 1, 48,48);
-		player[7] = ss.grabImage(4, 1, 48,48);
+		player[4] = ss.grabImage(1, 1, 75,75);
+		player[5] = ss.grabImage(2, 1, 75,75);
+		player[6] = ss.grabImage(3, 1, 75,75);
+		player[7] = ss.grabImage(4, 1, 75,75);
 		//left
 		
-		player[8] = ss.grabImage(1, 2, 48,48);
-		player[9] = ss.grabImage(2, 2, 48,48);
-		player[10] = ss.grabImage(3, 2, 48,48);
-		player[11] = ss.grabImage(4, 2, 48,48);
+		player[8] = ss.grabImage(1, 2, 75,75);
+		player[9] = ss.grabImage(2, 2, 75,75);
+		player[10] = ss.grabImage(3, 2, 75,75);
+		player[11] = ss.grabImage(4, 2, 75,75);
 		//up
-		player[12] = ss.grabImage(1, 4, 48,48);
-		player[13] = ss.grabImage(2, 4, 48,48);
-		player[14] = ss.grabImage(3, 4, 48,48);
-		player[15] = ss.grabImage(4, 4, 48,48);
+		player[12] = ss.grabImage(1, 4, 75,75);
+		player[13] = ss.grabImage(2, 4, 75,75);
+		player[14] = ss.grabImage(3, 4, 75,75);
+		player[15] = ss.grabImage(4, 4, 75,75);
 		
-
+		
 		
 
 		
 		for (int i = 0; i < player.length; i++) {
-			animation = new SpriteAnimation(3, player[i]);
+			animation = new SpriteAnimation(1, player[i]);
 	        animation.runAnimation();
 		}
 		
-
+	
+		
     }
 
     public void tick() {
@@ -64,23 +67,12 @@ public class Player1 extends Object {
     }
 
     public void render(Graphics g) {
-       // g.setColor(Color.blue);
-       // g.fillRect(xpos, ypos, 32, 32);
+   
     	
-    	//g.drawImage(girl, xpos, ypos, null);    	
-
-    	
-    	
-    	//Graphics up = (Graphics) g;
-    	//Graphics down = (Graphics) g;
-    	//Graphics left = (Graphics) g;
-    	//Graphics right = (Graphics) g;
-    	
-      	    	
     	if(Xspeed == 0 && Yspeed == 0) {
     		g.drawImage(player[0], xpos, ypos, null);
 		}
-    	if (Xspeed < 0) {
+    	if (Xspeed < 0 ) {//left
     		for (int i = 8; i < 12; i++) {
         		g.drawImage(player[i], xpos, ypos, null); //left 8 to 11
     		}
@@ -88,7 +80,7 @@ public class Player1 extends Object {
     		animation.drawAnimation(g, xpos, ypos, 2);
 
     	}
-    	if (Xspeed > 0) {
+    	if (Xspeed > 0) {//right
     		for (int i = 4; i < 8; i++) {
         		g.drawImage(player[i], xpos, ypos, null); //right 4 to 7
     		}
@@ -96,23 +88,20 @@ public class Player1 extends Object {
     		animation.drawAnimation(g, xpos, ypos, 2);
     	}
     	
-    	if (Yspeed < 0) {
+    	if (Yspeed < 0) {//up
     		for (int i = 12; i < 16; i++) {
         		g.drawImage(player[i], xpos, ypos, null); //up 12 to 15
     		}
     	}else {
     		animation.drawAnimation(g, xpos, ypos, 2);
     	}
-    	if (Yspeed > 0) {
+    	if (Yspeed > 0) {//down
     		for (int i = 0; i < 4; i++) {
     			g.drawImage(player[i], xpos, ypos, null); //down 0 to 3
     		}
     	}else {
     		animation.drawAnimation(g, xpos, ypos, 2);
-    	}
-    	
-    	  	 	 	
-    	  	
+    	}    	 
     	  	
     }
 
@@ -164,7 +153,6 @@ public class Player1 extends Object {
 
             if (tempObject.getId() == IDs.Stairs){
             	if(getBounds().intersects((tempObject.getBounds()))){
-
 					System.out.println("This is game state: " + Game.state);
 					Game.state = States.level2;
 					game.loadLevel(game.background2);
@@ -193,7 +181,8 @@ public class Player1 extends Object {
 
 
 	public Rectangle getBounds() {
-		return new Rectangle (xpos,ypos,32,32);
+		return new Rectangle (xpos,ypos,75,75);
 	}
+
 
 }
