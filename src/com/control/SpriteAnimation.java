@@ -6,10 +6,6 @@ import java.awt.image.BufferedImage;
 
 public class SpriteAnimation {
 	
-	
-	
-	
-
 	private int speed;
 	private int frames;
 	private int index = 0;
@@ -66,6 +62,8 @@ public class SpriteAnimation {
 	public void setSpeed(int speed){
 		this.speed = speed;
 	}
+	
+	
 	
 	
 }
