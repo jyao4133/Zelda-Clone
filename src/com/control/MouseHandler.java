@@ -24,8 +24,7 @@ public class MouseHandler extends MouseAdapter  {
 	}
 	
 	public void mouseEntered(MouseEvent e) {
-		x = e.getX();
-		y = e.getY();
+
 	}
 
 	public void mouseExited(MouseEvent e) {
@@ -81,7 +80,6 @@ public class MouseHandler extends MouseAdapter  {
 		}else if (Game.state == States.Pause) {			
 			if (x >= 390 && x <= 630 && y >= 410 && y <= 460) {
 				Game.state = States.Game;
-
 			}
 			if (x >= 390 && x <= 630 && y >= 480 && y <= 530) {
 				Game.state = States.pauseOptions;

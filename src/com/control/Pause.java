@@ -14,8 +14,6 @@ import javax.imageio.ImageIO;
 public class Pause {
 	
 	public static Rectangle pauseframe = new Rectangle(Game.WIDTH/4, Game.HEIGHT/4 , Game.WIDTH/2, Game.HEIGHT/2);
-	//private BufferedImage image;
-
 	
 	private int currentSelection;
 	private final Button[] pausemenu;
@@ -24,8 +22,6 @@ public class Pause {
 	
 	
 	
-	//public Button(String text, int textX, int textY,Font font,  Font selectedFont, Color color, Color selectedColor)
-	//	public Button(String text, int textX, int textY,Font font,  Color color) 
 	public Pause() {
 		pausemenu = new Button[3];
 		pausemenu[0] = new Button ("Resume", pauseframe.width, pauseframe.height + yshift + 0 * yspacing,
@@ -39,21 +35,6 @@ public class Pause {
 	
 	public void render (Graphics g) {
 		
-		/////////////////////////////////////////////////////////////////////////////
-	/*	try{
-			image = ImageIO.read(getClass().getResourceAsStream("title_screen.png")); 
-
-		} catch(IOException e){
-			e.printStackTrace();
-		}
-		g.drawImage(image,0,0,null);*/
-
-	////////////////////////////////////////////////////////////////////////////
-		
-		
-		
-		
-	
 		g.setColor(Color.WHITE);
     	g.fillRect(Game.WIDTH/4, Game.HEIGHT/4 , Game.WIDTH/2, Game.HEIGHT/2);
     	    	    	Button.drawString(g, new Font("Arial", Font.BOLD, 80), Color.orange, "Pause", pauseframe.width, pauseframe.height);

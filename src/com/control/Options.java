@@ -3,26 +3,38 @@ package com.control;
 import java.awt.*;
 
 
-public class Options extends Canvas  {
+public class Options  {
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	public Rectangle back = new Rectangle(800,50,150,80);
-	
+	public Rectangle optionsframe = new Rectangle(0,0,Game.WIDTH,Game.HEIGHT);
+	private int currentSelection;
 
+	private final Button[] optionmenu;
+	private int yshift = 100;
+	private int yspacing = 300;
+	
+	
+	public Options() {
+		optionmenu = new Button [4];
+		Font font = new Font("Arial", Font.BOLD, 60);
+		optionmenu[0] = new Button ("Sound", optionsframe.width / 4, optionsframe.height / 4 + yshift + 0 * yspacing, font, Color.black );
+		optionmenu[1] = new Button ("Controls", optionsframe.width / 4, optionsframe.height / 4+ yshift + 1 * yspacing, font, Color.black );
+		optionmenu[2] = new Button ("Credits", optionsframe.width / 4, optionsframe.height / 4 + yshift + 2 * yspacing, font, Color.black );
+		optionmenu[3] = new Button ("Back", optionsframe.width / 4, optionsframe.height / 4 + yshift + 3 * yspacing, font, Color.black );
+	}
+	
 
 	public void render (Graphics g)  {
 
-		Graphics2D g2d = (Graphics2D) g;
-		Font font1 = new Font("Comic Sans MS", Font.PLAIN, 50);
-		g.setFont(font1);
-		g.setColor(Color.BLACK);
-		g.drawString("back", back.x+20, back.y+55);
-		g2d.draw(back);
-		//You can delete the above code. I was just using it to test the error.
+	
 		
-		
+		for (int i = 0; i < optionmenu.length; i++) {
+    		if (i == currentSelection) {
+    			optionmenu[i].setSelected(true);
+    		}
+    		else {
+    			optionmenu[i].setSelected(false);
+    		}
+    		optionmenu[i].render(g);
+    	}
 	}
 }
