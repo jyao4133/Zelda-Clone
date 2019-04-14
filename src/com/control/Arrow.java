@@ -19,6 +19,9 @@ public class Arrow extends Object {
 
         Xspeed = (int) ((x - xpos)*speed/distance);
         Yspeed = (int) ((y - ypos)*speed/distance);
+
+        System.out.println(x);
+        System.out.println(y);
     }
 
     public Rectangle getBounds() {
@@ -43,6 +46,7 @@ public class Arrow extends Object {
     }
 
     public void render(Graphics g) {
+
         g.setColor(Color.yellow);
         g.fillOval(xpos,ypos,8,8);
     }

@@ -21,7 +21,7 @@ public class Enemy extends Object{
     int hp = 100;
     boolean hitX = true;
     boolean hitY = true;
-    int maxSpeed = 4;
+    int maxSpeed = 0;
 
     public Enemy(int xpos, int ypos, IDs id, Handler handler, Game game, int xprev, int yprev, int initial, SpriteSheet ss) {
 
@@ -67,9 +67,30 @@ public class Enemy extends Object{
                 }
             }
 
-            if (tempObject.getId() == IDs.Arrow){
+            if (tempObject.getId() == IDs.Arrow ){
                 if(getBounds().intersects((tempObject.getBounds()))){
                     handler.removeObject(tempObject);
+                    handler.removeObject(this);
+                    rngGen = p.nextInt(10);
+
+                    if (rngGen < 2) {
+                        handler.addObject(new heartPickup(xpos, ypos, IDs.heartPickup, ss));
+                    }
+
+                    else if (rngGen > 8){
+                        handler.addObject(new arrowPickup(xpos, ypos, IDs.Pickup, ss));
+
+                    }
+
+                    if (Game.state == States.Game || Game.state == States.Load){
+                        game.enemiesStage1--;
+                    }
+                }
+            }
+
+            if (tempObject.getId() == IDs.sword){
+                if(getBounds().intersects((tempObject.getBounds()))){
+
                     handler.removeObject(this);
                     rngGen = p.nextInt(10);
 

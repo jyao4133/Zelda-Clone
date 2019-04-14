@@ -66,11 +66,16 @@ public class MouseHandler extends MouseAdapter  {
 			 for (int i = 0; i < handler.object.size(); i++){
                  Object tempObject= handler.object.get(i);
                  if(tempObject.getId() == IDs.player){
-                 	if (game.arrowsRemaining > 0) {
-						handler.addObject(new Arrow(tempObject.getXpos() + 12, tempObject.getYpos() + 22, IDs.Arrow, handler, x, y, ss));
-						game.arrowsRemaining--;
+					if (e.getButton() == MouseEvent.BUTTON3) {
+						if (game.arrowsRemaining > 0) {
+							handler.addObject(new Arrow(tempObject.getXpos() + 24, tempObject.getYpos() + 24, IDs.Arrow, handler, x, y, ss));
+							game.arrowsRemaining--;
+						}
 					}
-
+//					if (e.getButton() == MouseEvent.BUTTON1){
+//						handler.addObject(new sword (tempObject.getXpos()+35, tempObject.getYpos() + 24, IDs.sword, handler, x,y,ss));
+//
+//					}
                  }
 			 }
 		}else if (Game.state == States.Pause) {			

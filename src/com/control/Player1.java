@@ -13,7 +13,9 @@ public class Player1 extends Object {
     
     private BufferedImage[] player = new BufferedImage [16];
     
-    
+    int tx;
+    int ty;
+
     
     public Player1(int xpos, int ypos, IDs id, Handler handler, Game game, SpriteSheet ss) {
         super(xpos, ypos, id, ss);
@@ -123,12 +125,11 @@ public class Player1 extends Object {
             Object tempObject = handler.object.get(i);
             if (tempObject.getId() == IDs.Block){
                 if(getBounds().intersects(tempObject.getBounds())){
-                    xpos += Xspeed * -1;
-                    ypos += Yspeed * -1;
+						xpos += Xspeed * -1;
 
-                  //  System.out.println("this is temp object: " + tempObject.xpos);
-                  //  System.out.println("this is player: " + xpos);
-                }
+
+						ypos += Yspeed * -1;
+				}
             }
 
             //Pickup intersection
@@ -193,7 +194,7 @@ public class Player1 extends Object {
 
 
 	public Rectangle getBounds() {
-		return new Rectangle (xpos,ypos,32,32);
+		return new Rectangle (xpos,ypos,48,48);
 	}
 
 }
