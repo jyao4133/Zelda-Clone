@@ -12,6 +12,7 @@ public class Enemy extends Object{
      */
 
     private Handler handler;
+    Game game;
     Random r = new Random();
     Random p = new Random();
 
@@ -22,12 +23,13 @@ public class Enemy extends Object{
     boolean hitY = true;
     int maxSpeed = 4;
 
-    public Enemy(int xpos, int ypos, IDs id, Handler handler, int xprev, int yprev, int initial, SpriteSheet ss) {
+    public Enemy(int xpos, int ypos, IDs id, Handler handler, Game game, int xprev, int yprev, int initial, SpriteSheet ss) {
 
         super(xpos, ypos, id, ss);
         this.handler = handler;
         this.xprev = xprev;
         this.yprev = yprev;
+        this.game = game;
         this.initial = initial;
     }
 
@@ -71,13 +73,17 @@ public class Enemy extends Object{
                     handler.removeObject(this);
                     rngGen = p.nextInt(10);
 
-                    if (rngGen < 3) {
+                    if (rngGen < 2) {
                         handler.addObject(new heartPickup(xpos, ypos, IDs.heartPickup, ss));
                     }
 
-                    else if (rngGen > 7){
+                    else if (rngGen > 8){
                         handler.addObject(new arrowPickup(xpos, ypos, IDs.Pickup, ss));
 
+                    }
+
+                    if (Game.state == States.Game || Game.state == States.Load){
+                        game.enemiesStage1--;
                     }
                 }
             }

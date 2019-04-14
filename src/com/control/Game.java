@@ -23,6 +23,8 @@ public class Game extends Canvas implements Runnable {
     public static int WIDTH = 1040, HEIGHT = 990;
     public int arrowsRemaining = 10;
     public int player1Health = 4;
+    public int enemiesStage1 = 5;
+    public int enemiesStage2 = 5;
     public int timeNum;
 
     public String timeString;
@@ -44,6 +46,8 @@ public class Game extends Canvas implements Runnable {
     private Pause pause;
     private pauseOptions pauseoptions;
     private level2 Level2;
+
+    private Object object;
 
     private Button healthtextbox, scoretextbox, timerbox;
     public Window window;
@@ -207,7 +211,7 @@ public class Game extends Canvas implements Runnable {
         	scoretextbox.render(g);
         //	timerbox.render(g);
             handler.render(g);
-            Timer.render(g);
+            Timer.render(g, game);
 
             for (int i = 0; i < 2; i++) {
                 heart2.drawHeart(g, 295, 50, 30, 30, player1Health, 2);
@@ -240,14 +244,16 @@ public class Game extends Canvas implements Runnable {
             bufferstrat.show();
 
         }else if(state == States.Load){
-            removeBool = true;
-            firstLoad = true;
-            loadLevel(background);
-            state = States.Game;
             player1Health = 4;
             arrowsRemaining = 10;
             Timer.currentSecond = 0;
             Timer.currentMinute = 0;
+            enemiesStage1 = 5;
+            removeBool = true;
+            firstLoad = true;
+            loadLevel(background);
+            state = States.Game;
+
 
 
         }else if(state == States.pauseOptions){
@@ -268,10 +274,9 @@ public class Game extends Canvas implements Runnable {
                 firstLoad = false;
             }
 
-
             healthtextbox.render(g);
             scoretextbox.render(g);
-            Timer.render(g);
+            Timer.render(g, game);
 
 
 
@@ -298,6 +303,8 @@ public class Game extends Canvas implements Runnable {
     }
 
     public void loadLevel(BufferedImage image){
+
+
         int w = image.getWidth();
         int h = image.getHeight();
 
@@ -324,7 +331,11 @@ public class Game extends Canvas implements Runnable {
                 }
 
                 if (green == 255 && blue == 0 && red == 0){
-                    handler.addObject(new Enemy(xx*32, yy*32, IDs.enemy, handler, xx*32, yy*32, 1, ss));
+            //        handler.addObject(new Enemy(xx*32, yy*32, IDs.enemy, handler, xx*32, yy*32, 1, ss));
+
+                    System.out.println("This is the Y pos: "+ yy*32);
+                    System.out.println("This is the X pos: "+ xx*32);
+
                 }
 
                 if (green == 255 && blue == 255 && red == 0){
@@ -342,7 +353,34 @@ public class Game extends Canvas implements Runnable {
 
             }
         }
-    }
+
+
+        if (Game.state == States.level2){
+
+
+
+            handler.addObject(new Enemy(500, 300, IDs.enemy,  handler, this, 500, 300, 1, ss));
+
+        }
+
+        if (Game.state == States.Load || Game.state == States.Game){
+                if (enemiesStage1 > 0) {
+                    handler.addObject(new Enemy(96, 800, IDs.enemy, handler, this, 500, 300, 1, ss));
+                }
+                if (enemiesStage1 > 1) {
+                    handler.addObject(new Enemy(160, 288, IDs.enemy, handler, this, 500, 300, 1, ss));
+                }
+                if (enemiesStage1 > 2) {
+                    handler.addObject(new Enemy(256, 640, IDs.enemy, handler, this, 500, 300, 1, ss));
+                }
+                if (enemiesStage1 > 3) {
+                    handler.addObject(new Enemy(832, 876, IDs.enemy, handler, this, 500, 300, 1, ss));
+                }
+                if (enemiesStage1 > 4) {
+                    handler.addObject(new Enemy(896, 544, IDs.enemy, handler, this, 500, 300, 1, ss));
+                }
+            }
+        }
 
     public static int edge(int var, int min, int max){
         if(var >= max){

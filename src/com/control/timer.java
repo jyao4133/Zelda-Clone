@@ -10,13 +10,12 @@ import java.util.Date;
 public class timer {
     Game game;
 
-    public final JLabel time = new JLabel();
-    private final SimpleDateFormat sdf  = new SimpleDateFormat("hh:mm");
     public int currentSecond = 0;
     public int currentMinute = 0;
     private Calendar calendar;
     public String secondsString;
     public String minutesString;
+    public String ammoString;
 
     public void start(){
         reset();
@@ -30,10 +29,6 @@ public class timer {
                 secondsString = Integer.toString(currentSecond);
 
                 currentSecond++;
-
-
-
-                System.out.println(currentSecond);
             }
         });
         timer.start();
@@ -48,8 +43,9 @@ public class timer {
 
     }
 
-    public void render(Graphics g) {
+    public void render(Graphics g, Game game) {
         minutesString = Integer.toString(currentMinute);
+        ammoString = Integer.toString(game.arrowsRemaining);
         g.setColor(Color.white);
         if (currentSecond <= 10) {
             g.drawString("0" + currentMinute + ":" + "0" + secondsString, 190, 120);
@@ -57,6 +53,10 @@ public class timer {
         } else {
             g.drawString("0" + currentMinute + ":" + secondsString, 190, 120);
         }
+
+        g.setColor(Color.white);
+
+        g.drawString("Arrows left:" + ammoString,390, 120);
     }
 
 }

@@ -84,7 +84,6 @@ public class Player1 extends Object {
     		for (int i = 8; i < 12; i++) {
         		g.drawImage(player[i], xpos, ypos, null); //left 8 to 11
     		}
-             System.out.println("Left");
     	}else {
     		animation.drawAnimation(g, xpos, ypos, 2);
 
@@ -93,7 +92,6 @@ public class Player1 extends Object {
     		for (int i = 4; i < 8; i++) {
         		g.drawImage(player[i], xpos, ypos, null); //right 4 to 7
     		}
-            System.out.println("Right ");
     	}else {
     		animation.drawAnimation(g, xpos, ypos, 2);
     	}
@@ -102,7 +100,6 @@ public class Player1 extends Object {
     		for (int i = 12; i < 16; i++) {
         		g.drawImage(player[i], xpos, ypos, null); //up 12 to 15
     		}
-            System.out.println("Up");
     	}else {
     		animation.drawAnimation(g, xpos, ypos, 2);
     	}
@@ -110,7 +107,6 @@ public class Player1 extends Object {
     		for (int i = 0; i < 4; i++) {
     			g.drawImage(player[i], xpos, ypos, null); //down 0 to 3
     		}
-            System.out.println("Down");
     	}else {
     		animation.drawAnimation(g, xpos, ypos, 2);
     	}
@@ -159,23 +155,27 @@ public class Player1 extends Object {
                     handler.removeObject(tempObject);
                     if (game.player1Health > 0){
                         game.player1Health--;
-
                     }
+                    if (Game.state == States.Game || Game.state == States.Load){
+                    	game.enemiesStage1--;
+					}
                 }
             }
 
             if (tempObject.getId() == IDs.Stairs){
             	if(getBounds().intersects((tempObject.getBounds()))){
+
+					System.out.println("This is game state: " + Game.state);
+					Game.state = States.level2;
 					game.loadLevel(game.background2);
 
-					Game.state = States.level2;
 				}
 			}
 
             if (tempObject.getId() == IDs.backStairs){
 				if(getBounds().intersects((tempObject.getBounds()))){
-					Game.state = States.Game;
 
+					Game.state = States.Game;
 					game.loadLevel(game.background);
 
 				}
