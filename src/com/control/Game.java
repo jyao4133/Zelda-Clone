@@ -334,11 +334,8 @@ public class Game extends Canvas implements Runnable {
                 }
 
                 if (green == 255 && blue == 0 && red == 0){
-            //        handler.addObject(new Enemy(xx*32, yy*32, IDs.enemy, handler, xx*32, yy*32, 1, ss));
-
                     System.out.println("This is the Y pos: "+ yy*32);
                     System.out.println("This is the X pos: "+ xx*32);
-
                 }
 
                 if (green == 255 && blue == 255 && red == 0){
