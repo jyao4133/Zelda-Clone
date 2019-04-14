@@ -183,7 +183,7 @@ public class Player1 extends Object {
 
 	public Rectangle getBounds() {
 
-		return new Rectangle (xpos,ypos,48,48);
+		return new Rectangle (xpos,ypos,75,75);
 	}
 
 

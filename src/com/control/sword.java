@@ -95,7 +95,7 @@ public class sword extends Object {
         //up
         if (currentDirection == 1){
             g.fillRect(xpos - 32, ypos - 48, 45, 45);
-            if (currentSecond == 10) {
+            if (currentSecond > 10) {
                 handler.removeObject(this);
                 currentSecond = 0;
             }
@@ -104,7 +104,7 @@ public class sword extends Object {
         //down
         else if (currentDirection == 2){
             g.fillRect(xpos -32, ypos +24 , 45, 45);
-            if (currentSecond == 10) {
+            if (currentSecond > 10) {
                 handler.removeObject(this);
                 currentSecond = 0;
             }
@@ -113,7 +113,7 @@ public class sword extends Object {
         //left
         else if (currentDirection == 3){
             g.fillRect(xpos-64, ypos - 24, 45, 45);
-            if (currentSecond == 10) {
+            if (currentSecond > 10) {
                 handler.removeObject(this);
                 currentSecond = 0;
             }
@@ -121,7 +121,7 @@ public class sword extends Object {
         //right
         else if (currentDirection == 4){
             g.fillRect(xpos + 24, ypos  - 18, 45, 45);
-            if (currentSecond == 10) {
+            if (currentSecond > 10) {
                 handler.removeObject(this);
                 currentSecond = 0;
             }
@@ -130,7 +130,7 @@ public class sword extends Object {
 
         else if (currentDirection == 0){
             g.fillRect(xpos -32, ypos +24 , 45, 45);
-            if (currentSecond == 20) {
+            if (currentSecond > 10) {
                 handler.removeObject(this);
                 currentSecond = 0;
             }
