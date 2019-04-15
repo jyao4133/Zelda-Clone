@@ -13,7 +13,10 @@ public class Player1 extends Object {
     
     private BufferedImage[] player = new BufferedImage [16];
     private BufferedImage playerpos;
-    
+	public static String playerDirection;
+	public static String prevDirection;
+
+
     int tx;
     int ty;
 
@@ -25,7 +28,6 @@ public class Player1 extends Object {
 		this.handler = handler;
 		this.game = game;
 		playerpos = player[0];
-
 		animation = new SpriteAnimation(500, player);
 		
 		//down
@@ -60,8 +62,8 @@ public class Player1 extends Object {
 			animation = new SpriteAnimation(500, player[i]);
 	        animation.runAnimation();
 		}
-		
-	
+
+
 		
     }
 
@@ -69,16 +71,16 @@ public class Player1 extends Object {
         ypos += Yspeed;
         xpos += Xspeed;
         collision();
-    }
+	}
 
     public void render(Graphics g) {
-   
-    	
-    	
+
     	if (Xspeed < 0 ) {//left
     		for (int i = 8; i < 12; i++) {
         		g.drawImage(player[i], xpos, ypos, null); //left 8 to 11
         		playerpos = player[i];
+				playerDirection = "left";
+
     		}
     	}else {
     		animation.drawAnimation(g, xpos, ypos, 2);
@@ -88,7 +90,10 @@ public class Player1 extends Object {
     		for (int i = 4; i < 8; i++) {
         		g.drawImage(player[i], xpos, ypos, null); //right 4 to 7
         		playerpos = player[i];
-    		}
+				playerDirection = "right";
+
+
+			}
     	}else {
     		animation.drawAnimation(g, xpos, ypos, 2);
     	}
@@ -97,8 +102,10 @@ public class Player1 extends Object {
     		for (int i = 12; i < 16; i++) {
         		g.drawImage(player[i], xpos, ypos, null); //up 12 to 15
         		playerpos = player[i];
+				playerDirection = "up";
 
-    		}
+
+			}
     	}else {
     		animation.drawAnimation(g, xpos, ypos, 2);
     	}
@@ -106,15 +113,21 @@ public class Player1 extends Object {
     		for (int i = 0; i < 4; i++) {
     			g.drawImage(player[i], xpos, ypos, null); //down 0 to 3
         		playerpos = player[i];
+				playerDirection = "down";
 
-    		}
+
+
+			}
     	}else {
     		animation.drawAnimation(g, xpos, ypos, 2);
     	}    	 
     	if(Xspeed == 0 && Yspeed == 0) {
     		g.drawImage(playerpos, xpos, ypos, null);
 		}
-    	  	
+
+    	prevDirection = playerDirection;
+
+
     }
 
     private void collision(){
@@ -193,7 +206,7 @@ public class Player1 extends Object {
 
 	public Rectangle getBounds() {
 
-		return new Rectangle (xpos,ypos,75,75);
+		return new Rectangle (xpos + 25 ,ypos + 5,40,60);
 	}
 
 

@@ -37,19 +37,19 @@ public class Enemy extends Object{
         this.initial = initial;
 
         //left
-        bird[0] = ss.grabImage(1, 5, 75,75);
-        bird[1] = ss.grabImage(2, 5, 75,75);
-        bird[2] = ss.grabImage(3, 5, 75,75);
-        bird[3] = ss.grabImage(4, 5, 75,75);
+        bird[0] = ss.grabImage(1, 5, 60,60);
+        bird[1] = ss.grabImage(2, 5, 60,60);
+        bird[2] = ss.grabImage(3, 5, 60,60);
+        bird[3] = ss.grabImage(4, 5, 60,60);
         //right
-        bird[4] = ss.grabImage(1, 6, 75,75);
-        bird[5] = ss.grabImage(2, 6, 75,75);
-        bird[6] = ss.grabImage(3, 6, 75,75);
-        bird[7] = ss.grabImage(4, 6, 75,75);
+        bird[4] = ss.grabImage(1, 6, 60,60);
+        bird[5] = ss.grabImage(2, 6, 60,60);
+        bird[6] = ss.grabImage(3, 6, 60,60);
+        bird[7] = ss.grabImage(4, 6, 60,60);
 
     	for (int i = 0; i < bird.length; i++) {
-			//animation = new SpriteAnimation(1, bird[i]);
-	      //  animation.runAnimation();
+			animation = new SpriteAnimation(1, bird[i]);
+	       animation.runAnimation();
 		}
     }
 
@@ -152,13 +152,13 @@ public class Enemy extends Object{
     	}else {
     		//animation.drawAnimation(g, xpos, ypos, 2);
     	}
-    	
+
 
     }
 
     //collision with arrow
     public Rectangle getBounds() {
-        return new Rectangle (xpos,ypos,50,30);
+        return new Rectangle (xpos + 20,ypos + 18,40,40);
     }
 
     //collision with wall
