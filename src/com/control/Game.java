@@ -85,8 +85,8 @@ public class Game extends Canvas implements Runnable {
         heart3 = new Hearts();
         heart4 = new Hearts();
 
-      // audio = new Audio ("music1.mp3");
-        // audio.play();
+      // audio = new Audio ("music.wav");
+       //audio.play();
         //handler.addObject(new Enemy(50,50, IDs.enemy));
     	//g.fillRect(50, 50, 200, 50);
         Timer = new timer();

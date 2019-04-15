@@ -1,21 +1,27 @@
 package com.control;
 
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 
 
-public class Options  {
+public class Options {
 	
 	public Rectangle optionsframe = new Rectangle(0,0,Game.WIDTH,Game.HEIGHT);
-	private int currentSelection;
+	private BufferedImage image;
 
-	private final Button[] optionmenu;
+	public final Button[] optionmenu;
 	private int yshift = 100;
-	private int yspacing = 300;
+	private int yspacing = 370;
 	
 	
 	public Options() {
 		optionmenu = new Button [4];
-		Font font = new Font("Arial", Font.BOLD, 60);
+		Font font = new Font("Arial", Font.BOLD, 50);
 		optionmenu[0] = new Button ("Sound", optionsframe.width / 4, optionsframe.height / 4 + yshift + 0 * yspacing, font, Color.black );
 		optionmenu[1] = new Button ("Controls", optionsframe.width / 4, optionsframe.height / 4+ yshift + 1 * yspacing, font, Color.black );
 		optionmenu[2] = new Button ("Credits", optionsframe.width / 4, optionsframe.height / 4 + yshift + 2 * yspacing, font, Color.black );
@@ -25,16 +31,20 @@ public class Options  {
 
 	public void render (Graphics g)  {
 
-	
-		
+		/////////////////////////////////////////////////////////////////////////////
+		try{
+			image = ImageIO.read(getClass().getResourceAsStream("OptionsMenu.png")); 
+
+		} catch(IOException e){
+			e.printStackTrace();
+		}
+		g.drawImage(image,0,0,null);
+
+/////////////////////////////////////////////////////////////////////////////
 		for (int i = 0; i < optionmenu.length; i++) {
-    		if (i == currentSelection) {
-    			optionmenu[i].setSelected(true);
-    		}
-    		else {
-    			optionmenu[i].setSelected(false);
-    		}
     		optionmenu[i].render(g);
     	}
 	}
+
+
 }

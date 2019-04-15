@@ -19,7 +19,7 @@ public class Enemy extends Object{
     Game game;
     Random r = new Random();
     Random p = new Random();
-
+    int score = 0;
     int chosen = 0;
     int rngGen = 0;
     int hp = 100;
@@ -92,6 +92,7 @@ public class Enemy extends Object{
                     handler.removeObject(tempObject);
                     handler.removeObject(this);
                     rngGen = p.nextInt(10);
+                    
 
                     if (rngGen < 2) {
                         handler.addObject(new heartPickup(xpos, ypos, IDs.heartPickup, ss));
@@ -113,6 +114,7 @@ public class Enemy extends Object{
 
                     handler.removeObject(this);
                     rngGen = p.nextInt(10);
+                    
 
                     if (rngGen < 2) {
                         handler.addObject(new heartPickup(xpos, ypos, IDs.heartPickup, ss));
@@ -129,7 +131,6 @@ public class Enemy extends Object{
                 }
             }
         }
-
 
 
     }

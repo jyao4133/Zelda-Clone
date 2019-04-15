@@ -6,6 +6,7 @@ import java.awt.event.MouseEvent;
 
 public class MouseHandler extends MouseAdapter  {
 
+	
 	private Handler handler;
 	private Game game;
 	private SpriteSheet ss;
@@ -24,7 +25,7 @@ public class MouseHandler extends MouseAdapter  {
 	}
 	
 	public void mouseEntered(MouseEvent e) {
-
+		
 	}
 
 	public void mouseExited(MouseEvent e) {
@@ -58,9 +59,23 @@ public class MouseHandler extends MouseAdapter  {
 				System.exit(1);
 			}
 		}else if (Game.state == States.Options) {
-			if (x>= 800 && x <= 950 && y >= 50 && y <= 130) {
+			if (x>= 100 && x <= 400 && y >= 190 && y <= 300) {
+				System.out.println("Sound");
+			}
+			if (x>= 100 && x <= 400 && y >= 370 && y <=480) {
+				System.out.println("Controls");
+			}
+			if (x>= 100 && x <= 400 && y >= 550 && y <= 660) {
+				System.out.println("Credits");
+			}
+			if (x>= 100 && x <= 400 && y >= 730 && y <= 840) {
+				System.out.println("Back");
 				Game.state = States.TitleScreen;
 			}
+			
+			
+			
+			
 		}else if (Game.state == States.Game || Game.state == States.level2) {
 			 for (int i = 0; i < handler.object.size(); i++){
                  Object tempObject= handler.object.get(i);

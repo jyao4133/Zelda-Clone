@@ -3,13 +3,14 @@ package com.control;
 import java.awt.*;
 import java.util.*;
 
-public class Enemy2 extends Object{
+public abstract class Enemy2 extends Object{
 
     //Second enemy
     /*
     This enemy follows the player when the player comes near it 
      */
-
+	
+	Player1 player;
     private Handler handler;
     Game game;
     Random r = new Random();
@@ -33,7 +34,11 @@ public class Enemy2 extends Object{
     }
 
     public void tick() {
-
+    	
+    	
+    	
+    	
+    	
         /*if(initial == 1){
             initial = 0;
         }else{
