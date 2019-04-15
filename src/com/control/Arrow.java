@@ -20,8 +20,9 @@ public class Arrow extends Object {
         Xspeed = (int) ((x - xpos)*speed/distance);
         Yspeed = (int) ((y - ypos)*speed/distance);
 
-        System.out.println(x);
-        System.out.println(y);
+
+        System.out.println(Xspeed);
+        System.out.println(Yspeed);
     }
 
     public Rectangle getBounds() {

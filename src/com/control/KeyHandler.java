@@ -16,7 +16,8 @@ public class KeyHandler extends KeyAdapter {
 	private Game game;
 	private SpriteSheet ss;
 
-	public KeyHandler (Handler handler) {
+	public KeyHandler (Handler handler, SpriteSheet ss) {
+
 		this.handler = handler;
 		this.game = game;
 		this.ss = ss;
@@ -65,27 +66,27 @@ public class KeyHandler extends KeyAdapter {
 						System.out.println(up);
 
 						if(up == true && left == false && right == false && down == false){
-							handler.addObject(new sword (tempObject.getXpos()+35, tempObject.getYpos() + 24, IDs.sword, handler, ss, currentDirection));
+							handler.addObject(new sword (tempObject.getXpos()+35, tempObject.getYpos() + 24, IDs.sword, handler, game.ss, currentDirection));
 						}
 						else if(down == true && left == false && right == false && up == false){
-							handler.addObject(new sword (tempObject.getXpos()+35, tempObject.getYpos() + 24, IDs.sword, handler, ss, currentDirection));
+							handler.addObject(new sword (tempObject.getXpos()+35, tempObject.getYpos() + 24, IDs.sword, handler, game.ss, currentDirection));
 						}
 						else if(up == false && left == false && right == true && down == false){
-							handler.addObject(new sword (tempObject.getXpos()+35, tempObject.getYpos() + 24, IDs.sword, handler, ss, currentDirection));
+							handler.addObject(new sword (tempObject.getXpos()+35, tempObject.getYpos() + 24, IDs.sword, handler, game.ss, currentDirection));
 						}
 						else if(up == false && left == true && right == false && down == false){
-							handler.addObject(new sword (tempObject.getXpos()+35, tempObject.getYpos() + 24, IDs.sword, handler, ss, currentDirection));
+							handler.addObject(new sword (tempObject.getXpos()+35, tempObject.getYpos() + 24, IDs.sword, handler, game.ss, currentDirection));
 						}
 						else if(up == false && left == false && right == false && down == false){
-							handler.addObject(new sword (tempObject.getXpos()+35, tempObject.getYpos() + 24, IDs.sword, handler, ss, 0));
+							handler.addObject(new sword (tempObject.getXpos()+35, tempObject.getYpos() + 24, IDs.sword, handler, game.ss, 0));
 						}
 
 						else if((up == true && left == true && right == false && down == false) || (up == true && left == false && right == true && down == false)){
-							handler.addObject(new sword (tempObject.getXpos()+35, tempObject.getYpos() + 24, IDs.sword, handler, ss, 1));
+							handler.addObject(new sword (tempObject.getXpos()+35, tempObject.getYpos() + 24, IDs.sword, handler, game.ss, 1));
 						}
 
 						else if((up == false && left == true && right == false && down == true) || (up == false && left == false && right == true && down == true)){
-							handler.addObject(new sword (tempObject.getXpos()+35, tempObject.getYpos() + 24, IDs.sword, handler, ss, 2));
+							handler.addObject(new sword (tempObject.getXpos()+35, tempObject.getYpos() + 24, IDs.sword, handler, game.ss, 2));
 						}
 					}
 

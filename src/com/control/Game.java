@@ -37,7 +37,7 @@ public class Game extends Canvas implements Runnable {
     private Handler handler;
     public BufferedImage background, background2, floor;
 
-    public SpriteSheet ss;
+    public static SpriteSheet ss;
     private BufferedImage spritesheet;
     
     private TitleScreen titlescreen;
@@ -96,7 +96,7 @@ public class Game extends Canvas implements Runnable {
 
         //handler.addObject(new Player1(100, 100, IDs.player));
         this.requestFocusInWindow();
-		this.addKeyListener(new KeyHandler(handler));
+		this.addKeyListener(new KeyHandler(handler,ss));
 		//this.addMouseListener(new MouseInputGame(handler));
         background = loader.loadImage("test_level.png");
         background2 = loader.loadImage("test_level_2.png");
@@ -158,7 +158,7 @@ public class Game extends Canvas implements Runnable {
                 updates++;
                 delta--;
             }
-            
+
             render();
             frames++;
 
@@ -275,7 +275,7 @@ public class Game extends Canvas implements Runnable {
             if (firstLoad == true){
                 loadLevel(background2);
 
-                this.addKeyListener(new KeyHandler(handler));
+                this.addKeyListener(new KeyHandler(handler, ss));
 
                 firstLoad = false;
             }

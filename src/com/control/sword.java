@@ -13,28 +13,33 @@ import javax.swing.Timer;
 public class sword extends Object {
 
     private Handler handler;
+
     private Game game;
     private Player1 player;
+
     int currentDirection;
-    String newDirection;
+
     private long lastAttackTime, attackCooldown = 800;
     private long attacktime = attackCooldown;
     public int currentSecond = 0;
 
-    //private BufferedImage[] weapon = new BufferedImage [4];
-    private BufferedImage weapon;
+
+    private SpriteAnimation animation;
+    private BufferedImage[] weapon = new BufferedImage [4];
+    private BufferedImage weapon2;
     
     public sword(int xpos, int ypos, IDs id, Handler handler, SpriteSheet ss, int direction) {
         super(xpos, ypos, id, ss);
         this.handler = handler;
         currentDirection = direction;
-        
-       // weapon[0] = ss.grabImage(1, 2, 75, 75);
-       // weapon[1] = ss.grabImage(2, 8, 45, 45);
-       // weapon[2] = ss.grabImage(3, 8, 45, 45);
-       // weapon[3] = ss.grabImage(4, 8, 45, 45);
+        animation = new SpriteAnimation(500, weapon);
+
+        weapon[0] = ss.grabImage(1, 2, 75, 75);
+        weapon[1] = ss.grabImage(2, 8, 45, 45);
+        weapon[2] = ss.grabImage(3, 8, 45, 45);
+        weapon[3] = ss.grabImage(4, 8, 45, 45);
          
-        weapon = ss.grabImage(1, 8, 75, 75);
+        weapon2 = ss.grabImage(1, 8, 75, 75);
         
         start();
         Xspeed = 4;

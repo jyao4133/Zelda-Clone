@@ -25,7 +25,7 @@ public class Enemy extends Object{
     int hp = 100;
     boolean hitX = true;
     boolean hitY = true;
-    int maxSpeed = 0;
+    int maxSpeed = 2;
 
     public Enemy(int xpos, int ypos, IDs id, Handler handler, Game game, int xprev, int yprev, int initial, SpriteSheet ss) {
 
