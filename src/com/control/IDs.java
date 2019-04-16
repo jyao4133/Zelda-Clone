@@ -7,6 +7,8 @@ public enum IDs {
     Block,
     Background,
     Arrow,
+    enemyArrow,
+    shooterEnemy,
     sword,
     Pickup,
     heartPickup,

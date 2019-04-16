@@ -413,7 +413,8 @@ public class Game extends Canvas implements Runnable {
                     handler.addObject(new Enemy(832, 876, IDs.enemy, handler, this, 500, 300, 1, ss));
                 }
                 if (enemiesStage1 > 4) {
-                    handler.addObject(new Enemy(896, 544, IDs.enemy, handler, this, 500, 300, 1, ss));
+                    //handler.addObject(new Enemy(896, 544, IDs.enemy, handler, this, 500, 300, 1, ss));
+                    handler.addObject(new shooterEnemy(896, 544, IDs.shooterEnemy, handler, this, ss));
                 }
             }
         }
