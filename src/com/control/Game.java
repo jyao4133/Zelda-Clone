@@ -139,38 +139,71 @@ public class Game extends Canvas implements Runnable {
 
     public void run()
     {
-        Toolkit toolkit = Toolkit.getDefaultToolkit();
-        long lastTime = System.nanoTime();
-        double amountOfTicks = 60.0;
-        double ns = 1000000000 / amountOfTicks;
+          Toolkit toolkit = Toolkit.getDefaultToolkit();
+//        long lastTime = System.nanoTime();
+//        double amountOfTicks = 60.0;
+//        double ns = 1000000000 / amountOfTicks;
+//        double delta = 0;
+//        long timer = System.currentTimeMillis();
+//        int frames = 0;
+//        int updates = 0;
+//        while(running)
+//        {
+//            long now = System.nanoTime();
+//            delta += (now - lastTime) / ns;
+//            lastTime = now;
+//            while(delta >=1)
+//            {
+//                tick();
+//                updates++;
+//                delta--;
+//            }
+//
+//            render();
+//            frames++;
+//
+//            if(System.currentTimeMillis() - timer > 1000)
+//            {
+//                timer += 1000;
+//                System.out.println("FPS: "+ frames);
+//                updates = 0;
+//                frames = 0;
+//            }
+//            toolkit.sync(); //used to sync the objects rendered on the screen with the tick methods
+//        }
+//        stop();
+
+        int fps = 60;
+        double timePerTick = 1000000000/fps;
         double delta = 0;
-        long timer = System.currentTimeMillis();
-        int frames = 0;
-        int updates = 0;
-        while(running)
-        {
-            long now = System.nanoTime();
-            delta += (now - lastTime) / ns;
+        long now;
+        long lastTime = System.nanoTime();
+        long timer = 0;
+        int ticks = 0;
+
+
+        while (running){
+            now = System.nanoTime();
+            delta += (now - lastTime)/timePerTick;
+            timer += now - lastTime;
             lastTime = now;
-            while(delta >=1)
-            {
+
+            if(delta>= 1){
                 tick();
-                updates++;
+                render();
+                ticks++;
                 delta--;
             }
 
-            render();
-            frames++;
-
-            if(System.currentTimeMillis() - timer > 1000)
-            {
-                timer += 1000;
-                System.out.println("FPS: "+ frames);
-                updates = 0;
-                frames = 0;
+            if (timer >= 1000000000){
+                System.out.println("ticks and frames: " + ticks);
+                ticks = 0;
+                timer = 0;
             }
             toolkit.sync(); //used to sync the objects rendered on the screen with the tick methods
+
         }
+
         stop();
     }
 

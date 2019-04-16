@@ -62,8 +62,6 @@ public class KeyHandler extends KeyAdapter {
 
 					//Melee attack logic
 					if (key == KeyEvent.VK_SPACE){
-						System.out.println("pressed");
-						System.out.println(up);
 
 						if(up == true && left == false && right == false && down == false){
 							handler.addObject(new sword (tempObject.getXpos()+35, tempObject.getYpos() + 24, IDs.sword, handler, game.ss, currentDirection));
@@ -83,10 +81,15 @@ public class KeyHandler extends KeyAdapter {
 
 						else if((up == true && left == true && right == false && down == false) || (up == true && left == false && right == true && down == false)){
 							handler.addObject(new sword (tempObject.getXpos()+35, tempObject.getYpos() + 24, IDs.sword, handler, game.ss, 1));
+							tempObject.setYspeed(0);
+							tempObject.setXspeed(0);
+
 						}
 
 						else if((up == false && left == true && right == false && down == true) || (up == false && left == false && right == true && down == true)){
 							handler.addObject(new sword (tempObject.getXpos()+35, tempObject.getYpos() + 24, IDs.sword, handler, game.ss, 2));
+							tempObject.setYspeed(0);
+							tempObject.setXspeed(0);
 						}
 					}
 

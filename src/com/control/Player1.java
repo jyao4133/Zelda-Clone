@@ -126,7 +126,8 @@ public class Player1 extends Object {
 		}
 
     	prevDirection = playerDirection;
-
+		g.setColor(Color.pink);
+		g.fillRect(xpos + 13 ,ypos + 10,50,60);
 
     }
 
@@ -206,7 +207,7 @@ public class Player1 extends Object {
 
 	public Rectangle getBounds() {
 
-		return new Rectangle (xpos + 25 ,ypos + 5,40,60);
+		return new Rectangle (xpos + 13 ,ypos + 10,50,60);
 	}
 
 
