@@ -7,13 +7,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="01a1e4e6-6894-497d-b004-3e9bd2e8321d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/control/enemyArrow.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/control/shooterEnemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/IDs.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/IDs.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/control/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/control/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/control/IDs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/control/IDs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/control/Hearts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/control/Hearts.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/control/Player1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/control/Player1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/control/enemyArrow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/control/enemyArrow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/control/shooterEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/control/shooterEnemy.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,7 +28,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/control/Enemy.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1666">
+            <state relative-caret-position="-765">
               <caret line="36" column="31" selection-start-line="36" selection-start-column="31" selection-end-line="36" selection-end-column="31" />
             </state>
           </provider>
@@ -40,7 +37,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/control/Arrow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
+            <state relative-caret-position="391">
               <caret line="51" column="30" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="30" />
             </state>
           </provider>
@@ -58,8 +55,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/control/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="416" column="100" selection-start-line="416" selection-start-column="100" selection-end-line="416" selection-end-column="100" />
+            <state relative-caret-position="289">
+              <caret line="322" column="66" selection-start-line="322" selection-start-column="53" selection-end-line="322" selection-end-column="66" />
             </state>
           </provider>
         </entry>
@@ -67,8 +64,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/control/shooterEnemy.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="59" column="65" lean-forward="true" selection-start-line="59" selection-start-column="65" selection-end-line="59" selection-end-column="65" />
+            <state relative-caret-position="187">
+              <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#267#268#0" expanded="true" />
@@ -79,10 +76,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/control/Hearts.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="23" column="35" lean-forward="true" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/control/enemyArrow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="31" column="23" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
+            <state relative-caret-position="272">
+              <caret line="52" selection-start-line="52" selection-end-line="60" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/control/Player1.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3026">
+              <caret line="181" column="42" lean-forward="true" selection-start-line="181" selection-start-column="42" selection-end-line="181" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -92,15 +107,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="170">
               <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/control/MouseHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="84" column="56" selection-start-line="84" selection-end-line="85" />
             </state>
           </provider>
         </entry>
@@ -129,14 +135,15 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/control/Player1.java" />
         <option value="$PROJECT_DIR$/src/com/control/KeyHandler.java" />
         <option value="$PROJECT_DIR$/src/com/control/Enemy.java" />
         <option value="$PROJECT_DIR$/src/com/control/IDs.java" />
         <option value="$PROJECT_DIR$/src/com/control/Game.java" />
         <option value="$PROJECT_DIR$/src/com/control/Arrow.java" />
-        <option value="$PROJECT_DIR$/src/com/control/shooterEnemy.java" />
         <option value="$PROJECT_DIR$/src/com/control/enemyArrow.java" />
+        <option value="$PROJECT_DIR$/src/com/control/Player1.java" />
+        <option value="$PROJECT_DIR$/src/com/control/shooterEnemy.java" />
+        <option value="$PROJECT_DIR$/src/com/control/Hearts.java" />
       </list>
     </option>
   </component>
@@ -274,13 +281,6 @@
     <entry file="file://$PROJECT_DIR$/src/com/control/test_level.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/control/Player1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1207">
-          <caret line="202" column="5" selection-start-line="202" selection-start-column="5" selection-end-line="202" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/control/MouseHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -295,31 +295,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/control/Enemy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1666">
-          <caret line="36" column="31" selection-start-line="36" selection-start-column="31" selection-end-line="36" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/control/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="416" column="100" selection-start-line="416" selection-start-column="100" selection-end-line="416" selection-end-column="100" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/control/sword.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="31" column="31" selection-start-line="31" selection-end-line="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/control/Arrow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="51" column="30" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -337,10 +316,45 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/control/enemyArrow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="52" selection-start-line="52" selection-end-line="60" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/control/Arrow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="51" column="30" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/control/Enemy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-765">
+          <caret line="36" column="31" selection-start-line="36" selection-start-column="31" selection-end-line="36" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/control/Player1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3026">
+          <caret line="181" column="42" lean-forward="true" selection-start-line="181" selection-start-column="42" selection-end-line="181" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/control/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="322" column="66" selection-start-line="322" selection-start-column="53" selection-end-line="322" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/control/shooterEnemy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="59" column="65" lean-forward="true" selection-start-line="59" selection-start-column="65" selection-end-line="59" selection-end-column="65" />
+        <state relative-caret-position="187">
+          <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#267#268#0" expanded="true" />
@@ -349,10 +363,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/control/enemyArrow.java">
+    <entry file="file://$PROJECT_DIR$/src/com/control/Hearts.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="31" column="23" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
+        <state relative-caret-position="357">
+          <caret line="23" column="35" lean-forward="true" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
         </state>
       </provider>
     </entry>

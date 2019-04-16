@@ -6,7 +6,7 @@ import java.util.*;
 
 public class Hearts {
 
-    public void drawHeart(Graphics g, int x, int y, int width, int height, int arrowsRemaining, int bound) {
+    public void drawHeart(Graphics g, int x, int y, int width, int height, int player1Health, int bound) {
 
 
         int[] triangleX = {
@@ -21,7 +21,7 @@ public class Hearts {
 
 
 
-        if (arrowsRemaining < bound){
+        if (player1Health < bound){
 
             g.fillOval(
                     x - width / 12,

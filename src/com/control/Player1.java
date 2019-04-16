@@ -176,6 +176,13 @@ public class Player1 extends Object {
                 }
             }
 
+			if (tempObject.getId() == IDs.enemyArrow){
+				if (getBounds().intersects((tempObject.getBounds()))) {
+					handler.removeObject(tempObject);
+					game.player1Health --;
+				}
+			}
+
             if (tempObject.getId() == IDs.Stairs){
             	if(getBounds().intersects((tempObject.getBounds()))){
 					System.out.println("This is game state: " + Game.state);

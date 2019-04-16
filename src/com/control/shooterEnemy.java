@@ -62,6 +62,17 @@ public class shooterEnemy extends Object {
 
             }
         }
+
+        for (int i = 0; i < handler.object.size(); i++) {
+            Object tempObject = handler.object.get(i);
+            if (tempObject.getId() == IDs.sword || tempObject.getId() == IDs.Arrow) {
+                if (getBounds().intersects((tempObject.getBounds()))) {
+                    handler.removeObject(tempObject);
+                    handler.removeObject(this);
+                }
+            }
+
+        }
     }
 
     public void render(Graphics g) {

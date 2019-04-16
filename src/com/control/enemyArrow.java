@@ -57,6 +57,7 @@ public class enemyArrow extends Object {
                     handler.removeObject(this);
                 }
             }
+
         }
     }
 
