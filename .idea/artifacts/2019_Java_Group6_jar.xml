@@ -2,9 +2,6 @@
   <artifact type="jar" name="2019-Java-Group6:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/2019_Java_Group6_jar</output-path>
     <root id="archive" name="2019-Java-Group6.jar">
-      <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/../../Java/META-INF/MANIFEST.MF" />
-      </element>
       <element id="module-output" name="2019-Java-Group6" />
     </root>
   </artifact>
