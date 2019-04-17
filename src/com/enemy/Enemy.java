@@ -155,12 +155,16 @@ public class Enemy extends Object{
     public void render(Graphics g) {
     	//g.drawImage(bird, xpos, ypos, null);   	
     	
-    	if (Xspeed <= 0  ) {//left
+    	if (Xspeed < 0  ) {//left
         	g.drawImage(ani_left.getCurrentFrame(), xpos, ypos, null);
     	}
-    	if (Xspeed >= 0) {//right
+    	else if (Xspeed > 0) {//right
         	g.drawImage(ani_right.getCurrentFrame(), xpos, ypos, null);
     	}
+    	else {
+        	g.drawImage(left[0], xpos, ypos, null);
+    	}
+    	
 
 
     }
