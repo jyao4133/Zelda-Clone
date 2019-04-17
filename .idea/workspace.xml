@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e25d1e0c-08db-4459-9318-c9c44b7616be" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/enemy/boss.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/control/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/control/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/control/IDs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/control/IDs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/control/bosslevel.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/control/bosslevel.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/enemy/enemyArrow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/enemy/enemyArrow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/enemy/shooterEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/enemy/shooterEnemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/player/Player1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/player/Player1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/player/sword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/player/sword.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -58,8 +51,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/control/KeyHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="23" column="50" lean-forward="true" selection-start-line="23" selection-start-column="50" selection-end-line="23" selection-end-column="50" />
+            <state relative-caret-position="238">
+              <caret line="77" column="53" selection-start-line="77" selection-start-column="53" selection-end-line="77" selection-end-column="53" />
             </state>
           </provider>
         </entry>
@@ -74,6 +67,15 @@
                 <element signature="e#5348#5349#0" expanded="true" />
                 <element signature="e#5390#5391#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/player/sword.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="148" column="61" selection-start-line="148" selection-start-column="61" selection-end-line="148" selection-end-column="61" />
             </state>
           </provider>
         </entry>
@@ -100,7 +102,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/player/Player1.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="425">
@@ -172,6 +174,7 @@
         <option value="$PROJECT_DIR$/src/com/control/Game.java" />
         <option value="$PROJECT_DIR$/src/com/enemy/boss.java" />
         <option value="$PROJECT_DIR$/src/com/player/Player1.java" />
+        <option value="$PROJECT_DIR$/src/com/player/sword.java" />
       </list>
     </option>
   </component>
@@ -423,24 +426,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/control/MouseHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-364">
-          <caret line="52" column="39" selection-start-line="52" selection-end-line="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/control/IDs.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="16" lean-forward="true" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/control/KeyHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="23" column="50" lean-forward="true" selection-start-line="23" selection-start-column="50" selection-end-line="23" selection-end-column="50" />
         </state>
       </provider>
     </entry>
@@ -475,18 +464,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/enemy/boss.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="32" column="20" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
-          <folding>
-            <element signature="e#4781#4782#0" expanded="true" />
-            <element signature="e#5348#5349#0" expanded="true" />
-            <element signature="e#5390#5391#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/enemy/enemyArrow.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="809">
@@ -507,6 +484,39 @@
             <element signature="e#6312#6313#0" expanded="true" />
             <element signature="e#6333#6334#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/enemy/boss.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="32" column="20" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
+          <folding>
+            <element signature="e#4781#4782#0" expanded="true" />
+            <element signature="e#5348#5349#0" expanded="true" />
+            <element signature="e#5390#5391#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/control/MouseHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-364">
+          <caret line="52" column="39" selection-start-line="52" selection-end-line="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/control/KeyHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="77" column="53" selection-start-line="77" selection-start-column="53" selection-end-line="77" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/player/sword.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="148" column="61" selection-start-line="148" selection-start-column="61" selection-end-line="148" selection-end-column="61" />
         </state>
       </provider>
     </entry>

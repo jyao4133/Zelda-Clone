@@ -51,23 +51,23 @@ public class sword extends Object {
 
     public Rectangle getBounds() {
              //up
-            if (currentDirection == 1){
+            if (currentDirection == 1&& player.prevDirection == "up"){
                 return new Rectangle(xpos - 20, ypos - 48, 45, 45);
 
             }
             //down
-            else if(currentDirection == 2){
+            else if(currentDirection == 2&& player.prevDirection == "down"){
 
                 return new Rectangle(xpos - 16, ypos +24 , 45, 45);
 
             }
             //left
-            else if(currentDirection == 3){
+            else if(currentDirection == 3&& player.prevDirection == "left"){
                 return new Rectangle(xpos-64, ypos , 45, 45);
 
             }
             //right
-            else if(currentDirection == 4){
+            else if(currentDirection == 4 && player.prevDirection == "right"){
                 return new Rectangle(xpos + 24, ypos , 45, 45);
 
             }
@@ -136,7 +136,7 @@ public class sword extends Object {
         g.setColor(Color.yellow);
         //up
         if (currentDirection == 1){
-        	g.drawImage(weapon[2],  xpos - 20, ypos - 40, null);
+        	g.drawImage(weapon[2], xpos - 45, ypos - 65, null);
             //g.fillRect(xpos - 20, ypos - 48, 45, 15);
             if (currentSecond > 10) {
                 handler.removeObject(this);
@@ -146,7 +146,7 @@ public class sword extends Object {
         }
         //down
         else if (currentDirection == 2){
-        	g.drawImage(weapon[3],xpos - 16, ypos + 20, null);
+        	g.drawImage(weapon[3], xpos - 35, ypos + 20, null);
            // g.fillRect(xpos - 16, ypos +24 , 45, 15);
             if (currentSecond > 10) {
                 handler.removeObject(this);
@@ -175,7 +175,7 @@ public class sword extends Object {
         }
 
         else if (currentDirection == 0 && player.prevDirection == "up"){
-        	g.drawImage(weapon[2], xpos - 20, ypos - 40, null);
+        	g.drawImage(weapon[2], xpos - 45, ypos - 65, null);
             //g.fillRect(xpos - 20, ypos - 48, 45, 15);
             if (currentSecond > 10) {
                 handler.removeObject(this);
@@ -186,7 +186,7 @@ public class sword extends Object {
 
 
         else if (currentDirection == 0 && player.prevDirection == "down"){
-        	g.drawImage(weapon[3], xpos - 16, ypos + 20, null);
+        	g.drawImage(weapon[3], xpos - 35, ypos + 20, null);
            // g.fillRect(xpos - 16, ypos +24 , 45, 15);
             if (currentSecond > 10) {
                 handler.removeObject(this);
