@@ -188,9 +188,12 @@ public class Player1 extends Object {
 
             if (tempObject.getId() == IDs.Stairs){
             	if(getBounds().intersects((tempObject.getBounds()))){
-					System.out.println("This is game state: " + Game.state);
-					Game.state = States.level2;
-					game.loadLevel(game.background2);
+
+            		if (game.nextLevel == "level2") {
+						Game.state = States.level2;
+						game.loadLevel(game.background2);
+					}
+
 
 				}
 			}
@@ -203,6 +206,8 @@ public class Player1 extends Object {
 
 				}
 			}
+
+
 
         }
         

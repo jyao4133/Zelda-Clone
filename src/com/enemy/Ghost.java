@@ -32,6 +32,8 @@ public class Ghost extends Object{
     boolean hitX = true;
     boolean hitY = true;
     int maxSpeed = 4;
+    int tempXspeed;
+    int tempYspeed;
     
     public Ghost(int xpos, int ypos, IDs id, Handler handler, Game game, SpriteSheet ss) {
 
@@ -53,19 +55,22 @@ public class Ghost extends Object{
             Object player = handler.object.get(i);
             if (player.getId() == IDs.player) {
             	 if (xpos < player.getXpos()) {
-            		Xspeed = speed;
+                     tempXspeed = speed;
                  }
             	 if (xpos > player.getXpos()) {
-            		 Xspeed = -speed;
+                     tempXspeed = -speed;
             	 }
             	 if (ypos < player.getYpos()) {
-            		 Yspeed = speed;
+                     tempYspeed = speed;
             	 }
             	 if (ypos > player.getYpos()) {
-            		 Yspeed = -speed;
+                     tempYspeed = -speed;
             	 }
             }
         }
+
+        Xspeed = tempXspeed;
+        Yspeed = tempYspeed;
     	
         for (int i = 0; i < handler.object.size(); i++) {
             Object tempObject = handler.object.get(i);
