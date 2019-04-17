@@ -4,6 +4,7 @@ public enum IDs {
 
     player,
     enemy,
+    followingEnemy,
     Block,
     Background,
     Arrow,

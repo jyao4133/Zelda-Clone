@@ -12,7 +12,6 @@ public class Enemy extends Object{
     movement and will remove 1 point of health when it collides with the player.
      */
     SpriteAnimation animation;
-
     private Handler handler;
     private BufferedImage [] bird = new BufferedImage [8];
 
@@ -55,7 +54,7 @@ public class Enemy extends Object{
 
     public void tick() {
 
-        if(initial == 1){
+    	if(initial == 1){
             initial = 0;
         }else{
             xprev = xpos;
@@ -65,6 +64,9 @@ public class Enemy extends Object{
         ypos += Yspeed;
         xpos += Xspeed;
 
+    	
+    	
+    	
         chosen = r.nextInt(10);
 
 
@@ -144,14 +146,14 @@ public class Enemy extends Object{
     			g.drawImage(bird[i], xpos, ypos, null); //down 0 to 3
     		}
     	}else {
-    		//animation.drawAnimation(g, xpos, ypos, 2);
+    		animation.drawAnimation(g, xpos, ypos, 2);
     	}
     	if (Xspeed >= 0) {//right
     		for (int i = 4; i < 8; i++) {
         		g.drawImage(bird[i], xpos, ypos, null); //right 4 to 7
     		}
     	}else {
-    		//animation.drawAnimation(g, xpos, ypos, 2);
+    		animation.drawAnimation(g, xpos, ypos, 2);
     	}
 
 

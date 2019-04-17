@@ -10,10 +10,7 @@ public class Handler {
 
 
     ArrayList<Object> object = new ArrayList<>();
-    private Rectangle button;
-
-
-	public void tick(){
+    public void tick(){
         for (int i = 0; i < object.size(); i++){
             Object tempObject = object.get(i);
             tempObject.tick();

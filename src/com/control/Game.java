@@ -51,7 +51,8 @@ public class Game extends Canvas implements Runnable {
     private Button healthtextbox, scoretextbox, timerbox;
     public Window window;
     public Player1 player;
-    public Enemy enemy;
+   // public Enemy enemy;
+    
 
     private static Game game;
 
@@ -392,9 +393,6 @@ public class Game extends Canvas implements Runnable {
 
 
         if (Game.state == States.level2){
-
-
-
             handler.addObject(new Enemy(500, 300, IDs.enemy,  handler, this, 500, 300, 1, ss));
 
         }
@@ -414,7 +412,9 @@ public class Game extends Canvas implements Runnable {
                 }
                 if (enemiesStage1 > 4) {
                     //handler.addObject(new Enemy(896, 544, IDs.enemy, handler, this, 500, 300, 1, ss));
-                    handler.addObject(new shooterEnemy(896, 544, IDs.shooterEnemy, handler, this, ss));
+                    //handler.addObject(new shooterEnemy(896, 544, IDs.shooterEnemy, handler, this, ss));
+                    handler.addObject(new Ghost(800, 500, IDs.followingEnemy, handler, this, ss));
+
                 }
             }
         }
