@@ -1,11 +1,15 @@
 package com.player;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 
 import com.control.Game;
 import com.control.IDs;
 import com.control.States;
+
+import javax.swing.*;
 
 public class Player1 extends Object {
 //player controller class following MVC
@@ -18,6 +22,7 @@ public class Player1 extends Object {
 	public static String playerDirection;
 	public static String prevDirection;
 
+	private int hplossCD;
 
     int tx;
     int ty;
@@ -31,7 +36,7 @@ public class Player1 extends Object {
 		this.game = game;
 		playerpos = player[0];
 		animation = new SpriteAnimation(500, player);
-		
+		startCD();
 		//down
 		player[0] = ss.grabImage(1, 3, 75,75);
 		player[1] = ss.grabImage(2, 3, 75,75);
@@ -185,6 +190,17 @@ public class Player1 extends Object {
 				}
 			}
 
+			//invincibility period for the player
+			if (tempObject.getId() == IDs.boss){
+				if (getBounds().intersects((tempObject.getBounds()))){
+
+					if(hplossCD > 100) {
+						game.player1Health--;
+						hplossCD = 0;
+					}
+				}
+			}
+
             if (tempObject.getId() == IDs.Stairs){
             	if(getBounds().intersects((tempObject.getBounds()))){
 
@@ -239,7 +255,14 @@ public class Player1 extends Object {
 
 		return new Rectangle (xpos + 13 ,ypos + 10,50,60);
 	}
-	
 
+	public void startCD(){
+		javax.swing.Timer timer = new Timer(10, new ActionListener(){
+			public void actionPerformed( ActionEvent e ) {
+				hplossCD++;
+			}
+		});
+		timer.start();
+	}
 
 }

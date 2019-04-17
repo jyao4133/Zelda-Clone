@@ -22,7 +22,7 @@ public class shooterEnemy extends Object {
     Random r = new Random();
 
 
-    public shooterEnemy(int xpos, int ypos, IDs id, Handler handler, Game game, SpriteSheet ss) {
+    public shooterEnemy(int xpos, int ypos, IDs id, Handler handler, Game game, SpriteSheet ss ) {
         super(xpos, ypos, id, ss);
         this.handler = handler;
 
@@ -40,14 +40,14 @@ public class shooterEnemy extends Object {
             //right
             if (Direction == 1) {
                 currentSecond = 0;
-                handler.addObject(new enemyArrow(xpos + 36, ypos + 14, IDs.enemyArrow, handler, ss, 1));
+                handler.addObject(new enemyArrow(xpos + 36, ypos + 14, IDs.enemyArrow, handler, ss, 1, false));
                 Direction = r.nextInt(4) + 1;
 
             }
             //up
             else if (Direction == 2) {
                 currentSecond = 0;
-                handler.addObject(new enemyArrow(xpos + 14, ypos +36 , IDs.enemyArrow, handler, ss, 2));
+                handler.addObject(new enemyArrow(xpos + 14, ypos +36 , IDs.enemyArrow, handler, ss, 2, false));
                 Direction = r.nextInt(4) + 1;
                 System.out.println("this is:" +Direction);
 
@@ -56,7 +56,7 @@ public class shooterEnemy extends Object {
             //left
             else if (Direction == 3) {
                 currentSecond = 0;
-                handler.addObject(new enemyArrow(xpos , ypos + 14, IDs.enemyArrow, handler, ss, 3));
+                handler.addObject(new enemyArrow(xpos , ypos + 14, IDs.enemyArrow, handler, ss, 3, false));
                 Direction = r.nextInt(4) + 1;
 
 
@@ -64,7 +64,7 @@ public class shooterEnemy extends Object {
             //down
             else if (Direction == 4) {
                 currentSecond = 0;
-                handler.addObject(new enemyArrow(xpos + 14, ypos , IDs.enemyArrow, handler, ss, 4));
+                handler.addObject(new enemyArrow(xpos + 14, ypos , IDs.enemyArrow, handler, ss, 4, false));
                 Direction = r.nextInt(4) + 1;
 
             }

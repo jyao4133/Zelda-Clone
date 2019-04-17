@@ -1,6 +1,7 @@
 package com.enemy;
 
 import java.awt.*;
+import java.util.Random;
 
 import com.control.IDs;
 import com.player.Handler;
@@ -9,33 +10,56 @@ import com.player.SpriteSheet;
 
 public class enemyArrow extends Object {
     private Handler handler;
+    Random r = new Random();
 
-
-    public enemyArrow(int xpos, int ypos, IDs id, Handler handler,SpriteSheet ss, int Direction ) {
+    public enemyArrow(int xpos, int ypos, IDs id, Handler handler,SpriteSheet ss, int Direction, Boolean randomDir ) {
         super(xpos, ypos, id, ss);
         this.handler = handler;
 
 
 
         if (Direction == 1){
-            Xspeed = 6;
-            Yspeed = 0;
+            if (randomDir){
+                Xspeed = 6;
+                Yspeed = - 6 + r.nextInt(12);
+            }
+            else {
+                Xspeed = 6;
+                Yspeed = 0;
+            }
         }
 
         else if (Direction == 2){
-            Xspeed = 0;
-            Yspeed = 6;
-
+            if (randomDir){
+                Xspeed = - 6 + r.nextInt(12);
+                Yspeed = 6;
+            }
+            else {
+                Xspeed = 0;
+                Yspeed = 6;
+            }
         }
 
         else if (Direction == 4){
-            Xspeed = 0;
-            Yspeed = -6;
+            if (randomDir){
+                Xspeed = - 6 + r.nextInt(12);
+                Yspeed = -6;
+            }
+            else {
+                Xspeed = 0;
+                Yspeed = -6;
+            }
         }
 
         else if (Direction == 3){
-            Xspeed = -6;
-            Yspeed = 0;
+            if (randomDir){
+                Xspeed = -6;
+                Yspeed = - 6 + r.nextInt(12);
+            }
+            else {
+                Xspeed = -6;
+                Yspeed = 0;
+            }
         }
 
 

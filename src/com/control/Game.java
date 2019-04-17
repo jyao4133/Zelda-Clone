@@ -12,6 +12,7 @@ import java.awt.image.BufferedImage;
 import com.enemy.Enemy;
 import com.enemy.Ghost;
 import com.enemy.shooterEnemy;
+import com.enemy.boss;
 import com.gui.Button;
 import com.gui.Options;
 import com.gui.Pause;
@@ -36,6 +37,7 @@ public class Game extends Canvas implements Runnable {
     public static int WIDTH = 1024, HEIGHT = 990;
     public int arrowsRemaining = 10;
     public int player1Health = 4;
+    public int bossHealth = 20;
     public int enemiesStage1 = 5;
     public int enemiesStage2 = 5;
     public int timeNum;
@@ -229,7 +231,7 @@ public class Game extends Canvas implements Runnable {
 
    
     private void tick(){
-        if (state == States.Game | state == States.level2 | state == States.level3 | state == States.bosslevel) {
+        if (state == States.Game || state == States.level2 || state == States.level3 || state == States.bosslevel) {
             handler.tick();
             Timer.tick();
         }
@@ -303,17 +305,17 @@ public class Game extends Canvas implements Runnable {
             bufferstrat.show();
 
         }else if(state == States.Load){
-            player1Health = 4;
-            arrowsRemaining = 10;
+
             Timer.currentSecond = 0;
             Timer.currentMinute = 0;
+            player1Health = 4;
+            arrowsRemaining = 10;
+            bossHealth = 20;
             enemiesStage1 = 5;
             removeBool = true;
             firstLoad = true;
             loadLevel(background);
             state = States.Game;
-
-
 
         }else if(state == States.pauseOptions){
             pauseoptions.render(g);
@@ -329,10 +331,10 @@ public class Game extends Canvas implements Runnable {
             if (firstLoad == true){
                 loadLevel(background2);
 
+                this.addKeyListener(new KeyHandler(handler, ss));
 
                 firstLoad = false;
             }
-            this.addKeyListener(new KeyHandler(handler, ss));
 
             healthtextbox.render(g);
             scoretextbox.render(g);
@@ -484,11 +486,18 @@ public class Game extends Canvas implements Runnable {
                 if (enemiesStage1 > 4) {
                     //handler.addObject(new Enemy(896, 544, IDs.enemy, handler, this, 500, 300, 1, ss));
                     handler.addObject(new shooterEnemy(896, 544, IDs.shooterEnemy, handler, this, ss));
-                    handler.addObject(new Ghost(800, 500, IDs.followingEnemy, handler, this, ss));
-
                 }
-            }
+
+                 handler.addObject(new Ghost(800, 500, IDs.followingEnemy, handler, this, ss));
+
         }
+        if (Game.state == States.bosslevel){
+            handler.addObject(new boss(400, 250, IDs.boss, handler, this, 500, 300, 1, ss));
+
+        }
+
+    }
+
 
     public static int edge(int var, int min, int max){
         if(var >= max){
