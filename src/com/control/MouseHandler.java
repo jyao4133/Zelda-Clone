@@ -65,17 +65,20 @@ public class MouseHandler extends MouseAdapter  {
 			}
 		}else if (Game.state == States.Options) {
 			if (x>= 100 && x <= 400 && y >= 190 && y <= 300) {
+				//Game.state = States.Sound;
 				System.out.println("Sound");
 			}
 			if (x>= 100 && x <= 400 && y >= 370 && y <=480) {
+				//Game.state = States.Controls;
 				System.out.println("Controls");
 			}
 			if (x>= 100 && x <= 400 && y >= 550 && y <= 660) {
+				//Game.state = States.Credits;
 				System.out.println("Credits");
 			}
 			if (x>= 100 && x <= 400 && y >= 730 && y <= 840) {
-				System.out.println("Back");
 				Game.state = States.TitleScreen;
+				System.out.println("Back");
 			}
 			
 			

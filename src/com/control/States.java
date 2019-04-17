@@ -7,6 +7,9 @@ public enum States {
 	Options(),
 	Pause(),
 	Load,
+	Controls,
+	Sound,
+	Credits,
 	pauseOptions;
 
 }

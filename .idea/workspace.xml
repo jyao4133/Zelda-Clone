@@ -2,50 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e25d1e0c-08db-4459-9318-c9c44b7616be" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/2019_Java_Group6_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/Arrow.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/Block.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/Block.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/Button.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/Enemy.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/Enemy2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/Handler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/Hearts.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/IDs.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/IDs.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/KeyHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/KeyHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/MouseHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/MouseHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/Object.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/Options.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/OptionsMenu.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/Pause.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/Player1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/SpriteAnimation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/SpriteSheet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/Stairs.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/TitleScreen.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/arrowPickup.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/backStairs.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/bird30x18.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/enemyArrow.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/heartPickup.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/level2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/pauseOptions.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/saffron.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/shooterEnemy$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/shooterEnemy.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/spawnObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/spawnObject.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/sword$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/sword.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/test_level2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/test_level3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/title_screen.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/title_screen1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/control/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/control/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/control/test_level2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/control/test_level3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/control/MouseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/control/MouseHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/control/States.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/control/States.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/control/spritesheet.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/control/spritesheet.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/enemy/Ghost.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/enemy/Ghost.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/player/Object.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/player/Object.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/gui/Options.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/gui/Options.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/player/Player1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/player/Player1.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -61,11 +23,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/control/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="78">
-              <caret line="248" column="31" selection-start-line="248" selection-start-column="31" selection-end-line="248" selection-end-column="31" />
+            <state relative-caret-position="724">
+              <caret line="409" column="95" selection-start-line="409" selection-start-column="95" selection-end-line="409" selection-end-column="95" />
               <folding>
                 <element signature="e#12643#12644#0" expanded="true" />
                 <element signature="e#12668#12669#0" expanded="true" />
@@ -88,14 +50,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/player/Player1.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="195" lean-forward="true" selection-start-line="195" selection-end-line="195" />
-              <folding>
-                <element signature="e#5487#5488#0" expanded="true" />
-                <element signature="e#5531#5532#0" expanded="true" />
-                <element signature="e#5579#5580#0" expanded="true" />
-                <element signature="e#5627#5628#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="238">
+              <caret line="185" column="13" lean-forward="true" selection-start-line="185" selection-start-column="13" selection-end-line="185" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -131,13 +87,15 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/enemy/Ghost.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="72" column="28" selection-start-line="72" selection-start-column="28" selection-end-line="72" selection-end-column="28" />
+            <state relative-caret-position="187">
+              <caret line="101" selection-start-line="101" selection-end-line="101" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#4710#4711#0" expanded="true" />
+                <element signature="e#4779#4780#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -154,10 +112,10 @@
         <option value="$PROJECT_DIR$/src/com/enemy/Enemy.java" />
         <option value="$PROJECT_DIR$/src/com/player/Object.java" />
         <option value="$PROJECT_DIR$/src/com/player/heartPickup.java" />
-        <option value="$PROJECT_DIR$/src/com/enemy/Ghost.java" />
         <option value="$PROJECT_DIR$/src/com/level/Stairs.java" />
         <option value="$PROJECT_DIR$/src/com/player/Player1.java" />
         <option value="$PROJECT_DIR$/src/com/control/Game.java" />
+        <option value="$PROJECT_DIR$/src/com/enemy/Ghost.java" />
       </list>
     </option>
   </component>
@@ -290,7 +248,7 @@
       <window_info id="UI Designer" />
       <window_info id="Capture Tool" />
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Terminal" />
@@ -298,7 +256,7 @@
       <window_info anchor="bottom" id="Messages" weight="0.32936078" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32936078" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32936078" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -354,16 +312,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/enemy/Ghost.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="72" column="28" selection-start-line="72" selection-start-column="28" selection-end-line="72" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/level/Stairs.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -371,28 +319,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/player/Player1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="195" lean-forward="true" selection-start-line="195" selection-end-line="195" />
-          <folding>
-            <element signature="e#5487#5488#0" expanded="true" />
-            <element signature="e#5531#5532#0" expanded="true" />
-            <element signature="e#5579#5580#0" expanded="true" />
-            <element signature="e#5627#5628#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/control/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="248" column="31" selection-start-line="248" selection-start-column="31" selection-end-line="248" selection-end-column="31" />
+        <state relative-caret-position="724">
+          <caret line="409" column="95" selection-start-line="409" selection-start-column="95" selection-end-line="409" selection-end-column="95" />
           <folding>
             <element signature="e#12643#12644#0" expanded="true" />
             <element signature="e#12668#12669#0" expanded="true" />
             <element signature="e#12722#12723#0" expanded="true" />
             <element signature="e#12755#12756#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/player/Player1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="185" column="13" lean-forward="true" selection-start-line="185" selection-start-column="13" selection-end-line="185" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/enemy/Ghost.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="101" selection-start-line="101" selection-end-line="101" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4710#4711#0" expanded="true" />
+            <element signature="e#4779#4780#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -9,16 +9,21 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 import com.control.Game;
+import com.control.States;
 
 
 public class Options {
 	
 	public Rectangle optionsframe = new Rectangle(0,0,Game.WIDTH,Game.HEIGHT);
+	public Rectangle textframe = new Rectangle (500, 190, 450, 650);
 	private BufferedImage image;
+	
 
 	public final Button[] optionmenu;
 	private int yshift = 100;
 	private int yspacing = 370;
+	private int textspacingx = 5;
+	private int textspacingy = 35;
 	
 	
 	public Options() {
@@ -27,7 +32,7 @@ public class Options {
 		optionmenu[0] = new Button ("Sound", optionsframe.width / 4, optionsframe.height / 4 + yshift + 0 * yspacing, font, Color.black );
 		optionmenu[1] = new Button ("Controls", optionsframe.width / 4, optionsframe.height / 4+ yshift + 1 * yspacing, font, Color.black );
 		optionmenu[2] = new Button ("Credits", optionsframe.width / 4, optionsframe.height / 4 + yshift + 2 * yspacing, font, Color.black );
-		optionmenu[3] = new Button ("Back", optionsframe.width / 4, optionsframe.height / 4 + yshift + 3 * yspacing, font, Color.black );
+		optionmenu[3] = new Button ("Back", (optionsframe.width / 4) - 10, (optionsframe.height / 4 + yshift + 3 * yspacing)- 10, font, Color.black );
 	}
 	
 
@@ -42,10 +47,19 @@ public class Options {
 		}
 		g.drawImage(image,0,0,null);
 
-/////////////////////////////////////////////////////////////////////////////
+		/////////////////////////////////////////////////////////////////////////////
 		for (int i = 0; i < optionmenu.length; i++) {
     		optionmenu[i].render(g);
     	}
+		
+		Font text = new Font ("Comic Sans MS", Font.BOLD, 30);
+		g.setColor(Color.blue);
+		g.setFont(text);
+		
+		//if (Game.state == States.Credits) {
+		//	g.drawString("Hello", textframe.x + textspacingx, textframe.y + textspacingy);
+	//	}
+		
 	}
 
 

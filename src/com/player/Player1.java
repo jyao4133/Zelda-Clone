@@ -6,7 +6,6 @@ import java.awt.image.BufferedImage;
 import com.control.Game;
 import com.control.IDs;
 import com.control.States;
-import com.sun.glass.events.KeyEvent;
 
 public class Player1 extends Object {
 //player controller class following MVC
@@ -225,20 +224,6 @@ public class Player1 extends Object {
 		return new Rectangle (xpos + 13 ,ypos + 10,50,60);
 	}
 	
-	public int getXpos() {
-		return this.xpos;
-	}
-	
-	public int getYpos() {
-		return ypos;
-	}
-	
-	public int getXspeed() {
-		return Xspeed;
-	}
-	
-	public int getYspeed() {
-		return Yspeed;
-	}
+
 
 }
