@@ -61,17 +61,13 @@ public class Ghost extends Object{
 		up[2] = ss.grabImage(3, 12, 75,75);
 		up[3] = ss.grabImage(4, 12, 75,75);
 		///////////////////////////////////////
-
-		
+		ani_up = new Animation (200, up);
+		ani_down = new Animation (200, down);
+		ani_left = new Animation (200, left);
+		ani_right = new Animation (200, right);		
 		ghostpos = up[0];
-		
-
-		
-        
         
     }
-    
-    
     
     public void tick() {
     	
@@ -86,21 +82,21 @@ public class Ghost extends Object{
             if (player.getId() == IDs.player) {
             	 if (xpos < player.getXpos()) {//right
                     Xspeed = speed;
-                 	//ani_right.tick();
+                 	ani_right.tick();
                  }
             	 if (xpos > player.getXpos()) {//left
                      Xspeed = -speed;
-                 	//ani_left.tick();
+                 	ani_left.tick();
 
             	 }
             	 if (ypos < player.getYpos()) {//down
-                     Yspeed = speed;
-                 	//ani_down.tick();
+                    Yspeed = speed;
+                 	ani_down.tick();
 
             	 }
             	 if (ypos > player.getYpos()) {//up
-                     Yspeed = -speed;    	
-                    // ani_up.tick();
+                    Yspeed = -speed;    	
+                    ani_up.tick();
 
             	 }
             }
@@ -125,20 +121,20 @@ public class Ghost extends Object{
     public void render(Graphics g) {
        
     	if (Xspeed < 0 ) {//left
-    		//g.drawImage(ani_left.getCurrentFrame(), xpos, ypos, null);
+    		g.drawImage(ani_left.getCurrentFrame(), xpos, ypos, null);
         	ghostpos = left[0];
     	}
     	if (Xspeed > 0) {//right
-    	//	g.drawImage(ani_right.getCurrentFrame(), xpos, ypos, null);
+    		g.drawImage(ani_right.getCurrentFrame(), xpos, ypos, null);
         	ghostpos = right[0];
     	}
     	
     	if (Yspeed < 0) {//up
-    		//g.drawImage(ani_up.getCurrentFrame(), xpos, ypos, null);
+    		g.drawImage(ani_up.getCurrentFrame(), xpos, ypos, null);
         	ghostpos = up[0];
     	}
     	if (Yspeed > 0) {//down
-    	//	g.drawImage(ani_down.getCurrentFrame(), xpos, ypos, null);
+    		g.drawImage(ani_down.getCurrentFrame(), xpos, ypos, null);
         	ghostpos = down[0];
     	}    	 
     	if(Xspeed == 0 && Yspeed == 0) {

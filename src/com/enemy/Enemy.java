@@ -81,9 +81,6 @@ public class Enemy extends Object{
         ypos += Yspeed;
         xpos += Xspeed;
 
-    	
-    	
-    	
         chosen = r.nextInt(10);
 
 

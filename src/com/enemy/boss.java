@@ -22,7 +22,6 @@ public class boss extends Object{
     This enemy is the first enemy the player will come across. It will have randomized
     movement and will remove 1 point of health when it collides with the player.
      */
-    SpriteAnimation animation;
     private Handler handler;
     Game game;
     Random r = new Random();
