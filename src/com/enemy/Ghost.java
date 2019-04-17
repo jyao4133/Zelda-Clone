@@ -80,21 +80,30 @@ public class Ghost extends Object{
         for (int i = 0; i < handler.object.size(); i++) {
             Object player = handler.object.get(i);
             if (player.getId() == IDs.player) {
-            	 if (xpos < player.getXpos()) {//right
+
+                if (xpos == player.getXpos()){
+                    Xspeed = 0;
+                }
+
+            	else if (xpos < player.getXpos()) {//right
                     Xspeed = speed;
                  	ani_right.tick();
                  }
-            	 if (xpos > player.getXpos()) {//left
-                     Xspeed = -speed;
+            	else if (xpos > player.getXpos()) {//left
+            	    Xspeed = -speed;
                  	ani_left.tick();
 
             	 }
-            	 if (ypos < player.getYpos()) {//down
+
+                if (ypos == player.getYpos()){
+                    Yspeed = 0;
+                }
+                else if (ypos < player.getYpos()) {//down
                     Yspeed = speed;
                  	ani_down.tick();
 
             	 }
-            	 if (ypos > player.getYpos()) {//up
+                else if (ypos > player.getYpos() + 5) {//up
                     Yspeed = -speed;    	
                     ani_up.tick();
 
