@@ -84,7 +84,7 @@ public class MouseHandler extends MouseAdapter  {
 			
 			
 			
-		}else if (Game.state == States.Game || Game.state == States.level2) {
+		}else if (Game.state == States.Game || Game.state == States.level2 || Game.state == States.bosslevel || Game.state == States.level3) {
 			 for (int i = 0; i < handler.object.size(); i++){
                  Object tempObject= handler.object.get(i);
                  if(tempObject.getId() == IDs.player){

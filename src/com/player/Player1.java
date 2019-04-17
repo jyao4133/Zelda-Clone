@@ -193,6 +193,16 @@ public class Player1 extends Object {
 						game.loadLevel(game.background2);
 					}
 
+            		else if (game.nextLevel == "level3"){
+            			Game.state = States.level3;
+            			game.loadLevel(game.background3);
+					}
+
+            		else if (game.nextLevel == "bosslevel"){
+            			Game.state = States.bosslevel;
+            			game.loadLevel(game.bossLevel);
+					}
+
 
 				}
 			}
@@ -200,9 +210,15 @@ public class Player1 extends Object {
             if (tempObject.getId() == IDs.backStairs){
 				if(getBounds().intersects((tempObject.getBounds()))){
 
-					Game.state = States.Game;
-					game.loadLevel(game.background);
+					if (game.prevLevel == "level2") {
+						Game.state = States.level2;
+						game.loadLevel(game.background2);
+					}
 
+					else {
+						Game.state = States.Game;
+						game.loadLevel(game.background);
+					}
 				}
 			}
 
