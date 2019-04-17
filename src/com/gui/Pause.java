@@ -1,4 +1,4 @@
-package com.control;
+package com.gui;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -10,6 +10,8 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+
+import com.control.Game;
 
 public class Pause {
 	

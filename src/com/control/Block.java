@@ -3,6 +3,9 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
+import com.player.Object;
+import com.player.SpriteSheet;
+
 
 public class Block extends Object {
 

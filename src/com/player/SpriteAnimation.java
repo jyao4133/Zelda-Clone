@@ -1,4 +1,4 @@
-package com.control;
+package com.player;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;

@@ -1,4 +1,4 @@
-package com.control;
+package com.gui;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;
@@ -7,6 +7,8 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+
+import com.control.Game;
 
 
 public class Options {

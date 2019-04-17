@@ -2,6 +2,11 @@ package com.control;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
+import com.player.Handler;
+import com.player.Object;
+import com.player.SpriteSheet;
+import com.player.sword;
+
 public class KeyHandler extends KeyAdapter {
 
 	private boolean up = false;

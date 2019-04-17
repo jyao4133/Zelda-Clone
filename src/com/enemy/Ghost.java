@@ -1,7 +1,13 @@
-package com.control;
+package com.enemy;
 
 import java.awt.*;
 import java.util.*;
+
+import com.control.Game;
+import com.control.IDs;
+import com.player.Handler;
+import com.player.Object;
+import com.player.SpriteSheet;
 
 public class Ghost extends Object{
 

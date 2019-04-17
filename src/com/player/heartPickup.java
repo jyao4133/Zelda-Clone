@@ -1,6 +1,8 @@
-package com.control;
+package com.player;
 
 import java.awt.*;
+
+import com.control.IDs;
 
 public class heartPickup extends Object{
 

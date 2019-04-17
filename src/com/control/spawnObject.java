@@ -4,6 +4,8 @@ import jdk.internal.org.objectweb.asm.Handle;
 
 import java.awt.*;
 
+import com.player.Handler;
+
 public class spawnObject{
     private Handler handler;
     Game game;

@@ -4,6 +4,11 @@ import java.awt.Rectangle;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import com.player.Arrow;
+import com.player.Handler;
+import com.player.Object;
+import com.player.SpriteSheet;
+
 public class MouseHandler extends MouseAdapter  {
 
 	

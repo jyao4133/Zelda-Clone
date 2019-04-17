@@ -1,19 +1,31 @@
 package com.control;
 
 
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
+import java.awt.Canvas;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Toolkit;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.awt.image.*;
-import java.nio.Buffer;
-import javax.imageio.ImageIO;
-import javax.swing.*;
 
-import com.control.Button;
+import com.enemy.Enemy;
+import com.enemy.Ghost;
+import com.enemy.shooterEnemy;
+import com.gui.Button;
+import com.gui.Options;
+import com.gui.Pause;
+import com.gui.TitleScreen;
+import com.gui.pauseOptions;
+import com.level.Stairs;
+import com.level.backStairs;
+import com.level.level2;
+import com.player.Handler;
+import com.player.Hearts;
+import com.player.Object;
+import com.player.Player1;
+import com.player.SpriteSheet;
+import com.player.arrowPickup;
 
 public class Game extends Canvas implements Runnable {
 
@@ -412,7 +424,7 @@ public class Game extends Canvas implements Runnable {
                 }
                 if (enemiesStage1 > 4) {
                     //handler.addObject(new Enemy(896, 544, IDs.enemy, handler, this, 500, 300, 1, ss));
-                    //handler.addObject(new shooterEnemy(896, 544, IDs.shooterEnemy, handler, this, ss));
+                    handler.addObject(new shooterEnemy(896, 544, IDs.shooterEnemy, handler, this, ss));
                     handler.addObject(new Ghost(800, 500, IDs.followingEnemy, handler, this, ss));
 
                 }
@@ -427,7 +439,7 @@ public class Game extends Canvas implements Runnable {
             return var = min;
         }
         else
-            return var;
+            return var; 
 
     }
 

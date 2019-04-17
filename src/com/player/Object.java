@@ -1,8 +1,10 @@
 //High level wrapper for ALL objects in the game
 
-package com.control;
+package com.player;
 
 import java.awt.*;
+
+import com.control.IDs;
 
 public abstract class Object {
 	

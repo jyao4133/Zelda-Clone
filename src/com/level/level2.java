@@ -1,7 +1,9 @@
-package com.control;
+package com.level;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+
+import com.control.Game;
 
 public class level2 {
 

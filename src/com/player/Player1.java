@@ -1,8 +1,11 @@
-package com.control;
+package com.player;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
+import com.control.Game;
+import com.control.IDs;
+import com.control.States;
 import com.sun.glass.events.KeyEvent;
 
 public class Player1 extends Object {

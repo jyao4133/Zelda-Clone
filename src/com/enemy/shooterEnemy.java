@@ -1,6 +1,13 @@
-package com.control;
+package com.enemy;
 
 import javax.swing.*;
+
+import com.control.Game;
+import com.control.IDs;
+import com.player.Handler;
+import com.player.Object;
+import com.player.SpriteSheet;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

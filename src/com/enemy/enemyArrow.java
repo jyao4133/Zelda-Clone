@@ -1,24 +1,43 @@
-package com.control;
+package com.enemy;
 
 import java.awt.*;
-import java.math.*;
 
-public class Arrow extends Object {
+import com.control.IDs;
+import com.player.Handler;
+import com.player.Object;
+import com.player.SpriteSheet;
 
+public class enemyArrow extends Object {
     private Handler handler;
 
 
-    public Arrow(int xpos, int ypos, IDs id, Handler handler, int x, int y, SpriteSheet ss) {
+    public enemyArrow(int xpos, int ypos, IDs id, Handler handler,SpriteSheet ss, int Direction ) {
         super(xpos, ypos, id, ss);
         this.handler = handler;
 
 
-        double distance = Math.sqrt(Math.pow((x - xpos),2) + Math.pow((y - ypos),2));
-        double speed = 10;
 
+        if (Direction == 1){
+            Xspeed = 6;
+            Yspeed = 0;
+        }
 
-        Xspeed = (int) ((x - xpos)*speed/distance);
-        Yspeed = (int) ((y - ypos)*speed/distance);
+        else if (Direction == 2){
+            Xspeed = 0;
+            Yspeed = 6;
+
+        }
+
+        else if (Direction == 4){
+            Xspeed = 0;
+            Yspeed = -6;
+        }
+
+        else if (Direction == 3){
+            Xspeed = -6;
+            Yspeed = 0;
+        }
+
 
 
         System.out.println(Xspeed);
@@ -43,6 +62,7 @@ public class Arrow extends Object {
                     handler.removeObject(this);
                 }
             }
+
         }
     }
 

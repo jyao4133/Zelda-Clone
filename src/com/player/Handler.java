@@ -1,4 +1,4 @@
-package com.control;
+package com.player;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -9,7 +9,7 @@ public class Handler {
 
 
 
-    ArrayList<Object> object = new ArrayList<>();
+    public ArrayList<Object> object = new ArrayList<>();
     public void tick(){
         for (int i = 0; i < object.size(); i++){
             Object tempObject = object.get(i);

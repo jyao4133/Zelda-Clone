@@ -1,6 +1,14 @@
-package com.control;
+package com.enemy;
 
 import java.awt.*;
+import com.control.*;
+import com.player.Handler;
+import com.player.Object;
+import com.player.SpriteAnimation;
+import com.player.SpriteSheet;
+import com.player.arrowPickup;
+import com.player.heartPickup;
+
 import java.awt.image.BufferedImage;
 import java.util.*;
 

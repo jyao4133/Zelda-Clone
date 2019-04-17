@@ -1,4 +1,4 @@
-package com.control;
+package com.player;
 
 
 import java.awt.Color;
@@ -9,6 +9,9 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 
 import javax.swing.Timer;
+
+import com.control.Game;
+import com.control.IDs;
 
 public class sword extends Object {
 

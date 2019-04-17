@@ -1,4 +1,4 @@
-package com.control;
+package com.gui;
 
 import java.awt.*;
 

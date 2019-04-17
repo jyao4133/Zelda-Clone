@@ -1,7 +1,13 @@
-package com.control;
+package com.level;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+
+import com.control.Game;
+import com.control.IDs;
+import com.player.Handler;
+import com.player.Object;
+import com.player.SpriteSheet;
 
 public class Stairs extends Object{
 
