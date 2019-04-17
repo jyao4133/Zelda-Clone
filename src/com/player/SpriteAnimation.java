@@ -1,12 +1,12 @@
 package com.player;
-
+//DO NOT USE//
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
 
 public class SpriteAnimation {
 	
-	private int speed;
+/*	private int speed;
 	private int frames;
 	private int index = 0;
 	private int count = 0;
@@ -62,7 +62,7 @@ public class SpriteAnimation {
 	public void setSpeed(int speed){
 		this.speed = speed;
 	}
-	
+	*/
 	
 	
 	

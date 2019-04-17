@@ -6,6 +6,7 @@ import java.util.*;
 
 import com.control.Game;
 import com.control.IDs;
+import com.player.Animation;
 import com.player.Handler;
 import com.player.Object;
 import com.player.SpriteAnimation;
@@ -19,13 +20,13 @@ public class Ghost extends Object{
     interaction with the objects in the canvas is transparent to it. 
      */
 	private Handler handler;
-    private SpriteAnimation animation;
 
     Game game;
 
-
-    private BufferedImage[] ghost = new BufferedImage [16];
+    private BufferedImage [] up, down, left, right;
     private BufferedImage ghostpos;
+    private Animation ani_up, ani_down, ani_left, ani_right;
+    
     int speed = 1;
     
 
@@ -35,67 +36,72 @@ public class Ghost extends Object{
         super(xpos, ypos, id, ss);
         this.handler = handler;
         this.game = game;     
-        
-        ghostpos = ghost[0];
-		animation = new SpriteAnimation(500, ghost);
+        up = new BufferedImage [4];
+		down = new BufferedImage [4];
+		left = new BufferedImage [4];
+		right = new BufferedImage [4];
+		/////////////ANIMATIONS/////////////
+		down[0] = ss.grabImage(1, 9, 75,75);
+		down[1] = ss.grabImage(2, 9, 75,75);
+		down[2] = ss.grabImage(3, 9, 75,75);
+		down[3] = ss.grabImage(4, 9, 75,75);
 		
-		//down
-		ghost[0] = ss.grabImage(1, 9, 75,75);
-		ghost[1] = ss.grabImage(2, 9, 75,75);
-		ghost[2] = ss.grabImage(3, 9, 75,75);
-		ghost[3] = ss.grabImage(4, 9, 75,75);
+		left[0] = ss.grabImage(1, 10, 75,75);
+		left[1] = ss.grabImage(2, 10, 75,75);
+		left[2] = ss.grabImage(3, 10, 75,75);
+		left[3] = ss.grabImage(4, 10, 75,75);
 		
-		//left
-		ghost[4] = ss.grabImage(1, 10, 75,75);
-		ghost[5] = ss.grabImage(2, 10, 75,75);
-		ghost[6] = ss.grabImage(3, 10, 75,75);
-		ghost[7] = ss.grabImage(4, 10, 75,75);
+		right[0] = ss.grabImage(1, 11, 75,75);
+		right[1] = ss.grabImage(2, 11, 75,75);
+		right[2] = ss.grabImage(3, 11, 75,75);
+		right[3] = ss.grabImage(4, 11, 75,75);
 		
-		//right
-		ghost[8] = ss.grabImage(1, 11, 75,75);
-		ghost[9] = ss.grabImage(2, 11, 75,75);
-		ghost[10] = ss.grabImage(3, 11, 75,75);
-		ghost[11] = ss.grabImage(4, 11, 75,75);
+		up[0] = ss.grabImage(1, 12, 75,75);
+		up[1] = ss.grabImage(2, 12, 75,75);
+		up[2] = ss.grabImage(3, 12, 75,75);
+		up[3] = ss.grabImage(4, 12, 75,75);
+		///////////////////////////////////////
+
 		
-		//up
-		ghost[12] = ss.grabImage(1, 12, 75,75);
-		ghost[13] = ss.grabImage(2, 12, 75,75);
-		ghost[14] = ss.grabImage(3, 12, 75,75);
-		ghost[15] = ss.grabImage(4, 12, 75,75);
-		
-		
-		ghostpos = ghost[0];
+		ghostpos = up[0];
 		
 
 		
-		for (int i = 0; i < ghost.length; i++) {
-			animation = new SpriteAnimation(500, ghost[i]);
-	        animation.runAnimation();
-		}
         
         
     }
     
     
     
-    public void tick() {  	   	
+    public void tick() {
+    	
+    	
+    	
+    	
         xpos += Xspeed;
     	ypos += Yspeed;
 
         for (int i = 0; i < handler.object.size(); i++) {
             Object player = handler.object.get(i);
             if (player.getId() == IDs.player) {
-            	 if (xpos < player.getXpos()) {
-                     Xspeed = speed;
+            	 if (xpos < player.getXpos()) {//right
+                    Xspeed = speed;
+                 	//ani_right.tick();
                  }
-            	 if (xpos > player.getXpos()) {
+            	 if (xpos > player.getXpos()) {//left
                      Xspeed = -speed;
+                 	//ani_left.tick();
+
             	 }
-            	 if (ypos < player.getYpos()) {
+            	 if (ypos < player.getYpos()) {//down
                      Yspeed = speed;
+                 	//ani_down.tick();
+
             	 }
-            	 if (ypos > player.getYpos()) {
-                     Yspeed = -speed;
+            	 if (ypos > player.getYpos()) {//up
+                     Yspeed = -speed;    	
+                    // ani_up.tick();
+
             	 }
             }
         }
@@ -111,6 +117,7 @@ public class Ghost extends Object{
             }
 
         }
+
     	
    }
 
@@ -118,38 +125,21 @@ public class Ghost extends Object{
     public void render(Graphics g) {
        
     	if (Xspeed < 0 ) {//left
-    		for (int i = 4; i < 8; i++) {
-        		g.drawImage(ghost[i], xpos, ypos, null); //left 8 to 11
-        		ghostpos = ghost[i];
-    		}
-    	}else {
-    		animation.drawAnimation(g, xpos, ypos, 2);
-
+    		//g.drawImage(ani_left.getCurrentFrame(), xpos, ypos, null);
+        	ghostpos = left[0];
     	}
     	if (Xspeed > 0) {//right
-    		for (int i = 8 ; i < 12; i++) {
-        		g.drawImage(ghost[i], xpos, ypos, null); //right 4 to 7
-        		ghostpos = ghost[i];
-        		}
-    	}else {
-    		animation.drawAnimation(g, xpos, ypos, 2);
+    	//	g.drawImage(ani_right.getCurrentFrame(), xpos, ypos, null);
+        	ghostpos = right[0];
     	}
     	
     	if (Yspeed < 0) {//up
-    		for (int i = 12; i < 16; i++) {
-        		g.drawImage(ghost[i], xpos, ypos, null); //up 12 to 15
-        		ghostpos = ghost[i];
-    		}
-    	}else {
-    		animation.drawAnimation(g, xpos, ypos, 2);
+    		//g.drawImage(ani_up.getCurrentFrame(), xpos, ypos, null);
+        	ghostpos = up[0];
     	}
     	if (Yspeed > 0) {//down
-    		for (int i = 0; i < 4; i++) {
-    			g.drawImage(ghost[i], xpos, ypos, null); //down 0 to 3
-        		ghostpos = ghost[i];
-			}
-    	}else {
-    		animation.drawAnimation(g, xpos, ypos, 2);
+    	//	g.drawImage(ani_down.getCurrentFrame(), xpos, ypos, null);
+        	ghostpos = down[0];
     	}    	 
     	if(Xspeed == 0 && Yspeed == 0) {
     		g.drawImage(ghostpos, xpos, ypos, null);

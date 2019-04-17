@@ -15,66 +15,69 @@ public class Player1 extends Object {
 //player controller class following MVC
 	Handler handler;
     Game game;
-    private SpriteAnimation animation;
     
-    private BufferedImage[] player = new BufferedImage [16];
+	private BufferedImage [] up, down, left, right;
     private BufferedImage playerpos;
+    private Animation ani_up, ani_down, ani_left, ani_right;
+    
 	public static String playerDirection;
 	public static String prevDirection;
-
+	
 	private int hplossCD;
 
     int tx;
     int ty;
-
     
     public Player1(int xpos, int ypos, IDs id, Handler handler, Game game, SpriteSheet ss) {
         super(xpos, ypos, id, ss);
-        //Xspeed = 1;
-        //Yspeed = 1;
+ 
 		this.handler = handler;
 		this.game = game;
-		playerpos = player[0];
-		animation = new SpriteAnimation(500, player);
 		startCD();
-		//down
-		player[0] = ss.grabImage(1, 3, 75,75);
-		player[1] = ss.grabImage(2, 3, 75,75);
-		player[2] = ss.grabImage(3, 3, 75,75);
-		player[3] = ss.grabImage(4, 3, 75,75);
 		
-		//right
-		player[4] = ss.grabImage(1, 1, 75,75);
-		player[5] = ss.grabImage(2, 1, 75,75);
-		player[6] = ss.grabImage(3, 1, 75,75);
-		player[7] = ss.grabImage(4, 1, 75,75);
-		//left
+		up = new BufferedImage [4];
+		down = new BufferedImage [4];
+		left = new BufferedImage [4];
+		right = new BufferedImage [4];
 		
-		player[8] = ss.grabImage(1, 2, 75,75);
-		player[9] = ss.grabImage(2, 2, 75,75);
-		player[10] = ss.grabImage(3, 2, 75,75);
-		player[11] = ss.grabImage(4, 2, 75,75);
-		//up
-		player[12] = ss.grabImage(1, 4, 75,75);
-		player[13] = ss.grabImage(2, 4, 75,75);
-		player[14] = ss.grabImage(3, 4, 75,75);
-		player[15] = ss.grabImage(4, 4, 75,75);
+		/////////////ANIMATIONS/////////////
+		up[0] = ss.grabImage(1, 4, 75,75);
+		up[1] = ss.grabImage(2, 4, 75,75);
+		up[2] = ss.grabImage(3, 4, 75,75);
+		up[3] = ss.grabImage(4, 4, 75,75);
 		
+		down[0] = ss.grabImage(1, 3, 75,75);
+		down[1] = ss.grabImage(2, 3, 75,75);
+		down[2] = ss.grabImage(3, 3, 75,75);
+		down[3] = ss.grabImage(4, 3, 75,75);
 		
-		playerpos = player[0];
+		left[0] = ss.grabImage(1, 2, 75,75);
+		left[1] = ss.grabImage(2, 2, 75,75);
+		left[2] = ss.grabImage(3, 2, 75,75);
+		left[3] = ss.grabImage(4, 2, 75,75);
 		
+		right[0] = ss.grabImage(1, 1, 75,75);
+		right[1] = ss.grabImage(2, 1, 75,75);
+		right[2] = ss.grabImage(3, 1, 75,75);
+		right[3] = ss.grabImage(4, 1, 75,75);
+		///////////////////////////////////////
+		
+		/*increasing the timer reduces the speed of the animation and vice versa*/
+		ani_up = new Animation (200, up);
+		ani_down = new Animation (200, down);
+		ani_left = new Animation (200, left);
+		ani_right = new Animation (200, right);		
+		playerpos = up[0];
 
-		
-		for (int i = 0; i < player.length; i++) {
-			animation = new SpriteAnimation(500, player[i]);
-	        animation.runAnimation();
-		}
-
-
-		
     }
 
     public void tick() {
+    	
+    	ani_up.tick();
+    	ani_down.tick();
+    	ani_left.tick();
+    	ani_right.tick();
+    	
         ypos += Yspeed;
         xpos += Xspeed;
         collision();
@@ -83,55 +86,30 @@ public class Player1 extends Object {
     public void render(Graphics g) {
 
     	if (Xspeed < 0 ) {//left
-    		for (int i = 8; i < 12; i++) {
-        		g.drawImage(player[i], xpos, ypos, null); //left 8 to 11
-        		playerpos = player[i];
-				playerDirection = "left";
-
-    		}
-    	}else {
-    		animation.drawAnimation(g, xpos, ypos, 2);
+        	g.drawImage(ani_left.getCurrentFrame(), xpos, ypos, null);
+        	playerpos = left[0];
+			playerDirection = "left";
 
     	}
     	if (Xspeed > 0) {//right
-    		for (int i = 4; i < 8; i++) {
-        		g.drawImage(player[i], xpos, ypos, null); //right 4 to 7
-        		playerpos = player[i];
-				playerDirection = "right";
-
-
-			}
-    	}else {
-    		animation.drawAnimation(g, xpos, ypos, 2);
+        	g.drawImage(ani_right.getCurrentFrame(), xpos, ypos, null);
+        	playerpos = right[0];
+        	playerDirection = "right";
     	}
     	
     	if (Yspeed < 0) {//up
-    		for (int i = 12; i < 16; i++) {
-        		g.drawImage(player[i], xpos, ypos, null); //up 12 to 15
-        		playerpos = player[i];
-				playerDirection = "up";
-
-
-			}
-    	}else {
-    		animation.drawAnimation(g, xpos, ypos, 2);
-    	}
-    	if (Yspeed > 0) {//down
-    		for (int i = 0; i < 4; i++) {
-    			g.drawImage(player[i], xpos, ypos, null); //down 0 to 3
-        		playerpos = player[i];
-				playerDirection = "down";
-
-
-
-			}
-    	}else {
-    		animation.drawAnimation(g, xpos, ypos, 2);
-    	}    	 
-    	if(Xspeed == 0 && Yspeed == 0) {
-    		g.drawImage(playerpos, xpos, ypos, null);
+        	g.drawImage(ani_up.getCurrentFrame(), xpos, ypos, null);
+        	playerpos = up[0];
+			playerDirection = "up";
 		}
-
+    	if (Yspeed > 0) {//down
+        	g.drawImage(ani_down.getCurrentFrame(), xpos, ypos, null);
+        	playerpos = down[0];
+        	playerDirection = "down";
+		}
+    	if (Xspeed == 0 && Yspeed == 0) {
+    		g.drawImage(playerpos, xpos, ypos, null);
+    	}
     	prevDirection = playerDirection;
 		//g.setColor(Color.pink);
 		//g.fillRect(xpos + 13 ,ypos + 10,50,60);

@@ -2,6 +2,7 @@ package com.enemy;
 
 import java.awt.*;
 import com.control.*;
+import com.player.Animation;
 import com.player.Handler;
 import com.player.Object;
 import com.player.SpriteAnimation;
@@ -19,9 +20,11 @@ public class Enemy extends Object{
     This enemy is the first enemy the player will come across. It will have randomized
     movement and will remove 1 point of health when it collides with the player.
      */
-    SpriteAnimation animation;
     private Handler handler;
-    private BufferedImage [] bird = new BufferedImage [8];
+    
+    private BufferedImage [] left, right;
+    private Animation ani_left, ani_right;
+
 
     Game game;
     Random r = new Random();
@@ -42,26 +45,32 @@ public class Enemy extends Object{
         this.yprev = yprev;
         this.game = game;
         this.initial = initial;
+        
+        left = new BufferedImage [4];
+		right = new BufferedImage [4];
+		
+		/////////////ANIMATIONS/////////////
+        left[0] = ss.grabImage(1, 5, 60,60);
+        left[1] = ss.grabImage(2, 5, 60,60);
+        left[2] = ss.grabImage(3, 5, 60,60);
+        left[3] = ss.grabImage(4, 5, 60,60);
+        
+        right[0] = ss.grabImage(1, 6, 60,60);
+        right[1] = ss.grabImage(2, 6, 60,60);
+        right[2] = ss.grabImage(3, 6, 60,60);
+        right[3] = ss.grabImage(4, 6, 60,60);
+		///////////////////////////////////////
 
-        //left
-        bird[0] = ss.grabImage(1, 5, 60,60);
-        bird[1] = ss.grabImage(2, 5, 60,60);
-        bird[2] = ss.grabImage(3, 5, 60,60);
-        bird[3] = ss.grabImage(4, 5, 60,60);
-        //right
-        bird[4] = ss.grabImage(1, 6, 60,60);
-        bird[5] = ss.grabImage(2, 6, 60,60);
-        bird[6] = ss.grabImage(3, 6, 60,60);
-        bird[7] = ss.grabImage(4, 6, 60,60);
-
-    	for (int i = 0; i < bird.length; i++) {
-			animation = new SpriteAnimation(1, bird[i]);
-	       animation.runAnimation();
-		}
+        ani_left = new Animation (200, left);
+		ani_right = new Animation (200, right);
+    	
     }
 
     public void tick() {
 
+    	ani_left.tick();
+    	ani_right.tick();
+    	
     	if(initial == 1){
             initial = 0;
         }else{
@@ -150,18 +159,10 @@ public class Enemy extends Object{
     	//g.drawImage(bird, xpos, ypos, null);   	
     	
     	if (Xspeed <= 0  ) {//left
-    		for (int i = 0; i < 4; i++) {
-    			g.drawImage(bird[i], xpos, ypos, null); //down 0 to 3
-    		}
-    	}else {
-    		animation.drawAnimation(g, xpos, ypos, 2);
+        	g.drawImage(ani_left.getCurrentFrame(), xpos, ypos, null);
     	}
     	if (Xspeed >= 0) {//right
-    		for (int i = 4; i < 8; i++) {
-        		g.drawImage(bird[i], xpos, ypos, null); //right 4 to 7
-    		}
-    	}else {
-    		animation.drawAnimation(g, xpos, ypos, 2);
+        	g.drawImage(ani_right.getCurrentFrame(), xpos, ypos, null);
     	}
 
 
