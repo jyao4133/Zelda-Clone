@@ -88,9 +88,7 @@ public class Enemy extends Object{
             Object tempObject = handler.object.get(i);
 
             if (tempObject.getId() == IDs.Block) {
-
                 if (getBounds().intersects((tempObject.getBounds()))) {
-
                         xpos = xprev;
                         ypos = yprev;
                         Xspeed *= -1;
@@ -99,33 +97,26 @@ public class Enemy extends Object{
                 else if (chosen == 0){
                     Xspeed = (r.nextInt(2*maxSpeed +1) - maxSpeed);
                     Yspeed = (r.nextInt(2*maxSpeed +1) - maxSpeed);
-
                 }
             }
-
-            if (tempObject.getId() == IDs.Arrow ){
+            if (tempObject.getId() == IDs.Arrow || tempObject.getId() == IDs.sword){
                 if(getBounds().intersects((tempObject.getBounds()))){
                     handler.removeObject(tempObject);
                     handler.removeObject(this);
                     rngGen = p.nextInt(10);
-                    
-
                     if (rngGen < 2) {
                         handler.addObject(new heartPickup(xpos, ypos, IDs.heartPickup, ss));
                     }
-
                     else if (rngGen > 8){
                         handler.addObject(new arrowPickup(xpos, ypos, IDs.Pickup, ss));
-
                     }
-
                     if (Game.state == States.Game || Game.state == States.Load){
                         game.enemiesStage1--;
                     }
                 }
             }
 
-            if (tempObject.getId() == IDs.sword){
+        /*    if (tempObject.getId() == IDs.sword){
                 if(getBounds().intersects((tempObject.getBounds()))){
 
                     handler.removeObject(this);
@@ -145,7 +136,7 @@ public class Enemy extends Object{
                         game.enemiesStage1--;
                     }
                 }
-            }
+            }*/
         }
 
 

@@ -1,5 +1,5 @@
 package com.player;
-
+//https://opengameart.org/content/one-more-lpc-alternate-character
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -147,7 +147,7 @@ public class Player1 extends Object {
 			}
 
 
-            if (tempObject.getId() == IDs.enemy){
+            if (tempObject.getId() == IDs.enemy || tempObject.getId() == IDs.followingEnemy){
                 if(getBounds().intersects((tempObject.getBounds()))){
                     handler.removeObject(tempObject);
                     if (game.player1Health > 0){

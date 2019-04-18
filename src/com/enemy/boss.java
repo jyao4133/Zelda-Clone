@@ -1,7 +1,8 @@
 package com.enemy;
-
+//https://www.deviantart.com/zeka10000/art/Discord-Sprites-for-RPG-Maker-MV-718234101
 import java.awt.*;
 import com.control.*;
+import com.player.Animation;
 import com.player.Handler;
 import com.player.Object;
 import com.player.SpriteAnimation;
@@ -32,6 +33,11 @@ public class boss extends Object{
     int maxSpeed = 8;
     private int Direction = 1;
 
+    
+    private BufferedImage [] up, down, left, right;
+    private BufferedImage bosspos;
+    private Animation ani_up, ani_down, ani_left, ani_right;
+    
     public boss(int xpos, int ypos, IDs id, Handler handler, Game game, int xprev, int yprev, int initial, SpriteSheet ss) {
 
         super(xpos, ypos, id, ss);
@@ -43,11 +49,42 @@ public class boss extends Object{
         start();
         startCD();
 
-
+        up = new BufferedImage [3];
+		down = new BufferedImage[3];
+		left = new BufferedImage [3];
+		right = new BufferedImage [3];
+		/////////////ANIMATIONS/////////////
+		up[0] = ss.bossImage(8, 4, 75,150);
+		up[1] = ss.bossImage(9, 4, 75,150);
+		up[2] = ss.bossImage(10, 4, 75,150);
+		
+		down[0] = ss.bossImage(8, 1, 75,150);
+		down[1] = ss.bossImage(9, 1, 75,150);
+		down[2] = ss.bossImage(10, 1, 75,150);
+		
+		left[0] = ss.bossImage(8, 2, 75,150);
+		left[1] = ss.bossImage(9, 2, 75,150);
+		left[2] = ss.bossImage(10, 2, 75,150);
+		
+		right[0] = ss.bossImage(8, 3, 75,150);
+		right[1] = ss.bossImage(9, 3, 75,150);
+		right[2] = ss.bossImage(10, 3, 75,150);
+		///////////////////////////////////////
+		ani_up = new Animation (200, up);
+		ani_down = new Animation (200, down);
+		ani_left = new Animation (200, left);
+		ani_right = new Animation (200, right);		
+		bosspos = up[0];
+        
+        
     }
 
     public void tick() {
-
+    	ani_up.tick();
+    	ani_down.tick();
+    	ani_left.tick();
+    	ani_right.tick();
+    	
         if(initial == 1){
             initial = 0;
         }else{
@@ -159,12 +196,33 @@ public class boss extends Object{
 
     public void render(Graphics g) {
         //g.drawImage(bird, xpos, ypos, null);
-        g.setColor(Color.pink);
-        g.fillRect(xpos,ypos,200,200);
+        //g.setColor(Color.pink);
+        //g.fillRect(xpos,ypos,200,200);
 
         g.setColor(Color.green);
-
         g.fillRect(xpos, ypos - 40, game.bossHealth*10, 20);
+        
+        if (Xspeed < 0 ) {//left
+    		g.drawImage(ani_left.getCurrentFrame(), xpos, ypos, null);
+        	bosspos = left[0];
+    	}
+    	if (Xspeed > 0) {//right
+    		g.drawImage(ani_right.getCurrentFrame(), xpos, ypos, null);
+    		bosspos = right[0];
+    	}
+    	
+    	if (Yspeed < 0) {//up
+    		g.drawImage(ani_up.getCurrentFrame(), xpos, ypos, null);
+    		bosspos = up[0];
+    	}
+    	if (Yspeed > 0) {//down
+    		g.drawImage(ani_down.getCurrentFrame(), xpos, ypos, null);
+    		bosspos = down[0];
+    	}    	 
+    	if(Xspeed == 0 && Yspeed == 0) {
+    		g.drawImage(bosspos, xpos, ypos, null);
+		}
+
     }
 
     //collision with arrow

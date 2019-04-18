@@ -18,4 +18,5 @@ public enum IDs {
     heartPickup,
     Stairs,
     backStairs,
+    rotatingenemy,
 }

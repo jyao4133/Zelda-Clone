@@ -11,9 +11,11 @@ public class SpriteSheet {
 	}
 	
 	public BufferedImage grabImage (int col, int row, int width, int height) {
-
-
 		return image.getSubimage((col*75)-75, (row*75) - 75, width, height);
-	}	
+	}
+	
+	public BufferedImage bossImage (int col, int row, int width, int height) {
+		return image.getSubimage((col*75)-75, (row*150) - 150, width, height);
+	}
 	
 }

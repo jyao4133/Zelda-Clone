@@ -70,10 +70,6 @@ public class Ghost extends Object{
     }
     
     public void tick() {
-    	
-    	
-    	
-    	
         xpos += Xspeed;
     	ypos += Yspeed;
 
@@ -150,8 +146,8 @@ public class Ghost extends Object{
     		g.drawImage(ghostpos, xpos, ypos, null);
 		}
 
-       // g.setColor(Color.pink);
-       // g.fillRect(xpos + 20 , ypos + 30, 40, 40);
+       //g.setColor(Color.pink);
+      // g.fillRect(xpos + 20 , ypos + 30, 40, 40);
     }
 
     //collision with arrow

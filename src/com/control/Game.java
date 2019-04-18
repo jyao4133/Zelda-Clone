@@ -11,6 +11,7 @@ import java.awt.image.BufferedImage;
 
 import com.enemy.Enemy;
 import com.enemy.Ghost;
+import com.enemy.RotatingEnemy;
 import com.enemy.shooterEnemy;
 import com.enemy.boss;
 import com.enemy.clampEnemyleft;
@@ -473,7 +474,7 @@ public class Game extends Canvas implements Runnable {
 
         if (Game.state == States.Load || Game.state == States.Game){
                 if (enemiesStage1 > 0) {
-                    handler.addObject(new Enemy(96, 800, IDs.enemy, handler, this, 500, 300, 1, ss));
+                    handler.addObject(new Enemy(350, 800, IDs.enemy, handler, this, 500, 300, 1, ss));
                 }
                 if (enemiesStage1 > 1) {
                     handler.addObject(new Enemy(160, 288, IDs.enemy, handler, this, 500, 300, 1, ss));
@@ -485,11 +486,11 @@ public class Game extends Canvas implements Runnable {
                     handler.addObject(new Enemy(832, 876, IDs.enemy, handler, this, 500, 300, 1, ss));
                 }
                 if (enemiesStage1 > 4) {
-                    //handler.addObject(new Enemy(896, 544, IDs.enemy, handler, this, 500, 300, 1, ss));
-                    handler.addObject(new shooterEnemy(896, 544, IDs.shooterEnemy, handler, this, ss));
+                    handler.addObject(new shooterEnemy(650, 520, IDs.shooterEnemy, handler, this, ss));
                 }
 
-                 handler.addObject(new Ghost(800, 500, IDs.followingEnemy, handler, this, ss));
+                handler.addObject(new Ghost(800, 500, IDs.followingEnemy, handler, this, ss));
+              //  handler.addObject(new RotatingEnemy(600, 300, IDs.rotatingenemy, handler, this, 1, ss));
 
         }
         if (Game.state == States.bosslevel){
