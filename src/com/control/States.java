@@ -12,6 +12,7 @@ public enum States {
 	Controls,
 	Sound,
 	Credits,
-	pauseOptions;
+	pauseOptions,
+	highscores;
 
 }

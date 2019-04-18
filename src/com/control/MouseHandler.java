@@ -50,8 +50,7 @@ public class MouseHandler extends MouseAdapter  {
 		
 		//To start the game in multiplayer
 			if (x >= 150 && x <= 450 && y >= 400 && y <= 480) {
-				System.out.println("Multi Player");
-
+				Game.state = States.highscores;
 			}
 		//Option Menu for the game
 			if (x >= 150 && x <= 450 && y >= 500 && y <= 580) {
@@ -118,6 +117,11 @@ public class MouseHandler extends MouseAdapter  {
 			}
 
 			
+		}else if (Game.state == States.highscores){
+			if (x>= 100 && x <= 400 && y >= 730 && y <= 840) {
+				Game.state = States.TitleScreen;
+				System.out.println("Back");
+			}
 		}
 	}
  

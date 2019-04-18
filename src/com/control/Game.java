@@ -18,11 +18,7 @@ import com.enemy.boss;
 import com.enemy.clampEnemyleft;
 import com.enemy.clampEnemyright;
 
-import com.gui.Button;
-import com.gui.Options;
-import com.gui.Pause;
-import com.gui.TitleScreen;
-import com.gui.pauseOptions;
+import com.gui.*;
 import com.level.Stairs;
 import com.level.backStairs;
 import com.level.level2;
@@ -55,7 +51,7 @@ public class Game extends Canvas implements Runnable {
 
     public boolean removeBool = false;
     public boolean firstLoad = true;
-    private boolean save = true;
+    private boolean save, titleShown = true;
 
     private volatile boolean running = false;
     private Thread thread;
@@ -70,12 +66,14 @@ public class Game extends Canvas implements Runnable {
     private Options options;
     private Pause pause;
     private pauseOptions pauseoptions;
+    private highScores showScore;
     private level2 Level2;
     private level3 Level3;
     private bossStage bosstage;
     private Object object;
     private InRead read;
     private OutWrite write;
+    private highscoreSort scoreSort;
 
     private Button healthtextbox, scoretextbox, timerbox;
     public Window window;
@@ -103,6 +101,7 @@ public class Game extends Canvas implements Runnable {
     
     public Game(){
 
+
         window = new Window (WIDTH, HEIGHT, "Pre-Title", this);
         handler = new Handler();
 		titlescreen = new TitleScreen();
@@ -119,6 +118,7 @@ public class Game extends Canvas implements Runnable {
         heart4 = new Hearts();
         write = new OutWrite();
         read = new InRead();
+        scoreSort = new highscoreSort();
 
         audio = new Audio ("music.wav");
         //audio.play();
@@ -147,7 +147,14 @@ public class Game extends Canvas implements Runnable {
         loadLevel(background2);
         loadLevel(background3);
 
-        
+        if(titleShown == true) {
+            scoreList = read.read(scoreList);
+            scoreList = scoreSort.listSort(scoreList);
+            System.out.println(scoreList);
+            titleShown = false;
+        }
+        showScore = new highScores(scoreList);
+
     }
     
 
@@ -297,7 +304,12 @@ public class Game extends Canvas implements Runnable {
 
         }else if (state == States.TitleScreen) {
             //g.fillRect(0, 0, WIDTH, HEIGHT);
-
+            if(titleShown == true) {
+                scoreList = read.read(scoreList);
+                scoreList = scoreSort.listSort(scoreList);
+                System.out.println(scoreList);
+                titleShown = false;
+            }
             titlescreen.render(g);
             g.dispose();
             bufferstrat.show();
@@ -315,8 +327,15 @@ public class Game extends Canvas implements Runnable {
         	g.dispose();
             bufferstrat.show();
 
-        }else if(state == States.Load){
+        }else if (state == States.highscores){
+            g.setColor(Color.GREEN);
+            g.fillRect(0, 0, WIDTH, HEIGHT);
+            showScore.render(g);
+            g.dispose();
+            bufferstrat.show();
 
+        }else if(state == States.Load){
+            scoreList.clear();
             Timer.currentSecond = 0;
             Timer.currentMinute = 0;
             player1Health = 4;
@@ -326,7 +345,7 @@ public class Game extends Canvas implements Runnable {
             removeBool = true;
             firstLoad = true;
             save = true;
-
+            titleShown = true;
             loadLevel(background);
             state = States.Game;
 
@@ -428,9 +447,14 @@ public class Game extends Canvas implements Runnable {
 
         if(player1Health == 0 || bossHealth == 0){
             if (save == true){
-                System.out.println("gothere");
-                write.Write("Jason", 96, scoreList);
+                System.out.println("got here");
+                write.Write("Jason", 96);
                 save = false;
+
+                scoreList = read.read(scoreList);
+                scoreList = scoreSort.listSort(scoreList);
+
+
             }
         }
 
@@ -541,6 +565,7 @@ public class Game extends Canvas implements Runnable {
     }
 
     public static void main(String args[]){
+
                 game = new Game();
 
 
