@@ -124,8 +124,6 @@ public class Player1 extends Object {
             if (tempObject.getId() == IDs.Block){
                 if(getBounds().intersects(tempObject.getBounds())){
 						xpos += Xspeed * -1;
-
-
 						ypos += Yspeed * -1;
 				}
             }

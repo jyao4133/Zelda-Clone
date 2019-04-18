@@ -4,6 +4,8 @@ public enum IDs {
 
     player,
     enemy,
+    clampleft,
+    clampright,
     followingEnemy,
     boss,
     Block,

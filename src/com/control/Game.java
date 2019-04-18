@@ -13,6 +13,9 @@ import com.enemy.Enemy;
 import com.enemy.Ghost;
 import com.enemy.shooterEnemy;
 import com.enemy.boss;
+import com.enemy.clampEnemyleft;
+import com.enemy.clampEnemyright;
+
 import com.gui.Button;
 import com.gui.Options;
 import com.gui.Pause;
@@ -34,7 +37,7 @@ public class Game extends Canvas implements Runnable {
 
     private static final long serialVersionUID = 125890125890L;
 
-    public static int WIDTH = 1024, HEIGHT = 990;
+    public static int WIDTH = 1030, HEIGHT = 990;
     public int arrowsRemaining = 10;
     public int player1Health = 4;
     public int bossHealth = 20;
@@ -91,6 +94,7 @@ public class Game extends Canvas implements Runnable {
     
     
     public Game(){
+
         window = new Window (WIDTH, HEIGHT, "Pre-Title", this);
         handler = new Handler();
 		titlescreen = new TitleScreen();
@@ -493,6 +497,12 @@ public class Game extends Canvas implements Runnable {
         }
         if (Game.state == States.bosslevel){
             handler.addObject(new boss(400, 250, IDs.boss, handler, this, 500, 300, 1, ss));
+
+        }
+
+        if (Game.state == States.level3){
+            handler.addObject(new clampEnemyright(100, 600, IDs.clampright, handler, this, ss));
+            handler.addObject(new clampEnemyleft(700, 600, IDs.clampleft, handler, this, ss));
 
         }
 
