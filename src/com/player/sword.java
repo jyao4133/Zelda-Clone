@@ -227,7 +227,7 @@ public class sword extends Object {
 
 
     public void start(){
-        Timer timer = new Timer(10, new ActionListener(){
+        Timer timer = new Timer(100, new ActionListener(){
             public void actionPerformed( ActionEvent e ) {
 
                 currentSecond++;

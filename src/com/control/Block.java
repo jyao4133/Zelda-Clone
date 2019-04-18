@@ -18,7 +18,7 @@ public class Block extends Object {
     }
 
     public void render(Graphics g) {
-        g.setColor(Color.black);
+        g.setColor(Color.yellow);
         g.fillRect(xpos, ypos, 32, 32);
 
     }

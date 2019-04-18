@@ -4,6 +4,7 @@ import javax.swing.*;
 
 import com.control.Game;
 import com.control.IDs;
+import com.player.Animation;
 import com.player.Handler;
 import com.player.Object;
 import com.player.SpriteSheet;
@@ -11,6 +12,7 @@ import com.player.SpriteSheet;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.util.Random;
 
 public class clampEnemyleft extends Object {
@@ -18,22 +20,39 @@ public class clampEnemyleft extends Object {
     private String shootDirection;
     private int currentSecond = 0;
     private Handler handler;
-
+    private BufferedImage [] left, right;
+    private Animation ani_left, ani_right;
 
     public clampEnemyleft(int xpos, int ypos, IDs id, Handler handler, Game game, SpriteSheet ss) {
         super(xpos, ypos, id, ss);
         this.handler = handler;
         this.id = id;
         Xspeed = -4;
+        
+        left = new BufferedImage [3];
+		right = new BufferedImage [3];
+		
+        left[0] = ss.grabImage(5, 9, 75,75);
+		left[1] = ss.grabImage(6, 9, 75,75);
+		left[2] = ss.grabImage(7, 9, 75,75);
+		
+		right[0] = ss.grabImage(5, 10, 75,75);
+		right[1] = ss.grabImage(6, 10, 75,75);
+		right[2] = ss.grabImage(7, 10, 75,75);
+		
+		ani_left = new Animation (200, left);
+		ani_right = new Animation (200, right);		
 
     }
 
     public Rectangle getBounds() {
-        return new Rectangle(xpos, ypos, 36, 36);
+        return new Rectangle(xpos, ypos, 75, 75);
     }
 
     public void tick() {
-
+    	ani_left.tick();
+    	ani_right.tick();
+    	
         ypos += Yspeed;
         xpos += Xspeed;
 
@@ -75,8 +94,17 @@ public class clampEnemyleft extends Object {
 
 
     public void render(Graphics g) {
-        g.setColor(Color.white);
-        g.fillRect(xpos, ypos, 36, 36);
+       // g.setColor(Color.black);
+      //  g.fillRect(xpos, ypos, 75, 75);
+    	if (Xspeed < 0  ) {//left
+        	g.drawImage(ani_left.getCurrentFrame(), xpos, ypos, null);
+    	}
+    	else if (Xspeed > 0) {//right
+        	g.drawImage(ani_right.getCurrentFrame(), xpos, ypos, null);
+    	}
+    	else {
+        	g.drawImage(left[0], xpos, ypos, null);
+    	}
     }
 
     public void start(){

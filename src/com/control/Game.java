@@ -259,18 +259,13 @@ public class Game extends Canvas implements Runnable {
 
         if (state == States.Game) {
             nextLevel = "level2";
-        	////////////////////////////////////JFrame colour
-        	//g.setColor(Color.red);
-        	//g.fillRect(0, 150, WIDTH, HEIGHT);
-
-        	g.drawImage(floor, 0, 170, null);
+        
         	
         	//Health Bar area
         	g.setColor(Color.black);
         	g.fillRect(0, 0, WIDTH, 170);
 
-        	//g.setColor(Color.blue);
-        	//g.fillRect(50, 50, 200, 50);
+        	g.drawImage(floor, 0, 170, null);
 
         	healthtextbox.render(g);
         	scoretextbox.render(g);
@@ -331,6 +326,8 @@ public class Game extends Canvas implements Runnable {
             nextLevel = "level3";
 
             Level2.render(g);
+        	//g.drawImage(floor, 0, 170, null);
+
             handler.render(g);
             if (firstLoad == true){
                 loadLevel(background2);
