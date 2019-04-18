@@ -8,6 +8,7 @@ import java.awt.Graphics;
 import java.awt.Toolkit;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 import com.enemy.Enemy;
 import com.enemy.Ghost;
@@ -37,6 +38,7 @@ import com.player.arrowPickup;
 public class Game extends Canvas implements Runnable {
 
     private static final long serialVersionUID = 125890125890L;
+    ArrayList<String> scoreList = new ArrayList<>();
 
     public static int WIDTH = 1030, HEIGHT = 990;
     public int arrowsRemaining = 10;
@@ -45,12 +47,15 @@ public class Game extends Canvas implements Runnable {
     public int enemiesStage1 = 5;
     public int enemiesStage2 = 5;
     public int timeNum;
+    public int playerScore;
 
     public String nextLevel;
     public String prevLevel;
+    public String playerName;
 
     public boolean removeBool = false;
     public boolean firstLoad = true;
+    private boolean save = true;
 
     private volatile boolean running = false;
     private Thread thread;
@@ -69,6 +74,8 @@ public class Game extends Canvas implements Runnable {
     private level3 Level3;
     private bossStage bosstage;
     private Object object;
+    private InRead read;
+    private OutWrite write;
 
     private Button healthtextbox, scoretextbox, timerbox;
     public Window window;
@@ -110,6 +117,8 @@ public class Game extends Canvas implements Runnable {
         heart1 = new Hearts();
         heart3 = new Hearts();
         heart4 = new Hearts();
+        write = new OutWrite();
+        read = new InRead();
 
         audio = new Audio ("music.wav");
         audio.play();
@@ -314,6 +323,8 @@ public class Game extends Canvas implements Runnable {
             enemiesStage1 = 5;
             removeBool = true;
             firstLoad = true;
+            save = true;
+
             loadLevel(background);
             state = States.Game;
 
@@ -411,6 +422,14 @@ public class Game extends Canvas implements Runnable {
 
             g.dispose();
             bufferstrat.show();
+        }
+
+        if(player1Health == 0 || bossHealth == 0){
+            if (save == true){
+                System.out.println("gothere");
+                write.Write("Jason", 96, scoreList);
+                save = false;
+            }
         }
 
         g.dispose();
@@ -521,6 +540,7 @@ public class Game extends Canvas implements Runnable {
 
     public static void main(String args[]){
                 game = new Game();
+
 
     }
 
