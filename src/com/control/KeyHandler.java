@@ -43,13 +43,11 @@ public class KeyHandler extends KeyAdapter {
 						currentDirection = 1;
 					}
 					if (key == KeyEvent.VK_A) {
-
 						tempObject.setXspeed(-5);
 						left = true;
 						currentDirection = 3;
 					}
 					if (key == KeyEvent.VK_S) {
-
 						tempObject.setYspeed(5);
 						down = true;
 						currentDirection = 2;
@@ -62,36 +60,28 @@ public class KeyHandler extends KeyAdapter {
 					if (key == KeyEvent.VK_P) {
 						Game.state = States.Pause;
 						System.out.println("Game is Paused");
-
+					}
+					if (key == KeyEvent.VK_B) {
+						Game.state = States.bosslevel;
 					}
 
 					//Melee attack logic
 					if (key == KeyEvent.VK_SPACE){
-
 						if(up == true && left == false && right == false && down == false){
 							handler.addObject(new sword (tempObject.getXpos()+35, tempObject.getYpos() + 24, IDs.sword, handler, game.ss, currentDirection));
-						}
-						else if(down == true && left == false && right == false && up == false){
+						}else if(down == true && left == false && right == false && up == false){
 							handler.addObject(new sword (tempObject.getXpos()+35, tempObject.getYpos() + 24, IDs.sword, handler, game.ss, currentDirection));
-						}
-						else if(up == false && left == false && right == true && down == false){
+						}else if(up == false && left == false && right == true && down == false){
 							handler.addObject(new sword (tempObject.getXpos()+35, tempObject.getYpos() + 24, IDs.sword, handler, game.ss, currentDirection));
-						}
-						else if(up == false && left == true && right == false && down == false){
+						}else if(up == false && left == true && right == false && down == false){
 							handler.addObject(new sword (tempObject.getXpos()+35, tempObject.getYpos() + 24, IDs.sword, handler, game.ss, currentDirection));
-						}
-						else if(up == false && left == false && right == false && down == false){
+						}else if(up == false && left == false && right == false && down == false){
 							handler.addObject(new sword (tempObject.getXpos()+35, tempObject.getYpos() + 24, IDs.sword, handler, game.ss, 0));
-						}
-
-						else if((up == true && left == true && right == false && down == false) || (up == true && left == false && right == true && down == false)){
+						}else if((up == true && left == true && right == false && down == false) || (up == true && left == false && right == true && down == false)){
 							handler.addObject(new sword (tempObject.getXpos()+35, tempObject.getYpos() + 24, IDs.sword, handler, game.ss, 1));
 							tempObject.setYspeed(0);
 							tempObject.setXspeed(0);
-
-						}
-
-						else if((up == false && left == true && right == false && down == true) || (up == false && left == false && right == true && down == true)){
+						}else if((up == false && left == true && right == false && down == true) || (up == false && left == false && right == true && down == true)){
 							handler.addObject(new sword (tempObject.getXpos()+35, tempObject.getYpos() + 24, IDs.sword, handler, game.ss, 2));
 							tempObject.setYspeed(0);
 							tempObject.setXspeed(0);
@@ -116,8 +106,7 @@ public class KeyHandler extends KeyAdapter {
 					up = false;
 					if (down == true){
 						tempObject.setYspeed(5);
-					}
-					else {
+					}else {
 						tempObject.setYspeed(0);
 					}
 				}
@@ -125,8 +114,7 @@ public class KeyHandler extends KeyAdapter {
 					left = false;
 					if (right == true){
 						tempObject.setXspeed(5);
-					}
-					else{
+					}else{
 						tempObject.setXspeed(0);
 					}
 				}
@@ -135,8 +123,7 @@ public class KeyHandler extends KeyAdapter {
 					down = false;
 					if (up == true){
 						tempObject.setYspeed(-5);
-					}
-					else{
+					}else{
 						tempObject.setYspeed(0);
 					}
 				}
@@ -144,26 +131,22 @@ public class KeyHandler extends KeyAdapter {
 					right = false;
 					if (left == true){
 						tempObject.setXspeed(-5);
-					}
-					else{
+					}else{
 						tempObject.setXspeed(0);
+						}
 					}
 				}
-
 			}
-		}
 		}
 		else if (Game.state == States.level2 || Game.state == States.bosslevel || Game.state == States.level3){
 			for (int i = 0; i < handler.object.size(); i++) {
 				Object tempObject = handler.object.get(i);
 				if (tempObject.getId() == IDs.player) {
-
 					if (key == KeyEvent.VK_W){
 						up = false;
 						if (down == true){
 							tempObject.setYspeed(5);
-						}
-						else {
+						}else {
 							tempObject.setYspeed(0);
 						}
 					}
@@ -171,18 +154,15 @@ public class KeyHandler extends KeyAdapter {
 						left = false;
 						if (right == true){
 							tempObject.setXspeed(5);
-						}
-						else{
+						}else{
 							tempObject.setXspeed(0);
 						}
 					}
 					if (key == KeyEvent.VK_S) {
-
 						down = false;
 						if (up == true){
 							tempObject.setYspeed(-5);
-						}
-						else{
+						}else{
 							tempObject.setYspeed(0);
 						}
 					}
@@ -190,13 +170,10 @@ public class KeyHandler extends KeyAdapter {
 						right = false;
 						if (left == true){
 							tempObject.setXspeed(-5);
-						}
-						else{
+						}else{
 							tempObject.setXspeed(0);
 						}
 					}
-
-
 				}
 			}
 		}

@@ -85,28 +85,23 @@ public class Player1 extends Object {
 
     public void render(Graphics g) {
 
-    	if (Xspeed < 0 ) {//left
-        	g.drawImage(ani_left.getCurrentFrame(), xpos, ypos, null);
-        	playerpos = left[0];
-			playerDirection = "left";
-
-    	}
-    	if (Xspeed > 0) {//right
-        	g.drawImage(ani_right.getCurrentFrame(), xpos, ypos, null);
-        	playerpos = right[0];
-        	playerDirection = "right";
-    	}
-    	
     	if (Yspeed < 0) {//up
         	g.drawImage(ani_up.getCurrentFrame(), xpos, ypos, null);
         	playerpos = up[0];
 			playerDirection = "up";
-		}
-    	if (Yspeed > 0) {//down
+		}else if (Yspeed > 0) {//down
         	g.drawImage(ani_down.getCurrentFrame(), xpos, ypos, null);
         	playerpos = down[0];
         	playerDirection = "down";
-		}
+		}else if (Xspeed < 0 ) {//left
+        	g.drawImage(ani_left.getCurrentFrame(), xpos, ypos, null);
+        	playerpos = left[0];
+			playerDirection = "left";
+    	}else if (Xspeed > 0) {//right
+        	g.drawImage(ani_right.getCurrentFrame(), xpos, ypos, null);
+        	playerpos = right[0];
+        	playerDirection = "right";
+    	}
     	if (Xspeed == 0 && Yspeed == 0) {
     		g.drawImage(playerpos, xpos, ypos, null);
     	}

@@ -1,9 +1,6 @@
 package com.control;
-//https://www.youtube.com/watch?v=ar0hTsb9sxM
-import javax.sound.sampled.AudioFormat;
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
+//https://www.youtube.com/watch?v=ar0hTsb9sxM&t=490s
+import javax.sound.sampled.*;
 
 public class Audio {
 	
@@ -11,7 +8,7 @@ public class Audio {
 	
 	public Audio (String s) {
 		try {
-		AudioInputStream ais = AudioSystem.getAudioInputStream(getClass().getClassLoader().getResourceAsStream(s));
+		AudioInputStream ais = AudioSystem.getAudioInputStream(getClass().getResourceAsStream(s));
 		AudioFormat baseFormat = ais.getFormat();
 		AudioFormat decodeFormat = new AudioFormat(AudioFormat.Encoding.PCM_SIGNED, baseFormat.getSampleRate(), 16, baseFormat.getChannels(), baseFormat.getChannels() * 2, baseFormat.getSampleRate(), false);
 		AudioInputStream dais = AudioSystem.getAudioInputStream(decodeFormat, ais);

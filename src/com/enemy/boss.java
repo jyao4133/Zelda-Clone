@@ -30,8 +30,9 @@ public class boss extends Object{
     private int hplossCD = 0;
     private int currentSecond = 0;
     private int currentShot = 0;
-    int maxSpeed = 8;
+    int maxSpeed = 4;
     private int Direction = 1;
+	int spacing = 60;
 
     
     private BufferedImage [] up, down, left, right;
@@ -195,30 +196,24 @@ public class boss extends Object{
 
 
     public void render(Graphics g) {
-        //g.drawImage(bird, xpos, ypos, null);
         //g.setColor(Color.pink);
-        //g.fillRect(xpos,ypos,200,200);
+        //g.fillRect(xpos + spacing,ypos,75,150);
 
         g.setColor(Color.green);
         g.fillRect(xpos, ypos - 40, game.bossHealth*10, 20);
-        
-        if (Xspeed < 0 ) {//left
-    		g.drawImage(ani_left.getCurrentFrame(), xpos, ypos, null);
+        if (Yspeed < 0) {//up
+    		g.drawImage(ani_up.getCurrentFrame(), xpos + spacing , ypos, null);
+    		bosspos = up[0];
+    	}else if (Yspeed > 0) {//down
+    		g.drawImage(ani_down.getCurrentFrame(), xpos+ spacing, ypos, null);
+    		bosspos = down[0];
+    	}else if (Xspeed < 0 ) {//left
+    		g.drawImage(ani_left.getCurrentFrame(), xpos+ spacing, ypos, null);
         	bosspos = left[0];
-    	}
-    	if (Xspeed > 0) {//right
-    		g.drawImage(ani_right.getCurrentFrame(), xpos, ypos, null);
+    	}else if (Xspeed > 0) {//right
+    		g.drawImage(ani_right.getCurrentFrame(), xpos+ spacing, ypos, null);
     		bosspos = right[0];
     	}
-    	
-    	if (Yspeed < 0) {//up
-    		g.drawImage(ani_up.getCurrentFrame(), xpos, ypos, null);
-    		bosspos = up[0];
-    	}
-    	if (Yspeed > 0) {//down
-    		g.drawImage(ani_down.getCurrentFrame(), xpos, ypos, null);
-    		bosspos = down[0];
-    	}    	 
     	if(Xspeed == 0 && Yspeed == 0) {
     		g.drawImage(bosspos, xpos, ypos, null);
 		}
@@ -227,7 +222,7 @@ public class boss extends Object{
 
     //collision with arrow
     public Rectangle getBounds() {
-        return new Rectangle (xpos ,ypos ,200,200);
+        return new Rectangle (xpos + spacing, ypos, 75, 150);
     }
 
     public void start(){
