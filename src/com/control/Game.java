@@ -121,7 +121,7 @@ public class Game extends Canvas implements Runnable {
         read = new InRead();
 
         audio = new Audio ("music.wav");
-        audio.play();
+        //audio.play();
         //handler.addObject(new Enemy(50,50, IDs.enemy));
     	//g.fillRect(50, 50, 200, 50);
         Timer = new timer();
@@ -269,13 +269,15 @@ public class Game extends Canvas implements Runnable {
 
         if (state == States.Game) {
             nextLevel = "level2";
-        
+            g.setColor(Color.red);
+        	g.fillRect(0, 0, WIDTH, HEIGHT);
+
         	
         	//Health Bar area
         	g.setColor(Color.black);
         	g.fillRect(0, 0, WIDTH, 170);
-
-        	g.drawImage(floor, 0, 170, null);
+        	
+        	//g.drawImage(floor, 0, 170, null);
 
         	healthtextbox.render(g);
         	scoretextbox.render(g);
@@ -509,7 +511,7 @@ public class Game extends Canvas implements Runnable {
                 }
 
                 handler.addObject(new Ghost(800, 500, IDs.followingEnemy, handler, this, ss));
-              //  handler.addObject(new RotatingEnemy(600, 300, IDs.rotatingenemy, handler, this, 1, ss));
+                //handler.addObject(new RotatingEnemy(600, 300, IDs.rotatingenemy, handler, this, 1, ss));
 
         }
         if (Game.state == States.bosslevel){

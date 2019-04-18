@@ -25,7 +25,7 @@ public class backStairs extends Object{
     }
 
     public Rectangle getBounds() {
-        return new Rectangle (xpos,ypos,8,8);
+        return new Rectangle (xpos, ypos, 60, 100);
     }
 
 
@@ -35,7 +35,7 @@ public class backStairs extends Object{
 
     public void render(Graphics g) {
        // g.setColor(Color.magenta);
-     //   g.fillRect(xpos, ypos, 32, 32);
+       // g.fillRect(xpos, ypos - 40, 75, 75);
 		g.drawImage(backstairs, xpos, ypos-40, null);
 
     }
