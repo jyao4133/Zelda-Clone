@@ -28,76 +28,76 @@ public class sword extends Object {
 
 
     //private SpriteAnimation animation;
-    private BufferedImage[] weapon = new BufferedImage [4];
+    //private BufferedImage[] weapon = new BufferedImage [4];
+    
+    private BufferedImage [] up, down, left, right;
+    private Animation ani_up, ani_down, ani_left, ani_right;
     
     public sword(int xpos, int ypos, IDs id, Handler handler, SpriteSheet ss, int direction) {
         super(xpos, ypos, id, ss);
         this.handler = handler;
         currentDirection = direction;
 
-        weapon[0] = ss.grabImage(1, 8, 75, 75);//right
+      /*  weapon[0] = ss.grabImage(1, 8, 75, 75);//right
         weapon[1] = ss.grabImage(2, 8, 75, 75);//left
         weapon[2] = ss.grabImage(3, 8, 75, 75);//up
-        weapon[3] = ss.grabImage(4, 8, 75, 75);//down
+        weapon[3] = ss.grabImage(4, 8, 75, 75);//down*/
          
         
         start();
         Xspeed = 4;
         Yspeed = 4;
         
-        
+        up = new BufferedImage [3];
+		down = new BufferedImage [3];
+		left = new BufferedImage [3];
+		right = new BufferedImage [3];
+		
+		/////////////ANIMATIONS/////////////
+		up[0] = ss.grabImage(5, 4, 75,75);
+		up[1] = ss.grabImage(6, 4, 75,75);
+		up[2] = ss.grabImage(7, 4, 75,75);
+		
+		down[0] = ss.grabImage(5, 3, 75,75);
+		down[1] = ss.grabImage(6, 3, 75,75);
+		down[2] = ss.grabImage(7, 3, 75,75);
+		
+		left[0] = ss.grabImage(5, 2, 75,75);
+		left[1] = ss.grabImage(6, 2, 75,75);
+		left[2] = ss.grabImage(7, 2, 75,75);
+		
+		right[0] = ss.grabImage(5, 1, 75,75);
+		right[1] = ss.grabImage(6, 1, 75,75);
+		right[2] = ss.grabImage(7, 1, 75,75);
+		///////////////////////////////////////
+		
+		/*increasing the timer reduces the speed of the animation and vice versa*/
+		ani_up = new Animation (40, up);
+		ani_down = new Animation (40, down);
+		ani_left = new Animation (40, left);
+		ani_right = new Animation (40, right);		
 
     }
 
-    public Rectangle getBounds() {
-             //up
-            if (currentDirection == 1&& player.prevDirection == "up"){
-                return new Rectangle(xpos - 20, ypos - 48, 45, 45);
-
-            }
-            //down
-            else if(currentDirection == 2&& player.prevDirection == "down"){
-
-                return new Rectangle(xpos - 16, ypos +24 , 45, 45);
-
-            }
-            //left
-            else if(currentDirection == 3&& player.prevDirection == "left"){
-                return new Rectangle(xpos-64, ypos , 45, 45);
-
-            }
-            //right
-            else if(currentDirection == 4 && player.prevDirection == "right"){
-                return new Rectangle(xpos + 24, ypos , 45, 45);
-
-            }
-            else if(currentDirection == 0 && player.prevDirection == "up"){
-                return new Rectangle(xpos - 20, ypos - 48, 45, 45);
-
-
-            }
-
-            else if(currentDirection == 0 && player.prevDirection == "down"){
-                return new Rectangle(xpos - 16, ypos +24 , 45, 45);
-
-
-            }
-            else if(currentDirection == 0 && player.prevDirection == "left"){
-                return new Rectangle(xpos-64, ypos , 45, 45);
-
-
-            }
-            else if(currentDirection == 0 && player.prevDirection == "right"){
-                return new Rectangle(xpos + 24, ypos , 45, 45);
-
-
-            }
-            else
+    public Rectangle getBounds() { 
+          	if (currentDirection == 1&& player.prevDirection == "up"){   //up
+                return new Rectangle(xpos - 20 , ypos - 48, 50, 50);
+            }else if(currentDirection == 2&& player.prevDirection == "down"){//down
+                return new Rectangle(xpos - 16 , ypos + 24  , 50, 50);
+            }else if(currentDirection == 3&& player.prevDirection == "left"){//left
+                return new Rectangle(xpos - 80, ypos - 20 , 50, 50);
+            }else if(currentDirection == 4 && player.prevDirection == "right"){//right
+                return new Rectangle( xpos + 20 , ypos - 10, 50, 50);
+            }else if(currentDirection == 0 && player.prevDirection == "up"){
+                return new Rectangle( xpos - 15, ypos - 48, 50, 50);
+            }else if(currentDirection == 0 && player.prevDirection == "down"){
+                return new Rectangle(xpos - 16, ypos +24 , 50, 50);
+            }else if(currentDirection == 0 && player.prevDirection == "left"){
+                return new Rectangle(xpos - 64, ypos - 15, 50, 50);
+            }else if(currentDirection == 0 && player.prevDirection == "right"){
+                return new Rectangle( xpos - 5, ypos - 10 , 50, 50);
+            }else
                 return new Rectangle(xpos - 32, ypos + 24, 50, 50);
-
-
-
-
     }
 
 
@@ -105,137 +105,90 @@ public class sword extends Object {
     public void tick() {
         attacktime += System.currentTimeMillis() - lastAttackTime;
         lastAttackTime = System.currentTimeMillis();
+    	ani_up.tick();
+    	ani_down.tick();
+    	ani_left.tick();
+    	ani_right.tick();
         if(attacktime < attackCooldown)
-
-        System.out.println(attacktime);
-
+        //System.out.println(attacktime);
         if(currentDirection == 1){
             ypos -= Yspeed ;
-
-        }
-
-        else if(currentDirection == 2){
+        }else if(currentDirection == 2){
             ypos += Yspeed;
-
-        }
-
-        else if(currentDirection == 3){
+        }else if(currentDirection == 3){
             xpos -= Xspeed;
-
-        }
-
-        else if(currentDirection == 4){
+        }else if(currentDirection == 4){
             xpos += Xspeed;
-
         }
-
     }
 
     public void render(Graphics g) {
 
         g.setColor(Color.yellow);
-        //up
-        if (currentDirection == 1){
-        	g.drawImage(weapon[2], xpos - 45, ypos - 65, null);
-            //g.fillRect(xpos - 20, ypos - 48, 45, 15);
+        if (currentDirection == 1){        //up
+        	g.drawImage(ani_up.getCurrentFrame(), xpos - 20 , ypos - 48, null);
+            if (currentSecond > 10) {
+                handler.removeObject(this);
+                currentSecond = 0;  
+            }
+        }else if (currentDirection == 2){       //down
+        	g.drawImage(ani_down.getCurrentFrame(), xpos - 16 , ypos + 24 , null);
             if (currentSecond > 10) {
                 handler.removeObject(this);
                 currentSecond = 0;
             }
-
-        }
-        //down
-        else if (currentDirection == 2){
-        	g.drawImage(weapon[3], xpos - 35, ypos + 20, null);
-           // g.fillRect(xpos - 16, ypos +24 , 45, 15);
+        }else if (currentDirection == 3){        //left
+        	g.drawImage(ani_left.getCurrentFrame(), xpos - 80, ypos - 20, null);
             if (currentSecond > 10) {
                 handler.removeObject(this);
                 currentSecond = 0;
             }
-
-        }
-        //left
-        else if (currentDirection == 3){
-        	g.drawImage(weapon[1], xpos - 55, ypos - 15, null);
-            //g.fillRect(xpos-64, ypos , 45, 15);
+        }else if (currentDirection == 4){        //right
+        	g.drawImage(ani_right.getCurrentFrame(), xpos + 20 , ypos - 10, null);
             if (currentSecond > 10) {
                 handler.removeObject(this);
                 currentSecond = 0;
             }
-        }
-        //right
-        else if (currentDirection == 4){
-        	g.drawImage(weapon[0], xpos+5, ypos-15, null);
-           // g.fillRect(xpos + 24, ypos , 45, 15);
+        }else if (currentDirection == 0 && player.prevDirection == "up"){
+        	g.drawImage(ani_up.getCurrentFrame(), xpos - 15, ypos - 48, null);
             if (currentSecond > 10) {
                 handler.removeObject(this);
                 currentSecond = 0;
             }
-
-        }
-
-        else if (currentDirection == 0 && player.prevDirection == "up"){
-        	g.drawImage(weapon[2], xpos - 45, ypos - 65, null);
-            //g.fillRect(xpos - 20, ypos - 48, 45, 15);
+        }else if (currentDirection == 0 && player.prevDirection == "down"){
+        	g.drawImage(ani_down.getCurrentFrame(), xpos - 20, ypos + 10, null);
             if (currentSecond > 10) {
                 handler.removeObject(this);
                 currentSecond = 0;
             }
-
-        }
-
-
-        else if (currentDirection == 0 && player.prevDirection == "down"){
-        	g.drawImage(weapon[3], xpos - 35, ypos + 20, null);
-           // g.fillRect(xpos - 16, ypos +24 , 45, 15);
+        }else if (currentDirection == 0 && player.prevDirection == "left"){
+        	g.drawImage(ani_left.getCurrentFrame(), xpos - 64, ypos - 15, null);
             if (currentSecond > 10) {
                 handler.removeObject(this);
                 currentSecond = 0;
             }
-
-        }
-        else if (currentDirection == 0 && player.prevDirection == "left"){
-        	g.drawImage(weapon[1], xpos - 55, ypos - 15, null);
-          //  g.fillRect(xpos-64, ypos , 45, 15);
+        }else if (currentDirection == 0 && player.prevDirection == "right"){
+        	g.drawImage(ani_right.getCurrentFrame(), xpos - 5, ypos - 10, null);
             if (currentSecond > 10) {
                 handler.removeObject(this);
                 currentSecond = 0;
             }
-
-        }
-        else if (currentDirection == 0 && player.prevDirection == "right"){
-        	g.drawImage(weapon[0], xpos+5, ypos-15, null);
-           // g.fillRect(xpos + 24, ypos , 45, 15);
-            if (currentSecond > 10) {
-                handler.removeObject(this);
-                currentSecond = 0;
-            }
-
-        }
-
-        else{
-        	g.drawImage(weapon[3], xpos - 16, ypos + 24, null);
-            //g.fillRect(xpos - 16, ypos +24 , 45, 15);
+        }else{
+        	g.drawImage(up[1], xpos - 32, ypos + 24 , null);
             if (currentSecond > 10) {
                 handler.removeObject(this);
                 currentSecond = 0;
             }
         }
-
-
-        }
-
+    }
 
     public void start(){
-        Timer timer = new Timer(10, new ActionListener(){
+        Timer timer = new Timer(7, new ActionListener(){
             public void actionPerformed( ActionEvent e ) {
-
                 currentSecond++;
             }
         });
         timer.start();
-
     }
-
-    }
+}
 

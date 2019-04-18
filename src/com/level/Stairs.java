@@ -25,7 +25,7 @@ public class Stairs extends Object{
     }
 
     public Rectangle getBounds() {
-        return new Rectangle (xpos,ypos,8,8);
+        return new Rectangle (xpos,ypos,60,60);
     }
 
 
@@ -35,7 +35,7 @@ public class Stairs extends Object{
 
     public void render(Graphics g) {
        // g.setColor(Color.magenta);
-        //g.fillRect(xpos, ypos, 32, 32);
+       // g.fillRect(xpos, ypos, 75, 75);
 		g.drawImage(stairs, xpos, ypos-4, null);
 
     }
