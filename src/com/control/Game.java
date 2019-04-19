@@ -134,7 +134,7 @@ public class Game extends Canvas implements Runnable {
         scoreSort = new highscoreSort();
 
         audio = new Audio ("music.wav");
-        //audio.play();
+       // audio.play();
         //handler.addObject(new Enemy(50,50, IDs.enemy));
     	//g.fillRect(50, 50, 200, 50);
         Timer = new timer();
@@ -556,7 +556,7 @@ public class Game extends Canvas implements Runnable {
 
         }
         if (Game.state == States.bosslevel){
-            handler.addObject(new boss(400, 250, IDs.boss, handler, this, 500, 300, 1, ss));
+            handler.addObject(new boss(600, 400, IDs.boss, handler, this, 500, 300, 1, ss));
 
         }
 
