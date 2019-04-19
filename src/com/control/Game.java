@@ -71,6 +71,7 @@ public class Game extends Canvas implements Runnable {
     private Pause pause;
     private pauseOptions pauseoptions;
     private highScores showScore;
+    private deathScreen death;
     private level2 Level2;
     private level3 Level3;
     private bossStage bosstage;
@@ -115,6 +116,7 @@ public class Game extends Canvas implements Runnable {
 		Level2 = new level2();
         Level3 = new level3();
         bosstage = new bossStage();
+        death = new deathScreen();
 
 		heart2 = new Hearts();
         heart1 = new Hearts();
@@ -331,8 +333,15 @@ public class Game extends Canvas implements Runnable {
         	g.dispose();
             bufferstrat.show();
 
+        }else if(state == States.deathscreen){
+            g.setColor(Color.black);
+            g.fillRect(0,0,WIDTH,HEIGHT);
+            death.render(g);
+            g.dispose();
+            bufferstrat.show();
+
         }else if (state == States.highscores){
-            g.setColor(Color.GREEN);
+            g.setColor(Color.black);
             g.fillRect(0, 0, WIDTH, HEIGHT);
             showScore.render(g);
             g.dispose();

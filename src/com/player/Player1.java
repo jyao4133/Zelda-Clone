@@ -221,7 +221,7 @@ public class Player1 extends Object {
         }
         
         if (game.player1Health == 0) {
-        	Game.state = States.Pause;
+        	Game.state = States.deathscreen;
         	game.player1Health = 4;
         }
     }

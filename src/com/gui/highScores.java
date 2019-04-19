@@ -33,7 +33,7 @@ public class highScores {
     public highScores(ArrayList sortedScores) {
         optionmenu = new Button [1];
         Font font = new Font("Arial", Font.BOLD, 50);
-        optionmenu[0] = new Button ("Back", (optionsframe.width / 4) - 10, (optionsframe.height / 4 + yshift + 3 * yspacing)- 10, font, Color.black );
+        optionmenu[0] = new Button ("Back", (optionsframe.width / 4) - 10, (optionsframe.height / 4 + yshift + 3 * yspacing)- 10, font, Color.white );
 
 
         scoreList = sortedScores;
@@ -50,7 +50,7 @@ public class highScores {
         g.setColor(Color.WHITE);
         g.fillRect(Game.WIDTH, Game.HEIGHT , Game.WIDTH, Game.HEIGHT);
 
-        g.setColor(Color.black);
+        g.setColor(Color.white);
         if (scoreList.size() > 0){
             int j = 0;
             int Xlab = 200;
@@ -65,6 +65,7 @@ public class highScores {
 
             }
         }
+        optionmenu[0].render(g);
     }
 
 

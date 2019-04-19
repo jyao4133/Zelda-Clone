@@ -13,6 +13,8 @@ public enum States {
 	Sound,
 	Credits,
 	pauseOptions,
-	highscores;
+	highscores,
+	deathscreen;
+
 
 }

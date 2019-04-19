@@ -115,13 +115,16 @@ public class MouseHandler extends MouseAdapter  {
 				Game.state = States.Pause;
 
 			}
-
-			
 		}else if (Game.state == States.highscores){
 			if (x>= 100 && x <= 400 && y >= 730 && y <= 840) {
 				Game.state = States.TitleScreen;
 				System.out.println("Back");
 			}
+		}else if (Game.state == States.deathscreen){
+			if (x>= 350 && x <= 680 && y >= 480 && y <= 550) {
+				Game.state = States.TitleScreen;
+			}
+
 		}
 	}
  
