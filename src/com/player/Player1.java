@@ -154,6 +154,15 @@ public class Player1 extends Object {
 							game.enemiesStage1--;
 						}
 					}
+					if (Game.state == States.level3){
+						if (tempObject.getId() == IDs.clampright || tempObject.getId() == IDs.clampleft) {
+							game.clampsStage3--;
+						}
+
+						else if (tempObject.getId() == IDs.shooterEnemy){
+							game.shootersStage3--;
+						}
+					}
 				}
 			}
 
