@@ -139,7 +139,7 @@ public class Game extends Canvas implements Runnable {
         scoreSort = new highscoreSort();
 
         audio = new Audio ("music.wav");
-       // audio.play();
+        //audio.play();
         //handler.addObject(new Enemy(50,50, IDs.enemy));
     	//g.fillRect(50, 50, 200, 50);
         Timer = new timer();
