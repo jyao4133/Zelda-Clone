@@ -142,14 +142,17 @@ public class Player1 extends Object {
 			}
 
 
-            if (tempObject.getId() == IDs.enemy || tempObject.getId() == IDs.followingEnemy){
+            if (tempObject.getId() == IDs.enemy || tempObject.getId() == IDs.followingEnemy || tempObject.getId() == IDs.clampleft
+					|| tempObject.getId() == IDs.clampright || tempObject.getId() == IDs.shooterEnemy){
                 if(getBounds().intersects((tempObject.getBounds()))){
                     handler.removeObject(tempObject);
                     if (game.player1Health > 0){
                         game.player1Health--;
                     }
                     if (Game.state == States.Game || Game.state == States.Load){
-                    	game.enemiesStage1--;
+                    	if (tempObject.getId() == IDs.enemy) {
+							game.enemiesStage1--;
+						}
 					}
                 }
             }
@@ -222,7 +225,6 @@ public class Player1 extends Object {
         
         if (game.player1Health == 0) {
         	Game.state = States.deathscreen;
-        	game.player1Health = 4;
         }
     }
 

@@ -32,6 +32,8 @@ import com.player.SpriteSheet;
 import com.player.arrowPickup;
 import com.player.coinPickup;
 
+import javax.swing.*;
+
 public class Game extends Canvas implements Runnable {
 
     private static final long serialVersionUID = 125890125890L;
@@ -45,7 +47,7 @@ public class Game extends Canvas implements Runnable {
 
     public int enemiesStage1 = 4;
 
-    public int birdsStage2 = 5;
+    public int birdsStage2 = 3;
     public int shootersStage2 = 1;
 
     public int enemiesStage3 = 5;
@@ -112,6 +114,7 @@ public class Game extends Canvas implements Runnable {
 
 
         window = new Window (WIDTH, HEIGHT, "Pre-Title", this);
+
         handler = new Handler();
 		titlescreen = new TitleScreen();
 		options = new Options();
@@ -159,6 +162,15 @@ public class Game extends Canvas implements Runnable {
 
 
         showScore = new highScores(scoreList);
+        playerName = JOptionPane.showInputDialog(null, "Enter your name", "Elizabeth");
+        if (playerName == null){
+            playerName = "Elizabeth";
+        }
+
+        if (playerName.isEmpty()){
+            playerName = "Elizabeth";
+        }
+        System.out.println(playerName);
 
     }
     
@@ -311,7 +323,6 @@ public class Game extends Canvas implements Runnable {
         }else if (state == States.TitleScreen) {
             //g.fillRect(0, 0, WIDTH, HEIGHT);
             titleShown = true;
-
             titlescreen.render(g);
             g.dispose();
             bufferstrat.show();
@@ -462,7 +473,7 @@ public class Game extends Canvas implements Runnable {
         if(player1Health == 0 || bossHealth == 0){
             if (save == true){
                 System.out.println("got here");
-                write.Write("Jason", 96);
+                write.Write(playerName, 96);
                 save = false;
                 scoreList = read.read(scoreList);
                 scoreList = scoreSort.listSort(scoreList);
@@ -550,6 +561,7 @@ public class Game extends Canvas implements Runnable {
         }
 
         if (Game.state == States.level3){
+
             handler.addObject(new clampEnemyright(100, 600, IDs.clampright, handler, this, ss));
             handler.addObject(new clampEnemyleft(700, 600, IDs.clampleft, handler, this, ss));
 
@@ -572,8 +584,7 @@ public class Game extends Canvas implements Runnable {
 
     public static void main(String args[]){
 
-                game = new Game();
-
+        game = new Game();
 
     }
 
