@@ -96,7 +96,9 @@ public class Enemy extends Object{
             }
             if (tempObject.getId() == IDs.Arrow || tempObject.getId() == IDs.sword){
                 if(getBounds().intersects((tempObject.getBounds()))){
-                    handler.removeObject(tempObject);
+                    if(tempObject.getId()== IDs.Arrow) {
+                        handler.removeObject(tempObject);
+                    }
                     handler.removeObject(this);
                     rngGen = p.nextInt(10);
                     if (rngGen < 2) {

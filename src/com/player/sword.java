@@ -83,19 +83,19 @@ public class sword extends Object {
           	if (currentDirection == 1&& player.prevDirection == "up"){   //up
                 return new Rectangle(xpos - 20 , ypos - 48, 50, 50);
             }else if(currentDirection == 2&& player.prevDirection == "down"){//down
-                return new Rectangle(xpos - 16 , ypos + 24  , 50, 50);
+                return new Rectangle(xpos - 20 , ypos + 30  , 50, 60);
             }else if(currentDirection == 3&& player.prevDirection == "left"){//left
-                return new Rectangle(xpos - 80, ypos - 20 , 50, 50);
+                return new Rectangle(xpos - 80, ypos, 50, 50);
             }else if(currentDirection == 4 && player.prevDirection == "right"){//right
-                return new Rectangle( xpos + 20 , ypos - 10, 50, 50);
+                return new Rectangle( xpos + 20 , ypos , 60, 50);
             }else if(currentDirection == 0 && player.prevDirection == "up"){
                 return new Rectangle( xpos - 15, ypos - 48, 50, 50);
             }else if(currentDirection == 0 && player.prevDirection == "down"){
-                return new Rectangle(xpos - 16, ypos +24 , 50, 50);
+                return new Rectangle(xpos - 20 , ypos + 30  , 50, 60);
             }else if(currentDirection == 0 && player.prevDirection == "left"){
-                return new Rectangle(xpos - 64, ypos - 15, 50, 50);
+                return new Rectangle(xpos - 80, ypos, 50, 50);
             }else if(currentDirection == 0 && player.prevDirection == "right"){
-                return new Rectangle( xpos - 5, ypos - 10 , 50, 50);
+                return new Rectangle( xpos + 20 , ypos , 60, 50);
             }else
                 return new Rectangle(xpos - 32, ypos + 24, 50, 50);
     }
@@ -127,9 +127,11 @@ public class sword extends Object {
         g.setColor(Color.yellow);
         if (currentDirection == 1){        //up
         	g.drawImage(ani_up.getCurrentFrame(), xpos - 20 , ypos - 48, null);
+
             if (currentSecond > 10) {
                 handler.removeObject(this);
-                currentSecond = 0;  
+                currentSecond = 0;
+
             }
         }else if (currentDirection == 2){       //down
         	g.drawImage(ani_down.getCurrentFrame(), xpos - 16 , ypos + 24 , null);
@@ -139,36 +141,38 @@ public class sword extends Object {
             }
         }else if (currentDirection == 3){        //left
         	g.drawImage(ani_left.getCurrentFrame(), xpos - 80, ypos - 20, null);
+
             if (currentSecond > 10) {
                 handler.removeObject(this);
                 currentSecond = 0;
             }
         }else if (currentDirection == 4){        //right
         	g.drawImage(ani_right.getCurrentFrame(), xpos + 20 , ypos - 10, null);
+
             if (currentSecond > 10) {
                 handler.removeObject(this);
                 currentSecond = 0;
             }
         }else if (currentDirection == 0 && player.prevDirection == "up"){
-        	g.drawImage(ani_up.getCurrentFrame(), xpos - 15, ypos - 48, null);
+        	g.drawImage(ani_up.getCurrentFrame(), xpos - 20 , ypos - 48, null);
             if (currentSecond > 10) {
                 handler.removeObject(this);
                 currentSecond = 0;
             }
         }else if (currentDirection == 0 && player.prevDirection == "down"){
-        	g.drawImage(ani_down.getCurrentFrame(), xpos - 20, ypos + 10, null);
+        	g.drawImage(ani_down.getCurrentFrame(), xpos - 16 , ypos + 24 , null);
             if (currentSecond > 10) {
                 handler.removeObject(this);
                 currentSecond = 0;
             }
         }else if (currentDirection == 0 && player.prevDirection == "left"){
-        	g.drawImage(ani_left.getCurrentFrame(), xpos - 64, ypos - 15, null);
+        	g.drawImage(ani_left.getCurrentFrame(), xpos - 80, ypos - 20, null);
             if (currentSecond > 10) {
                 handler.removeObject(this);
                 currentSecond = 0;
             }
         }else if (currentDirection == 0 && player.prevDirection == "right"){
-        	g.drawImage(ani_right.getCurrentFrame(), xpos - 5, ypos - 10, null);
+        	g.drawImage(ani_right.getCurrentFrame(), xpos + 20 , ypos - 10, null);
             if (currentSecond > 10) {
                 handler.removeObject(this);
                 currentSecond = 0;

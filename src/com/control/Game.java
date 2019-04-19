@@ -42,8 +42,12 @@ public class Game extends Canvas implements Runnable {
     public int player1Health = 4;
     public int goldAmount = 0;
     public int bossHealth = 20;
-    public int enemiesStage1 = 5;
-    public int enemiesStage2 = 5;
+
+    public int enemiesStage1 = 4;
+
+    public int birdsStage2 = 5;
+    public int shootersStage2 = 1;
+
     public int enemiesStage3 = 5;
 
     public int timeNum;
@@ -153,12 +157,7 @@ public class Game extends Canvas implements Runnable {
         loadLevel(background2);
         loadLevel(background3);
 
-        if(titleShown == true) {
-            scoreList = read.read(scoreList);
-            scoreList = scoreSort.listSort(scoreList);
-            System.out.println(scoreList);
-            titleShown = false;
-        }
+
         showScore = new highScores(scoreList);
 
     }
@@ -281,11 +280,12 @@ public class Game extends Canvas implements Runnable {
 
 
         if (state == States.Game) {
+
             nextLevel = "level2";
             g.setColor(Color.red);
         	g.fillRect(0, 0, WIDTH, HEIGHT);
 
-        	
+        	System.out.println(scoreList);
         	//Health Bar area
         	g.setColor(Color.black);
         	g.fillRect(0, 0, WIDTH, 170);
@@ -310,12 +310,8 @@ public class Game extends Canvas implements Runnable {
 
         }else if (state == States.TitleScreen) {
             //g.fillRect(0, 0, WIDTH, HEIGHT);
-            if(titleShown == true) {
-              //  scoreList = read.read(scoreList);
-               // scoreList = scoreSort.listSort(scoreList);
-              //  System.out.println(scoreList);
-                titleShown = false;
-            }
+            titleShown = true;
+
             titlescreen.render(g);
             g.dispose();
             bufferstrat.show();
@@ -341,6 +337,13 @@ public class Game extends Canvas implements Runnable {
             bufferstrat.show();
 
         }else if (state == States.highscores){
+            if(titleShown == true) {
+                scoreList.clear();
+                scoreList = read.read(scoreList);
+                scoreList = scoreSort.listSort(scoreList);
+                System.out.println(scoreList);
+                titleShown = false;
+            }
             g.setColor(Color.black);
             g.fillRect(0, 0, WIDTH, HEIGHT);
             showScore.render(g);
@@ -354,7 +357,7 @@ public class Game extends Canvas implements Runnable {
             player1Health = 4;
             arrowsRemaining = 10;
             bossHealth = 20;
-            enemiesStage1 = 5;
+            enemiesStage1 = 4;
             goldAmount = 0;
             removeBool = true;
             firstLoad = true;
@@ -388,16 +391,12 @@ public class Game extends Canvas implements Runnable {
             scoretextbox.render(g);
             Timer.render(g, game);
 
-
-
             for (int i = 0; i < 3; i++) {
                 heart2.drawHeart(g, 295, 50, 30, 30, player1Health, 2);
                 heart1.drawHeart(g, 225, 50, 30, 30, player1Health, 1);
                 heart3.drawHeart(g, 190, 50, 30 ,30, player1Health, 3);
                 heart4.drawHeart(g, 260, 50, 30, 30, player1Health, 4);
             }
-
-
 
             g.dispose();
             bufferstrat.show();
@@ -411,6 +410,7 @@ public class Game extends Canvas implements Runnable {
 
             Level3.render(g);
             handler.render(g);
+
             if (firstLoad == true){
                 loadLevel(background3);
                 this.addKeyListener(new KeyHandler(handler, ss));
@@ -464,11 +464,8 @@ public class Game extends Canvas implements Runnable {
                 System.out.println("got here");
                 write.Write("Jason", 96);
                 save = false;
-
                 scoreList = read.read(scoreList);
                 scoreList = scoreSort.listSort(scoreList);
-
-
             }
         }
 
@@ -483,7 +480,7 @@ public class Game extends Canvas implements Runnable {
         int w = image.getWidth();
         int h = image.getHeight();
 
-            handler.removeall();
+        handler.removeall();
 
         for (int xx = 0; xx < w; xx++){
             for(int yy = 0; yy < h; yy++){
@@ -533,23 +530,18 @@ public class Game extends Canvas implements Runnable {
 
         if (Game.state == States.Load || Game.state == States.Game){
                 if (enemiesStage1 > 0) {
-            //        handler.addObject(new Enemy(350, 800, IDs.enemy, handler, this, 500, 300, 1, ss));
+                    handler.addObject(new Enemy(350, 350, IDs.enemy, handler, this, 350, 350, 1, ss));
                 }
                 if (enemiesStage1 > 1) {
-            //        handler.addObject(new Enemy(160, 288, IDs.enemy, handler, this, 500, 300, 1, ss));
+                    handler.addObject(new Enemy(200, 500, IDs.enemy, handler, this, 200, 500, 1, ss));
                 }
                 if (enemiesStage1 > 2) {
-              //      handler.addObject(new Enemy(256, 640, IDs.enemy, handler, this, 500, 300, 1, ss));
+                    handler.addObject(new Enemy(256, 640, IDs.enemy, handler, this, 256, 640, 1, ss));
                 }
                 if (enemiesStage1 > 3) {
-               //     handler.addObject(new Enemy(832, 876, IDs.enemy, handler, this, 500, 300, 1, ss));
+                    handler.addObject(new Enemy(350, 500, IDs.enemy, handler, this, 350, 500, 1, ss));
                 }
-                if (enemiesStage1 > 4) {
-               //     handler.addObject(new shooterEnemy(650, 520, IDs.shooterEnemy, handler, this, ss));
-                }
-
-             //   handler.addObject(new Ghost(800, 500, IDs.followingEnemy, handler, this, ss));
-                //handler.addObject(new RotatingEnemy(600, 300, IDs.rotatingenemy, handler, this, 1, ss));
+               handler.addObject(new Ghost(800, 500, IDs.followingEnemy, handler, this, ss));
 
         }
         if (Game.state == States.bosslevel){
