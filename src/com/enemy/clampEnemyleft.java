@@ -60,7 +60,9 @@ public class clampEnemyleft extends Object {
             Object tempObject = handler.object.get(i);
             if (tempObject.getId() == IDs.sword || tempObject.getId() == IDs.Arrow) {
                 if (getBounds().intersects(tempObject.getBounds())) {
-                    handler.removeObject(tempObject);
+                    if(tempObject.getId()== IDs.Arrow) {
+                        handler.removeObject(tempObject);
+                    }
                     handler.removeObject(this);
                 }
             }

@@ -4,6 +4,7 @@ import javax.swing.*;
 
 import com.control.Game;
 import com.control.IDs;
+import com.control.States;
 import com.player.*;
 import com.player.Object;
 
@@ -13,6 +14,7 @@ import java.awt.event.ActionListener;
 import java.util.Random;
 
 public class shooterEnemy extends Object {
+    Game game;
 
     private String shootDirection;
     private int currentSecond = 0;
@@ -25,7 +27,7 @@ public class shooterEnemy extends Object {
     public shooterEnemy(int xpos, int ypos, IDs id, Handler handler, Game game, SpriteSheet ss ) {
         super(xpos, ypos, id, ss);
         this.handler = handler;
-
+        this.game = game;
         start();
 
     }
@@ -74,7 +76,9 @@ public class shooterEnemy extends Object {
             Object tempObject = handler.object.get(i);
             if (tempObject.getId() == IDs.sword || tempObject.getId() == IDs.Arrow) {
                 if (getBounds().intersects((tempObject.getBounds()))) {
-                    handler.removeObject(tempObject);
+                    if(tempObject.getId()== IDs.Arrow) {
+                        handler.removeObject(tempObject);
+                    }
                     handler.removeObject(this);
                     rngGen = p.nextInt(10);
                     if (rngGen < 2) {
@@ -85,6 +89,9 @@ public class shooterEnemy extends Object {
                     }
                     else if(rngGen > 2 && rngGen < 8){
                         handler.addObject(new coinPickup(xpos + 18, ypos+18,IDs.coinPickup, ss));
+                    }
+                    if (Game.state == States.level2){
+
                     }
                 }
             }

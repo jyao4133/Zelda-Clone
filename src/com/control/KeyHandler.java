@@ -69,23 +69,35 @@ public class KeyHandler extends KeyAdapter {
 					if (key == KeyEvent.VK_SPACE){
 						if(up == true && left == false && right == false && down == false){
 							handler.addObject(new sword (tempObject.getXpos()+35, tempObject.getYpos() + 24, IDs.sword, handler, game.ss, currentDirection));
-						}else if(down == true && left == false && right == false && up == false){
-							handler.addObject(new sword (tempObject.getXpos()+35, tempObject.getYpos() + 24, IDs.sword, handler, game.ss, currentDirection));
-						}else if(up == false && left == false && right == true && down == false){
-							handler.addObject(new sword (tempObject.getXpos()+35, tempObject.getYpos() + 24, IDs.sword, handler, game.ss, currentDirection));
-						}else if(up == false && left == true && right == false && down == false){
-							handler.addObject(new sword (tempObject.getXpos()+35, tempObject.getYpos() + 24, IDs.sword, handler, game.ss, currentDirection));
-						}else if(up == false && left == false && right == false && down == false){
-							handler.addObject(new sword (tempObject.getXpos()+35, tempObject.getYpos() + 24, IDs.sword, handler, game.ss, 0));
-						}else if((up == true && left == true && right == false && down == false) || (up == true && left == false && right == true && down == false)){
-							handler.addObject(new sword (tempObject.getXpos()+35, tempObject.getYpos() + 24, IDs.sword, handler, game.ss, 1));
 							tempObject.setYspeed(0);
 							tempObject.setXspeed(0);
-						}else if((up == false && left == true && right == false && down == true) || (up == false && left == false && right == true && down == true)){
-							handler.addObject(new sword (tempObject.getXpos()+35, tempObject.getYpos() + 24, IDs.sword, handler, game.ss, 2));
+
+						}else if(down == true && left == false && right == false && up == false){
+							handler.addObject(new sword (tempObject.getXpos()+35, tempObject.getYpos() + 24, IDs.sword, handler, game.ss, currentDirection));
+							tempObject.setYspeed(0);
+							tempObject.setXspeed(0);
+						}else if(up == false && left == false && right == true && down == false){
+							handler.addObject(new sword (tempObject.getXpos()+35, tempObject.getYpos() + 24, IDs.sword, handler, game.ss, currentDirection));
+							tempObject.setYspeed(0);
+							tempObject.setXspeed(0);
+						}else if(up == false && left == true && right == false && down == false){
+							handler.addObject(new sword (tempObject.getXpos()+35, tempObject.getYpos() + 24, IDs.sword, handler, game.ss, currentDirection));
+							tempObject.setYspeed(0);
+							tempObject.setXspeed(0);
+						}else if(up == false && left == false && right == false && down == false){
+							handler.addObject(new sword (tempObject.getXpos()+35, tempObject.getYpos() + 24, IDs.sword, handler, game.ss, 0));
 							tempObject.setYspeed(0);
 							tempObject.setXspeed(0);
 						}
+//						else if((up == true && left == true && right == false && down == false) || (up == true && left == false && right == true && down == false)){
+//							handler.addObject(new sword (tempObject.getXpos()+35, tempObject.getYpos() + 24, IDs.sword, handler, game.ss, 1));
+//							tempObject.setYspeed(0);
+//							tempObject.setXspeed(0);
+//						}else if((up == false && left == true && right == false && down == true) || (up == false && left == false && right == true && down == true)){
+//							handler.addObject(new sword (tempObject.getXpos()+35, tempObject.getYpos() + 24, IDs.sword, handler, game.ss, 2));
+//							tempObject.setYspeed(0);
+//							tempObject.setXspeed(0);
+//						}
 					}
 
 				}
@@ -135,6 +147,8 @@ public class KeyHandler extends KeyAdapter {
 						tempObject.setXspeed(0);
 						}
 					}
+
+
 				}
 			}
 		}
