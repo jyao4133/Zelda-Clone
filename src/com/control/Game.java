@@ -42,7 +42,10 @@ public class Game extends Canvas implements Runnable {
     public int player1Health = 4;
     public int goldAmount = 0;
     public int bossHealth = 20;
+
     public int enemiesStage1 = 5;
+    public int shooterStage1 = 1;
+
     public int enemiesStage2 = 5;
     public int enemiesStage3 = 5;
 
@@ -483,7 +486,7 @@ public class Game extends Canvas implements Runnable {
         int w = image.getWidth();
         int h = image.getHeight();
 
-            handler.removeall();
+        handler.removeall();
 
         for (int xx = 0; xx < w; xx++){
             for(int yy = 0; yy < h; yy++){
@@ -545,11 +548,13 @@ public class Game extends Canvas implements Runnable {
                     handler.addObject(new Enemy(832, 876, IDs.enemy, handler, this, 500, 300, 1, ss));
                 }
                 if (enemiesStage1 > 4) {
-                    handler.addObject(new shooterEnemy(650, 520, IDs.shooterEnemy, handler, this, ss));
-                }
+                    handler.addObject(new Enemy(800, 750, IDs.enemy, handler, this, 800, 750, 1, ss));
 
-                handler.addObject(new Ghost(800, 500, IDs.followingEnemy, handler, this, ss));
-                //handler.addObject(new RotatingEnemy(600, 300, IDs.rotatingenemy, handler, this, 1, ss));
+                }
+                if (shooterStage1 > 0){
+                    handler.addObject(new shooterEnemy(800, 400, IDs.shooterEnemy, handler, this, ss));
+                }
+               handler.addObject(new Ghost(800, 500, IDs.followingEnemy, handler, this, ss));
 
         }
         if (Game.state == States.bosslevel){
