@@ -20,5 +20,6 @@ public enum IDs {
     Stairs,
     backStairs,
     rotatingenemy,
+    doorkey,
 
 }

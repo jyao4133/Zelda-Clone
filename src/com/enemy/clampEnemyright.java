@@ -4,6 +4,7 @@ import javax.swing.*;
 
 import com.control.Game;
 import com.control.IDs;
+import com.control.States;
 import com.player.Animation;
 import com.player.Handler;
 import com.player.Object;
@@ -17,6 +18,7 @@ import java.util.Random;
 
 public class clampEnemyright extends Object {
 
+    Game game;
     private String shootDirection;
     private int currentSecond = 0;
     private Handler handler;
@@ -28,7 +30,7 @@ public class clampEnemyright extends Object {
         this.handler = handler;
         this.id = id;
         Xspeed = 4;
-        
+        this.game = game;
         left = new BufferedImage [3];
 		right = new BufferedImage [3];
 		
@@ -62,6 +64,11 @@ public class clampEnemyright extends Object {
                         handler.removeObject(tempObject);
                     }
                     handler.removeObject(this);
+
+                    if (Game.state == States.level3){
+                        game.clampsStage3--;
+                    }
+
                 }
             } if (tempObject.getId() == IDs.clampleft) {
                 if (this.getBounds().intersects(tempObject.getBounds())) {

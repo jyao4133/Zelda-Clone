@@ -24,13 +24,8 @@ import com.level.backStairs;
 import com.level.level2;
 import com.level.level3;
 import com.level.bossStage;
-import com.player.Handler;
-import com.player.Hearts;
+import com.player.*;
 import com.player.Object;
-import com.player.Player1;
-import com.player.SpriteSheet;
-import com.player.arrowPickup;
-import com.player.coinPickup;
 
 import javax.swing.*;
 
@@ -50,7 +45,8 @@ public class Game extends Canvas implements Runnable {
     public int birdsStage2 = 3;
     public int shootersStage2 = 1;
 
-    public int enemiesStage3 = 5;
+    public int shootersStage3 = 1;
+    public int clampsStage3 = 4;
 
     public int timeNum;
     public int playerScore;
@@ -59,7 +55,7 @@ public class Game extends Canvas implements Runnable {
     public String prevLevel;
     public String playerName;
 
-    public boolean removeBool = false;
+    public boolean removeBool, keyObtained, keyspawned = false;
     public boolean firstLoad = true;
     private boolean save, titleShown = true;
 
@@ -125,6 +121,15 @@ public class Game extends Canvas implements Runnable {
         bosstage = new bossStage();
         death = new deathScreen();
 
+        playerName = JOptionPane.showInputDialog(null, "Enter your name", "Elizabeth");
+        if (playerName == null){
+            playerName = "Elizabeth";
+        }
+
+        if (playerName.isEmpty()){
+            playerName = "Elizabeth";
+        }
+
 		heart2 = new Hearts();
         heart1 = new Hearts();
         heart3 = new Hearts();
@@ -162,15 +167,7 @@ public class Game extends Canvas implements Runnable {
 
 
         showScore = new highScores(scoreList);
-        playerName = JOptionPane.showInputDialog(null, "Enter your name", "Elizabeth");
-        if (playerName == null){
-            playerName = "Elizabeth";
-        }
 
-        if (playerName.isEmpty()){
-            playerName = "Elizabeth";
-        }
-        System.out.println(playerName);
 
     }
     
@@ -292,12 +289,11 @@ public class Game extends Canvas implements Runnable {
 
 
         if (state == States.Game) {
-
+            keyspawned = false;
             nextLevel = "level2";
             g.setColor(Color.red);
         	g.fillRect(0, 0, WIDTH, HEIGHT);
 
-        	System.out.println(scoreList);
         	//Health Bar area
         	g.setColor(Color.black);
         	g.fillRect(0, 0, WIDTH, 170);
@@ -374,6 +370,9 @@ public class Game extends Canvas implements Runnable {
             firstLoad = true;
             save = true;
             titleShown = true;
+            keyspawned = false;
+            game.keyObtained = false;
+
             loadLevel(background);
             state = States.Game;
 
@@ -383,6 +382,7 @@ public class Game extends Canvas implements Runnable {
             bufferstrat.show();
 
         } else if (state == States.level2) {
+            keyspawned = false;
             prevLevel = "game";
             nextLevel = "level3";
 
@@ -438,7 +438,12 @@ public class Game extends Canvas implements Runnable {
                 heart3.drawHeart(g, 190, 50, 30 ,30, player1Health, 3);
                 heart4.drawHeart(g, 260, 50, 30, 30, player1Health, 4);
             }
-
+            if (clampsStage3 == 0 && shootersStage3 == 0){
+                if (keyspawned == false && keyObtained == false) {
+                    handler.addObject(new doorKey(850, 850, IDs.doorkey, ss));
+                    keyspawned = true;
+                }
+            }
             g.dispose();
             bufferstrat.show();
         }
@@ -473,7 +478,8 @@ public class Game extends Canvas implements Runnable {
         if(player1Health == 0 || bossHealth == 0){
             if (save == true){
                 System.out.println("got here");
-                write.Write(playerName, 96);
+                playerScore = goldAmount * 5 + arrowsRemaining * 3 + player1Health * 3;
+                write.Write(playerName, playerScore);
                 save = false;
                 scoreList = read.read(scoreList);
                 scoreList = scoreSort.listSort(scoreList);
@@ -562,9 +568,23 @@ public class Game extends Canvas implements Runnable {
 
         if (Game.state == States.level3){
 
-            handler.addObject(new clampEnemyright(100, 600, IDs.clampright, handler, this, ss));
-            handler.addObject(new clampEnemyleft(700, 600, IDs.clampleft, handler, this, ss));
 
+            if (clampsStage3 > 0) {
+                handler.addObject(new clampEnemyright(100, 605, IDs.clampright, handler, this, ss));
+            }
+            if (clampsStage3 > 1) {
+                handler.addObject(new clampEnemyleft(700, 620, IDs.clampleft, handler, this, ss));
+            }
+            if (clampsStage3 > 2) {
+                handler.addObject(new clampEnemyright(100, 370, IDs.clampright, handler, this, ss));
+            }
+            if (clampsStage3 > 3) {
+                handler.addObject(new clampEnemyleft(700, 370, IDs.clampleft, handler, this, ss));
+
+            }
+            if (shootersStage3 > 0) {
+                handler.addObject(new shooterEnemy(480, 500, IDs.shooterEnemy, handler, this, ss));
+            }
         }
 
     }

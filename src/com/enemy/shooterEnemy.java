@@ -93,6 +93,9 @@ public class shooterEnemy extends Object {
                     if (Game.state == States.level2){
 
                     }
+                    if (Game.state == States.level3){
+                        game.shootersStage3--;
+                    }
                 }
             }
 

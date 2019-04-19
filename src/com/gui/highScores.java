@@ -55,15 +55,22 @@ public class highScores {
             int j = 0;
             int Xlab = 200;
             int Ylab = 50;
-            for (int i = scoreList.size() -1; i > 0; i--){
-                if (j < 5) {
-                    g.drawString(scoreList.get(i), Xlab, Ylab);
-                }
-                j++;
-
-                Ylab += 100;
+            if (scoreList.size() == 1){
+                g.drawString(scoreList.get(0), Xlab, Ylab);
 
             }
+            else {
+                for (int i = scoreList.size() - 1; i > 0; i--) {
+                    if (j < 5) {
+                        g.drawString(scoreList.get(i), Xlab, Ylab);
+                    }
+                    j++;
+
+                    Ylab += 100;
+
+                }
+            }
+
         }
         optionmenu[0].render(g);
     }

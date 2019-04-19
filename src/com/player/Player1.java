@@ -111,126 +111,126 @@ public class Player1 extends Object {
 
     }
 
-    private void collision(){
+    private void collision() {
 
-        //Detection for when the player class collides with an object
-        for (int i = 0; i < handler.object.size(); i++){
-            Object tempObject = handler.object.get(i);
-            if (tempObject.getId() == IDs.Block){
-                if(getBounds().intersects(tempObject.getBounds())){
-						xpos += Xspeed * -1;
-						ypos += Yspeed * -1;
+		//Detection for when the player class collides with an object
+		for (int i = 0; i < handler.object.size(); i++) {
+			Object tempObject = handler.object.get(i);
+			if (tempObject.getId() == IDs.Block) {
+				if (getBounds().intersects(tempObject.getBounds())) {
+					xpos += Xspeed * -1;
+					ypos += Yspeed * -1;
 				}
-            }
+			}
 
-            //Pickup intersection
-            if (tempObject.getId() == IDs.Pickup){
-                if (getBounds().intersects(tempObject.getBounds())) {
-                    handler.removeObject(tempObject);
-                    game.arrowsRemaining += 10;
-                }
-            }
+			//Pickup intersection
+			if (tempObject.getId() == IDs.Pickup) {
+				if (getBounds().intersects(tempObject.getBounds())) {
+					handler.removeObject(tempObject);
+					game.arrowsRemaining += 10;
+				}
+			}
 
-			if (tempObject.getId() == IDs.heartPickup){
+			if (tempObject.getId() == IDs.heartPickup) {
 				if (getBounds().intersects(tempObject.getBounds())) {
 
-					if(game.player1Health < 4) {
+					if (game.player1Health < 4) {
 						handler.removeObject(tempObject);
-						game.player1Health ++;
+						game.player1Health++;
 					}
 				}
 			}
 
 
-            if (tempObject.getId() == IDs.enemy || tempObject.getId() == IDs.followingEnemy || tempObject.getId() == IDs.clampleft
-					|| tempObject.getId() == IDs.clampright || tempObject.getId() == IDs.shooterEnemy){
-                if(getBounds().intersects((tempObject.getBounds()))){
-                    handler.removeObject(tempObject);
-                    if (game.player1Health > 0){
-                        game.player1Health--;
-                    }
-                    if (Game.state == States.Game || Game.state == States.Load){
-                    	if (tempObject.getId() == IDs.enemy) {
+			if (tempObject.getId() == IDs.enemy || tempObject.getId() == IDs.followingEnemy || tempObject.getId() == IDs.clampleft
+					|| tempObject.getId() == IDs.clampright || tempObject.getId() == IDs.shooterEnemy) {
+				if (getBounds().intersects((tempObject.getBounds()))) {
+					handler.removeObject(tempObject);
+					if (game.player1Health > 0) {
+						game.player1Health--;
+					}
+					if (Game.state == States.Game || Game.state == States.Load) {
+						if (tempObject.getId() == IDs.enemy) {
 							game.enemiesStage1--;
 						}
 					}
-                }
-            }
+				}
+			}
 
-			if (tempObject.getId() == IDs.enemyArrow){
+			if (tempObject.getId() == IDs.enemyArrow) {
 				if (getBounds().intersects((tempObject.getBounds()))) {
 					handler.removeObject(tempObject);
-					game.player1Health --;
+					game.player1Health--;
 				}
 			}
 
 			//invincibility period for the player
-			if (tempObject.getId() == IDs.boss){
-				if (getBounds().intersects((tempObject.getBounds()))){
+			if (tempObject.getId() == IDs.boss) {
+				if (getBounds().intersects((tempObject.getBounds()))) {
 
-					if(hplossCD > 100) {
+					if (hplossCD > 100) {
 						game.player1Health--;
 						hplossCD = 0;
 					}
 				}
 			}
 
-            if (tempObject.getId() == IDs.Stairs){
-            	if(getBounds().intersects((tempObject.getBounds()))){
+			if (tempObject.getId() == IDs.Stairs) {
+				if (getBounds().intersects((tempObject.getBounds()))) {
 
-            		if (game.nextLevel == "level2") {
+					if (game.nextLevel == "level2") {
 						Game.state = States.level2;
 						game.loadLevel(game.background2);
-					}
-
-            		else if (game.nextLevel == "level3"){
-            			Game.state = States.level3;
-            			game.loadLevel(game.background3);
-					}
-
-            		else if (game.nextLevel == "bosslevel"){
-            			Game.state = States.bosslevel;
-            			game.loadLevel(game.bossLevel);
+					} else if (game.nextLevel == "level3") {
+						Game.state = States.level3;
+						game.loadLevel(game.background3);
+					} else if (game.nextLevel == "bosslevel") {
+						if (game.keyObtained == true) {
+							Game.state = States.bosslevel;
+							game.loadLevel(game.bossLevel);
+						}
 					}
 
 
 				}
 			}
 
-            if (tempObject.getId() == IDs.backStairs){
-				if(getBounds().intersects((tempObject.getBounds()))){
+			if (tempObject.getId() == IDs.backStairs) {
+				if (getBounds().intersects((tempObject.getBounds()))) {
 
 					if (game.prevLevel == "level2") {
 						Game.state = States.level2;
 						game.loadLevel(game.background2);
-					}
-
-					else {
+					} else {
 						Game.state = States.Game;
 						game.loadLevel(game.background);
 					}
 				}
 			}
 
-            if (tempObject.getId() == IDs.coinPickup){
-            	if(getBounds().intersects(tempObject.getBounds())){
+			if (tempObject.getId() == IDs.coinPickup) {
+				if (getBounds().intersects(tempObject.getBounds())) {
 					handler.removeObject(tempObject);
 					game.goldAmount++;
 				}
 			}
 
+			if (tempObject.getId() == IDs.doorkey) {
+				if (getBounds().intersects(tempObject.getBounds())) {
+					handler.removeObject(tempObject);
+					game.keyObtained = true;
+				}
 
 
-        }
-        
-        if (game.player1Health == 0) {
-        	Game.state = States.deathscreen;
-        }
-    }
+			}
+
+			if (game.player1Health == 0) {
+				Game.state = States.deathscreen;
+			}
+		}
 
 
-
-
+	}
 	public Rectangle getBounds() {
 
 		return new Rectangle (xpos + 13 ,ypos + 10,50,60);
