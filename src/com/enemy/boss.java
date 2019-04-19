@@ -30,7 +30,7 @@ public class boss extends Object{
     private int hplossCD = 0;
     private int currentSecond = 0;
     private int currentShot = 0;
-    int maxSpeed = 4;
+    int maxSpeed = 5;
     private int Direction = 1;
 	int spacing = 60;
 
@@ -85,7 +85,7 @@ public class boss extends Object{
     	ani_down.tick();
     	ani_left.tick();
     	ani_right.tick();
-    	
+
         if(initial == 1){
             initial = 0;
         }else{
@@ -93,11 +93,10 @@ public class boss extends Object{
             yprev = ypos;
         }
 
-        if (currentSecond > 100) {
-
             ypos += Yspeed;
             xpos += Xspeed;
-        }
+
+
         if(currentShot > 50) {
             //right
             if (Direction == 1) {
@@ -146,10 +145,11 @@ public class boss extends Object{
                     Yspeed *= -1;
                 }
                 else if (chosen == 0){
-
-                        Xspeed = (r.nextInt(2 * maxSpeed + 1) - maxSpeed);
-                        Yspeed = (r.nextInt(2 * maxSpeed + 1) - maxSpeed);
-
+                        if (currentSecond > 20) {
+                            Xspeed = (r.nextInt(2 * maxSpeed + 1) - maxSpeed);
+                            Yspeed = (r.nextInt(2 * maxSpeed + 1) - maxSpeed);
+                            currentSecond = 0;
+                        }
                 }
             }
 
@@ -217,6 +217,8 @@ public class boss extends Object{
     	if(Xspeed == 0 && Yspeed == 0) {
     		g.drawImage(bosspos, xpos, ypos, null);
 		}
+
+
 
     }
 

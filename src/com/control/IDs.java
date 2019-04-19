@@ -16,7 +16,9 @@ public enum IDs {
     sword,
     Pickup,
     heartPickup,
+    coinPickup,
     Stairs,
     backStairs,
     rotatingenemy,
+
 }

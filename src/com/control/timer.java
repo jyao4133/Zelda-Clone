@@ -16,6 +16,7 @@ public class timer {
     public String secondsString;
     public String minutesString;
     public String ammoString;
+    public String coinsString;
 
     public void start(){
         reset();
@@ -46,6 +47,7 @@ public class timer {
     public void render(Graphics g, Game game) {
         minutesString = Integer.toString(currentMinute);
         ammoString = Integer.toString(game.arrowsRemaining);
+        coinsString = Integer.toString(game.goldAmount);
         g.setColor(Color.white);
         if (currentSecond <= 10) {
             g.drawString("0" + currentMinute + ":" + "0" + secondsString, 190, 120);
@@ -55,8 +57,8 @@ public class timer {
         }
 
         g.setColor(Color.white);
-
         g.drawString("Arrows left:" + ammoString,390, 120);
+        g.drawString("Coins:" + coinsString, 496, 80);
     }
 
 }

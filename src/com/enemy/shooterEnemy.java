@@ -4,9 +4,8 @@ import javax.swing.*;
 
 import com.control.Game;
 import com.control.IDs;
-import com.player.Handler;
+import com.player.*;
 import com.player.Object;
-import com.player.SpriteSheet;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -20,7 +19,8 @@ public class shooterEnemy extends Object {
     private Handler handler;
     private int Direction = 1;
     Random r = new Random();
-
+    Random p = new Random();
+    int rngGen = 0;
 
     public shooterEnemy(int xpos, int ypos, IDs id, Handler handler, Game game, SpriteSheet ss ) {
         super(xpos, ypos, id, ss);
@@ -31,7 +31,7 @@ public class shooterEnemy extends Object {
     }
 
     public Rectangle getBounds() {
-        return new Rectangle(xpos, ypos, 25, 25);
+        return new Rectangle(xpos, ypos, 36, 36);
     }
 
     public void tick() {
@@ -76,8 +76,21 @@ public class shooterEnemy extends Object {
                 if (getBounds().intersects((tempObject.getBounds()))) {
                     handler.removeObject(tempObject);
                     handler.removeObject(this);
+                    rngGen = p.nextInt(10);
+                    if (rngGen < 2) {
+                        handler.addObject(new heartPickup(xpos+18, ypos +18, IDs.heartPickup, ss));
+                    }
+                    else if (rngGen > 8){
+                        handler.addObject(new arrowPickup(xpos + 18, ypos + 18, IDs.Pickup, ss));
+                    }
+                    else if(rngGen > 2 && rngGen < 8){
+                        handler.addObject(new coinPickup(xpos + 18, ypos+18,IDs.coinPickup, ss));
+                    }
                 }
             }
+
+
+
 
         }
     }

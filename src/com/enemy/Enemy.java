@@ -2,13 +2,8 @@ package com.enemy;
 
 import java.awt.*;
 import com.control.*;
-import com.player.Animation;
-import com.player.Handler;
+import com.player.*;
 import com.player.Object;
-import com.player.SpriteAnimation;
-import com.player.SpriteSheet;
-import com.player.arrowPickup;
-import com.player.heartPickup;
 
 import java.awt.image.BufferedImage;
 import java.util.*;
@@ -105,10 +100,13 @@ public class Enemy extends Object{
                     handler.removeObject(this);
                     rngGen = p.nextInt(10);
                     if (rngGen < 2) {
-                        handler.addObject(new heartPickup(xpos, ypos, IDs.heartPickup, ss));
+                        handler.addObject(new heartPickup(xpos+20, ypos +20, IDs.heartPickup, ss));
                     }
                     else if (rngGen > 8){
-                        handler.addObject(new arrowPickup(xpos, ypos, IDs.Pickup, ss));
+                        handler.addObject(new arrowPickup(xpos + 20, ypos + 20, IDs.Pickup, ss));
+                    }
+                    else if(rngGen > 2 && rngGen < 8){
+                        handler.addObject(new coinPickup(xpos + 20, ypos+20,IDs.coinPickup, ss));
                     }
                     if (Game.state == States.Game || Game.state == States.Load){
                         game.enemiesStage1--;

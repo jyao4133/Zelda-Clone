@@ -30,6 +30,7 @@ import com.player.Object;
 import com.player.Player1;
 import com.player.SpriteSheet;
 import com.player.arrowPickup;
+import com.player.coinPickup;
 
 public class Game extends Canvas implements Runnable {
 
@@ -39,9 +40,12 @@ public class Game extends Canvas implements Runnable {
     public static int WIDTH = 1030, HEIGHT = 990;
     public int arrowsRemaining = 10;
     public int player1Health = 4;
+    public int goldAmount = 0;
     public int bossHealth = 20;
     public int enemiesStage1 = 5;
     public int enemiesStage2 = 5;
+    public int enemiesStage3 = 5;
+
     public int timeNum;
     public int playerScore;
 
@@ -342,6 +346,7 @@ public class Game extends Canvas implements Runnable {
             arrowsRemaining = 10;
             bossHealth = 20;
             enemiesStage1 = 5;
+            goldAmount = 0;
             removeBool = true;
             firstLoad = true;
             save = true;

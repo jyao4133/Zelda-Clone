@@ -21,7 +21,6 @@ public class highscoreSort {
                     temp=unsortedScore.get(a);
                     unsortedScore.set(a, unsortedScore.get(a+1));
                     unsortedScore.set(a+1, temp);
-
                     sorted=true;
                 }
             }

@@ -209,11 +209,18 @@ public class Player1 extends Object {
 				}
 			}
 
+            if (tempObject.getId() == IDs.coinPickup){
+            	if(getBounds().intersects(tempObject.getBounds())){
+					handler.removeObject(tempObject);
+					game.goldAmount++;
+				}
+			}
+
 
 
         }
         
-        if (game.player1Health < 0) {
+        if (game.player1Health == 0) {
         	Game.state = States.Pause;
         	game.player1Health = 4;
         }

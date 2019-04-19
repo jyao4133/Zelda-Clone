@@ -23,7 +23,7 @@ public class arrowPickup extends Object{
     }
 
     public Rectangle getBounds() {
-        return new Rectangle (xpos,ypos,75,75);
+        return new Rectangle (xpos,ypos,20,20);
     }
 
 

@@ -22,7 +22,7 @@ public class heartPickup extends Object{
     }
 
     public Rectangle getBounds() {
-        return new Rectangle (xpos,ypos,60,60);
+        return new Rectangle (xpos,ypos,20,20);
     }
 
 
@@ -33,8 +33,8 @@ public class heartPickup extends Object{
 
     public void render(Graphics g) {
 
-       // g.setColor(Color.yellow);
-        //g.fillRect(xpos, ypos, 16, 16);
+//        g.setColor(Color.yellow);
+//        g.fillRect(xpos, ypos, 20, 20);
     	g.drawImage(animation.getCurrentFrame(), xpos - 20, ypos - 40, null);
 
 

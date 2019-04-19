@@ -64,8 +64,6 @@ public class highScores {
                 Ylab += 100;
 
             }
-
-
         }
     }
 
