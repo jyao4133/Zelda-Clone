@@ -36,7 +36,7 @@ public class backStairs extends Object{
     public void render(Graphics g) {
        // g.setColor(Color.magenta);
        // g.fillRect(xpos, ypos - 40, 75, 75);
-		g.drawImage(backstairs, xpos, ypos-40, null);
+		//g.drawImage(backstairs, xpos, ypos-40, null);
 
     }
 }

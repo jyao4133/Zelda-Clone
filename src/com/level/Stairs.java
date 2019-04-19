@@ -36,7 +36,7 @@ public class Stairs extends Object{
     public void render(Graphics g) {
        // g.setColor(Color.magenta);
        // g.fillRect(xpos, ypos, 75, 75);
-		g.drawImage(stairs, xpos, ypos-4, null);
+	//	g.drawImage(stairs, xpos, ypos-4, null);
 
     }
 }

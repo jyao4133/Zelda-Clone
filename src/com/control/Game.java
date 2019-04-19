@@ -64,7 +64,7 @@ public class Game extends Canvas implements Runnable {
     private Thread thread;
 
     private Handler handler;
-    public BufferedImage background, background2,background3, bossLevel, floor;
+    public BufferedImage background, background2,background3, bossLevel, basement;
 
     public static SpriteSheet ss;
     private BufferedImage spritesheet;
@@ -146,7 +146,7 @@ public class Game extends Canvas implements Runnable {
         background2 = loader.loadImage("test_level_2.png");
         background3 = loader.loadImage("test_level_3.png");
         bossLevel = loader.loadImage("bosslevel.png");
-        floor = loader.loadImage("floor.png");
+        basement = loader.loadImage("basement.png");
         spritesheet = loader.loadImage("spritesheet.png");
         ss = new SpriteSheet (spritesheet);
 		
@@ -293,7 +293,7 @@ public class Game extends Canvas implements Runnable {
         	g.setColor(Color.black);
         	g.fillRect(0, 0, WIDTH, 170);
         	
-        	//g.drawImage(floor, 0, 170, null);
+        	g.drawImage(basement, 0, 170, null);
 
         	healthtextbox.render(g);
         	scoretextbox.render(g);
@@ -314,9 +314,9 @@ public class Game extends Canvas implements Runnable {
         }else if (state == States.TitleScreen) {
             //g.fillRect(0, 0, WIDTH, HEIGHT);
             if(titleShown == true) {
-                scoreList = read.read(scoreList);
-                scoreList = scoreSort.listSort(scoreList);
-                System.out.println(scoreList);
+              //  scoreList = read.read(scoreList);
+               // scoreList = scoreSort.listSort(scoreList);
+              //  System.out.println(scoreList);
                 titleShown = false;
             }
             titlescreen.render(g);
@@ -536,18 +536,19 @@ public class Game extends Canvas implements Runnable {
 
         if (Game.state == States.Load || Game.state == States.Game){
                 if (enemiesStage1 > 0) {
-                    handler.addObject(new Enemy(350, 800, IDs.enemy, handler, this, 500, 300, 1, ss));
+            //        handler.addObject(new Enemy(350, 800, IDs.enemy, handler, this, 500, 300, 1, ss));
                 }
                 if (enemiesStage1 > 1) {
-                    handler.addObject(new Enemy(160, 288, IDs.enemy, handler, this, 500, 300, 1, ss));
+            //        handler.addObject(new Enemy(160, 288, IDs.enemy, handler, this, 500, 300, 1, ss));
                 }
                 if (enemiesStage1 > 2) {
-                    handler.addObject(new Enemy(256, 640, IDs.enemy, handler, this, 500, 300, 1, ss));
+              //      handler.addObject(new Enemy(256, 640, IDs.enemy, handler, this, 500, 300, 1, ss));
                 }
                 if (enemiesStage1 > 3) {
-                    handler.addObject(new Enemy(832, 876, IDs.enemy, handler, this, 500, 300, 1, ss));
+               //     handler.addObject(new Enemy(832, 876, IDs.enemy, handler, this, 500, 300, 1, ss));
                 }
                 if (enemiesStage1 > 4) {
+
                     handler.addObject(new Enemy(800, 750, IDs.enemy, handler, this, 800, 750, 1, ss));
 
                 }
