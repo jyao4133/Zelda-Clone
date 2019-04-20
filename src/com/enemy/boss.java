@@ -30,7 +30,7 @@ public class boss extends Object{
     private int hplossCD = 0;
     private int currentSecond = 0;
     private int currentShot = 0;
-    int maxSpeed = 0;
+    int maxSpeed = 5;
     private int Direction = 1;
 	int spacing = 60;
 
@@ -145,7 +145,7 @@ public class boss extends Object{
                     Yspeed *= -1;
                 }
                 else if (chosen == 0){
-                        if (currentSecond > 20) {
+                        if (currentSecond > 40) {
                             Xspeed = (r.nextInt(2 * maxSpeed + 1) - maxSpeed);
                             Yspeed = (r.nextInt(2 * maxSpeed + 1) - maxSpeed);
                             currentSecond = 0;

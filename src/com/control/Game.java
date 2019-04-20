@@ -362,7 +362,7 @@ public class Game extends Canvas implements Runnable {
             g.dispose();
             bufferstrat.show();
 
-        }else if(state == States.Load){
+        }else if(state == States.Load){ //Reset state
             scoreList.clear();
             Timer.currentSecond = 0;
             Timer.currentMinute = 0;
@@ -381,7 +381,10 @@ public class Game extends Canvas implements Runnable {
             titleShown = true;
             keyspawned = false;
             game.keyObtained = false;
-
+            level1Visted = false;
+            level2Visted = false;
+            meleeupgrade = false;
+            rangedupgrade = false;
             loadLevel(background);
             state = States.Game;
 
@@ -446,7 +449,7 @@ public class Game extends Canvas implements Runnable {
             }
             if (clampsStage3 == 0 && shootersStage3 == 0){
                 if (keyspawned == false && keyObtained == false) {
-                    handler.addObject(new doorKey(850, 850, IDs.doorkey, ss));
+                    handler.addObject(new doorKey(800, 800, IDs.doorkey, ss));
                     keyspawned = true;
                 }
             }
@@ -526,7 +529,7 @@ public class Game extends Canvas implements Runnable {
                 if (red == 255 && blue == 0 && green == 216){
                     handler.addObject(new Block(xx*32, yy*32, IDs.Block, ss));
                 }
-                
+
 
                 if ((red & blue) == 255 && red == 0){
                     handler.addObject(new Block(xx*32, yy*32, IDs.Block, ss));
@@ -592,6 +595,8 @@ public class Game extends Canvas implements Runnable {
 
         }
         if (Game.state == States.bosslevel){
+            handler.addObject(new Player1(138, 741, IDs.player, handler, this, ss));
+
             handler.addObject(new boss(600, 400, IDs.boss, handler, this, 500, 300, 1, ss));
 
         }
