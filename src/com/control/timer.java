@@ -28,8 +28,9 @@ public class timer {
                     reset();
                 }
                 secondsString = Integer.toString(currentSecond);
-
-                currentSecond++;
+                if (Game.state != States.Pause) {
+                    currentSecond++;
+                }
             }
         });
         timer.start();
@@ -48,16 +49,22 @@ public class timer {
         minutesString = Integer.toString(currentMinute);
         ammoString = Integer.toString(game.arrowsRemaining);
         coinsString = Integer.toString(game.goldAmount);
+        Font text = new Font ("Comic Sans MS", Font.BOLD, 30);
+        g.setFont(text);
         g.setColor(Color.white);
+
         if (currentSecond <= 10) {
             g.drawString("0" + currentMinute + ":" + "0" + secondsString, 190, 120);
 
-        } else {
+        }
+        else {
             g.drawString("0" + currentMinute + ":" + secondsString, 190, 120);
         }
 
-        g.setColor(Color.white);
-        g.drawString("Arrows left:" + ammoString,390, 120);
+        g.drawString("Time: ", 100, 120);
+        g.drawString("Health: ", 72, 80);
+
+        g.drawString("Arrows left:" + ammoString,402, 120);
         g.drawString("Coins:" + coinsString, 496, 80);
     }
 

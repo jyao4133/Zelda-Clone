@@ -14,7 +14,8 @@ public enum States {
 	Credits,
 	pauseOptions,
 	highscores,
-	deathscreen;
+	deathscreen,
+	shop;
 
 
 }

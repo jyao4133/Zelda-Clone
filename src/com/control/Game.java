@@ -55,9 +55,13 @@ public class Game extends Canvas implements Runnable {
     public String prevLevel;
     public String playerName;
 
-    public boolean removeBool, keyObtained, keyspawned = false;
+
+    public boolean removeBool, keyObtained, keyspawned, shopKeeperCollision, rangedupgrade, meleeupgrade = false;
+
     public boolean firstLoad = true;
-    private boolean save, titleShown = true;
+    private boolean save, titleShown,loadKey = true;
+    private boolean level1Visted, level2Visted = false;
+
 
     private volatile boolean running = false;
     private Thread thread;
@@ -81,8 +85,8 @@ public class Game extends Canvas implements Runnable {
     private InRead read;
     private OutWrite write;
     private highscoreSort scoreSort;
+    private shopState shopstate;
 
-    private Button healthtextbox, scoretextbox, timerbox;
     public Window window;
     public Player1 player;
    // public Enemy enemy;
@@ -102,7 +106,7 @@ public class Game extends Canvas implements Runnable {
     
     //to create the title screen we will use the states in the code
     public static States state = com.control.States.TitleScreen;
-
+    public static States tempstate;
        
     
     
@@ -120,6 +124,7 @@ public class Game extends Canvas implements Runnable {
         Level3 = new level3();
         bosstage = new bossStage();
         death = new deathScreen();
+        shopstate = new shopState();
 
         playerName = JOptionPane.showInputDialog(null, "Enter your name", "Elizabeth");
         if (playerName == null){
@@ -144,12 +149,13 @@ public class Game extends Canvas implements Runnable {
     	//g.fillRect(50, 50, 200, 50);
         Timer = new timer();
         Timer.start();
-        healthtextbox = new Button("Health:", 120, 10,new Font("Comic Sans MS", Font.PLAIN, 35), Color.RED);
-        scoretextbox = new Button("Timer:", 125, 90, new Font("Comic Sans MS", Font.PLAIN, 35), Color.RED);
 
         //handler.addObject(new Player1(100, 100, IDs.player));
         this.requestFocusInWindow();
-		this.addKeyListener(new KeyHandler(handler,ss));
+        if (loadKey == true) {
+            this.addKeyListener(new KeyHandler(handler, ss, this));
+            loadKey = false;
+        }
 		//this.addMouseListener(new MouseInputGame(handler));
         background = loader.loadImage("test_level.png");
         background2 = loader.loadImage("test_level_2.png");
@@ -300,8 +306,7 @@ public class Game extends Canvas implements Runnable {
         	
         	g.drawImage(basement, 0, 170, null);
 
-        	healthtextbox.render(g);
-        	scoretextbox.render(g);
+
         //	timerbox.render(g);
             handler.render(g);
             Timer.render(g, game);
@@ -365,6 +370,10 @@ public class Game extends Canvas implements Runnable {
             arrowsRemaining = 10;
             bossHealth = 20;
             enemiesStage1 = 4;
+            birdsStage2 = 3;
+            shootersStage2 = 1;
+            shootersStage3 = 1;
+            clampsStage3 = 4;
             goldAmount = 0;
             removeBool = true;
             firstLoad = true;
@@ -393,13 +402,12 @@ public class Game extends Canvas implements Runnable {
             if (firstLoad == true){
                 loadLevel(background2);
 
-                this.addKeyListener(new KeyHandler(handler, ss));
+                this.addKeyListener(new KeyHandler(handler, ss,this));
 
                 firstLoad = false;
             }
 
-            healthtextbox.render(g);
-            scoretextbox.render(g);
+
             Timer.render(g, game);
 
             for (int i = 0; i < 3; i++) {
@@ -424,12 +432,10 @@ public class Game extends Canvas implements Runnable {
 
             if (firstLoad == true){
                 loadLevel(background3);
-                this.addKeyListener(new KeyHandler(handler, ss));
+                this.addKeyListener(new KeyHandler(handler, ss, this));
                 firstLoad = false;
             }
 
-            healthtextbox.render(g);
-            scoretextbox.render(g);
             Timer.render(g, game);
 
             for (int i = 0; i < 3; i++) {
@@ -448,21 +454,32 @@ public class Game extends Canvas implements Runnable {
             bufferstrat.show();
         }
 
+        else if (state == States.shop){
+            shopstate.render(g);
+            Timer.render(g, game);
+
+            for (int i = 0; i < 2; i++) {
+                heart2.drawHeart(g, 295, 50, 30, 30, player1Health, 2);
+                heart1.drawHeart(g, 225, 50, 30, 30, player1Health, 1);
+                heart3.drawHeart(g, 190, 50, 30 ,30, player1Health, 3);
+                heart4.drawHeart(g, 260, 50, 30, 30, player1Health, 4);
+            }
+            g.dispose();
+            bufferstrat.show();
+        }
+
         else if (state == States.bosslevel){
             prevLevel = "game";
             nextLevel = "level2";
 
             bosstage.render(g);
             handler.render(g);
+            Timer.render(g,game);
             if (firstLoad == true){
                 loadLevel(bossLevel);
-                this.addKeyListener(new KeyHandler(handler, ss));
+                this.addKeyListener(new KeyHandler(handler, ss, this));
                 firstLoad = false;
             }
-
-            healthtextbox.render(g);
-            scoretextbox.render(g);
-            Timer.render(g, game);
 
             for (int i = 0; i < 3; i++) {
                 heart2.drawHeart(g, 295, 50, 30, 30, player1Health, 2);
@@ -509,11 +526,7 @@ public class Game extends Canvas implements Runnable {
                 if (red == 255 && blue == 0 && green == 216){
                     handler.addObject(new Block(xx*32, yy*32, IDs.Block, ss));
                 }
-
-                if (blue == 255 && green == 0 && red == 0){
-                    handler.addObject(new Player1(xx*32,yy*32, IDs.player, handler, this, ss));
-
-                }
+                
 
                 if ((red & blue) == 255 && red == 0){
                     handler.addObject(new Block(xx*32, yy*32, IDs.Block, ss));
@@ -542,10 +555,19 @@ public class Game extends Canvas implements Runnable {
 
 
         if (Game.state == States.level2){
+            level1Visted = true;
+            if (level2Visted == false){
+                 handler.addObject(new Player1(224, 750, IDs.player, handler, this, ss));
+
+            }
+            else{
+                handler.addObject(new Player1(842, 360, IDs.player, handler, this, ss));
+            }
             handler.addObject(new Enemy(500, 300, IDs.enemy,  handler, this, 500, 300, 1, ss));
         }
 
         if (Game.state == States.Load || Game.state == States.Game){
+                level2Visted = false;
                 if (enemiesStage1 > 0) {
                     handler.addObject(new Enemy(350, 350, IDs.enemy, handler, this, 350, 350, 1, ss));
                 }
@@ -560,6 +582,14 @@ public class Game extends Canvas implements Runnable {
                 }
                handler.addObject(new Ghost(800, 500, IDs.followingEnemy, handler, this, ss));
 
+                if (level1Visted ==true){
+                    handler.addObject(new Player1(545, 360, IDs.player, handler, this, ss));
+                }
+                else{
+                    handler.addObject(new Player1(740, 800, IDs.player, handler, this, ss));
+
+                }
+
         }
         if (Game.state == States.bosslevel){
             handler.addObject(new boss(600, 400, IDs.boss, handler, this, 500, 300, 1, ss));
@@ -567,6 +597,9 @@ public class Game extends Canvas implements Runnable {
         }
 
         if (Game.state == States.level3){
+            level2Visted = true;
+
+                handler.addObject(new Player1(103, 779, IDs.player, handler, this, ss));
 
 
             if (clampsStage3 > 0) {
@@ -585,6 +618,8 @@ public class Game extends Canvas implements Runnable {
             if (shootersStage3 > 0) {
                 handler.addObject(new shooterEnemy(480, 500, IDs.shooterEnemy, handler, this, ss));
             }
+
+            handler.addObject(new shopKeeper(855, 800,IDs.shopkeeper , ss));
         }
 
     }

@@ -107,7 +107,7 @@ public class Enemy extends Object{
                     else if (rngGen > 8){
                         handler.addObject(new arrowPickup(xpos + 20, ypos + 20, IDs.Pickup, ss));
                     }
-                    else if(rngGen > 2 && rngGen < 8){
+                    else if(rngGen >= 2 && rngGen <= 8){
                         handler.addObject(new coinPickup(xpos + 20, ypos+20,IDs.coinPickup, ss));
                     }
                     if (Game.state == States.Game || Game.state == States.Load){

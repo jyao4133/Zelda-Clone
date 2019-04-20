@@ -30,7 +30,7 @@ public class boss extends Object{
     private int hplossCD = 0;
     private int currentSecond = 0;
     private int currentShot = 0;
-    int maxSpeed = 5;
+    int maxSpeed = 0;
     private int Direction = 1;
 	int spacing = 60;
 

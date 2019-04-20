@@ -72,7 +72,7 @@ public class clampEnemyright extends Object {
                 }
             } if (tempObject.getId() == IDs.clampleft) {
                 if (this.getBounds().intersects(tempObject.getBounds())) {
-                    Xspeed = -4;
+                    this.Xspeed = -4;
 
                 }
             } if (tempObject.getId() == IDs.Block) {
@@ -94,8 +94,8 @@ public class clampEnemyright extends Object {
     }
 
     public void render(Graphics g) {
-    	// g.setColor(Color.black);
-        // g.fillRect(xpos, ypos, 75, 75);
+    	 g.setColor(Color.black);
+         g.fillRect(xpos, ypos, 75, 75);
      	if (Xspeed < 0  ) {//left
          	g.drawImage(ani_left.getCurrentFrame(), xpos, ypos, null);
      	}

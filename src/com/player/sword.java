@@ -33,11 +33,11 @@ public class sword extends Object {
     private BufferedImage [] up, down, left, right;
     private Animation ani_up, ani_down, ani_left, ani_right;
     
-    public sword(int xpos, int ypos, IDs id, Handler handler, SpriteSheet ss, int direction) {
+    public sword(int xpos, int ypos, IDs id, Handler handler, SpriteSheet ss, int direction, Game game) {
         super(xpos, ypos, id, ss);
         this.handler = handler;
         currentDirection = direction;
-
+        this.game = game;
       /*  weapon[0] = ss.grabImage(1, 8, 75, 75);//right
         weapon[1] = ss.grabImage(2, 8, 75, 75);//left
         weapon[2] = ss.grabImage(3, 8, 75, 75);//up
@@ -79,7 +79,29 @@ public class sword extends Object {
 
     }
 
-    public Rectangle getBounds() { 
+    public Rectangle getBounds() {
+
+        if (game.meleeupgrade == true) {
+            if (currentDirection == 1 && player.prevDirection == "up") {   //up
+                return new Rectangle(xpos - 20, ypos - 48, 50, 90);
+            } else if (currentDirection == 2 && player.prevDirection == "down") {//down
+                return new Rectangle(xpos - 20, ypos + 30, 50, 100);
+            } else if (currentDirection == 3 && player.prevDirection == "left") {//left
+                return new Rectangle(xpos - 110, ypos, 90, 50);
+            } else if (currentDirection == 4 && player.prevDirection == "right") {//right
+                return new Rectangle(xpos + 25, ypos, 90, 50);
+            } else if (currentDirection == 0 && player.prevDirection == "up") {
+                System.out.println("aposgjn");
+                return new Rectangle(xpos - 25, ypos - 88, 50, 90);
+            } else if (currentDirection == 0 && player.prevDirection == "down") {
+                return new Rectangle(xpos - 20, ypos + 30, 50, 100);
+            } else if (currentDirection == 0 && player.prevDirection == "left") {
+                return new Rectangle(xpos - 110, ypos, 90, 50);
+            } else if (currentDirection == 0 && player.prevDirection == "right") {
+                return new Rectangle(xpos + 25, ypos, 90, 50);
+            }
+        }
+
           	if (currentDirection == 1&& player.prevDirection == "up"){   //up
                 return new Rectangle(xpos - 20 , ypos - 48, 50, 50);
             }else if(currentDirection == 2&& player.prevDirection == "down"){//down
@@ -97,7 +119,7 @@ public class sword extends Object {
             }else if(currentDirection == 0 && player.prevDirection == "right"){
                 return new Rectangle( xpos + 20 , ypos , 60, 50);
             }else
-                return new Rectangle(xpos - 32, ypos + 24, 50, 50);
+                return new Rectangle(xpos - 20 , ypos - 48, 50, 50);
     }
 
 
@@ -178,12 +200,14 @@ public class sword extends Object {
                 currentSecond = 0;
             }
         }else{
-        	g.drawImage(up[1], xpos - 32, ypos + 24 , null);
+        	g.drawImage(ani_up.getCurrentFrame(), xpos - 20, ypos - 48 , null);
             if (currentSecond > 10) {
                 handler.removeObject(this);
                 currentSecond = 0;
             }
         }
+
+
     }
 
     public void start(){

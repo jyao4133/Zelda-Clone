@@ -184,6 +184,16 @@ public class Player1 extends Object {
 				}
 			}
 
+			if (tempObject.getId() == IDs.shopkeeper){
+				if (getBounds().intersects(tempObject.getBounds())){
+					game.shopKeeperCollision = true;
+				}
+				else{
+					game.shopKeeperCollision = false;
+				}
+
+
+			}
 			if (tempObject.getId() == IDs.Stairs) {
 				if (getBounds().intersects((tempObject.getBounds()))) {
 
@@ -244,6 +254,11 @@ public class Player1 extends Object {
 
 		return new Rectangle (xpos + 13 ,ypos + 10,50,60);
 	}
+
+	public Rectangle getnpcBounds(){
+    	return null;
+	}
+
 
 	public void startCD(){
 		javax.swing.Timer timer = new Timer(10, new ActionListener(){

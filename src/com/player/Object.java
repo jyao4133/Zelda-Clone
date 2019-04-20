@@ -41,6 +41,10 @@ public abstract class Object {
         this.ypos = ypos;
     }
 
+    public int getshiftY() {return ypos + 45;}
+
+    public int getshiftX() {return xpos + 45;}
+
     public IDs getId() {
         return id;
     }

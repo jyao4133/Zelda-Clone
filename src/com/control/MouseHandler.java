@@ -41,6 +41,8 @@ public class MouseHandler extends MouseAdapter  {
 		
 		int x = e.getX();
 		int y = e.getY();
+		System.out.println("This the X coord: " + x);
+		System.out.println("This the Y coord: " + y);
 		if (Game.state == States.TitleScreen) {
 		//To start the game in single player
 			if (x >= 150 && x <= 450 && y >= 300 && y <= 380) {
@@ -90,6 +92,10 @@ public class MouseHandler extends MouseAdapter  {
 					if (e.getButton() == MouseEvent.BUTTON3) {
 						if (game.arrowsRemaining > 0) {
 							handler.addObject(new Arrow(tempObject.getXpos() + 24, tempObject.getYpos() + 24, IDs.Arrow, handler, x, y, ss));
+							if (game.rangedupgrade == true){
+								handler.addObject(new Arrow(tempObject.getXpos() + 32, tempObject.getYpos() + 32, IDs.Arrow, handler, x, y, ss));
+
+							}
 							game.arrowsRemaining--;
 						}
 					}
@@ -99,9 +105,10 @@ public class MouseHandler extends MouseAdapter  {
 //					}
                  }
 			 }
-		}else if (Game.state == States.Pause) {			
+		}else if (Game.state == States.Pause) {
+
 			if (x >= 390 && x <= 630 && y >= 410 && y <= 460) {
-				Game.state = States.Game;
+				Game.state = Game.tempstate;
 			}
 			if (x >= 390 && x <= 630 && y >= 480 && y <= 530) {
 				Game.state = States.pauseOptions;
@@ -125,6 +132,40 @@ public class MouseHandler extends MouseAdapter  {
 				Game.state = States.TitleScreen;
 			}
 
+		}else if (Game.state == States.shop){
+
+
+			if (x >= 800 && x <= 1030 && y >= 0 && y <= 164){
+				Game.state = Game.tempstate;
+			}
+
+			if (x >= 155 && x <= 480 && y >= 255 && y <= 500){
+				if (game.goldAmount > 0 && game.player1Health < 4){
+					game.goldAmount --;
+					game.player1Health++;
+				}
+			}
+
+			if (x >= 585 && x <= 930 && y >= 255 && y <= 500){
+				if (game.goldAmount > 0){
+					game.goldAmount --;
+					game.arrowsRemaining += 10;
+				}
+			}
+
+			if (x >= 155 && x <= 480 && y >= 580 && y <= 860){
+				if (game.goldAmount >= 3){
+					game.goldAmount -= 3;
+					game.rangedupgrade = true;
+				}
+			}
+
+			if (x >= 585 && x <= 930 && y >= 580 && y <= 860){
+				if (game.goldAmount >= 3){
+					game.goldAmount -= 3;
+					game.meleeupgrade = true;
+				}
+			}
 		}
 	}
  

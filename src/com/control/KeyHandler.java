@@ -21,7 +21,7 @@ public class KeyHandler extends KeyAdapter {
 	private Game game;
 	private SpriteSheet ss;
 
-	public KeyHandler (Handler handler, SpriteSheet ss) {
+	public KeyHandler (Handler handler, SpriteSheet ss, Game game) {
 
 		this.handler = handler;
 		this.game = game;
@@ -58,46 +58,55 @@ public class KeyHandler extends KeyAdapter {
 						currentDirection = 4;
 					}
 					if (key == KeyEvent.VK_P) {
+						Game.tempstate = Game.state;
 						Game.state = States.Pause;
 						System.out.println("Game is Paused");
 					}
 					if (key == KeyEvent.VK_B) {
 						Game.state = States.bosslevel;
+						game.loadLevel(game.bossLevel);
 					}
 
 					//Melee attack logic
 					if (key == KeyEvent.VK_SPACE){
 						if(up == true && left == false && right == false && down == false){
-							handler.addObject(new sword (tempObject.getXpos()+35, tempObject.getYpos() + 24, IDs.sword, handler, game.ss, currentDirection));
+							handler.addObject(new sword (tempObject.getXpos()+35, tempObject.getYpos() + 24, IDs.sword, handler, game.ss, currentDirection, game));
 							tempObject.setYspeed(0);
 							tempObject.setXspeed(0);
 
 						}else if(down == true && left == false && right == false && up == false){
-							handler.addObject(new sword (tempObject.getXpos()+35, tempObject.getYpos() + 24, IDs.sword, handler, game.ss, currentDirection));
+							handler.addObject(new sword (tempObject.getXpos()+35, tempObject.getYpos() + 24, IDs.sword, handler, game.ss, currentDirection, game));
 							tempObject.setYspeed(0);
 							tempObject.setXspeed(0);
 						}else if(up == false && left == false && right == true && down == false){
-							handler.addObject(new sword (tempObject.getXpos()+35, tempObject.getYpos() + 24, IDs.sword, handler, game.ss, currentDirection));
+							handler.addObject(new sword (tempObject.getXpos()+35, tempObject.getYpos() + 24, IDs.sword, handler, game.ss, currentDirection, game));
 							tempObject.setYspeed(0);
 							tempObject.setXspeed(0);
 						}else if(up == false && left == true && right == false && down == false){
-							handler.addObject(new sword (tempObject.getXpos()+35, tempObject.getYpos() + 24, IDs.sword, handler, game.ss, currentDirection));
+							handler.addObject(new sword (tempObject.getXpos()+35, tempObject.getYpos() + 24, IDs.sword, handler, game.ss, currentDirection, game));
 							tempObject.setYspeed(0);
 							tempObject.setXspeed(0);
 						}else if(up == false && left == false && right == false && down == false){
-							handler.addObject(new sword (tempObject.getXpos()+35, tempObject.getYpos() + 24, IDs.sword, handler, game.ss, 0));
+							handler.addObject(new sword (tempObject.getXpos()+35, tempObject.getYpos() + 24, IDs.sword, handler, game.ss, 0, game));
 							tempObject.setYspeed(0);
 							tempObject.setXspeed(0);
 						}
 //						else if((up == true && left == true && right == false && down == false) || (up == true && left == false && right == true && down == false)){
 //							handler.addObject(new sword (tempObject.getXpos()+35, tempObject.getYpos() + 24, IDs.sword, handler, game.ss, 1));
-//							tempObject.setYspeed(0);
+//							tempObject.setYspeed(0);ffffffffffaaaaaaaaaaaaaaaa
 //							tempObject.setXspeed(0);
 //						}else if((up == false && left == true && right == false && down == true) || (up == false && left == false && right == true && down == true)){
 //							handler.addObject(new sword (tempObject.getXpos()+35, tempObject.getYpos() + 24, IDs.sword, handler, game.ss, 2));
 //							tempObject.setYspeed(0);
 //							tempObject.setXspeed(0);
 //						}
+					}
+
+					if (key == KeyEvent.VK_F){
+						if (game.shopKeeperCollision){
+							Game.tempstate = Game.state;
+							Game.state = States.shop;
+						}
 					}
 
 				}
