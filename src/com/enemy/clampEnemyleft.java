@@ -69,7 +69,9 @@ public class clampEnemyleft extends Object {
                     handler.removeObject(this);
 
                     if (Game.state == States.level3){
-                        game.clampsStage3--;
+                        if (game.clampsStage3 > 0) {
+                            game.clampsStage3--;
+                        }
                     }
 
                 }

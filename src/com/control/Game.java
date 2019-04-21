@@ -380,7 +380,7 @@ public class Game extends Canvas implements Runnable {
             save = true;
             titleShown = true;
             keyspawned = false;
-            game.keyObtained = false;
+            keyObtained = false;
             level1Visted = false;
             level2Visted = false;
             meleeupgrade = false;
