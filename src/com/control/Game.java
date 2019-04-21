@@ -45,6 +45,7 @@ public class Game extends Canvas implements Runnable {
 
 
     public boolean removeBool, keyObtained, keyspawned, shopKeeperCollision, rangedupgrade, meleeupgrade = false;
+	public static boolean soundplay = true;
 
     public boolean firstLoad = true;
     private boolean save, titleShown,loadKey = true;
@@ -55,7 +56,8 @@ public class Game extends Canvas implements Runnable {
     private Thread thread;
 
     private Handler handler;
-    public BufferedImage background, background2,background3, bossLevel, basement, tutorialscreen;
+    public BufferedImage background, background2,background3, bossLevel, basement, tutorialscreen,
+    					control, sound;
 
     public static SpriteSheet ss;
     private BufferedImage spritesheet;
@@ -74,6 +76,9 @@ public class Game extends Canvas implements Runnable {
     private highscoreSort scoreSort;
     private shopState shopstate;
     private Tutorial tutorial;
+    private Option_sound option_sound;
+    private Option_control option_control;
+    private Option_credits option_credit;
 
     public Window window;
     public Player1 player;
@@ -106,6 +111,9 @@ public class Game extends Canvas implements Runnable {
         death = new deathScreen();
         shopstate = new shopState();
         tutorial = new Tutorial();
+        option_sound = new Option_sound();
+        option_control = new Option_control();
+        option_credit = new Option_credits();
         
         playerName = JOptionPane.showInputDialog(null, "Enter your name", "Elizabeth");
         if (playerName == null){
@@ -126,8 +134,9 @@ public class Game extends Canvas implements Runnable {
         scoreSort = new highscoreSort();
 
      	main_music = new Audio ("Main_music.wav");
-    	main_music.play();
-    	
+     	if (soundplay) {
+        	main_music.play();
+     	}
         Timer = new timer();
         Timer.start();
 
@@ -142,6 +151,7 @@ public class Game extends Canvas implements Runnable {
         bossLevel = loader.loadImage("bosslevel.png");
         basement = loader.loadImage("basement.png");
         spritesheet = loader.loadImage("spritesheet.png");
+
         ss = new SpriteSheet (spritesheet);
 		
         this.addMouseListener(new MouseHandler(handler, this, ss));
@@ -242,10 +252,22 @@ public class Game extends Canvas implements Runnable {
             g.dispose();
             bufferstrat.show();
         }else if (state == States.Options) {
-        	g.setColor(Color.GREEN);
+        	g.setColor(Color.pink);
         	g.fillRect(0, 0, WIDTH, HEIGHT);
             options.render(g);
             g.dispose();
+            bufferstrat.show();
+        }else if (state == States.Sound) {
+        	option_sound.render(g);
+        	g.dispose();
+            bufferstrat.show();
+        }else if (state == States.Controls) {
+        	option_control.render(g);
+        	g.dispose();
+            bufferstrat.show();
+        }else if (state == States.Credits) {
+        	option_credit.render(g);
+        	g.dispose();
             bufferstrat.show();
         }else if (state == States.Pause) {
         	pause.render(g);

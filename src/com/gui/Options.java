@@ -9,21 +9,19 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 import com.control.Game;
+import com.control.ImageRender;
 import com.control.States;
 
 
 public class Options {
-	
 	public Rectangle optionsframe = new Rectangle(0,0,Game.WIDTH,Game.HEIGHT);
 	public Rectangle textframe = new Rectangle (500, 190, 450, 650);
 	private BufferedImage image;
-	
 
 	public final Button[] optionmenu;
 	private int yshift = 100;
 	private int yspacing = 370;
-	private int textspacingx = 5;
-	private int textspacingy = 35;
+
 	
 	
 	public Options() {
@@ -46,20 +44,15 @@ public class Options {
 			e.printStackTrace();
 		}
 		g.drawImage(image,0,0,null);
-
 		/////////////////////////////////////////////////////////////////////////////
 		for (int i = 0; i < optionmenu.length; i++) {
     		optionmenu[i].render(g);
     	}
 		
-		Font text = new Font ("Comic Sans MS", Font.BOLD, 30);
-		g.setColor(Color.blue);
+		Font text = new Font ("Comic Sans MS", Font.BOLD, 70);
+		g.setColor(Color.black);
 		g.setFont(text);
-		
-		//if (Game.state == States.Credits) {
-		//	g.drawString("Hello", textframe.x + textspacingx, textframe.y + textspacingy);
-	//	}
-		
+		g.drawString("Options", 130, 100);
 	}
 
 
