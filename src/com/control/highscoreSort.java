@@ -15,8 +15,8 @@ public class highscoreSort {
             sorted=false;
 
             for(int a = 0 ; a < E ; a++){
-                if(Integer.parseInt(unsortedScore.get(a).substring(unsortedScore.get(a).indexOf(" ")+1)) >
-                        Integer.parseInt(unsortedScore.get(a+1).substring(unsortedScore.get(a+1).indexOf(" ")+1))) {
+                if(Integer.parseInt(unsortedScore.get(a).substring(unsortedScore.get(a).indexOf(":")+1)) >
+                        Integer.parseInt(unsortedScore.get(a+1).substring(unsortedScore.get(a+1).indexOf(":")+1))) {
 
                     temp=unsortedScore.get(a);
                     unsortedScore.set(a, unsortedScore.get(a+1));

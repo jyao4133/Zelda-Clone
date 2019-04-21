@@ -19,9 +19,9 @@ public class shopKeeper extends Object {
         animation = new Animation (200, keeper);
 
     }
-    public Rectangle getBounds() {
+    public Rectangle getBounds() {d
         return new Rectangle (xpos,ypos,90,90);
-    }
+    }d
     public Rectangle getnpcBounds(){
         return new Rectangle (xpos + 45, ypos + 45, 45, 45);
     }

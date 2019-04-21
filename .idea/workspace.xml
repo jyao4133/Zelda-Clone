@@ -1,11 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="2019-Java-Group6:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="21ef5ba4-a344-44c7-93c4-70a30b6ef212" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Highscores.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Highscores.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/META-INF/2019-Java-Group6.kotlin_module" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/KeyHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/KeyHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/MouseHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/MouseHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/States.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/States.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/music.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/spritesheet.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/spritesheet.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/test_level.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/test_level.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/enemy/Enemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/enemy/Enemy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/enemy/Ghost.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/enemy/Ghost.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/enemy/boss$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/enemy/boss$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/enemy/boss$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/enemy/boss$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/enemy/boss.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/enemy/boss.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/enemy/clampEnemyleft$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/enemy/clampEnemyleft$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/enemy/clampEnemyleft.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/enemy/clampEnemyleft.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/enemy/clampEnemyright$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/enemy/clampEnemyright$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/enemy/clampEnemyright.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/enemy/clampEnemyright.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/enemy/shooterEnemy$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/enemy/shooterEnemy$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/enemy/shooterEnemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/enemy/shooterEnemy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/gui/TitleScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/gui/TitleScreen.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/level/bossStage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/level/bossStage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/level/level2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/level/level2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/player/Player1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/player/Player1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/player/Player1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/player/Player1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/player/doorKey.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/player/doorKey.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/control/OutWrite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/control/OutWrite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/control/highscoreSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/control/highscoreSort.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,19 +48,137 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/control/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+            <state relative-caret-position="181">
+              <caret line="418" column="38" selection-start-line="418" selection-start-column="38" selection-end-line="418" selection-end-column="38" />
+              <folding>
+                <element signature="e#18020#18021#0" expanded="true" />
+                <element signature="e#18053#18054#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/control/Window.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="19" column="26" lean-forward="true" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/enemy/clampEnemyleft.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="181">
+              <caret line="116" column="10" selection-start-line="116" selection-start-column="10" selection-end-line="116" selection-end-column="10" />
+              <folding>
+                <element signature="e#1581#1582#0" expanded="true" />
+                <element signature="e#1637#1638#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/control/OutWrite.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="22" column="32" lean-forward="true" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/enemy/clampEnemyright.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-425">
+              <caret line="77" column="25" selection-start-line="77" selection-start-column="25" selection-end-line="77" selection-end-column="25" />
+              <folding>
+                <element signature="e#1585#1586#0" expanded="true" />
+                <element signature="e#1641#1642#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/enemy/shooterEnemy.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="104" column="17" selection-start-line="104" selection-start-column="17" selection-end-line="104" selection-end-column="17" />
+              <folding>
+                <element signature="e#3764#3765#0" expanded="true" />
+                <element signature="e#3928#3929#0" expanded="true" />
+                <element signature="e#3975#3976#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/gui/Pause.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="52" column="8" selection-start-line="52" selection-start-column="8" selection-end-line="52" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/control/highscoreSort.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="18" column="107" selection-start-line="18" selection-start-column="107" selection-end-line="18" selection-end-column="107" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/control/KeyHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-204">
+              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/control/States.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>g.fillrect</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/com/enemy/clampEnemyleft.java" />
+        <option value="$PROJECT_DIR$/src/com/enemy/clampEnemyright.java" />
+        <option value="$PROJECT_DIR$/src/com/enemy/shooterEnemy.java" />
+        <option value="$PROJECT_DIR$/src/com/control/Game.java" />
+        <option value="$PROJECT_DIR$/src/com/control/highscoreSort.java" />
+        <option value="$PROJECT_DIR$/src/com/control/OutWrite.java" />
+      </list>
+    </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="177" />
@@ -79,6 +225,20 @@
             </path>
             <path>
               <item name="2019-Java-Group6" type="b2602c69:ProjectViewProjectNode" />
+              <item name="2019-Java-Group6" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="enemy" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="2019-Java-Group6" type="b2602c69:ProjectViewProjectNode" />
+              <item name="2019-Java-Group6" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="gui" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="2019-Java-Group6" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
@@ -92,6 +252,7 @@
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -152,7 +313,7 @@
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Terminal" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" />
+      <window_info anchor="bottom" id="Messages" weight="0.32936078" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32936078" />
@@ -171,19 +332,174 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/com/control/States.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/gui/Pause.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="52" column="8" selection-start-line="52" selection-start-column="8" selection-end-line="52" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/enemy/shooterEnemy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="104" column="17" selection-start-line="104" selection-start-column="17" selection-end-line="104" selection-end-column="17" />
+          <folding>
+            <element signature="e#3764#3765#0" expanded="true" />
+            <element signature="e#3928#3929#0" expanded="true" />
+            <element signature="e#3975#3976#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/gui/title_screen.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/control/KeyHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-204">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/control/Window.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="19" column="26" lean-forward="true" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/enemy/clampEnemyright.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-425">
+          <caret line="77" column="25" selection-start-line="77" selection-start-column="25" selection-end-line="77" selection-end-column="25" />
+          <folding>
+            <element signature="e#1585#1586#0" expanded="true" />
+            <element signature="e#1641#1642#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/control/highscoreSort.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="18" column="107" selection-start-line="18" selection-start-column="107" selection-end-line="18" selection-end-column="107" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/control/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+        <state relative-caret-position="181">
+          <caret line="418" column="38" selection-start-line="418" selection-start-column="38" selection-end-line="418" selection-end-column="38" />
+          <folding>
+            <element signature="e#18020#18021#0" expanded="true" />
+            <element signature="e#18053#18054#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/enemy/clampEnemyleft.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="116" column="10" selection-start-line="116" selection-start-column="10" selection-end-line="116" selection-end-column="10" />
+          <folding>
+            <element signature="e#1581#1582#0" expanded="true" />
+            <element signature="e#1637#1638#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/control/OutWrite.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="22" column="32" lean-forward="true" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
         </state>
       </provider>
     </entry>
   </component>
   <component name="masterDetails">
     <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>2019-Java-Group6:jar</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
       <state key="ProjectJDKs.UI">
         <settings>
           <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
           <splitter-proportions>
             <option name="proportions">
               <list>
