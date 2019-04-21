@@ -12,7 +12,7 @@ public class OutWrite {
     public void Write(String name, int score){
 
         computeScore = Integer.toString(score);
-        outputString = name + " " + computeScore + "\n";
+        outputString = name + ":" + computeScore + "\n";
 
         try{
             BufferedWriter writer = new BufferedWriter(new FileWriter("Highscores.txt", true));
