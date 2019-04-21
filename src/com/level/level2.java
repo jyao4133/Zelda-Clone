@@ -16,10 +16,6 @@ public class level2 {
     	kitchen = loader.loadImage("Kitchen.png");
     }
 
-    private void tick() {
-    }
-
-
     public void render(Graphics g){
         //g.setColor(Color.red);
         //g.fillRect(0, 150, 1040, 990);
@@ -28,9 +24,6 @@ public class level2 {
         //Health Bar area
         g.setColor(Color.black);
         g.fillRect(0, 0,1040, 170);
-
     }
-
-
 }
 

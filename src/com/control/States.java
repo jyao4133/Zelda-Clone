@@ -1,21 +1,23 @@
 package com.control;
 
 public enum States {
-	Game,
+	level1,
 	level2,
 	level3,
 	bosslevel,
-	TitleScreen(),
-	Options(),
-	Pause(),
+	shop, 
+	
+	TitleScreen,
+	highscores,
 	Load,
+	Options,
+	
+	Pause,
+	pauseOptions,
+
 	Controls,
 	Sound,
 	Credits,
-	pauseOptions,
-	highscores,
-	deathscreen,
-	shop;
-
-
+	
+	deathscreen;
 }

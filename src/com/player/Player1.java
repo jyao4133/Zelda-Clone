@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 
+import com.control.Audio;
 import com.control.Game;
 import com.control.IDs;
 import com.control.States;
@@ -19,6 +20,8 @@ public class Player1 extends Object {
 	private BufferedImage [] up, down, left, right;
     private BufferedImage playerpos;
     private Animation ani_up, ani_down, ani_left, ani_right;
+    private Audio door_next, door_back, coin_pickup, player_died, player_hit,
+    				boomerang_pickup, key_pickup, heart_pickup;
     
 	public static String playerDirection;
 	public static String prevDirection;
@@ -69,22 +72,29 @@ public class Player1 extends Object {
 		ani_right = new Animation (200, right);		
 		playerpos = up[0];
 
+		////////////SOUND EFFECTS///////////////
+		door_next = new Audio ("door_open.wav");
+		door_back = new Audio ("door_close.wav");
+		coin_pickup = new Audio ("coin_pickup.wav");
+		player_died = new Audio ("death.wav");
+		player_hit = new Audio ("player_hit.wav");
+		boomerang_pickup = new Audio ("boomerang_pickup.wav");
+		key_pickup = new Audio ("key_pickup.wav");
+		heart_pickup = new Audio ("heart_pickup.wav");
+		///////////////////////////////////////
     }
 
     public void tick() {
-    	
     	ani_up.tick();
     	ani_down.tick();
     	ani_left.tick();
-    	ani_right.tick();
-    	
+    	ani_right.tick();	
         ypos += Yspeed;
         xpos += Xspeed;
         collision();
 	}
 
     public void render(Graphics g) {
-
     	if (Yspeed < 0) {//up
         	g.drawImage(ani_up.getCurrentFrame(), xpos, ypos, null);
         	playerpos = up[0];
@@ -108,11 +118,9 @@ public class Player1 extends Object {
     	prevDirection = playerDirection;
 		//g.setColor(Color.pink);
 		//g.fillRect(xpos + 13 ,ypos + 10,50,60);
-
     }
 
     private void collision() {
-
 		//Detection for when the player class collides with an object
 		for (int i = 0; i < handler.object.size(); i++) {
 			Object tempObject = handler.object.get(i);
@@ -122,34 +130,32 @@ public class Player1 extends Object {
 					ypos += Yspeed * -1;
 				}
 			}
-
 			//Pickup intersection
 			if (tempObject.getId() == IDs.Pickup) {
 				if (getBounds().intersects(tempObject.getBounds())) {
+					boomerang_pickup.play();
 					handler.removeObject(tempObject);
 					game.arrowsRemaining += 10;
 				}
 			}
-
 			if (tempObject.getId() == IDs.heartPickup) {
 				if (getBounds().intersects(tempObject.getBounds())) {
-
 					if (game.player1Health < 4) {
+						heart_pickup.play();
 						handler.removeObject(tempObject);
 						game.player1Health++;
 					}
 				}
 			}
-
-
 			if (tempObject.getId() == IDs.enemy || tempObject.getId() == IDs.followingEnemy || tempObject.getId() == IDs.clampleft
 					|| tempObject.getId() == IDs.clampright || tempObject.getId() == IDs.shooterEnemy) {
 				if (getBounds().intersects((tempObject.getBounds()))) {
+					player_hit.play();
 					handler.removeObject(tempObject);
 					if (game.player1Health > 0) {
 						game.player1Health--;
 					}
-					if (Game.state == States.Game || Game.state == States.Load) {
+					if (Game.state == States.level1 || Game.state == States.Load) {
 						if (tempObject.getId() == IDs.enemy) {
 							game.enemiesStage1--;
 						}
@@ -157,33 +163,29 @@ public class Player1 extends Object {
 					if (Game.state == States.level3){
 						if (tempObject.getId() == IDs.clampright || tempObject.getId() == IDs.clampleft) {
 							game.clampsStage3--;
-						}
-
-						else if (tempObject.getId() == IDs.shooterEnemy){
+						}else if (tempObject.getId() == IDs.shooterEnemy){
 							game.shootersStage3--;
 						}
 					}
 				}
 			}
-
 			if (tempObject.getId() == IDs.enemyArrow) {
 				if (getBounds().intersects((tempObject.getBounds()))) {
 					handler.removeObject(tempObject);
 					game.player1Health--;
 				}
 			}
-
 			//invincibility period for the player
 			if (tempObject.getId() == IDs.boss) {
 				if (getBounds().intersects((tempObject.getBounds()))) {
-
+				//	player_hit.play();
 					if (hplossCD > 100) {
+						player_hit.play();
 						game.player1Health--;
 						hplossCD = 0;
 					}
 				}
 			}
-
 			if (tempObject.getId() == IDs.shopkeeper){
 				if (getBounds().intersects(tempObject.getBounds())){
 					game.shopKeeperCollision = true;
@@ -196,7 +198,7 @@ public class Player1 extends Object {
 			}
 			if (tempObject.getId() == IDs.Stairs) {
 				if (getBounds().intersects((tempObject.getBounds()))) {
-
+					door_next.play();
 					if (game.nextLevel == "level2") {
 						Game.state = States.level2;
 						game.loadLevel(game.background2);
@@ -209,57 +211,47 @@ public class Player1 extends Object {
 							game.loadLevel(game.bossLevel);
 						}
 					}
-
-
 				}
 			}
-
 			if (tempObject.getId() == IDs.backStairs) {
 				if (getBounds().intersects((tempObject.getBounds()))) {
-
+					door_back.play();
 					if (game.prevLevel == "level2") {
 						Game.state = States.level2;
 						game.loadLevel(game.background2);
 					} else {
-						Game.state = States.Game;
+						Game.state = States.level1;
 						game.loadLevel(game.background);
 					}
 				}
 			}
-
 			if (tempObject.getId() == IDs.coinPickup) {
 				if (getBounds().intersects(tempObject.getBounds())) {
+					coin_pickup.play();
 					handler.removeObject(tempObject);
 					game.goldAmount++;
 				}
 			}
-
 			if (tempObject.getId() == IDs.doorkey) {
 				if (getBounds().intersects(tempObject.getBounds())) {
+					key_pickup.play();
 					handler.removeObject(tempObject);
 					game.keyObtained = true;
 				}
-
-
 			}
-
 			if (game.player1Health == 0) {
+				player_died.play();
 				Game.state = States.deathscreen;
 			}
 		}
-
-
 	}
 	public Rectangle getBounds() {
-
 		return new Rectangle (xpos + 13 ,ypos + 10,50,60);
 	}
 
 	public Rectangle getnpcBounds(){
     	return null;
 	}
-
-
 	public void startCD(){
 		javax.swing.Timer timer = new Timer(10, new ActionListener(){
 			public void actionPerformed( ActionEvent e ) {

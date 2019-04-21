@@ -33,11 +33,13 @@ public class boss extends Object{
     int maxSpeed = 5;
     private int Direction = 1;
 	int spacing = 60;
-
+	
     
     private BufferedImage [] up, down, left, right;
     private BufferedImage bosspos;
     private Animation ani_up, ani_down, ani_left, ani_right;
+    private Audio boss_hit, boss_shooting;
+    
     
     public boss(int xpos, int ypos, IDs id, Handler handler, Game game, int xprev, int yprev, int initial, SpriteSheet ss) {
 
@@ -77,6 +79,8 @@ public class boss extends Object{
 		ani_right = new Animation (200, right);		
 		bosspos = up[0];
         
+		boss_hit = new Audio("enemy_hit.wav");
+		boss_shooting = new Audio ("shooting_enemy.wav");
         
     }
 
@@ -100,6 +104,7 @@ public class boss extends Object{
         if(currentShot > 50) {
             //right
             if (Direction == 1) {
+            	boss_shooting.play();
                 currentShot = 0;
                 handler.addObject(new enemyArrow(xpos + 200, ypos + 115, IDs.enemyArrow, handler, ss, 1, true));
                 Direction = r.nextInt(4) + 1;
@@ -107,6 +112,7 @@ public class boss extends Object{
             }
             //up
             else if (Direction == 2) {
+            	boss_shooting.play();
                 currentShot = 0;
                 handler.addObject(new enemyArrow(xpos + 115, ypos + 200, IDs.enemyArrow, handler, ss, 2, true));
                 Direction = r.nextInt(4) + 1;
@@ -115,6 +121,7 @@ public class boss extends Object{
             }
             //left
             else if (Direction == 3) {
+            	boss_shooting.play();
                 currentShot = 0;
                 handler.addObject(new enemyArrow(xpos, ypos + 115, IDs.enemyArrow, handler, ss, 3, true));
                 Direction = r.nextInt(4) + 1;
@@ -123,6 +130,7 @@ public class boss extends Object{
             }
             //down
             else if (Direction == 4) {
+            	boss_shooting.play();
                 currentShot = 0;
                 handler.addObject(new enemyArrow(xpos + 115, ypos, IDs.enemyArrow, handler, ss, 4, true));
                 Direction = r.nextInt(4) + 1;
@@ -155,7 +163,7 @@ public class boss extends Object{
 
             if (tempObject.getId() == IDs.Arrow ){
                 if(getBounds().intersects((tempObject.getBounds()))){
-
+                	boss_hit.play();
                     if (game.bossHealth > 0){
                         handler.removeObject(tempObject);
 
@@ -172,21 +180,18 @@ public class boss extends Object{
 
             if (tempObject.getId() == IDs.sword){
                 if(getBounds().intersects((tempObject.getBounds()))){
+                	boss_hit.play();
                     if (game.bossHealth > 0) {
-
                         handler.removeObject(tempObject);
                         if(hplossCD > 25) {
                             game.bossHealth--;
                             hplossCD = 0;
                         }
-
                     }
                     if (game.bossHealth == 0){
                         handler.removeObject(tempObject);
                         handler.removeObject(this);
                     }
-
-
                 }
             }
         }

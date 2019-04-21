@@ -1,15 +1,15 @@
 package com.enemy;
 
-import java.awt.*;
+import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
-import java.util.*;
 
+import com.control.Audio;
 import com.control.Game;
 import com.control.IDs;
 import com.player.Animation;
 import com.player.Handler;
 import com.player.Object;
-import com.player.SpriteAnimation;
 import com.player.SpriteSheet;
 //https://www.deviantart.com/andrea87sky/art/Entity-303-Minecraft-RPG-Maker-XP-s-Sprite-704456071
 public class Ghost extends Object{
@@ -26,7 +26,7 @@ public class Ghost extends Object{
     private BufferedImage [] up, down, left, right;
     private BufferedImage ghostpos;
     private Animation ani_up, ani_down, ani_left, ani_right;
-    
+    private Audio enemy_hit;
     int speed = 1;
     
 
@@ -66,7 +66,10 @@ public class Ghost extends Object{
 		ani_left = new Animation (200, left);
 		ani_right = new Animation (200, right);		
 		ghostpos = up[0];
-        
+		
+		////////////SOUND EFFECTS///////////////
+		enemy_hit = new Audio ("enemy_hit.wav");
+		///////////////////////////////////////
     }
     
     public void tick() {
@@ -106,22 +109,19 @@ public class Ghost extends Object{
             	 }
             }
         }
-
     	
         for (int i = 0; i < handler.object.size(); i++) {
             Object tempObject = handler.object.get(i);
             if (tempObject.getId() == IDs.sword || tempObject.getId() == IDs.Arrow) {
                 if (getBounds().intersects((tempObject.getBounds()))) {
+                	enemy_hit.play();
 					if(tempObject.getId()== IDs.Arrow) {
 						handler.removeObject(tempObject);
 					}
                     handler.removeObject(this);
                 }
             }
-
-        }
-
-    	
+        }   	
    }
 
 
