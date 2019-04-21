@@ -25,10 +25,6 @@ public class sword extends Object {
     private long lastAttackTime, attackCooldown = 800;
     private long attacktime = attackCooldown;
     public int currentSecond = 0;
-
-
-    //private SpriteAnimation animation;
-    //private BufferedImage[] weapon = new BufferedImage [4];
     
     private BufferedImage [] up, down, left, right;
     private Animation ani_up, ani_down, ani_left, ani_right;
@@ -37,12 +33,7 @@ public class sword extends Object {
         super(xpos, ypos, id, ss);
         this.handler = handler;
         currentDirection = direction;
-        this.game = game;
-      /*  weapon[0] = ss.grabImage(1, 8, 75, 75);//right
-        weapon[1] = ss.grabImage(2, 8, 75, 75);//left
-        weapon[2] = ss.grabImage(3, 8, 75, 75);//up
-        weapon[3] = ss.grabImage(4, 8, 75, 75);//down*/
-         
+        this.game = game;         
         
         start();
         Xspeed = 4;
@@ -95,7 +86,8 @@ public class sword extends Object {
                 return new Rectangle(xpos - 25, ypos - 88, 50, 90);
             } else if (currentDirection == 0 && player.prevDirection == "down") {
                 return new Rectangle(xpos - 20, ypos + 30, 50, 100);
-            } else if (currentDirection == 0 && player.prevDirection == "left") {
+            } else if (currentDirection == 0 && player.prevDirection == 
+            		"left") {
                 return new Rectangle(xpos - 110, ypos, 90, 50);
             } else if (currentDirection == 0 && player.prevDirection == "right") {
                 return new Rectangle(xpos + 25, ypos, 90, 50);

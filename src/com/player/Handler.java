@@ -15,8 +15,6 @@ public class Handler {
             Object tempObject = object.get(i);
             tempObject.tick();
         }
-		
-
     }
 
     public void render(Graphics g){

@@ -36,6 +36,9 @@ public class KeyHandler extends KeyAdapter {
 			if (key == KeyEvent.VK_ENTER) {
 				Game.state = States.Load;
 			}
+			if (key == KeyEvent.VK_ESCAPE || key == KeyEvent.VK_BACK_SPACE) {
+				Game.state = States.TitleScreen;
+			}
 		}
 		if (Game.state == States.level1 || Game.state == States.level2 || Game.state == States.level3 || Game.state == States.bosslevel) {
 			for (int i = 0; i < handler.object.size(); i++) {
