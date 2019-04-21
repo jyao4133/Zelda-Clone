@@ -15,19 +15,9 @@ import com.control.States;
 
 public class shopState {
 
-
-
     public Rectangle optionsframe = new Rectangle(0,0,Game.WIDTH,Game.HEIGHT);
     public Rectangle textframe = new Rectangle (500, 190, 450, 650);
     private BufferedImage image;
-
-
-
-
-
-    private int yshift = 100;
-    private int yspacing = 370;
-    private int scoreCount = 0;
 
 
     public shopState() {
