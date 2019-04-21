@@ -1,18 +1,25 @@
 package com.enemy;
 
-import javax.swing.*;
-
-import com.control.Game;
-import com.control.IDs;
-import com.control.States;
-import com.player.*;
-import com.player.Object;
-
-import java.awt.*;
+import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.util.Random;
+
+import javax.swing.Timer;
+
+import com.control.Audio;
+import com.control.Game;
+import com.control.IDs;
+import com.control.States;
+import com.player.Animation;
+import com.player.Handler;
+import com.player.Object;
+import com.player.SpriteSheet;
+import com.player.arrowPickup;
+import com.player.coinPickup;
+import com.player.heartPickup;
 
 public class shooterEnemy extends Object {
     Game game;
@@ -24,7 +31,7 @@ public class shooterEnemy extends Object {
     int rngGen = 0;
     private BufferedImage [] fireball;
     private Animation animation;
-
+    private Audio enemy_hit, enemy_fire;
     public shooterEnemy(int xpos, int ypos, IDs id, Handler handler, Game game, SpriteSheet ss ) {
         super(xpos, ypos, id, ss);
         this.handler = handler;
@@ -36,6 +43,10 @@ public class shooterEnemy extends Object {
         fireball[2] = ss.grabImage(6, 8, 75, 75);
         fireball[3] = ss.grabImage(7, 8, 75, 75);
         animation = new Animation (200, fireball);
+        ////////////SOUND EFFECTS///////////////
+        enemy_hit = new Audio ("enemy_hit.wav");
+        enemy_fire = new Audio ("shooting_enemy.wav");
+        ///////////////////////////////////////
     }
 
     public Rectangle getBounds() {
@@ -46,20 +57,24 @@ public class shooterEnemy extends Object {
     	animation.tick();
         if (currentSecond > 30){
             if (Direction == 1) {            //right
+            	enemy_fire.play();
                 currentSecond = 0;
                 handler.addObject(new enemyArrow(xpos + 36, ypos + 14, IDs.enemyArrow, handler, ss, 1, false));
                 Direction = r.nextInt(4) + 1;
             }else if (Direction == 2) {            //up
-                currentSecond = 0;
+            	enemy_fire.play();
+            	currentSecond = 0;
                 handler.addObject(new enemyArrow(xpos + 14, ypos +36 , IDs.enemyArrow, handler, ss, 2, false));
                 Direction = r.nextInt(4) + 1;
                 System.out.println("this is:" +Direction);
             }else if (Direction == 3) {            //left
-                currentSecond = 0;
+            	enemy_fire.play();
+            	currentSecond = 0;
                 handler.addObject(new enemyArrow(xpos , ypos + 14, IDs.enemyArrow, handler, ss, 3, false));
                 Direction = r.nextInt(4) + 1;
             }else if (Direction == 4) {            //down
-                currentSecond = 0;
+            	enemy_fire.play();
+            	currentSecond = 0;
                 handler.addObject(new enemyArrow(xpos + 14, ypos , IDs.enemyArrow, handler, ss, 4, false));
                 Direction = r.nextInt(4) + 1;
             }
@@ -68,6 +83,7 @@ public class shooterEnemy extends Object {
             Object tempObject = handler.object.get(i);
             if (tempObject.getId() == IDs.sword || tempObject.getId() == IDs.Arrow) {
                 if (getBounds().intersects((tempObject.getBounds()))) {
+                	enemy_hit.play();
                     if(tempObject.getId()== IDs.Arrow) {
                         handler.removeObject(tempObject);}
                     handler.removeObject(this);

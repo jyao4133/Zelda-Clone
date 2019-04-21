@@ -1,6 +1,5 @@
 package com.control;
 
-import java.awt.Rectangle;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -81,11 +80,7 @@ public class MouseHandler extends MouseAdapter  {
 				Game.state = States.TitleScreen;
 				System.out.println("Back");
 			}
-			
-			
-			
-			
-		}else if (Game.state == States.Game || Game.state == States.level2 || Game.state == States.bosslevel || Game.state == States.level3) {
+		}else if (Game.state == States.level1 || Game.state == States.level2 || Game.state == States.bosslevel || Game.state == States.level3) {
 			 for (int i = 0; i < handler.object.size(); i++){
                  Object tempObject= handler.object.get(i);
                  if(tempObject.getId() == IDs.player){
@@ -94,19 +89,13 @@ public class MouseHandler extends MouseAdapter  {
 							handler.addObject(new Arrow(tempObject.getXpos() + 24, tempObject.getYpos() + 24, IDs.Arrow, handler, x, y, ss));
 							if (game.rangedupgrade == true){
 								handler.addObject(new Arrow(tempObject.getXpos() + 32, tempObject.getYpos() + 32, IDs.Arrow, handler, x, y, ss));
-
 							}
 							game.arrowsRemaining--;
 						}
 					}
-//					if (e.getButton() == MouseEvent.BUTTON1){
-//						handler.addObject(new sword (tempObject.getXpos()+35, tempObject.getYpos() + 24, IDs.sword, handler, x,y,ss));
-//
-//					}
                  }
 			 }
 		}else if (Game.state == States.Pause) {
-
 			if (x >= 390 && x <= 630 && y >= 410 && y <= 460) {
 				Game.state = Game.tempstate;
 			}
@@ -120,7 +109,6 @@ public class MouseHandler extends MouseAdapter  {
 		}else if (Game.state == States.pauseOptions) {
 			if (x >= 390 && x <= 630 && y >= 570 && y <= 620) {
 				Game.state = States.Pause;
-
 			}
 		}else if (Game.state == States.highscores){
 			if (x>= 100 && x <= 400 && y >= 730 && y <= 840) {
@@ -134,32 +122,27 @@ public class MouseHandler extends MouseAdapter  {
 
 		}else if (Game.state == States.shop){
 
-
 			if (x >= 800 && x <= 1030 && y >= 0 && y <= 164){
 				Game.state = Game.tempstate;
 			}
-
 			if (x >= 155 && x <= 480 && y >= 255 && y <= 500){
 				if (game.goldAmount > 0 && game.player1Health < 4){
 					game.goldAmount --;
 					game.player1Health++;
 				}
 			}
-
 			if (x >= 585 && x <= 930 && y >= 255 && y <= 500){
 				if (game.goldAmount > 0){
 					game.goldAmount --;
 					game.arrowsRemaining += 10;
 				}
 			}
-
 			if (x >= 155 && x <= 480 && y >= 580 && y <= 860){
 				if (game.goldAmount >= 3){
 					game.goldAmount -= 3;
 					game.rangedupgrade = true;
 				}
 			}
-
 			if (x >= 585 && x <= 930 && y >= 580 && y <= 860){
 				if (game.goldAmount >= 3){
 					game.goldAmount -= 3;

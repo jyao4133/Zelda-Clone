@@ -1,10 +1,11 @@
 package com.level;
 
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+
 import com.control.Game;
 import com.control.ImageRender;
-
-import java.awt.*;
-import java.awt.image.BufferedImage;
 public class bossStage {
 
     Game game;
@@ -13,11 +14,8 @@ public class bossStage {
     
     public bossStage () {
     	bossroom = loader.loadImage("Bossroom.png");
+    	
     }
-
-    private void tick() {
-    }
-
 
     public void render(Graphics g){
         //g.setColor(Color.red);

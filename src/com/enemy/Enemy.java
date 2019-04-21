@@ -19,7 +19,7 @@ public class Enemy extends Object{
     
     private BufferedImage [] left, right;
     private Animation ani_left, ani_right;
-
+    private Audio enemy_hit;
 
     Game game;
     Random r = new Random();
@@ -55,9 +55,12 @@ public class Enemy extends Object{
         right[2] = ss.grabImage(3, 6, 60,60);
         right[3] = ss.grabImage(4, 6, 60,60);
 		///////////////////////////////////////
-
         ani_left = new Animation (200, left);
 		ani_right = new Animation (200, right);
+		
+		////////////SOUND EFFECTS///////////////
+		enemy_hit = new Audio ("enemy_hit.wav");
+		///////////////////////////////////////
     	
     }
 
@@ -81,7 +84,6 @@ public class Enemy extends Object{
 
         for (int i = 0; i < handler.object.size(); i++) {
             Object tempObject = handler.object.get(i);
-
             if (tempObject.getId() == IDs.Block) {
                 if (getBounds().intersects((tempObject.getBounds()))) {
                         xpos = xprev;
@@ -96,6 +98,7 @@ public class Enemy extends Object{
             }
             if (tempObject.getId() == IDs.Arrow || tempObject.getId() == IDs.sword){
                 if(getBounds().intersects((tempObject.getBounds()))){
+                	enemy_hit.play();
                     if(tempObject.getId()== IDs.Arrow) {
                         handler.removeObject(tempObject);
                     }
@@ -110,42 +113,17 @@ public class Enemy extends Object{
                     else if(rngGen >= 2 && rngGen <= 8){
                         handler.addObject(new coinPickup(xpos + 20, ypos+20,IDs.coinPickup, ss));
                     }
-                    if (Game.state == States.Game || Game.state == States.Load){
+                    if (Game.state == States.level1 || Game.state == States.Load){
                         game.enemiesStage1--;
                     }
                 }
             }
-
-        /*    if (tempObject.getId() == IDs.sword){
-                if(getBounds().intersects((tempObject.getBounds()))){
-
-                    handler.removeObject(this);
-                    rngGen = p.nextInt(10);
-                    
-
-                    if (rngGen < 2) {
-                        handler.addObject(new heartPickup(xpos, ypos, IDs.heartPickup, ss));
-                    }
-
-                    else if (rngGen > 8){
-                        handler.addObject(new arrowPickup(xpos, ypos, IDs.Pickup, ss));
-
-                    }
-
-                    if (Game.state == States.Game || Game.state == States.Load){
-                        game.enemiesStage1--;
-                    }
-                }
-            }*/
         }
-
-
     }
 
 
     public void render(Graphics g) {
-    	//g.drawImage(bird, xpos, ypos, null);   	
-    	
+    	//g.drawImage(bird, xpos, ypos, null);   		
     	if (Xspeed < 0  ) {//left
         	g.drawImage(ani_left.getCurrentFrame(), xpos, ypos, null);
     	}
@@ -154,10 +132,7 @@ public class Enemy extends Object{
     	}
     	else {
         	g.drawImage(left[0], xpos, ypos, null);
-    	}
-    	
-
-
+    	}   	
     }
 
     //collision with arrow

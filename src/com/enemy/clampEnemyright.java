@@ -2,6 +2,7 @@ package com.enemy;
 //https://www.deviantart.com/zeka10000/art/WonderBolts-sprites-680138765
 import javax.swing.*;
 
+import com.control.Audio;
 import com.control.Game;
 import com.control.IDs;
 import com.control.States;
@@ -24,7 +25,8 @@ public class clampEnemyright extends Object {
     private Handler handler;
     private BufferedImage [] left, right;
     private Animation ani_left, ani_right;
-
+    private Audio enemy_hit;
+    
     public clampEnemyright(int xpos, int ypos, IDs id, Handler handler, Game game, SpriteSheet ss) {
         super(xpos, ypos, id, ss);
         this.handler = handler;
@@ -43,7 +45,11 @@ public class clampEnemyright extends Object {
 		right[2] = ss.grabImage(7, 12, 75,75);
 		
 		ani_left = new Animation (200, left);
-		ani_right = new Animation (200, right);		
+		ani_right = new Animation (200, right);	
+		
+		////////////SOUND EFFECTS///////////////
+		enemy_hit = new Audio ("enemy_hit.wav");
+		///////////////////////////////////////
     }
 
     public Rectangle getBounds() {
@@ -60,6 +66,7 @@ public class clampEnemyright extends Object {
             Object tempObject = handler.object.get(i);
             if (tempObject.getId() == IDs.sword || tempObject.getId() == IDs.Arrow) {
                 if (getBounds().intersects(tempObject.getBounds())) {
+                	enemy_hit.play();
                     if(tempObject.getId()== IDs.Arrow) {
                         handler.removeObject(tempObject);
                     }
@@ -96,8 +103,8 @@ public class clampEnemyright extends Object {
     }
 
     public void render(Graphics g) {
-    	 g.setColor(Color.black);
-         g.fillRect(xpos, ypos, 75, 75);
+    	// g.setColor(Color.black);
+       //  g.fillRect(xpos, ypos, 75, 75);
      	if (Xspeed < 0  ) {//left
          	g.drawImage(ani_left.getCurrentFrame(), xpos, ypos, null);
      	}

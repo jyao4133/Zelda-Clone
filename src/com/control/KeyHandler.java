@@ -33,7 +33,7 @@ public class KeyHandler extends KeyAdapter {
 	public void keyPressed (KeyEvent e) {
 		int key = e.getKeyCode();
 
-		if (Game.state == States.Game || Game.state == States.level2 || Game.state == States.bosslevel || Game.state == States.level3) {
+		if (Game.state == States.level1 || Game.state == States.level2 || Game.state == States.bosslevel || Game.state == States.level3) {
 			for (int i = 0; i < handler.object.size(); i++) {
 				Object tempObject = handler.object.get(i);
 				if (tempObject.getId() == IDs.player) {
@@ -118,7 +118,7 @@ public class KeyHandler extends KeyAdapter {
 	public void keyReleased(KeyEvent e) {
 		int key = e.getKeyCode();
 		
-		if(Game.state == States.Game  ) {
+		if(Game.state == States.level1  ) {
 		for (int i = 0; i < handler.object.size(); i++) {
 			Object tempObject = handler.object.get(i);
 			if (tempObject.getId() == IDs.player) {
