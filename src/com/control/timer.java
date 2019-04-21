@@ -27,7 +27,7 @@ public class timer {
                     reset();
                 }
                 secondsString = Integer.toString(currentSecond);
-                if (Game.state != States.Pause) {
+                if (Game.state != States.Pause && Game.state != States.tutorial) {
                     currentSecond++;
                 }
             }
