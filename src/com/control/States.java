@@ -1,6 +1,7 @@
 package com.control;
 
 public enum States {
+	tutorial,
 	level1,
 	level2,
 	level3,

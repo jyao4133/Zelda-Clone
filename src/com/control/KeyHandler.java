@@ -32,8 +32,12 @@ public class KeyHandler extends KeyAdapter {
 
 	public void keyPressed (KeyEvent e) {
 		int key = e.getKeyCode();
-
-		if (Game.state == States.level1 || Game.state == States.level2 || Game.state == States.bosslevel || Game.state == States.level3) {
+		if (Game.state == States.tutorial) {
+			if (key == KeyEvent.VK_ENTER) {
+				Game.state = States.Load;
+			}
+		}
+		if (Game.state == States.level1 || Game.state == States.level2 || Game.state == States.level3 || Game.state == States.bosslevel) {
 			for (int i = 0; i < handler.object.size(); i++) {
 				Object tempObject = handler.object.get(i);
 				if (tempObject.getId() == IDs.player) {
@@ -91,17 +95,7 @@ public class KeyHandler extends KeyAdapter {
 							tempObject.setYspeed(0);
 							tempObject.setXspeed(0);
 						}
-//						else if((up == true && left == true && right == false && down == false) || (up == true && left == false && right == true && down == false)){
-//							handler.addObject(new sword (tempObject.getXpos()+35, tempObject.getYpos() + 24, IDs.sword, handler, game.ss, 1));
-//							tempObject.setYspeed(0);ffffffffffaaaaaaaaaaaaaaaa
-//							tempObject.setXspeed(0);
-//						}else if((up == false && left == true && right == false && down == true) || (up == false && left == false && right == true && down == true)){
-//							handler.addObject(new sword (tempObject.getXpos()+35, tempObject.getYpos() + 24, IDs.sword, handler, game.ss, 2));
-//							tempObject.setYspeed(0);
-//							tempObject.setXspeed(0);
-//						}
 					}
-
 					if (key == KeyEvent.VK_F){
 						if (game.shopKeeperCollision){
 							Game.tempstate = Game.state;

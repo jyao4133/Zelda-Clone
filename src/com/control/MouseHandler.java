@@ -43,25 +43,17 @@ public class MouseHandler extends MouseAdapter  {
 		System.out.println("This the X coord: " + x);
 		System.out.println("This the Y coord: " + y);
 		if (Game.state == States.TitleScreen) {
-		//To start the game in single player
-			if (x >= 150 && x <= 450 && y >= 300 && y <= 380) {
-				Game.state = States.Load;
-				System.out.println("Single Player");
-			}
-		
-		//To start the game in multiplayer
-			if (x >= 150 && x <= 450 && y >= 400 && y <= 480) {
+			if (x >= 150 && x <= 450 && y >= 300 && y <= 380) {//To start the game in single player
+				Game.state = States.tutorial;
+			}	
+			if (x >= 150 && x <= 450 && y >= 400 && y <= 480) {//display highscores
 				Game.state = States.highscores;
 			}
-		//Option Menu for the game
-			if (x >= 150 && x <= 450 && y >= 500 && y <= 580) {
+			if (x >= 150 && x <= 450 && y >= 500 && y <= 580) {	//Option Menu for the game
 				Game.state = States.Options;
-				System.out.println("Option");
-
 			}
-		//To exit the game
-			if (x >= 150 && x <= 450 && y >= 600 && y <= 680) {
-				System.exit(1);
+			if (x >= 150 && x <= 450 && y >= 600 && y <= 680) {//To exit the game
+				System.exit(0);
 			}
 		}else if (Game.state == States.Options) {
 			if (x>= 100 && x <= 400 && y >= 190 && y <= 300) {

@@ -10,22 +10,10 @@ import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
-import com.enemy.Enemy;
-import com.enemy.Ghost;
-import com.enemy.RotatingEnemy;
-import com.enemy.shooterEnemy;
-import com.enemy.boss;
-import com.enemy.clampEnemyleft;
-import com.enemy.clampEnemyright;
-
+import com.enemy.*;
 import com.gui.*;
-import com.level.Stairs;
-import com.level.backStairs;
-import com.level.level2;
-import com.level.level3;
-import com.level.bossStage;
+import com.level.*;
 import com.player.*;
-import com.player.Object;
 
 import javax.swing.*;
 
@@ -34,7 +22,7 @@ public class Game extends Canvas implements Runnable {
     private static final long serialVersionUID = 125890125890L;
     ArrayList<String> scoreList = new ArrayList<>();
 
-    public static int WIDTH = 1030, HEIGHT = 990;
+    public static int WIDTH = 1024, HEIGHT = 990;
     public int arrowsRemaining = 10;
     public int player1Health = 4;
     public int goldAmount = 0;
@@ -67,7 +55,7 @@ public class Game extends Canvas implements Runnable {
     private Thread thread;
 
     private Handler handler;
-    public BufferedImage background, background2,background3, bossLevel, basement;
+    public BufferedImage background, background2,background3, bossLevel, basement, tutorialscreen;
 
     public static SpriteSheet ss;
     private BufferedImage spritesheet;
@@ -85,18 +73,14 @@ public class Game extends Canvas implements Runnable {
     private OutWrite write;
     private highscoreSort scoreSort;
     private shopState shopstate;
+    private Tutorial tutorial;
 
     public Window window;
     public Player1 player;
-   // public Enemy enemy;
-    
-
     private static Game game;
 
-    private Hearts heart1;
-    private Hearts heart2;
-    private Hearts heart3;
-    private Hearts heart4;
+    private Hearts heart1, heart2, heart3, heart4;
+
     private timer Timer;
 
     ImageRender loader = new ImageRender();
@@ -121,7 +105,8 @@ public class Game extends Canvas implements Runnable {
         bosstage = new bossStage();
         death = new deathScreen();
         shopstate = new shopState();
-
+        tutorial = new Tutorial();
+        
         playerName = JOptionPane.showInputDialog(null, "Enter your name", "Elizabeth");
         if (playerName == null){
             playerName = "Elizabeth";
@@ -130,11 +115,12 @@ public class Game extends Canvas implements Runnable {
         if (playerName.isEmpty()){
             playerName = "Elizabeth";
         }
-
-		heart2 = new Hearts();
+        
         heart1 = new Hearts();
+		heart2 = new Hearts();
         heart3 = new Hearts();
         heart4 = new Hearts();
+        
         write = new OutWrite();
         read = new InRead();
         scoreSort = new highscoreSort();
@@ -150,7 +136,6 @@ public class Game extends Canvas implements Runnable {
             this.addKeyListener(new KeyHandler(handler, ss, this));
             loadKey = false;
         }
-        
         background = loader.loadImage("test_level.png");
         background2 = loader.loadImage("test_level_2.png");
         background3 = loader.loadImage("test_level_3.png");
@@ -238,29 +223,20 @@ public class Game extends Canvas implements Runnable {
             nextLevel = "level2";
             g.setColor(Color.red);
         	g.fillRect(0, 0, WIDTH, HEIGHT);
-        	//Health Bar area
         	g.setColor(Color.black);
-        	g.fillRect(0, 0, WIDTH, 170);
-        	
+        	g.fillRect(0, 0, WIDTH, 170);  	
         	g.drawImage(basement, 0, 170, null);
-
-
-        //	timerbox.render(g);
             handler.render(g);
             Timer.render(g, game);
-
             for (int i = 0; i < 2; i++) {
-                heart2.drawHeart(g, 295, 50, 30, 30, player1Health, 2);
-                heart1.drawHeart(g, 225, 50, 30, 30, player1Health, 1);
-                heart3.drawHeart(g, 190, 50, 30 ,30, player1Health, 3);
-                heart4.drawHeart(g, 260, 50, 30, 30, player1Health, 4);
+            	heart2.drawHeart(g, 295, 50, 30, 30, player1Health, 2);                
+            	heart1.drawHeart(g, 225, 50, 30, 30, player1Health, 1);
+            	heart3.drawHeart(g, 190, 50, 30 ,30, player1Health, 3);
+            	heart4.drawHeart(g, 260, 50, 30, 30, player1Health, 4);
             }
-
             g.dispose();
         	bufferstrat.show();
-
         }else if (state == States.TitleScreen) {
-            //g.fillRect(0, 0, WIDTH, HEIGHT);
             titleShown = true;
             titlescreen.render(g);
             g.dispose();
@@ -272,8 +248,6 @@ public class Game extends Canvas implements Runnable {
             g.dispose();
             bufferstrat.show();
         }else if (state == States.Pause) {
-        	//g.setColor(Color.WHITE);
-        	//g.fillRect(WIDTH/4, HEIGHT/4 , WIDTH/2, HEIGHT/2);
         	pause.render(g);
         	g.dispose();
             bufferstrat.show();
@@ -330,7 +304,6 @@ public class Game extends Canvas implements Runnable {
             prevLevel = "game";
             nextLevel = "level3";
             Level2.render(g);
-        	//g.drawImage(floor, 0, 170, null);
             handler.render(g);
             if (firstLoad == true){
                 loadLevel(background2);
@@ -339,20 +312,18 @@ public class Game extends Canvas implements Runnable {
             }
             Timer.render(g, game);
             for (int i = 0; i < 3; i++) {
-                heart2.drawHeart(g, 295, 50, 30, 30, player1Health, 2);
-                heart1.drawHeart(g, 225, 50, 30, 30, player1Health, 1);
-                heart3.drawHeart(g, 190, 50, 30 ,30, player1Health, 3);
-                heart4.drawHeart(g, 260, 50, 30, 30, player1Health, 4);
+            	heart2.drawHeart(g, 295, 50, 30, 30, player1Health, 2);                
+            	heart1.drawHeart(g, 225, 50, 30, 30, player1Health, 1);
+            	heart3.drawHeart(g, 190, 50, 30 ,30, player1Health, 3);
+            	heart4.drawHeart(g, 260, 50, 30, 30, player1Health, 4);
             }
             g.dispose();
             bufferstrat.show();
         }else if (state == States.level3){
             prevLevel = "level2";
             nextLevel = "bosslevel";
-
             Level3.render(g);
             handler.render(g);
-
             if (firstLoad == true){
                 loadLevel(background3);
                 this.addKeyListener(new KeyHandler(handler, ss, this));
@@ -360,10 +331,10 @@ public class Game extends Canvas implements Runnable {
             }
             Timer.render(g, game);
             for (int i = 0; i < 3; i++) {
-                heart2.drawHeart(g, 295, 50, 30, 30, player1Health, 2);
-                heart1.drawHeart(g, 225, 50, 30, 30, player1Health, 1);
-                heart3.drawHeart(g, 190, 50, 30 ,30, player1Health, 3);
-                heart4.drawHeart(g, 260, 50, 30, 30, player1Health, 4);
+            	heart2.drawHeart(g, 295, 50, 30, 30, player1Health, 2);                
+            	heart1.drawHeart(g, 225, 50, 30, 30, player1Health, 1);
+            	heart3.drawHeart(g, 190, 50, 30 ,30, player1Health, 3);
+            	heart4.drawHeart(g, 260, 50, 30, 30, player1Health, 4);
             }
             if (clampsStage3 == 0 && shootersStage3 == 0){
                 if (keyspawned == false && keyObtained == false) {
@@ -376,21 +347,17 @@ public class Game extends Canvas implements Runnable {
         }else if (state == States.shop){
             shopstate.render(g);
             Timer.render(g, game);
-
             for (int i = 0; i < 2; i++) {
-                heart2.drawHeart(g, 295, 50, 30, 30, player1Health, 2);
+                heart2.drawHeart(g, 295, 50, 30, 30, player1Health, 2);                
                 heart1.drawHeart(g, 225, 50, 30, 30, player1Health, 1);
                 heart3.drawHeart(g, 190, 50, 30 ,30, player1Health, 3);
                 heart4.drawHeart(g, 260, 50, 30, 30, player1Health, 4);
             }
             g.dispose();
             bufferstrat.show();
-        }
-
-        else if (state == States.bosslevel){
+        }else if (state == States.bosslevel){
             prevLevel = "game";
             nextLevel = "level2";
-
             bosstage.render(g);
             handler.render(g);
             Timer.render(g,game);
@@ -399,14 +366,17 @@ public class Game extends Canvas implements Runnable {
                 this.addKeyListener(new KeyHandler(handler, ss, this));
                 firstLoad = false;
             }
-
             for (int i = 0; i < 3; i++) {
-                heart2.drawHeart(g, 295, 50, 30, 30, player1Health, 2);
-                heart1.drawHeart(g, 225, 50, 30, 30, player1Health, 1);
-                heart3.drawHeart(g, 190, 50, 30 ,30, player1Health, 3);
-                heart4.drawHeart(g, 260, 50, 30, 30, player1Health, 4);
+            	heart2.drawHeart(g, 295, 50, 30, 30, player1Health, 2);                
+            	heart1.drawHeart(g, 225, 50, 30, 30, player1Health, 1);
+            	heart3.drawHeart(g, 190, 50, 30 ,30, player1Health, 3);
+            	heart4.drawHeart(g, 260, 50, 30, 30, player1Health, 4);
             }
             g.dispose();
+            bufferstrat.show();
+        }else if (state == States.tutorial) {
+        	tutorial.render(g);
+        	g.dispose();
             bufferstrat.show();
         }
         if(player1Health == 0 || bossHealth == 0){
@@ -435,7 +405,6 @@ public class Game extends Canvas implements Runnable {
                 int red = (pixel >> 16) & 0xff;
                 int green = (pixel >> 8) & 0xff;
                 int blue = (pixel) & 0xff;
-
                 if (red == 255 && blue == 0 && green == 216){
                     handler.addObject(new Block(xx*32, yy*32, IDs.Block, ss));
                 }
@@ -465,7 +434,7 @@ public class Game extends Canvas implements Runnable {
             else{
                 handler.addObject(new Player1(842, 360, IDs.player, handler, this, ss));
             }
-            handler.addObject(new Enemy(500, 300, IDs.enemy,  handler, this, 500, 300, 1, ss));
+            handler.addObject(new Enemy(500, 400, IDs.enemy,  handler, this, 500, 300, 1, ss));
         }
         if (Game.state == States.Load || Game.state == States.level1){
                 level2Visted = false;
@@ -489,18 +458,15 @@ public class Game extends Canvas implements Runnable {
                 else{
                     handler.addObject(new Player1(740, 800, IDs.player, handler, this, ss));
                 }
-
         }
         if (Game.state == States.bosslevel){
             handler.addObject(new Player1(138, 741, IDs.player, handler, this, ss));
-
             handler.addObject(new boss(600, 400, IDs.boss, handler, this, 500, 300, 1, ss));
 
         }
         if (Game.state == States.level3){
             level2Visted = true;
-                handler.addObject(new Player1(103, 779, IDs.player, handler, this, ss));
-
+            handler.addObject(new Player1(103, 779, IDs.player, handler, this, ss));
             if (clampsStage3 > 0) {
                 handler.addObject(new clampEnemyright(100, 605, IDs.clampright, handler, this, ss));
             }
@@ -512,7 +478,6 @@ public class Game extends Canvas implements Runnable {
             }
             if (clampsStage3 > 3) {
                 handler.addObject(new clampEnemyleft(700, 370, IDs.clampleft, handler, this, ss));
-
             }
             if (shootersStage3 > 0) {
                 handler.addObject(new shooterEnemy(480, 500, IDs.shooterEnemy, handler, this, ss));

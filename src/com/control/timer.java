@@ -2,17 +2,16 @@ package com.control;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.*;
-import java.text.SimpleDateFormat;
 import javax.swing.*;
 import java.util.Calendar;
-import java.util.Date;
 
 public class timer {
     Game game;
 
     public int currentSecond = 0;
     public int currentMinute = 0;
-    private Calendar calendar;
+    @SuppressWarnings("unused")
+	private Calendar calendar;
     public String secondsString;
     public String minutesString;
     public String ammoString;
@@ -55,17 +54,15 @@ public class timer {
 
         if (currentSecond <= 10) {
             g.drawString("0" + currentMinute + ":" + "0" + secondsString, 190, 120);
-
-        }
-        else {
+        }else {
             g.drawString("0" + currentMinute + ":" + secondsString, 190, 120);
         }
 
         g.drawString("Time: ", 100, 120);
         g.drawString("Health: ", 72, 80);
 
-        g.drawString("Arrows left:" + ammoString,402, 120);
-        g.drawString("Coins:" + coinsString, 496, 80);
+        g.drawString("Arrows left:" + ammoString,552, 120);
+        g.drawString("Coins:" + coinsString, 646, 80);
     }
 
 }
