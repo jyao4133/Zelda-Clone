@@ -23,11 +23,9 @@ public class shopState {
     public shopState() {
 
     }
-
-
     public void render (Graphics g)  {
         g.setColor(Color.black);
-        g.fillRect(0,300, 1030,550);
+        g.fillRect(0,0, 1024,170);
 
         try{
             image = ImageIO.read(getClass().getResourceAsStream("shopMenu.png"));
@@ -35,10 +33,7 @@ public class shopState {
         } catch(IOException e){
             e.printStackTrace();
         }
-        g.drawImage(image,0,0,null);
-
-
-
+        g.drawImage(image,0,170,null);
 
     }
 

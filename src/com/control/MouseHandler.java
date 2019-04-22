@@ -120,7 +120,7 @@ public class MouseHandler extends MouseAdapter  {
 				Game.state = States.Pause;
 			}
 		}else if (Game.state == States.highscores){
-			if (x>= 100 && x <= 400 && y >= 730 && y <= 840) {
+			if (x>= 360 && x <= 660 && y >= 790 && y <= 870) {
 				Game.state = States.TitleScreen;
 				System.out.println("Back");
 			}
@@ -131,28 +131,28 @@ public class MouseHandler extends MouseAdapter  {
 
 		}else if (Game.state == States.shop){
 
-			if (x >= 800 && x <= 1030 && y >= 0 && y <= 164){
+			if (x >= 725 && x <= 975 && y >= 345 && y <= 415){
 				Game.state = Game.tempstate;
 			}
-			if (x >= 155 && x <= 480 && y >= 255 && y <= 500){
+			if (x >= 80 && x <= 335 && y >= 425 && y <= 495){
 				if (game.goldAmount > 0 && game.player1Health < 4){
 					game.goldAmount --;
 					game.player1Health++;
 				}
 			}
-			if (x >= 585 && x <= 930 && y >= 255 && y <= 500){
+			if (x >= 80 && x <= 335 && y >= 535 && y <= 605){
 				if (game.goldAmount > 0){
 					game.goldAmount --;
 					game.arrowsRemaining += 10;
 				}
 			}
-			if (x >= 155 && x <= 480 && y >= 580 && y <= 860){
+			if (x >= 80 && x <= 335 && y >= 645 && y <= 815){
 				if (game.goldAmount >= 3){
 					game.goldAmount -= 3;
 					game.rangedupgrade = true;
 				}
 			}
-			if (x >= 585 && x <= 930 && y >= 580 && y <= 860){
+			if (x >= 80 && x <= 335 && y >= 750 && y <= 825){
 				if (game.goldAmount >= 3){
 					game.goldAmount -= 3;
 					game.meleeupgrade = true;
