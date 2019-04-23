@@ -45,7 +45,7 @@ public class Game extends Canvas implements Runnable {
 
 
     public boolean removeBool, keyObtained, keyspawned, shopKeeperCollision, rangedupgrade, meleeupgrade = false;
-	public static boolean soundplay = true;
+	public boolean soundplay = true;
 
     public boolean firstLoad = true;
     private boolean save, titleShown,loadKey = true;
@@ -90,7 +90,7 @@ public class Game extends Canvas implements Runnable {
 
     ImageRender loader = new ImageRender();
 
-    private Audio main_music;
+    private Audio main_music, game_music, boss_music;
     
     //to create the title screen we will use the states in the code
     public static States state = com.control.States.TitleScreen;
@@ -134,9 +134,12 @@ public class Game extends Canvas implements Runnable {
         scoreSort = new highscoreSort();
 
      	main_music = new Audio ("Main_music.wav");
-     	if (soundplay) {
-        	main_music.play();
-     	}
+     	game_music = new Audio ("Game_music.wav");
+     	boss_music = new Audio ("boss_music.wav");
+     	
+     	main_music.play();
+     	//game_music.play();
+     	
         Timer = new timer();
         Timer.start();
 
@@ -165,7 +168,6 @@ public class Game extends Canvas implements Runnable {
 
 
 	public synchronized void start(){
-
         thread = new Thread(this); //"this" refers to our Game class
         thread.start();
         running = true;
@@ -228,7 +230,13 @@ public class Game extends Canvas implements Runnable {
             return;
         }
         Graphics g = bufferstrat.getDrawGraphics();
-        if (state == States.level1) {
+        if (state == States.TitleScreen) {
+            titleShown = true;
+            titlescreen.render(g);
+            g.dispose();
+            bufferstrat.show();
+        }else if (state == States.level1) {
+        	main_music.stop();
             keyspawned = false;
             nextLevel = "level2";
             g.setColor(Color.red);
@@ -246,11 +254,6 @@ public class Game extends Canvas implements Runnable {
             }
             g.dispose();
         	bufferstrat.show();
-        }else if (state == States.TitleScreen) {
-            titleShown = true;
-            titlescreen.render(g);
-            g.dispose();
-            bufferstrat.show();
         }else if (state == States.Options) {
         	g.setColor(Color.pink);
         	g.fillRect(0, 0, WIDTH, HEIGHT);
@@ -274,6 +277,8 @@ public class Game extends Canvas implements Runnable {
         	g.dispose();
             bufferstrat.show();
         }else if(state == States.deathscreen){
+        	game_music.close();
+        	boss_music.close();
             g.setColor(Color.black);
             g.fillRect(0,0,WIDTH,HEIGHT);
             death.render(g);
@@ -293,7 +298,7 @@ public class Game extends Canvas implements Runnable {
             g.dispose();
             bufferstrat.show();
         }else if(state == States.Load){ //Reset state
-            scoreList.clear();
+        	scoreList.clear();
             Timer.currentSecond = 0;
             Timer.currentMinute = 0;
             player1Health = 4;
@@ -342,6 +347,7 @@ public class Game extends Canvas implements Runnable {
             g.dispose();
             bufferstrat.show();
         }else if (state == States.level3){
+        	boss_music.play();
             prevLevel = "level2";
             nextLevel = "bosslevel";
             Level3.render(g);
@@ -378,6 +384,8 @@ public class Game extends Canvas implements Runnable {
             g.dispose();
             bufferstrat.show();
         }else if (state == States.bosslevel){
+        	game_music.close();
+        	main_music.play();
             prevLevel = "game";
             nextLevel = "level2";
             bosstage.render(g);
@@ -397,6 +405,7 @@ public class Game extends Canvas implements Runnable {
             g.dispose();
             bufferstrat.show();
         }else if (state == States.tutorial) {
+        	game_music.play();
         	tutorial.render(g);
         	g.dispose();
             bufferstrat.show();
