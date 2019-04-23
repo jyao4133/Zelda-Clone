@@ -172,6 +172,8 @@ public class Player1 extends Object {
 			if (tempObject.getId() == IDs.enemyArrow) {
 				if (getBounds().intersects((tempObject.getBounds()))) {
 					handler.removeObject(tempObject);
+
+
 					game.player1Health--;
 				}
 			}
@@ -181,6 +183,7 @@ public class Player1 extends Object {
 				//	player_hit.play();
 					if (hplossCD > 100) {
 						player_hit.play();
+
 						game.player1Health--;
 						hplossCD = 0;
 					}

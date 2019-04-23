@@ -67,7 +67,7 @@ public class KeyHandler extends KeyAdapter {
 					if (key == KeyEvent.VK_P) {
 						Game.tempstate = Game.state;
 						Game.state = States.Pause;
-						System.out.println("Game is Paused");
+
 					}
 					if (key == KeyEvent.VK_B) {
 						Game.state = States.bosslevel;

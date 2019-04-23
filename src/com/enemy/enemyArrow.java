@@ -72,9 +72,6 @@ public class enemyArrow extends Object {
         }
 
 
-
-        //System.out.println(Xspeed);
-      //  System.out.println(Yspeed);
     }
 
     public Rectangle getBounds() {

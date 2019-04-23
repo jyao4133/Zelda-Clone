@@ -105,7 +105,7 @@ public class sword extends Object {
             } else if (currentDirection == 4 && player.prevDirection == "right") {//right
                 return new Rectangle(xpos + 25, ypos, 90, 50);
             } else if (currentDirection == 0 && player.prevDirection == "up") {
-                System.out.println("aposgjn");
+
                 return new Rectangle(xpos - 25, ypos - 88, 50, 90);
             } else if (currentDirection == 0 && player.prevDirection == "down") {
                 return new Rectangle(xpos - 20, ypos + 30, 50, 100);
@@ -151,7 +151,7 @@ public class sword extends Object {
     	ani_left_new.tick();
     	ani_right_new.tick();
         if(attacktime < attackCooldown)
-        //System.out.println(attacktime);
+
         if(currentDirection == 1){
             ypos -= Yspeed ;
         }else if(currentDirection == 2){

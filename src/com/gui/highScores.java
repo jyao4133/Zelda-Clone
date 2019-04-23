@@ -38,6 +38,9 @@ public class highScores {
     public void render (Graphics g)  {
     	g.drawImage(highscore, 0, 0, null);
         g.setColor(Color.black);
+
+        Font text = new Font ("Comic Sans MS", Font.BOLD, 30);
+        g.setFont(text);
         if (scoreList.size() > 0){
             int j = 0;
             int Xlab = 300;

@@ -412,7 +412,7 @@ public class Game extends Canvas implements Runnable {
         }
         if(player1Health == 0 || bossHealth == 0){
             if (save == true){
-                System.out.println("got here");
+
                 playerScore = goldAmount * 5 + arrowsRemaining * 3 + player1Health * 3;
                 write.Write(playerName, playerScore);
                 save = false;
@@ -443,8 +443,7 @@ public class Game extends Canvas implements Runnable {
                     handler.addObject(new Block(xx*32, yy*32, IDs.Block, ss));
                 }
                 if (green == 255 && blue == 0 && red == 0){
-                    System.out.println("This is the Y pos: "+ yy*32);
-                    System.out.println("This is the X pos: "+ xx*32);
+
                 }
                 if (green == 255 && blue == 255 && red == 0){
                     handler.addObject(new arrowPickup(xx*32, yy*32, IDs.Pickup, ss));
@@ -459,13 +458,15 @@ public class Game extends Canvas implements Runnable {
         }
         if (Game.state == States.level2){
             level1Visted = true;
+            handler.addObject(new Enemy(350, 400, IDs.enemy, handler, this, 350, 400, 1, ss));
+
+
             if (level2Visted == false){
             	handler.addObject(new Player1(224, 750, IDs.player, handler, this, ss));
             }
             else{
                 handler.addObject(new Player1(842, 360, IDs.player, handler, this, ss));
             }
-            handler.addObject(new Enemy(500, 400, IDs.enemy,  handler, this, 500, 300, 1, ss));
         }
         if (Game.state == States.Load || Game.state == States.level1){
                 level2Visted = false;

@@ -42,8 +42,7 @@ public class MouseHandler extends MouseAdapter  {
 		
 		int x = e.getX();
 		int y = e.getY();
-		System.out.println("This the X coord: " + x);
-		System.out.println("This the Y coord: " + y);
+
 		if (Game.state == States.TitleScreen) {
 			if (x >= 150 && x <= 450 && y >= 300 && y <= 380) {//To start the game in single player
 				Game.state = States.tutorial;
@@ -75,11 +74,11 @@ public class MouseHandler extends MouseAdapter  {
 		}else if (Game.state == States.Sound) {
 			if (x >= 550 && x <= 700 && y >= 590 && y <= 670) {
 				game.soundplay = false;
-				System.out.println("false");
+
 			}
 			if (x >= 750 && x <= 900 && y >= 590 && y <= 670) {
 				game.soundplay = true;
-				System.out.println("true");
+
 			}
 			if (x>= 100 && x <= 400 && y >= 370 && y <=480) {
 				Game.state = States.Controls;
@@ -124,7 +123,7 @@ public class MouseHandler extends MouseAdapter  {
 		}else if (Game.state == States.highscores){
 			if (x>= 360 && x <= 660 && y >= 790 && y <= 870) {
 				Game.state = States.TitleScreen;
-				System.out.println("Back");
+
 			}
 		}else if (Game.state == States.deathscreen){
 			if (x>= 350 && x <= 680 && y >= 480 && y <= 550) {

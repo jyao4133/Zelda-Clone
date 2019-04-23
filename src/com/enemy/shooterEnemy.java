@@ -66,7 +66,6 @@ public class shooterEnemy extends Object {
             	currentSecond = 0;
                 handler.addObject(new enemyArrow(xpos + 14, ypos +36 , IDs.enemyArrow, handler, ss, 2, false));
                 Direction = r.nextInt(4) + 1;
-                System.out.println("this is:" +Direction);
             }else if (Direction == 3) {            //left
             	enemy_fire.play();
             	currentSecond = 0;
