@@ -17,7 +17,8 @@ public class MouseHandler extends MouseAdapter  {
 	private SpriteSheet ss;
 	public Pause pausemenu;
 	private static int x = -1, y = -1;
-	
+    
+ 	
      public MouseHandler (Handler handler, Game game, SpriteSheet ss){
          this.handler = handler;
          this.game = game;
@@ -56,7 +57,7 @@ public class MouseHandler extends MouseAdapter  {
 			if (x >= 150 && x <= 450 && y >= 600 && y <= 680) {//To exit the game
 				System.exit(0);
 			}
-		}else if (Game.state == States.Options || Game.state == States.Sound|| Game.state == States.Controls ||
+		}else if (Game.state == States.Options || Game.state == States.Controls ||
 				Game.state == States.Credits) {
 			if (x>= 100 && x <= 400 && y >= 190 && y <= 300) {
 				Game.state = States.Sound;
@@ -73,11 +74,12 @@ public class MouseHandler extends MouseAdapter  {
 			
 		}else if (Game.state == States.Sound) {
 			if (x >= 550 && x <= 700 && y >= 590 && y <= 670) {
-				Game.soundplay = true;
-				//System.out.println("HELLO");
+				game.soundplay = false;
+				System.out.println("false");
 			}
 			if (x >= 750 && x <= 900 && y >= 590 && y <= 670) {
-				Game.soundplay = false;
+				game.soundplay = true;
+				System.out.println("true");
 			}
 			if (x>= 100 && x <= 400 && y >= 370 && y <=480) {
 				Game.state = States.Controls;
