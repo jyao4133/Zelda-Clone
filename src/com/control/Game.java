@@ -534,18 +534,16 @@ public class Game extends Canvas implements Runnable {
     		game_music.stop();
     		boss_music.stop();
     		System.out.println("This is titlescreen");
-    	}
-    	if (state == States.level1) {
+    	}else if (state == States.level1) {
     		game_music.play();
     		main_music.stop();
     		boss_music.stop();
     		System.out.println("This is level1");
-    	}
-    	if (state == States.bosslevel) {
+    	}else if (state == States.bosslevel) {
     		boss_music.play();
     		main_music.stop();
     		game_music.stop();
-    		System.out.println("This is boss"); 
+    		System.out.println("This is boss");
 
     	}
     }

@@ -156,7 +156,7 @@ public class MouseHandler extends MouseAdapter  {
 					game.arrowsRemaining += 10;
 				}
 			}
-			if (x >= 80 && x <= 335 && y >= 645 && y <= 815){
+			if (x >= 80 && x <= 335 && y >= 645 && y <= 715){
 				if (game.goldAmount >= 3){
 					game.goldAmount -= 3;
 					game.rangedupgrade = true;
