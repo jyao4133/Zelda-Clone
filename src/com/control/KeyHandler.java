@@ -6,7 +6,8 @@ import com.player.Handler;
 import com.player.Object;
 import com.player.SpriteSheet;
 import com.player.sword;
-
+/*In this class the implementation of KeyAdapter has been done. It takes the key inputs at different states to make the 
+ * player walk along the map and also enable the melee attacks as well as interaction with the shop.*/
 public class KeyHandler extends KeyAdapter {
 
 	private boolean up = false;
@@ -19,17 +20,15 @@ public class KeyHandler extends KeyAdapter {
 
 	private Handler handler;
 	private Game game;
-	private SpriteSheet ss;
-
 	public KeyHandler (Handler handler, SpriteSheet ss, Game game) {
 
 		this.handler = handler;
 		this.game = game;
-		this.ss = ss;
 	}
 
 	//for no lag with key occurances we will use keypress and keyreleased functions
 
+	@SuppressWarnings("static-access")
 	public void keyPressed (KeyEvent e) {
 		int key = e.getKeyCode();
 		if (Game.state == States.tutorial) {

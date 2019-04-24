@@ -1,5 +1,8 @@
 package com.control;
-//https://www.youtube.com/watch?v=ar0hTsb9sxM&t=490s
+/*This is the audio generic class which is used to take the input file and convert into 16 bit format to be able to play within the game.
+ * It is called in various classes to play sound effects. The audio files are .wav format. Reference of the code has been used 
+ * from: https://www.youtube.com/watch?v=ar0hTsb9sxM&t=490s, as it is made on a new thread which works in parallel to the main game thread.
+ */
 import javax.sound.sampled.*;
 
 public class Audio {

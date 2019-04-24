@@ -130,17 +130,13 @@ public class Ghost extends Object{
     	if (Xspeed < 0 ) {//left
     		g.drawImage(ani_left.getCurrentFrame(), xpos, ypos, null);
         	ghostpos = left[0];
-    	}
-    	if (Xspeed > 0) {//right
+    	}else if (Xspeed > 0) {//right
     		g.drawImage(ani_right.getCurrentFrame(), xpos, ypos, null);
         	ghostpos = right[0];
-    	}
-    	
-    	if (Yspeed < 0) {//up
+    	}else if (Yspeed < 0) {//up
     		g.drawImage(ani_up.getCurrentFrame(), xpos, ypos, null);
         	ghostpos = up[0];
-    	}
-    	if (Yspeed > 0) {//down
+    	}else if (Yspeed > 0) {//down
     		g.drawImage(ani_down.getCurrentFrame(), xpos, ypos, null);
         	ghostpos = down[0];
     	}    	 

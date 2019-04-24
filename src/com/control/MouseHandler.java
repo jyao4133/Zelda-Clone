@@ -1,5 +1,6 @@
 package com.control;
-
+/*This class takes in the x and y input of the mouse of the screen. We used this class to work for our buttons which also
+ * change the state of the game. The mouse input is also used to shoot the enemies in the playable game*/
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -123,13 +124,21 @@ public class MouseHandler extends MouseAdapter  {
 		}else if (Game.state == States.highscores){
 			if (x>= 360 && x <= 660 && y >= 790 && y <= 870) {
 				Game.state = States.TitleScreen;
-
 			}
 		}else if (Game.state == States.deathscreen){
-			if (x>= 350 && x <= 680 && y >= 480 && y <= 550) {
+			if (x>= 360 && x <= 660 && y >= 650 && y <= 730) {
+				Game.state = States.Load;
+			}
+			if (x >= 360 && x <= 660 && y>= 790 && y<= 870 ) {
 				Game.state = States.TitleScreen;
 			}
-
+		}else if (Game.state == States.winscreen){
+			if (x>= 360 && x <= 660 && y >= 650 && y <= 730) {
+				Game.state = States.Load;
+			}
+			if (x >= 360 && x <= 660 && y>= 790 && y<= 870 ) {
+				Game.state = States.TitleScreen;
+			}
 		}else if (Game.state == States.shop){
 
 			if (x >= 725 && x <= 975 && y >= 345 && y <= 415){

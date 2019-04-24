@@ -16,6 +16,7 @@ public class TitleScreen extends Canvas{
 	public static Rectangle titleframe = new Rectangle (0, 0, Game.WIDTH, Game.HEIGHT);
 	private BufferedImage image;
 	
+	
 	public void render (Graphics g)  {
 		try{
 			image = ImageIO.read(getClass().getResourceAsStream("title_screen.png")); 

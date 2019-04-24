@@ -23,15 +23,15 @@ public class pauseOptions {
     	image = loader.loadImage("help_controls.png");
         pausemenu = new Button[1];
         pausemenu[0] = new Button ("Back", pauseframe.width, pauseframe.height + yshift + 2 * yspacing,
-                new Font("Arial", Font.BOLD, 50), Color.black);
+                new Font("Arial", Font.BOLD, 50), Color.gray);
 
     }
 
 
     public void render (Graphics g) {
-        g.setColor(Color.WHITE);
+        g.setColor(Color.pink);
         g.fillRect(Game.WIDTH/4, Game.HEIGHT/4 , Game.WIDTH/2, Game.HEIGHT/2);
-        Button.drawString(g, new Font("Arial", Font.BOLD, 80), Color.orange, "Options", pauseframe.width, pauseframe.height);
+        Button.drawString(g, new Font("Arial", Font.BOLD, 80), Color.black, "Options", pauseframe.width, pauseframe.height);
         g.drawImage(image, 260, 270	, null);
         for (int i = 0; i < pausemenu.length; i++) {
             if (i == currentSelection) {

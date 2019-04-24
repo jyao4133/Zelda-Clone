@@ -68,6 +68,7 @@ public class Game extends Canvas implements Runnable {
     private pauseOptions pauseoptions;
     private highScores showScore;
     private deathScreen death;
+    private winscreen win;
     private level2 Level2;
     private level3 Level3;
     private bossStage bosstage;
@@ -90,7 +91,7 @@ public class Game extends Canvas implements Runnable {
 
     ImageRender loader = new ImageRender();
 
-    private Audio main_music, game_music, boss_music;
+    public Audio main_music, game_music, boss_music;
     
     //to create the title screen we will use the states in the code
     public static States state = com.control.States.TitleScreen;
@@ -109,6 +110,7 @@ public class Game extends Canvas implements Runnable {
         Level3 = new level3();
         bosstage = new bossStage();
         death = new deathScreen();
+        win = new winscreen();
         shopstate = new shopState();
         tutorial = new Tutorial();
         option_sound = new Option_sound();
@@ -136,8 +138,11 @@ public class Game extends Canvas implements Runnable {
      	main_music = new Audio ("Main_music.wav");
      	game_music = new Audio ("Game_music.wav");
      	boss_music = new Audio ("boss_music.wav");
-     	
-     	main_music.play();
+        game_audio();
+
+     	//main_music.play();
+     	//game_music.play();
+     //	boss_music.play();
      	//game_music.play();
      	
         Timer = new timer();
@@ -236,7 +241,8 @@ public class Game extends Canvas implements Runnable {
             g.dispose();
             bufferstrat.show();
         }else if (state == States.level1) {
-        	main_music.stop();
+        	//main_music.stop();
+        //	boss_music.stop();
             keyspawned = false;
             nextLevel = "level2";
             g.setColor(Color.red);
@@ -277,14 +283,17 @@ public class Game extends Canvas implements Runnable {
         	g.dispose();
             bufferstrat.show();
         }else if(state == States.deathscreen){
-        	game_music.close();
-        	boss_music.close();
-            g.setColor(Color.black);
-            g.fillRect(0,0,WIDTH,HEIGHT);
+        //	game_music.close();
+       // 	boss_music.close();
             death.render(g);
             g.dispose();
             bufferstrat.show();
-        }else if (state == States.highscores){
+        }else if (state == States.winscreen){
+        	win.render(g);
+            g.dispose();
+            bufferstrat.show();
+        }
+        else if (state == States.highscores){
             if(titleShown == true) {
                 scoreList.clear();
                 scoreList = read.read(scoreList);
@@ -347,7 +356,7 @@ public class Game extends Canvas implements Runnable {
             g.dispose();
             bufferstrat.show();
         }else if (state == States.level3){
-        	boss_music.play();
+        	//boss_music.play();
             prevLevel = "level2";
             nextLevel = "bosslevel";
             Level3.render(g);
@@ -384,8 +393,8 @@ public class Game extends Canvas implements Runnable {
             g.dispose();
             bufferstrat.show();
         }else if (state == States.bosslevel){
-        	game_music.close();
-        	main_music.play();
+        	//game_music.close();
+        	//main_music.play();
             prevLevel = "game";
             nextLevel = "level2";
             bosstage.render(g);
@@ -405,14 +414,14 @@ public class Game extends Canvas implements Runnable {
             g.dispose();
             bufferstrat.show();
         }else if (state == States.tutorial) {
-        	game_music.play();
+        	//main_music.close();
+        	//game_music.play();
         	tutorial.render(g);
         	g.dispose();
             bufferstrat.show();
         }
         if(player1Health == 0 || bossHealth == 0){
             if (save == true){
-
                 playerScore = goldAmount * 5 + arrowsRemaining * 3 + player1Health * 3;
                 write.Write(playerName, playerScore);
                 save = false;
@@ -493,7 +502,7 @@ public class Game extends Canvas implements Runnable {
         }
         if (Game.state == States.bosslevel){
             handler.addObject(new Player1(138, 741, IDs.player, handler, this, ss));
-            handler.addObject(new boss(600, 400, IDs.boss, handler, this, 500, 300, 1, ss));
+            handler.addObject(new Boss(600, 400, IDs.boss, handler, this, 500, 300, 1, ss));
 
         }
         if (Game.state == States.level3){
@@ -519,6 +528,28 @@ public class Game extends Canvas implements Runnable {
 
     }
 
+    private void game_audio() {
+    	if (state == States.TitleScreen ) {
+    		main_music.play();
+    		game_music.stop();
+    		boss_music.stop();
+    		System.out.println("This is titlescreen");
+    	}
+    	if (state == States.level1) {
+    		game_music.play();
+    		main_music.stop();
+    		boss_music.stop();
+    		System.out.println("This is level1");
+    	}
+    	if (state == States.bosslevel) {
+    		boss_music.play();
+    		main_music.stop();
+    		game_music.stop();
+    		System.out.println("This is boss"); 
+
+    	}
+    }
+    
     public static int edge(int var, int min, int max){
         if(var >= max){
             return var = max;
@@ -539,5 +570,7 @@ public class Game extends Canvas implements Runnable {
     public void setGameState(States gamestate) {
         state = gamestate;
     }
+    
+    
 
 }

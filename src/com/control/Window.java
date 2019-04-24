@@ -3,7 +3,7 @@ package com.control;
 import java.awt.*;
 import javax.swing.JFrame;
 
-
+/*This is used to create the JFrame of the game.*/
 public class Window extends Canvas {
 
     private static final long serialVersionUID = 285728758278L;

@@ -31,9 +31,9 @@ public class Pause {
 		
 	
 	public void render (Graphics g) {
-		g.setColor(Color.black);
+		g.setColor(Color.pink);
     	g.fillRect(Game.WIDTH/4, Game.HEIGHT/4 , Game.WIDTH/2, Game.HEIGHT/2);
-    	    	    	Button.drawString(g, new Font("Arial", Font.BOLD, 80), Color.white, "Pause", pauseframe.width, pauseframe.height);
+    	    	    	Button.drawString(g, new Font("Arial", Font.BOLD, 80), Color.black, "Pause", pauseframe.width, pauseframe.height);
 
     	for (int i = 0; i < pausemenu.length; i++) {
     		if (i == currentSelection) {
