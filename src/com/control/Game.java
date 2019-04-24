@@ -304,11 +304,12 @@ public class Game extends Canvas implements Runnable {
             bufferstrat.show();
         }else if(state == States.deathscreen){
         	game_music.stop();
+        	boss_music.stop();
             death.render(g);
             g.dispose();
             bufferstrat.show();
         }else if (state == States.winscreen){
-            game_music.stop();
+            boss_music.stop();
             win.render(g);
             g.dispose();
             bufferstrat.show();

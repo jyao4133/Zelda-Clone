@@ -24,5 +24,6 @@ public enum IDs {
     rotatingenemy,
     doorkey,
     shopkeeper,
+    teddypickup;
 
 }

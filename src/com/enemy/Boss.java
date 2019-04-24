@@ -6,6 +6,8 @@ import com.player.Animation;
 import com.player.Handler;
 import com.player.Object;
 import com.player.SpriteSheet;
+import com.player.heartPickup;
+import com.player.teddypickup;
 
 import javax.swing.Timer;
 import java.awt.event.ActionEvent;
@@ -171,7 +173,8 @@ public class Boss extends Object{
                     }
 
                     if (game.bossHealth == 0) {
-                        Game.state = States.winscreen;
+                        handler.addObject(new teddypickup(xpos+20, ypos +20, IDs.teddypickup, ss));
+                      //  Game.state = States.winscreen;
                         handler.removeObject(tempObject);
                         handler.removeObject(this);
                     }
@@ -189,7 +192,8 @@ public class Boss extends Object{
                         }
                     }
                     if (game.bossHealth == 0){
-                        Game.state = States.winscreen;
+                        handler.addObject(new heartPickup(xpos+20, ypos +20, IDs.teddypickup, ss));
+                      //  Game.state = States.winscreen;
                         handler.removeObject(tempObject);
                         handler.removeObject(this);
                     }

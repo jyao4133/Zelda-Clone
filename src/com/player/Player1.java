@@ -23,7 +23,7 @@ public class Player1 extends Object {
     private BufferedImage playerpos;
     private Animation ani_up, ani_down, ani_left, ani_right;
     private Audio door_next, door_back, coin_pickup, player_died, player_hit,
-    				boomerang_pickup, key_pickup, heart_pickup;
+    				boomerang_pickup, key_pickup, heart_pickup, teddy_pickup;
     
 	public static String playerDirection;
 	public static String prevDirection;
@@ -83,6 +83,7 @@ public class Player1 extends Object {
 		boomerang_pickup = new Audio ("boomerang_pickup.wav");
 		key_pickup = new Audio ("key_pickup.wav");
 		heart_pickup = new Audio ("heart_pickup.wav");
+		teddy_pickup = new Audio ("Win_sound.wav");
 		///////////////////////////////////////
 		Xspeed = 0;
 		Yspeed = 0;
@@ -176,8 +177,6 @@ public class Player1 extends Object {
 			if (tempObject.getId() == IDs.enemyArrow) {
 				if (getBounds().intersects((tempObject.getBounds()))) {
 					handler.removeObject(tempObject);
-
-
 					game.player1Health--;
 				}
 			}
@@ -246,6 +245,12 @@ public class Player1 extends Object {
 					key_pickup.play();
 					handler.removeObject(tempObject);
 					game.keyObtained = true;
+				}
+			}
+			if (tempObject.getId() == IDs.teddypickup) {
+				if (getBounds().intersects(tempObject.getBounds())) {
+					teddy_pickup.play();
+					Game.state = States.winscreen;
 				}
 			}
 			if (game.player1Health == 0) {
