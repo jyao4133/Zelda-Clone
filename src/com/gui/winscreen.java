@@ -6,6 +6,10 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
+/*
+Win screen which appears when the player defeats the dragon. Will allow the player to go back to
+the main menu
+ */
 
 
 public class winscreen {

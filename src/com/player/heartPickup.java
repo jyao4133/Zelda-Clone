@@ -4,7 +4,9 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 
 import com.control.IDs;
-
+/*
+Pickup object for adding health to the player
+ */
 public class heartPickup extends Object{
 	private BufferedImage [] heart;
 	private Animation animation;

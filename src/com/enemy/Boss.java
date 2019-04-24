@@ -5,24 +5,23 @@ import com.control.*;
 import com.player.Animation;
 import com.player.Handler;
 import com.player.Object;
-import com.player.SpriteAnimation;
 import com.player.SpriteSheet;
-import com.player.arrowPickup;
-import com.player.heartPickup;
 
 import javax.swing.Timer;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.util.*;
+/*
+This is the boss of the game. It will have a dragon skin which has animations on a timer.
+The boss shoots at set intervals at a random direction
+The boss will move around in the map randomly. When colliding with a wall, the boss will choose a new direction
+to move in which will prevent clipping into boundaries
 
+ */
 public class Boss extends Object{
 
-    //First enemy
-    /*
-    This enemy is the first enemy the player will come across. It will have randomized
-    movement and will remove 1 point of health when it collides with the player.
-     */
+
     private Handler handler;
     Game game;
     Random r = new Random();
@@ -201,9 +200,6 @@ public class Boss extends Object{
 
 
     public void render(Graphics g) {
-        //g.setColor(Color.pink);
-        //g.fillRect(xpos + spacing,ypos,75,150);
-
         g.setColor(Color.green);
         g.fillRect(xpos, ypos - 40, game.bossHealth*10, 20);
         if (Yspeed < 0) {//up
@@ -227,11 +223,12 @@ public class Boss extends Object{
 
     }
 
-    //collision with arrow
+
     public Rectangle getBounds() {
         return new Rectangle (xpos + spacing, ypos, 75, 150);
     }
 
+    //Timer for the movement and shots
     public void start(){
         javax.swing.Timer timer = new Timer(10, new ActionListener(){
             public void actionPerformed( ActionEvent e ) {

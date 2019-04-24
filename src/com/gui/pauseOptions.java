@@ -8,7 +8,9 @@ import java.awt.image.BufferedImage;
 
 import com.control.Game;
 import com.control.ImageRender;
-
+/*
+Creates the options menu in the pause state
+ */
 public class pauseOptions {
 
     public static Rectangle pauseframe = new Rectangle(Game.WIDTH/4, Game.HEIGHT/4 , Game.WIDTH/2, Game.HEIGHT/2);

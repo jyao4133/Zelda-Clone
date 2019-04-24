@@ -12,7 +12,9 @@ import javax.imageio.ImageIO;
 import com.control.Game;
 import com.control.ImageRender;
 import com.control.States;
-
+/*
+Displays the high scores in the highscore state. Will display the top 5 scores in descending order
+ */
 
 public class highScores {
     ArrayList<String> scoreList = new ArrayList<>();

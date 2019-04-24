@@ -12,7 +12,11 @@ import javax.swing.Timer;
 
 import com.control.Game;
 import com.control.IDs;
-
+/*
+Sword object that is created when the player enters the space key
+The sword will be created in the direction the player is facing currently
+The sword will disappear on a set timer so that it doesn't "float"
+ */
 public class sword extends Object {
 
     private Handler handler;

@@ -11,9 +11,11 @@ import com.control.IDs;
 import com.control.States;
 
 import javax.swing.*;
-
+/*
+Our player class which controls collisions between the player and other obejects
+as well as the speed of the player
+ */
 public class Player1 extends Object {
-//player controller class following MVC
 	Handler handler;
     Game game;
     
@@ -82,6 +84,8 @@ public class Player1 extends Object {
 		key_pickup = new Audio ("key_pickup.wav");
 		heart_pickup = new Audio ("heart_pickup.wav");
 		///////////////////////////////////////
+		Xspeed = 0;
+		Yspeed = 0;
     }
 
     public void tick() {
@@ -201,15 +205,17 @@ public class Player1 extends Object {
 			}
 			if (tempObject.getId() == IDs.Stairs) {
 				if (getBounds().intersects((tempObject.getBounds()))) {
-					door_next.play();
 					if (game.nextLevel == "level2") {
+						door_next.play();
 						Game.state = States.level2;
 						game.loadLevel(game.background2);
 					} else if (game.nextLevel == "level3") {
+						door_next.play();
 						Game.state = States.level3;
 						game.loadLevel(game.background3);
 					} else if (game.nextLevel == "bosslevel") {
 						if (game.keyObtained == true) {
+							door_next.play();
 							Game.state = States.bosslevel;
 							game.loadLevel(game.bossLevel);
 						}

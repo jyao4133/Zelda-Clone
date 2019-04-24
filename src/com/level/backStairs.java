@@ -8,7 +8,9 @@ import com.control.IDs;
 import com.player.Handler;
 import com.player.Object;
 import com.player.SpriteSheet;
-
+/*
+Object created for player to go back levels
+ */
 public class backStairs extends Object{
     Handler handler;
     Game game;

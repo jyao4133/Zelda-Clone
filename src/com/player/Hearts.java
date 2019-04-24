@@ -3,7 +3,11 @@ package com.player;
 import java.awt.*;
 import java.math.*;
 import java.util.*;
-
+/*
+Creates a heart shape using two ovals and a triangle.
+The heart is red when the health is present
+The heart is white when the health is lost
+ */
 public class Hearts {
 
     public void drawHeart(Graphics g, int x, int y, int width, int height, int player1Health, int bound) {

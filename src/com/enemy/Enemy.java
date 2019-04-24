@@ -8,13 +8,15 @@ import com.player.Object;
 import java.awt.image.BufferedImage;
 import java.util.*;
 
-public class Enemy extends Object{
-
-    //First enemy
+//First enemy
     /*
     This enemy is the first enemy the player will come across. It will have randomized
     movement and will remove 1 point of health when it collides with the player.
      */
+
+public class Enemy extends Object{
+
+
     private Handler handler;
     
     private BufferedImage [] left, right;

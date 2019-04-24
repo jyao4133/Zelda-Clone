@@ -7,7 +7,10 @@ import java.awt.Rectangle;
 
 
 import com.control.Game;
+/*
+Displays the pause menu when p is pressed while in game
 
+ */
 public class Pause {
 	
 	public static Rectangle pauseframe = new Rectangle(Game.WIDTH/4, Game.HEIGHT/4 , Game.WIDTH/2, Game.HEIGHT/2);

@@ -12,6 +12,11 @@ import com.player.Handler;
 import com.player.Object;
 import com.player.SpriteSheet;
 //https://www.deviantart.com/andrea87sky/art/Entity-303-Minecraft-RPG-Maker-XP-s-Sprite-704456071
+
+/*
+Special enemy that will follow the player. This enemy will not drop anything upon death and will be able to phase
+through walls
+ */
 public class Ghost extends Object{
 
     //Second enemy

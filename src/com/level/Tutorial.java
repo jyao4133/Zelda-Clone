@@ -6,7 +6,9 @@ import java.awt.image.BufferedImage;
 
 import com.control.Game;
 import com.control.ImageRender;
-
+/*
+Displays a picture in the form of a mini tutorial when the player enters the game
+ */
 public class Tutorial {
 
 	Game game;
@@ -16,7 +18,7 @@ public class Tutorial {
 	public Tutorial() {
 		tutorial_screen = loader.loadImage("tutorial_map.png");
 	}
-	
+
 	public void render(Graphics g){
 		g.setColor(Color.black);
 		g.fillRect(0, 0, 1024, 990);

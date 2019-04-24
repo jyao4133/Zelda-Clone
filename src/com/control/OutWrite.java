@@ -3,7 +3,10 @@ package com.control;
 import java.io.*;
 import java.lang.System.*;
 import java.util.ArrayList;
-
+/*
+Writes out the name and score of a player to a text file
+Does not overwrite previous scores
+ */
 public class OutWrite {
 
     private String computeScore;

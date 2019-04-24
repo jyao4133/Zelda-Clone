@@ -2,7 +2,9 @@ package com.gui;
 
 import java.awt.*;
 
-@SuppressWarnings("serial")
+/*
+Button on screen used to change states
+ */
 public class Button extends Rectangle{
 	
 	private Font font;
@@ -16,9 +18,7 @@ public class Button extends Rectangle{
 		this.textX = textX;
 		this.textY = textY;
 		this.font = font;
-		//this.selectedFont = selectedFont;
 		this.color = color;
-		//this.selectedColor = selectedColor;
 	}
 
 
@@ -27,12 +27,7 @@ public class Button extends Rectangle{
 	}
 	
 	public void render (Graphics g ) {
-		//if(selected) {
-		//	drawString(g, selectedFont, selectedColor, text, textX, textY);
-		//}else {
 			drawString(g, font, color, text, textX, textY);
-		//}
-
 		
 	}
 	

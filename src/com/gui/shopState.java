@@ -11,7 +11,9 @@ import javax.imageio.ImageIO;
 
 import com.control.Game;
 import com.control.States;
-
+/*
+Displays the shop image when the player opens the shop on level 3
+ */
 
 public class shopState {
 

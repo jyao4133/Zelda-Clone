@@ -20,7 +20,9 @@ import com.player.SpriteSheet;
 import com.player.arrowPickup;
 import com.player.coinPickup;
 import com.player.heartPickup;
-
+/*
+Static enemy which shoots at right angles randomly
+ */
 public class shooterEnemy extends Object {
     Game game;
     private int currentSecond = 0;

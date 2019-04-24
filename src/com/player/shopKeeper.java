@@ -4,7 +4,9 @@ import com.control.IDs;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-
+/*
+A shop keeper object that the player can interact with
+ */
 public class shopKeeper extends Object {
 	
 	private BufferedImage [] keeper;

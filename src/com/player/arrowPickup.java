@@ -4,6 +4,9 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 
 import com.control.IDs;
+/*
+Pickup object for adding arrows to the player's arsenal
+ */
 
 public class arrowPickup extends Object{
 	private BufferedImage [] boomerang;

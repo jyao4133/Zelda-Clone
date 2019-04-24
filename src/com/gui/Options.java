@@ -12,7 +12,9 @@ import com.control.Game;
 import com.control.ImageRender;
 import com.control.States;
 
-
+/*
+Displays the Options menu when option is the state
+ */
 public class Options {
 	public Rectangle optionsframe = new Rectangle(0,0,Game.WIDTH,Game.HEIGHT);
 	public Rectangle textframe = new Rectangle (500, 190, 450, 650);

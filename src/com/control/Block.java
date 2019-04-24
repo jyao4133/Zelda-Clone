@@ -5,7 +5,10 @@ import java.awt.Rectangle;
 
 import com.player.Object;
 import com.player.SpriteSheet;
-
+/*
+Every block that the player runs into will be a "Block" object created by this class
+This class creates a block with the ID block.
+ */
 
 public class Block extends Object {
 

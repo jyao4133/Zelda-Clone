@@ -4,7 +4,10 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-
+/*
+Array list which stores every object on screen.
+Includes helper functions to remove and add objects when we want to change variables on screen
+ */
 public class Handler {
 
 

@@ -6,7 +6,9 @@ import java.awt.image.BufferedImage;
 
 import com.control.Audio;
 import com.control.IDs;
-
+/*
+Door key object for the player to pick up to enter the boss room from stage 3
+ */
 public class doorKey extends Object {
 	private BufferedImage [] key;
 	private Animation animation;

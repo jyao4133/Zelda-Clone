@@ -6,6 +6,9 @@ import java.awt.image.BufferedImage;
 
 import com.control.Game;
 import com.control.ImageRender;
+/*
+The stage the boss stage spawns in. The state will be bossstage
+ */
 public class bossStage {
 
     Game game;

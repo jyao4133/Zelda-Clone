@@ -4,7 +4,9 @@ import com.control.IDs;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-
+/*
+Pickup object to add a coin to the player's inventory
+ */
 public class coinPickup extends Object {
 	private BufferedImage [] coin;
 	private Animation animation;

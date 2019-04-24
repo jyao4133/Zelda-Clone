@@ -2,6 +2,10 @@ package com.control;
 
 import java.util.ArrayList;
 
+/*
+Since the high score will be in the format "Name:score", this class will sort an array by passing the number on
+the right of a ":" (colon), and will sort the list based on this integer. This works much like a comparator.
+ */
 public class highscoreSort {
 
     @SuppressWarnings("rawtypes")

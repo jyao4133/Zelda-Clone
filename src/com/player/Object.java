@@ -5,7 +5,11 @@ package com.player;
 import java.awt.*;
 
 import com.control.IDs;
-
+/*
+High level class which every object that the player can interact with in the game will extend
+The class includes getter and setter methods so that we can change any parameter of any object
+on the screen whenever an event occurs
+ */
 public abstract class Object {
 	
     protected int xpos, ypos; //Only allow objects that inherit this class use xposition and yposition

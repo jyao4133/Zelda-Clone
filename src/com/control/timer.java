@@ -4,8 +4,9 @@ import java.awt.event.ActionListener;
 import java.awt.*;
 import javax.swing.*;
 import java.util.Calendar;
-/*The timer class keeps a track of the game to determine that the game is playable for 5:00 minutes.
- * It works from the inbuilt timer class of java.*/
+/*
+The timer class creates an ingame timer. It is also used too initialise the HUD
+*/
 public class timer {
     Game game;
 

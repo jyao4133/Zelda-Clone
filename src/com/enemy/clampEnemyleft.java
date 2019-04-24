@@ -14,7 +14,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.util.Random;
-
+/*
+Enemy that moves left into other objects. When colliding with another clamp enemy, it will bounce off
+When colliding with a wall, it will bounce off.
+ */
 public class clampEnemyleft extends Object {
 
     Game game;

@@ -5,7 +5,10 @@ import java.awt.image.BufferedImage;
 import java.math.*;
 
 import com.control.IDs;
-
+/*
+Boomerang that the player will fire with right click
+The speed is dictated by a trigonometric formula
+ */
 public class Arrow extends Object {
 
     private Handler handler;

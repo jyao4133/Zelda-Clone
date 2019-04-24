@@ -10,7 +10,9 @@ import javax.imageio.ImageIO;
 
 import com.control.Game;
 
-@SuppressWarnings("serial")
+/*
+Displays the titlescreen picture
+ */
 public class TitleScreen extends Canvas{
 
 	public static Rectangle titleframe = new Rectangle (0, 0, Game.WIDTH, Game.HEIGHT);

@@ -7,7 +7,8 @@ import com.player.Object;
 import com.player.SpriteSheet;
 import com.player.sword;
 /*In this class the implementation of KeyAdapter has been done. It takes the key inputs at different states to make the 
- * player walk along the map and also enable the melee attacks as well as interaction with the shop.*/
+ * player walk along the map and also enable the melee attacks as well as interaction with the shop.
+ * */
 public class KeyHandler extends KeyAdapter {
 
 	private boolean up = false;

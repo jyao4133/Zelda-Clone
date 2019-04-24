@@ -1,7 +1,9 @@
 package com.player;
 //https://www.youtube.com/watch?v=uitt3vk-Xkk&list=PLah6faXAgguMnTBs3JnEJY0shAc18XYQZ&index=25
 import java.awt.image.BufferedImage;
-
+/*
+Animation class which handles the animations in the game
+ */
 public class Animation {
 	private int speed, index;
 	private BufferedImage[] frames;

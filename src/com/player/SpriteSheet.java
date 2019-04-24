@@ -1,7 +1,9 @@
 package com.player;
 
 import java.awt.image.BufferedImage;
-
+/*
+Initializes an image that contains the sprites of all special objects on screen
+ */
 public class SpriteSheet {
 	
 	private BufferedImage image; 

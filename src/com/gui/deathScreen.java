@@ -5,7 +5,10 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import com.control.Game;
-
+/*
+Death screen which appears when the player loses all their health. Will allow the player to go back to
+the main menu
+ */
 
 
 public class deathScreen {

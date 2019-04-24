@@ -16,7 +16,10 @@ import com.level.*;
 import com.player.*;
 
 import javax.swing.*;
-
+/*
+The main class of the game. The Game class deals with initializing everything on screen, as well as receive commands
+from other classes.
+ */
 public class Game extends Canvas implements Runnable {
 
     private static final long serialVersionUID = 125890125890L;
@@ -98,7 +101,7 @@ public class Game extends Canvas implements Runnable {
     public static States tempstate;
        
     
-    
+    //Constructor for the class which instantiates other classes
     public Game(){
         window = new Window (WIDTH, HEIGHT, "Pre-Title", this);
         handler = new Handler();
@@ -171,7 +174,7 @@ public class Game extends Canvas implements Runnable {
     }
 
 
-
+    //Start and stop methods for the thread that the game runs on
 	public synchronized void start(){
         thread = new Thread(this); //"this" refers to our Game class
         thread.start();
@@ -188,7 +191,7 @@ public class Game extends Canvas implements Runnable {
         }
     }
 
-
+    //Game loop which controls the speed and refresh rate of the game VIA the time between each game tick
     public void run(){
     	Toolkit toolkit = Toolkit.getDefaultToolkit();
         long lastTime = System.nanoTime();
@@ -219,7 +222,9 @@ public class Game extends Canvas implements Runnable {
         }
         stop();
     }
-   
+
+    //Updates the handler for each object on screen
+    //Also updates the timer in game so that it runs at the speed we want it to
     private void tick(){
         if (state == States.level1 || state == States.level2 || state == States.level3 || state == States.bosslevel) {
             handler.tick();
@@ -227,6 +232,8 @@ public class Game extends Canvas implements Runnable {
         }
     }
 
+    //The state rendering is done in this class. Whenever the game wants to switch states, this class will change
+    //what's shown. This class is constantly being updates and hence, will be rendering the on screen updates
     private void render() {
         //Create a buffer strategy and number of buffers. We don't want an astronomically high FPS
         BufferStrategy bufferstrat = this.getBufferStrategy();
@@ -293,13 +300,13 @@ public class Game extends Canvas implements Runnable {
         	g.dispose();
             bufferstrat.show();
         }else if(state == States.deathscreen){
-        //	game_music.close();
-       // 	boss_music.close();
+        	game_music.stop();
             death.render(g);
             g.dispose();
             bufferstrat.show();
         }else if (state == States.winscreen){
-        	win.render(g);
+            game_music.stop();
+            win.render(g);
             g.dispose();
             bufferstrat.show();
         }
@@ -354,10 +361,6 @@ public class Game extends Canvas implements Runnable {
             nextLevel = "level3";
             Level2.render(g);
             handler.render(g);
-            if (firstLoad == true){
-                loadLevel(background2);
-                firstLoad = false;
-            }
             Timer.render(g, game);
             for (int i = 0; i < 3; i++) {
             	heart2.drawHeart(g, 295, 50, 30, 30, player1Health, 2);                
@@ -436,6 +439,8 @@ public class Game extends Canvas implements Runnable {
     	bufferstrat.show();
     }
 
+    //Loads the level based on color coding in our level images.
+    //Loads the enemies based on the amount of enemies remaining in a specific room
     public void loadLevel(BufferedImage image){
         int w = image.getWidth();
         int h = image.getHeight();
@@ -542,6 +547,7 @@ public class Game extends Canvas implements Runnable {
 
     }
 
+    //Audio helper method to start/stop many types of music at the same time
     private void game_audio() {
     	if (Game.state == States.TitleScreen ) {
     		main_music.play();
@@ -561,7 +567,8 @@ public class Game extends Canvas implements Runnable {
 
     	}
     }
-    
+
+    //Detects the boundary of a special object in the game
     public static int edge(int var, int min, int max){
         if(var >= max){
             return var = max;
@@ -571,18 +578,11 @@ public class Game extends Canvas implements Runnable {
             return var; 
     }
 
+    //initializes the game
     public static void main(String args[]){
         game = new Game();
     }
 
-    public States getGameState() {
-    	return state;
-    }
-    
-    public void setGameState(States gamestate) {
-        state = gamestate;
-    }
-    
     
 
 }

@@ -10,6 +10,10 @@ import com.player.Handler;
 import com.player.Object;
 import com.player.SpriteSheet;
 
+/*
+Any enemy that shoots in the game will use this object. This object will collide with the player and make them lose health
+as well as disappear when colliding with a player or wall
+ */
 public class enemyArrow extends Object {
     private Handler handler;
     Random r = new Random();

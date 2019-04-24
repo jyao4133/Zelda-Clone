@@ -5,7 +5,7 @@ import java.awt.image.BufferedImage;
 
 import com.control.Game;
 import com.control.ImageRender;
-
+//Option image loader
 public class Option_control {
 	Game game;
     private BufferedImage control;

@@ -2,7 +2,9 @@ package com.control;
 import java.io.*;
 import java.lang.System.*;
 import java.util.ArrayList;
-
+/*
+Class used to read a text file
+ */
 
 public class InRead {
 
