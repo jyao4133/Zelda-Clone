@@ -75,11 +75,9 @@ public class MouseHandler extends MouseAdapter  {
 		}else if (Game.state == States.Sound) {
 			if (x >= 550 && x <= 700 && y >= 590 && y <= 670) {
 				game.main_music.stop();
-
 			}
 			if (x >= 750 && x <= 900 && y >= 590 && y <= 670) {
 				game.main_music.play();
-
 			}
 			if (x>= 100 && x <= 400 && y >= 370 && y <=480) {
 				Game.state = States.Controls;

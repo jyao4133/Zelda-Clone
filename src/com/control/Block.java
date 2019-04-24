@@ -21,8 +21,8 @@ public class Block extends Object {
     }
 
     public void render(Graphics g) {
-   // 	g.setColor(Color.yellow);
-  //  	g.fillRect(xpos, ypos, 30, 30);
+    //	g.setColor(Color.yellow);
+    //	g.fillRect(xpos, ypos, 30, 30);
 
     }
     public Rectangle getBounds() {

@@ -48,7 +48,7 @@ public class Game extends Canvas implements Runnable {
 
 
     public boolean removeBool, keyObtained, keyspawned, shopKeeperCollision, rangedupgrade, meleeupgrade = false;
-	public boolean soundplay = true;
+	private boolean soundplay_main, soundplay_boss, soundplay_game = true;
 
     public boolean firstLoad = true;
     private boolean save, titleShown,loadKey = true;
@@ -243,9 +243,11 @@ public class Game extends Canvas implements Runnable {
         }
         Graphics g = bufferstrat.getDrawGraphics();
         if (state == States.TitleScreen) {
-            if (soundplay == false){
+            if (soundplay_main == false && soundplay_game == false){
                 game_audio();
-                soundplay = true;
+                soundplay_main = true;
+                soundplay_boss = true;
+                soundplay_game = true;
             }
             titleShown = true;
             titlescreen.render(g);
@@ -254,10 +256,11 @@ public class Game extends Canvas implements Runnable {
         }else if (state == States.level1) {
         	//main_music.stop();
         	//boss_music.stop();
-
-            if (soundplay == true){
+            if (soundplay_main == true){
                 game_audio();
-                soundplay = false;
+                soundplay_main = false;
+                soundplay_boss = false;
+                soundplay_game = false;
             }
             keyspawned = false;
             nextLevel = "level2";
@@ -324,7 +327,6 @@ public class Game extends Canvas implements Runnable {
             g.dispose();
             bufferstrat.show();
         }else if(state == States.Load){ //Reset state
-
         	scoreList.clear();
             Timer.currentSecond = 0;
             Timer.currentMinute = 0;
@@ -347,7 +349,9 @@ public class Game extends Canvas implements Runnable {
             level2Visted = false;
             meleeupgrade = false;
             rangedupgrade = false;
-            soundplay = true;
+            soundplay_main = true;
+            soundplay_boss = true;
+            soundplay_game = true;
             loadLevel(background);
             state = States.level1;
         }else if(state == States.pauseOptions){
@@ -406,6 +410,12 @@ public class Game extends Canvas implements Runnable {
         }else if (state == States.bosslevel){
         	//game_music.close();
         	//main_music.play();
+        	if(soundplay_boss == false) {
+        		game_audio();
+        		soundplay_boss = true;
+        		soundplay_main = false;
+        		soundplay_game = false;
+        	}
             prevLevel = "game";
             nextLevel = "level2";
             bosstage.render(g);
@@ -560,9 +570,9 @@ public class Game extends Canvas implements Runnable {
     		boss_music.stop();
     		System.out.println("This is level1");
     	}else if (Game.state == States.bosslevel) {
-    		boss_music.play();
     		main_music.stop();
     		game_music.stop();
+    		boss_music.play();
     		System.out.println("This is boss");
 
     	}
