@@ -74,11 +74,11 @@ public class MouseHandler extends MouseAdapter  {
 			
 		}else if (Game.state == States.Sound) {
 			if (x >= 550 && x <= 700 && y >= 590 && y <= 670) {
-				game.soundplay = false;
+				game.main_music.stop();
 
 			}
 			if (x >= 750 && x <= 900 && y >= 590 && y <= 670) {
-				game.soundplay = true;
+				game.main_music.play();
 
 			}
 			if (x>= 100 && x <= 400 && y >= 370 && y <=480) {
@@ -126,17 +126,11 @@ public class MouseHandler extends MouseAdapter  {
 				Game.state = States.TitleScreen;
 			}
 		}else if (Game.state == States.deathscreen){
-			if (x>= 360 && x <= 660 && y >= 650 && y <= 730) {
-				Game.state = States.Load;
-			}
-			if (x >= 360 && x <= 660 && y>= 790 && y<= 870 ) {
+			if (x>= 350 && x <= 680 && y >= 550 && y <= 640) {
 				Game.state = States.TitleScreen;
 			}
 		}else if (Game.state == States.winscreen){
-			if (x>= 360 && x <= 660 && y >= 650 && y <= 730) {
-				Game.state = States.Load;
-			}
-			if (x >= 360 && x <= 660 && y>= 790 && y<= 870 ) {
+			if (x>= 350 && x <= 680 && y >= 550 && y <= 640) {
 				Game.state = States.TitleScreen;
 			}
 		}else if (Game.state == States.shop){
@@ -157,13 +151,13 @@ public class MouseHandler extends MouseAdapter  {
 				}
 			}
 			if (x >= 80 && x <= 335 && y >= 645 && y <= 715){
-				if (game.goldAmount >= 3){
+				if (game.goldAmount >= 3 && game.rangedupgrade == false){
 					game.goldAmount -= 3;
 					game.rangedupgrade = true;
 				}
 			}
 			if (x >= 80 && x <= 335 && y >= 750 && y <= 825){
-				if (game.goldAmount >= 3){
+				if (game.goldAmount >= 3 && game.meleeupgrade == false){
 					game.goldAmount -= 3;
 					game.meleeupgrade = true;
 				}

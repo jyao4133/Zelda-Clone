@@ -30,7 +30,7 @@ public class Game extends Canvas implements Runnable {
 
     public int enemiesStage1 = 4;
 
-    public int birdsStage2 = 3;
+    public int birdsStage2 = 2;
     public int shootersStage2 = 1;
 
     public int shootersStage3 = 1;
@@ -109,8 +109,8 @@ public class Game extends Canvas implements Runnable {
 		Level2 = new level2();
         Level3 = new level3();
         bosstage = new bossStage();
-        death = new deathScreen();
-        win = new winscreen();
+        death = new deathScreen(this);
+        win = new winscreen(this);
         shopstate = new shopState();
         tutorial = new Tutorial();
         option_sound = new Option_sound();
@@ -236,13 +236,22 @@ public class Game extends Canvas implements Runnable {
         }
         Graphics g = bufferstrat.getDrawGraphics();
         if (state == States.TitleScreen) {
+            if (soundplay == false){
+                game_audio();
+                soundplay = true;
+            }
             titleShown = true;
             titlescreen.render(g);
             g.dispose();
             bufferstrat.show();
         }else if (state == States.level1) {
         	//main_music.stop();
-        //	boss_music.stop();
+        	//boss_music.stop();
+
+            if (soundplay == true){
+                game_audio();
+                soundplay = false;
+            }
             keyspawned = false;
             nextLevel = "level2";
             g.setColor(Color.red);
@@ -258,6 +267,7 @@ public class Game extends Canvas implements Runnable {
             	heart3.drawHeart(g, 190, 50, 30 ,30, player1Health, 3);
             	heart4.drawHeart(g, 260, 50, 30, 30, player1Health, 4);
             }
+
             g.dispose();
         	bufferstrat.show();
         }else if (state == States.Options) {
@@ -307,6 +317,7 @@ public class Game extends Canvas implements Runnable {
             g.dispose();
             bufferstrat.show();
         }else if(state == States.Load){ //Reset state
+
         	scoreList.clear();
             Timer.currentSecond = 0;
             Timer.currentMinute = 0;
@@ -314,7 +325,7 @@ public class Game extends Canvas implements Runnable {
             arrowsRemaining = 10;
             bossHealth = 20;
             enemiesStage1 = 4;
-            birdsStage2 = 3;
+            birdsStage2 = 2;
             shootersStage2 = 1;
             shootersStage3 = 1;
             clampsStage3 = 4;
@@ -329,6 +340,7 @@ public class Game extends Canvas implements Runnable {
             level2Visted = false;
             meleeupgrade = false;
             rangedupgrade = false;
+            soundplay = true;
             loadLevel(background);
             state = States.level1;
         }else if(state == States.pauseOptions){
@@ -336,6 +348,7 @@ public class Game extends Canvas implements Runnable {
             g.dispose();
             bufferstrat.show();
         } else if (state == States.level2) {
+
             keyspawned = false;
             prevLevel = "game";
             nextLevel = "level3";
@@ -343,7 +356,6 @@ public class Game extends Canvas implements Runnable {
             handler.render(g);
             if (firstLoad == true){
                 loadLevel(background2);
-                this.addKeyListener(new KeyHandler(handler, ss,this));
                 firstLoad = false;
             }
             Timer.render(g, game);
@@ -353,6 +365,7 @@ public class Game extends Canvas implements Runnable {
             	heart3.drawHeart(g, 190, 50, 30 ,30, player1Health, 3);
             	heart4.drawHeart(g, 260, 50, 30, 30, player1Health, 4);
             }
+
             g.dispose();
             bufferstrat.show();
         }else if (state == States.level3){
@@ -361,11 +374,6 @@ public class Game extends Canvas implements Runnable {
             nextLevel = "bosslevel";
             Level3.render(g);
             handler.render(g);
-            if (firstLoad == true){
-                loadLevel(background3);
-                this.addKeyListener(new KeyHandler(handler, ss, this));
-                firstLoad = false;
-            }
             Timer.render(g, game);
             for (int i = 0; i < 3; i++) {
             	heart2.drawHeart(g, 295, 50, 30, 30, player1Health, 2);                
@@ -400,11 +408,6 @@ public class Game extends Canvas implements Runnable {
             bosstage.render(g);
             handler.render(g);
             Timer.render(g,game);
-            if (firstLoad == true){
-                loadLevel(bossLevel);
-                this.addKeyListener(new KeyHandler(handler, ss, this));
-                firstLoad = false;
-            }
             for (int i = 0; i < 3; i++) {
             	heart2.drawHeart(g, 295, 50, 30, 30, player1Health, 2);                
             	heart1.drawHeart(g, 225, 50, 30, 30, player1Health, 1);
@@ -467,8 +470,19 @@ public class Game extends Canvas implements Runnable {
         }
         if (Game.state == States.level2){
             level1Visted = true;
-            handler.addObject(new Enemy(350, 400, IDs.enemy, handler, this, 350, 400, 1, ss));
+            if (birdsStage2 > 0) {
+                handler.addObject(new Enemy(200, 500, IDs.enemy, handler, this, 200, 500, 1, ss));
+            }
 
+            if (birdsStage2 > 1){
+                handler.addObject(new Enemy(700, 500, IDs.enemy, handler, this, 700, 500, 1, ss));
+
+            }
+
+            if (shootersStage2 > 0){
+                handler.addObject(new shooterEnemy(500, 420, IDs.shooterEnemy, handler, this, ss));
+
+            }
 
             if (level2Visted == false){
             	handler.addObject(new Player1(224, 750, IDs.player, handler, this, ss));
@@ -529,17 +543,17 @@ public class Game extends Canvas implements Runnable {
     }
 
     private void game_audio() {
-    	if (state == States.TitleScreen ) {
+    	if (Game.state == States.TitleScreen ) {
     		main_music.play();
     		game_music.stop();
     		boss_music.stop();
     		System.out.println("This is titlescreen");
-    	}else if (state == States.level1) {
+    	}else if (Game.state == States.level1) {
     		game_music.play();
     		main_music.stop();
     		boss_music.stop();
     		System.out.println("This is level1");
-    	}else if (state == States.bosslevel) {
+    	}else if (Game.state == States.bosslevel) {
     		boss_music.play();
     		main_music.stop();
     		game_music.stop();

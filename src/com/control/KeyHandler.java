@@ -69,8 +69,13 @@ public class KeyHandler extends KeyAdapter {
 
 					}
 					if (key == KeyEvent.VK_B) {
+						game.meleeupgrade = true;
+						game.rangedupgrade = true;
+						game.player1Health = 4;
+						game.arrowsRemaining = 99;
 						Game.state = States.bosslevel;
 						game.loadLevel(game.bossLevel);
+
 					}
 
 					//Melee attack logic

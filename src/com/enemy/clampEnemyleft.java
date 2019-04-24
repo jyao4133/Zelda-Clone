@@ -6,10 +6,8 @@ import com.control.Audio;
 import com.control.Game;
 import com.control.IDs;
 import com.control.States;
-import com.player.Animation;
-import com.player.Handler;
+import com.player.*;
 import com.player.Object;
-import com.player.SpriteSheet;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -26,6 +24,8 @@ public class clampEnemyleft extends Object {
     private BufferedImage [] left, right;
     private Animation ani_left, ani_right;
     private Audio enemy_hit;
+    private int rngGen = 0;
+    Random p = new Random();
 
     public clampEnemyleft(int xpos, int ypos, IDs id, Handler handler, Game game, SpriteSheet ss) {
         super(xpos, ypos, id, ss);
@@ -74,7 +74,16 @@ public class clampEnemyleft extends Object {
                         handler.removeObject(tempObject);
                     }
                     handler.removeObject(this);
-
+                    rngGen = p.nextInt(10);
+                    if (rngGen < 2) {
+                        handler.addObject(new heartPickup(xpos+20, ypos +20, IDs.heartPickup, ss));
+                    }
+                    else if (rngGen > 8){
+                        handler.addObject(new arrowPickup(xpos + 20, ypos + 20, IDs.Pickup, ss));
+                    }
+                    else if(rngGen >= 2 && rngGen <= 8){
+                        handler.addObject(new coinPickup(xpos + 20, ypos+20,IDs.coinPickup, ss));
+                    }
                     if (Game.state == States.level3){
                         if (game.clampsStage3 > 0) {
                             game.clampsStage3--;

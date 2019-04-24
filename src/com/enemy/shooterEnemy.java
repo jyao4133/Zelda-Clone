@@ -95,6 +95,9 @@ public class shooterEnemy extends Object {
                         handler.addObject(new coinPickup(xpos + 18, ypos+18,IDs.coinPickup, ss));
                     }
                     if (Game.state == States.level2){
+                        if (game.shootersStage2 > 0) {
+                            game.shootersStage2--;
+                        }
                     }
                     if (Game.state == States.level3) {
                         if (game.shootersStage3 > 0) {
