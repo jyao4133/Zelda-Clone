@@ -51,8 +51,35 @@ public class highScores {
                 g.drawString(scoreList.get(0), Xlab, Ylab);
 
             }
+            else if (scoreList.size() == 2){
+                g.drawString(scoreList.get(1), Xlab, Ylab);
+                g.drawString(scoreList.get(0), Xlab , Ylab + 50);
+
+            }
+            else if (scoreList.size() == 3){
+                g.drawString(scoreList.get(2), Xlab, Ylab);
+                g.drawString(scoreList.get(1), Xlab, Ylab + 50);
+                g.drawString(scoreList.get(0), Xlab, Ylab + 100);
+
+            }
+            else if (scoreList.size() == 4){
+                g.drawString(scoreList.get(3), Xlab, Ylab);
+                g.drawString(scoreList.get(2), Xlab, Ylab + 50);
+                g.drawString(scoreList.get(1), Xlab, Ylab + 100);
+                g.drawString(scoreList.get(0), Xlab , Ylab + 150);
+            }
+
+            else if (scoreList.size() == 5){
+                g.drawString(scoreList.get(4), Xlab, Ylab);
+                g.drawString(scoreList.get(3), Xlab, Ylab + 50);
+                g.drawString(scoreList.get(2), Xlab, Ylab + 100);
+                g.drawString(scoreList.get(1), Xlab , Ylab + 150);
+                g.drawString(scoreList.get(0), Xlab , Ylab + 200);
+
+            }
+
             else {
-                for (int i = scoreList.size() - 1; i > 0; i--) {
+                for (int i = scoreList.size() - 1 ; i > 0; i--) {
                     if (j < 5) {
                         g.drawString(scoreList.get(i), Xlab, Ylab);
                     }

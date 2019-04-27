@@ -30,8 +30,6 @@ public class Player1 extends Object {
 	
 	private int hplossCD;
 
-    int tx;
-    int ty;
     
     public Player1(int xpos, int ypos, IDs id, Handler handler, Game game, SpriteSheet ss) {
         super(xpos, ypos, id, ss);
@@ -129,6 +127,7 @@ public class Player1 extends Object {
 		//Detection for when the player class collides with an object
 		for (int i = 0; i < handler.object.size(); i++) {
 			Object tempObject = handler.object.get(i);
+
 			if (tempObject.getId() == IDs.Block) {
 				if (getBounds().intersects(tempObject.getBounds())) {
 					xpos += Xspeed * -1;
