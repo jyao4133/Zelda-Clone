@@ -102,7 +102,7 @@ public class Game extends Canvas implements Runnable {
     
     //Constructor for the class which instantiates other classes
     public Game(){
-        window = new Window (WIDTH, HEIGHT, "Pre-Title", this);
+        window = new Window (WIDTH, HEIGHT, "Finding Teddy", this);
         handler = new Handler();
 		titlescreen = new TitleScreen();
 		options = new Options();
@@ -139,8 +139,8 @@ public class Game extends Canvas implements Runnable {
 
      	main_music = new Audio ("Main_music.wav");
      	game_music = new Audio ("Game_music.wav");
-     	boss_music = new Audio ("boss_music.wav");
-        game_audio();
+     	boss_music = new Audio ("Boss_music.wav");
+
 
      	//main_music.play();
      	//game_music.play();
@@ -170,6 +170,7 @@ public class Game extends Canvas implements Runnable {
         loadLevel(background2);
         loadLevel(background3);
         showScore = new highScores(scoreList);
+        game_audio();
     }
 
 
@@ -502,6 +503,9 @@ public class Game extends Canvas implements Runnable {
             else{
                 handler.addObject(new Player1(842, 360, IDs.player, handler, this, ss));
             }
+
+            handler.addObject(new Ghost(200, 400, IDs.followingEnemy, handler, this, ss));
+
         }
         if (Game.state == States.Load || Game.state == States.level1){
                 level2Visted = false;

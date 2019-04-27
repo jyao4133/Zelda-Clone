@@ -12,7 +12,7 @@ public class Audio {
 	public Audio (String s) {
 		try {
 			string = s;
-		AudioInputStream ais = AudioSystem.getAudioInputStream(getClass().getResourceAsStream(s));
+		AudioInputStream ais = AudioSystem.getAudioInputStream(getClass().getResource(s));
 		AudioFormat baseFormat = ais.getFormat();
 		AudioFormat decodeFormat = new AudioFormat(AudioFormat.Encoding.PCM_SIGNED, baseFormat.getSampleRate(), 16, baseFormat.getChannels(), baseFormat.getChannels() * 2, baseFormat.getSampleRate(), false);
 		AudioInputStream dais = AudioSystem.getAudioInputStream(decodeFormat, ais);
