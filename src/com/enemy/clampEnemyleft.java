@@ -125,8 +125,7 @@ public class clampEnemyleft extends Object {
 
 
     public void render(Graphics g) {
-       // g.setColor(Color.black);
-      //  g.fillRect(xpos, ypos, 75, 75);
+
     	if (Xspeed < 0  ) {//left
         	g.drawImage(ani_left.getCurrentFrame(), xpos, ypos, null);
     	}

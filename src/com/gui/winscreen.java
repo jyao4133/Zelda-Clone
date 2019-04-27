@@ -46,7 +46,7 @@ public class winscreen {
         titleButton[0].render(g);
         score = Integer.toString(game.playerScore);
         g.setColor(Color.white);
-        g.drawString("Your score for this session is: " + score, 100, 500);
+        g.drawString("Your score for this session is: " + score, 110, 500);
 
         try{
             image = ImageIO.read(getClass().getResourceAsStream("sadd_bear.png"));

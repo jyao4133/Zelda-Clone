@@ -39,7 +39,6 @@ public class Game extends Canvas implements Runnable {
     public int shootersStage3 = 1;
     public int clampsStage3 = 4;
 
-    public int timeNum;
     public int playerScore;
 
     public String nextLevel;
@@ -47,7 +46,7 @@ public class Game extends Canvas implements Runnable {
     public String playerName;
 
 
-    public boolean removeBool, keyObtained, keyspawned, shopKeeperCollision, rangedupgrade, meleeupgrade = false;
+    public boolean removeBool, keyObtained, keyspawned, shopKeeperCollision, rangedupgrade, meleeupgrade, muteAudio = false;
 	private boolean soundplay_main, soundplay_boss, soundplay_game = true;
 
     public boolean firstLoad = true;
@@ -243,7 +242,7 @@ public class Game extends Canvas implements Runnable {
         }
         Graphics g = bufferstrat.getDrawGraphics();
         if (state == States.TitleScreen) {
-            if (soundplay_main == false && soundplay_game == false){
+            if (soundplay_main == false && soundplay_game == false && muteAudio == false){
                 game_audio();
                 soundplay_main = true;
                 soundplay_boss = true;
@@ -254,9 +253,7 @@ public class Game extends Canvas implements Runnable {
             g.dispose();
             bufferstrat.show();
         }else if (state == States.level1) {
-        	//main_music.stop();
-        	//boss_music.stop();
-            if (soundplay_main == true){
+            if (soundplay_main == true && muteAudio == false){
                 game_audio();
                 soundplay_main = false;
                 soundplay_boss = false;
@@ -319,7 +316,6 @@ public class Game extends Canvas implements Runnable {
                 scoreList.clear();
                 scoreList = read.read(scoreList);
                 scoreList = scoreSort.listSort(scoreList);
-                System.out.println(scoreList);
                 titleShown = false;
             }
             g.setColor(Color.black);
@@ -564,18 +560,14 @@ public class Game extends Canvas implements Runnable {
     		main_music.play();
     		game_music.stop();
     		boss_music.stop();
-    		System.out.println("This is titlescreen");
     	}else if (Game.state == States.level1) {
     		game_music.play();
     		main_music.stop();
     		boss_music.stop();
-    		System.out.println("This is level1");
     	}else if (Game.state == States.bosslevel) {
     		main_music.stop();
     		game_music.stop();
     		boss_music.play();
-    		System.out.println("This is boss");
-
     	}
     }
 

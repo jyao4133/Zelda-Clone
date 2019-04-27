@@ -120,7 +120,6 @@ public class Enemy extends Object{
                     }
                     if (Game.state == States.level2){
                             game.birdsStage2--;
-                            System.out.println(game.birdsStage2);
                     }
                 }
             }
