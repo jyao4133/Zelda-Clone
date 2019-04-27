@@ -4,6 +4,7 @@ This enum class for states used in the game. Each state has an individual state
 */
 public enum States {
 	tutorial,
+	story,
 	level1,
 	level2,
 	level3,

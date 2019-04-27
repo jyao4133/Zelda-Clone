@@ -34,10 +34,14 @@ public class KeyHandler extends KeyAdapter {
 		int key = e.getKeyCode();
 		if (Game.state == States.tutorial) {
 			if (key == KeyEvent.VK_ENTER) {
-				Game.state = States.Load;
+				Game.state = States.story;
 			}
 			if (key == KeyEvent.VK_ESCAPE || key == KeyEvent.VK_BACK_SPACE) {
 				Game.state = States.TitleScreen;
+			}
+		}else if (Game.state == States.story) {
+			if (key == KeyEvent.VK_ENTER) {
+				Game.state = States.Load;
 			}
 		}
 		if (Game.state == States.level1 || Game.state == States.level2 || Game.state == States.level3 || Game.state == States.bosslevel || Game.state == States.winscreen || Game.state == States.deathscreen) {

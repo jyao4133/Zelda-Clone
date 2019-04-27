@@ -3,7 +3,6 @@ package com.control;
 
 import java.awt.Canvas;
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Toolkit;
 import java.awt.image.BufferStrategy;
@@ -79,6 +78,7 @@ public class Game extends Canvas implements Runnable {
     private highscoreSort scoreSort;
     private shopState shopstate;
     private Tutorial tutorial;
+    private Story story;
     private Option_sound option_sound;
     private Option_control option_control;
     private Option_credits option_credit;
@@ -115,6 +115,7 @@ public class Game extends Canvas implements Runnable {
         win = new winscreen(this);
         shopstate = new shopState();
         tutorial = new Tutorial();
+        story = new Story ();
         option_sound = new Option_sound();
         option_control = new Option_control();
         option_credit = new Option_credits();
@@ -141,12 +142,6 @@ public class Game extends Canvas implements Runnable {
      	game_music = new Audio ("Game_music.wav");
      	boss_music = new Audio ("Boss_music.wav");
 
-
-     	//main_music.play();
-     	//game_music.play();
-     //	boss_music.play();
-     	//game_music.play();
-     	
         Timer = new timer();
         Timer.start();
 
@@ -357,7 +352,6 @@ public class Game extends Canvas implements Runnable {
             g.dispose();
             bufferstrat.show();
         } else if (state == States.level2) {
-
             keyspawned = false;
             prevLevel = "game";
             nextLevel = "level3";
@@ -374,7 +368,6 @@ public class Game extends Canvas implements Runnable {
             g.dispose();
             bufferstrat.show();
         }else if (state == States.level3){
-        	//boss_music.play();
             prevLevel = "level2";
             nextLevel = "bosslevel";
             Level3.render(g);
@@ -406,8 +399,6 @@ public class Game extends Canvas implements Runnable {
             g.dispose();
             bufferstrat.show();
         }else if (state == States.bosslevel){
-        	//game_music.close();
-        	//main_music.play();
         	if(soundplay_boss == false) {
         		game_audio();
         		soundplay_boss = true;
@@ -428,11 +419,13 @@ public class Game extends Canvas implements Runnable {
             g.dispose();
             bufferstrat.show();
         }else if (state == States.tutorial) {
-        	//main_music.close();
-        	//game_music.play();
         	tutorial.render(g);
         	g.dispose();
             bufferstrat.show();
+        }else if (state == States.story) {
+        	story.render(g);
+        	g.dispose();
+        	bufferstrat.show();
         }
         if(player1Health == 0 || bossHealth == 0){
             if (save == true){
