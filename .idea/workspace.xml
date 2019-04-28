@@ -6,14 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c0a8d6e6-052c-4953-b0b6-7a58c35f8b91" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/out/artifacts/2019_Java_Group6_jar/2019-Java-Group6.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/2019_Java_Group6_jar/Highscores.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/control/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/control/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/control/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/control/KeyHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/gui/deathScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/gui/deathScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/gui/winscreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/gui/winscreen.java" afterDir="false" />
-    </list>
+    <list default="true" id="c0a8d6e6-052c-4953-b0b6-7a58c35f8b91" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,11 +29,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/control/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="420" column="45" lean-forward="true" selection-start-line="420" selection-start-column="45" selection-end-line="420" selection-end-column="45" />
+            <state relative-caret-position="340">
+              <caret line="422" column="24" lean-forward="true" selection-start-line="422" selection-start-column="24" selection-end-line="422" selection-end-column="24" />
               <folding>
                 <element signature="e#20646#20647#0" expanded="true" />
                 <element signature="e#20679#20680#0" expanded="true" />
@@ -49,11 +42,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/control/KeyHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="36" column="41" selection-start-line="36" selection-start-column="36" selection-end-line="36" selection-end-column="41" />
+            <state relative-caret-position="290">
+              <caret line="83" column="21" lean-forward="true" selection-start-line="83" selection-start-column="21" selection-end-line="83" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/control/MouseHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="56" column="29" lean-forward="true" selection-start-line="56" selection-end-line="57" />
             </state>
           </provider>
         </entry>
@@ -103,8 +105,8 @@
         <option value="$PROJECT_DIR$/src/com/gui/TitleScreen.java" />
         <option value="$PROJECT_DIR$/src/com/gui/winscreen.java" />
         <option value="$PROJECT_DIR$/src/com/gui/deathScreen.java" />
-        <option value="$PROJECT_DIR$/src/com/control/KeyHandler.java" />
         <option value="$PROJECT_DIR$/src/com/control/Game.java" />
+        <option value="$PROJECT_DIR$/src/com/control/KeyHandler.java" />
       </list>
     </option>
   </component>
@@ -292,13 +294,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/control/KeyHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="36" column="41" selection-start-line="36" selection-start-column="36" selection-end-line="36" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/control/Story.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -308,12 +303,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/control/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="420" column="45" lean-forward="true" selection-start-line="420" selection-start-column="45" selection-end-line="420" selection-end-column="45" />
+        <state relative-caret-position="340">
+          <caret line="422" column="24" lean-forward="true" selection-start-line="422" selection-start-column="24" selection-end-line="422" selection-end-column="24" />
           <folding>
             <element signature="e#20646#20647#0" expanded="true" />
             <element signature="e#20679#20680#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/control/MouseHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="56" column="29" lean-forward="true" selection-start-line="56" selection-end-line="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/control/KeyHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="83" column="21" lean-forward="true" selection-start-line="83" selection-start-column="21" selection-end-line="83" selection-end-column="21" />
         </state>
       </provider>
     </entry>
