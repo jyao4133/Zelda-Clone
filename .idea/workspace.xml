@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ArtifactsWorkspaceSettings">
-    <artifacts-to-build>
-      <artifact name="2019-Java-Group6:jar" />
-    </artifacts-to-build>
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="0eb1860c-b2b8-4cac-9556-452522bf575e" name="Default Changelist" comment="">
+    <list default="true" id="c0a8d6e6-052c-4953-b0b6-7a58c35f8b91" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/2019_Java_Group6_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Highscores.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Highscores.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/control/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/control/KeyHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/gui/highScores.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/gui/highScores.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/player/Player1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/player/Player1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/2019_Java_Group6_jar/2019-Java-Group6.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/2019_Java_Group6_jar/Highscores.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/KeyHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/KeyHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/States.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/States.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/credit.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/control/credit.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/gui/title_screen.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/2019-Java-Group6/com/gui/title_screen.png" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,110 +28,47 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/control/Audio.java">
+        <entry file="file://$PROJECT_DIR$/src/com/control/Story.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
-              <caret line="30" column="15" lean-forward="true" selection-start-line="30" selection-start-column="15" selection-end-line="30" selection-end-column="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/player/Player1.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1115">
-              <caret line="129" selection-start-line="129" selection-end-line="129" />
-              <folding>
-                <element signature="e#7955#7956#0" expanded="true" />
-                <element signature="e#8076#8077#0" expanded="true" />
-                <element signature="e#8097#8098#0" expanded="true" />
-                <element signature="e#8470#8471#0" expanded="true" />
-                <element signature="e#8491#8492#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="68">
+              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/control/KeyHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="164" column="9" lean-forward="true" selection-start-line="164" selection-start-column="9" selection-end-line="164" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/control/highscoreSort.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/gui/highScores.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="469">
-              <caret line="88" column="13" lean-forward="true" selection-start-line="88" selection-start-column="13" selection-end-line="88" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/control/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3308">
-              <caret line="504" column="13" lean-forward="true" selection-start-line="504" selection-start-column="13" selection-end-line="504" selection-end-column="13" />
+            <state relative-caret-position="-272">
+              <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>pre-</find>
-      <find>tempobject.get</find>
-    </findStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/src/com/control/Audio.java" />
-        <option value="$PROJECT_DIR$/src/com/control/Game.java" />
-        <option value="$PROJECT_DIR$/src/com/gui/highScores.java" />
-        <option value="$PROJECT_DIR$/src/com/player/Player1.java" />
-        <option value="$PROJECT_DIR$/src/com/control/KeyHandler.java" />
-      </list>
-    </option>
-  </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-1857" />
-    <option name="y" value="-8" />
-    <option name="width" value="1729" />
-    <option name="height" value="976" />
+    <option name="x" value="177" />
+    <option name="y" value="-2" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="2019-Java-Group6" type="b2602c69:ProjectViewProjectNode" />
               <item name="2019-Java-Group6" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="2019-Java-Group6" type="b2602c69:ProjectViewProjectNode" />
-              <item name="2019-Java-Group6" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="2019-Java-Group6" type="b2602c69:ProjectViewProjectNode" />
@@ -156,26 +95,10 @@
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="gui" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="2019-Java-Group6" type="b2602c69:ProjectViewProjectNode" />
-              <item name="2019-Java-Group6" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="level" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="2019-Java-Group6" type="b2602c69:ProjectViewProjectNode" />
-              <item name="2019-Java-Group6" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="player" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -221,16 +144,16 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="0eb1860c-b2b8-4cac-9556-452522bf575e" name="Default Changelist" comment="" />
-      <created>1556338121269</created>
+      <changelist id="c0a8d6e6-052c-4953-b0b6-7a58c35f8b91" name="Default Changelist" comment="" />
+      <created>1556412525101</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1556338121269</updated>
+      <updated>1556412525101</updated>
     </task>
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1928" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Image Layers" />
@@ -243,11 +166,11 @@
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Terminal" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" weight="0.32936078" />
+      <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32936078" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -260,160 +183,28 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
-    <layout-to-restore>
-      <window_info id="Image Layers" order="0" />
-      <window_info id="Designer" order="1" />
-      <window_info id="UI Designer" order="2" />
-      <window_info id="Capture Tool" order="3" />
-      <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.25" />
-      <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Version Control" order="0" />
-      <window_info anchor="bottom" id="Terminal" order="1" />
-      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="3" />
-      <window_info anchor="bottom" id="Message" order="4" />
-      <window_info anchor="bottom" id="Find" order="5" />
-      <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.32936078" />
-      <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="10" />
-      <window_info anchor="right" id="Palette" order="0" />
-      <window_info anchor="right" id="Capture Analysis" order="1" />
-      <window_info anchor="right" id="Theme Preview" order="2" />
-      <window_info anchor="right" id="Palette&#9;" order="3" />
-      <window_info anchor="right" id="Maven" order="4" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="5" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="6" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="7" weight="0.25" />
-    </layout-to-restore>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/com/control/Story.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/control/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3308">
-          <caret line="504" column="13" lean-forward="true" selection-start-line="504" selection-start-column="13" selection-end-line="504" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/gui/highScores.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="88" column="13" lean-forward="true" selection-start-line="88" selection-start-column="13" selection-end-line="88" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/control/Audio.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="30" column="15" lean-forward="true" selection-start-line="30" selection-start-column="15" selection-end-line="30" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/control/highscoreSort.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/player/Player1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1115">
-          <caret line="129" selection-start-line="129" selection-end-line="129" />
-          <folding>
-            <element signature="e#7955#7956#0" expanded="true" />
-            <element signature="e#8076#8077#0" expanded="true" />
-            <element signature="e#8097#8098#0" expanded="true" />
-            <element signature="e#8470#8471#0" expanded="true" />
-            <element signature="e#8491#8492#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/control/KeyHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="164" column="9" lean-forward="true" selection-start-line="164" selection-start-column="9" selection-end-line="164" selection-end-column="9" />
+        <state relative-caret-position="-272">
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
         </state>
       </provider>
     </entry>
   </component>
   <component name="masterDetails">
     <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <last-edited>2019-Java-Group6:jar</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-                <option value="0.5" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
       <state key="ProjectJDKs.UI">
         <settings>
           <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
           <splitter-proportions>
             <option name="proportions">
               <list>
