@@ -48,7 +48,7 @@ public class deathScreen {
         g.drawString("Your score for this session is: " + score, 120, 500);
 
         try{
-            image = ImageIO.read(getClass().getResourceAsStream("sadd_bear.png"));
+            image = ImageIO.read(getClass().getResource("sadd_bear.png"));
 
         } catch(IOException e){
             e.printStackTrace();

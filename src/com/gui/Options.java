@@ -40,7 +40,7 @@ public class Options {
 
 		/////////////////////////////////////////////////////////////////////////////
 		try{
-			image = ImageIO.read(getClass().getResourceAsStream("OptionsMenu.png")); 
+			image = ImageIO.read(getClass().getResource("OptionsMenu.png"));
 
 		} catch(IOException e){
 			e.printStackTrace();

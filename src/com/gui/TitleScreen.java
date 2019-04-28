@@ -21,7 +21,7 @@ public class TitleScreen extends Canvas{
 	
 	public void render (Graphics g)  {
 		try{
-			image = ImageIO.read(getClass().getResourceAsStream("title_screen.png")); 
+			image = ImageIO.read(getClass().getResource("title_screen.png"));
 
 		} catch(IOException e){
 			e.printStackTrace();

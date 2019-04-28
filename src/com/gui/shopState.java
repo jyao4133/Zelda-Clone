@@ -30,7 +30,7 @@ public class shopState {
         g.fillRect(0,0, 1024,170);
 
         try{
-            image = ImageIO.read(getClass().getResourceAsStream("shopMenu.png"));
+            image = ImageIO.read(getClass().getResource("shopMenu.png"));
 
         } catch(IOException e){
             e.printStackTrace();
