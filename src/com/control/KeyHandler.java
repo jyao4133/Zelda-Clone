@@ -34,7 +34,7 @@ public class KeyHandler extends KeyAdapter {
 		int key = e.getKeyCode();
 		if (Game.state == States.tutorial) {
 			if (key == KeyEvent.VK_ENTER) {
-				Game.state = States.story;
+				Game.state = States.Load;
 			}
 			if (key == KeyEvent.VK_ESCAPE || key == KeyEvent.VK_BACK_SPACE) {
 				Game.state = States.TitleScreen;

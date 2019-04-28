@@ -422,11 +422,13 @@ public class Game extends Canvas implements Runnable {
         	tutorial.render(g);
         	g.dispose();
             bufferstrat.show();
-        }else if (state == States.story) {
-        	story.render(g);
-        	g.dispose();
-        	bufferstrat.show();
         }
+
+//        else if (state == States.story) {
+//        	story.render(g);
+//        	g.dispose();
+//        	bufferstrat.show();
+//        }
         if(player1Health == 0 || bossHealth == 0){
             if (save == true){
                 playerScore = goldAmount * 5 + arrowsRemaining * 3 + player1Health * 3;
