@@ -31,17 +31,11 @@ public class pauseOptions {
 
 
     public void render (Graphics g) {
-        g.setColor(Color.pink);
+        g.setColor(Color.white);
         g.fillRect(Game.WIDTH/4, Game.HEIGHT/4 , Game.WIDTH/2, Game.HEIGHT/2);
         Button.drawString(g, new Font("Arial", Font.BOLD, 80), Color.black, "Options", pauseframe.width, pauseframe.height);
         g.drawImage(image, 260, 270	, null);
         for (int i = 0; i < pausemenu.length; i++) {
-            if (i == currentSelection) {
-                pausemenu[i].setSelected(true);
-            }
-            else {
-                pausemenu[i].setSelected(false);
-            }
             pausemenu[i].render(g);
         }
     }

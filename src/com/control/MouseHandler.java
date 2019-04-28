@@ -42,7 +42,8 @@ public class MouseHandler extends MouseAdapter  {
 		
 		int x = e.getX();
 		int y = e.getY();
-
+		System.out.println(x);
+		System.out.println(y);
 		if (Game.state == States.TitleScreen) {
 			if (x >= 150 && x <= 450 && y >= 300 && y <= 380) {//To start the game in single player
 				Game.state = States.tutorial;
@@ -120,6 +121,13 @@ public class MouseHandler extends MouseAdapter  {
 			if (x >= 390 && x <= 630 && y >= 620 && y <= 650) {
 				Game.state = States.Pause;
 			}
+		}else if (Game.state == States.quit) {
+			if (x >= 440 && x <= 570 && y >= 420 && y<= 470) {
+				System.exit(0);
+			}
+			if (x >= 440 && x <= 570 && y >= 530 && y<= 580) {
+				Game.state = Game.tempstate;
+			}
 		}else if (Game.state == States.highscores){
 			if (x>= 360 && x <= 660 && y >= 790 && y <= 870) {
 				Game.state = States.TitleScreen;
@@ -133,7 +141,6 @@ public class MouseHandler extends MouseAdapter  {
 				Game.state = States.TitleScreen;
 			}
 		}else if (Game.state == States.shop){
-
 			if (x >= 725 && x <= 975 && y >= 345 && y <= 415){
 				Game.state = Game.tempstate;
 			}

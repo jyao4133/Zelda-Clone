@@ -71,7 +71,6 @@ public class KeyHandler extends KeyAdapter {
 					if (key == KeyEvent.VK_P) {
 						Game.tempstate = Game.state;
 						Game.state = States.Pause;
-
 					}
 					if (key == KeyEvent.VK_B) {
 						game.meleeupgrade = true;
@@ -82,7 +81,10 @@ public class KeyHandler extends KeyAdapter {
 						game.loadLevel(game.bossLevel);
 
 					}
-
+					if (key == KeyEvent.VK_ESCAPE) {
+						Game.tempstate = Game.state;
+						Game.state = States.quit;
+					}
 					//Melee attack logic
 					if (key == KeyEvent.VK_SPACE){
 						if(up == true && left == false && right == false && down == false){

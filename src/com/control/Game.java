@@ -67,6 +67,7 @@ public class Game extends Canvas implements Runnable {
     private Options options;
     private Pause pause;
     private pauseOptions pauseoptions;
+    private Quitscreen quit;
     private highScores showScore;
     private deathScreen death;
     private winscreen win;
@@ -108,6 +109,7 @@ public class Game extends Canvas implements Runnable {
 		options = new Options();
 		pause = new Pause();
 		pauseoptions = new pauseOptions();
+		quit = new Quitscreen();
 		Level2 = new level2();
         Level3 = new level3();
         bosstage = new bossStage();
@@ -351,7 +353,11 @@ public class Game extends Canvas implements Runnable {
             pauseoptions.render(g);
             g.dispose();
             bufferstrat.show();
-        } else if (state == States.level2) {
+        }else if (state == States.quit) {
+        	quit.render(g);
+            g.dispose();
+            bufferstrat.show();
+        }else if (state == States.level2) {
             keyspawned = false;
             prevLevel = "game";
             nextLevel = "level3";

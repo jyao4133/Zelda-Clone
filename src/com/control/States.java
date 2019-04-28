@@ -18,6 +18,7 @@ public enum States {
 	
 	Pause,
 	pauseOptions,
+	quit,
 
 	Controls,
 	Sound,

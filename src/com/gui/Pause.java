@@ -19,7 +19,6 @@ public class Pause {
 	private final Button[] pausemenu;
 	private int yshift = 250;
 	private int yspacing = 150;
-	public static boolean controls, sound, credit;
 	
 	
 	public Pause() {
@@ -28,23 +27,17 @@ public class Pause {
 				new Font("Arial", Font.BOLD, 50), Color.gray);
 		pausemenu[1] = new Button ("Help", pauseframe.width, pauseframe.height + yshift + 1 * yspacing,
 				new Font("Arial", Font.BOLD, 50), Color.gray);
-		pausemenu[2] = new Button ("Exit", pauseframe.width, pauseframe.height + yshift + 2 * yspacing,
+		pausemenu[2] = new Button ("Return to Main", pauseframe.width, pauseframe.height + yshift + 2 * yspacing,
 				new Font("Arial", Font.BOLD, 50), Color.gray);
 	}
 		
 	
 	public void render (Graphics g) {
-		g.setColor(Color.pink);
+		g.setColor(Color.white);
     	g.fillRect(Game.WIDTH/4, Game.HEIGHT/4 , Game.WIDTH/2, Game.HEIGHT/2);
     	    	    	Button.drawString(g, new Font("Arial", Font.BOLD, 80), Color.black, "Pause", pauseframe.width, pauseframe.height);
 
     	for (int i = 0; i < pausemenu.length; i++) {
-    		if (i == currentSelection) {
-    			pausemenu[i].setSelected(true);
-    		}
-    		else {
-    			pausemenu[i].setSelected(false);
-    		}
     		pausemenu[i].render(g);
     	}
 	}
